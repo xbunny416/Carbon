@@ -17,8 +17,8 @@ and every call made where the bible is silent — read the matching entry before
   player data (ProfileStore), localization, analytics, settings, policy checks, UI Kit, menu, input (keyboard /
   gamepad / touch), notices, loading screen, map + asset generators, launch check, store-art renderer.
 - **Built (CarOff):** 1.1 desert map (town + desert, markers for cars, pumps and oil); 1.2 starter car (Rusty Pickup,
-  drive / get out / flip / reset).
-- **Next:** 1.3 fuel (bible §5.3).
+  drive / get out / flip / reset); 1.3 fuel (gauge, pumps, stall + tow).
+- **Next:** 1.4 oil barrels (bible §5.4).
 
 ## Who the owner is and how they like to work
 

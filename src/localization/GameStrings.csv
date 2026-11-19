@@ -39,3 +39,9 @@ Car.ResetInfo,Stuck? Send your car back to town. Any oil you carry is lost.,Expl
 Car.Reset,Reset car,Button: send your car back to town,
 Car.ResetDone,Your car is back in town.,Notice after resetting the car,
 Car.ResetWait,Wait {1} s before resetting your car again.,Notice when Reset car is pressed too often,Wait 7 s before resetting your car again.
+Fuel.Label,FUEL,Label on the fuel gauge while driving,
+Fuel.Low,Low fuel! Head back to the gas station.,Notice when the tank drops below a fifth,
+Fuel.Stalled,Out of fuel. Tow your car back to town.,Notice when the car stalls with an empty tank,
+Fuel.BurnedBarrel,Your car burned a barrel of oil for fuel.,Notice when an empty tank uses one of the oil barrels you carry,
+Fuel.Tow,Tow home,Button shown when your car is out of fuel: sends it back to town,
+Fuel.Towed,Your car was towed back to town.,Notice after towing the car,
