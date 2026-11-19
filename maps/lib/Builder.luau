@@ -71,6 +71,42 @@ local function spread(): number
 	return spreadStack[#spreadStack]
 end
 
+--[[
+	Rotations are built here instead of with CFrame.Angles: its sine / cosine come from each OS's math library, which
+	can differ in the last bit, so a map with many odd angles would serialize differently on Windows and on CI. These
+	are rounded to 1e-6 first, so every OS writes the same file.
+]]
+local function sinCos(degrees: number): (number, number)
+	local r = math.rad(degrees)
+	return math.floor(math.sin(r) * 1e6 + 0.5) / 1e6, math.floor(math.cos(r) * 1e6 + 0.5) / 1e6
+end
+
+-- 3×3 matrices, row-major.
+local function multiply(a: { number }, b: { number }): { number }
+	local m = table.create(9, 0)
+	for row = 0, 2 do
+		for col = 1, 3 do
+			m[row * 3 + col] = a[row * 3 + 1] * b[col] + a[row * 3 + 2] * b[col + 3] + a[row * 3 + 3] * b[col + 6]
+		end
+	end
+	return m
+end
+
+local function aroundX(degrees: number): { number }
+	local s, c = sinCos(degrees)
+	return { 1, 0, 0, 0, c, -s, 0, s, c }
+end
+
+local function aroundY(degrees: number): { number }
+	local s, c = sinCos(degrees)
+	return { c, 0, s, 0, 1, 0, -s, 0, c }
+end
+
+local function aroundZ(degrees: number): { number }
+	local s, c = sinCos(degrees)
+	return { c, -s, 0, s, c, 0, 0, 0, 1 }
+end
+
 local function cframe(position: Vec, rotation: Vec?, yaw: number?, axes: { Right: Vec, Up: Vec }?): any
 	local o, s = origin(), spread()
 	local at = Vector3.new(position[1] * s + o[1], position[2] + o[2], position[3] * s + o[3])
@@ -78,14 +114,15 @@ local function cframe(position: Vec, rotation: Vec?, yaw: number?, axes: { Right
 		local right, up = axes.Right, axes.Up
 		return CFrame.fromMatrix(at, Vector3.new(right[1], right[2], right[3]), Vector3.new(up[1], up[2], up[3]))
 	end
-	local cf = CFrame.new(at.X, at.Y, at.Z)
-	if yaw then
-		cf = cf * CFrame.Angles(0, math.rad(yaw), 0)
+	if not yaw and not rotation then
+		return CFrame.new(at.X, at.Y, at.Z)
 	end
+	-- Same order as CFrame.Angles(0, yaw, 0) * CFrame.Angles(x, y, z) (each Angles is X, then Y, then Z).
+	local m = aroundY(yaw or 0)
 	if rotation then
-		cf = cf * CFrame.Angles(math.rad(rotation[1]), math.rad(rotation[2]), math.rad(rotation[3]))
+		m = multiply(m, multiply(multiply(aroundX(rotation[1]), aroundY(rotation[2])), aroundZ(rotation[3])))
 	end
-	return cf
+	return CFrame.new(at.X, at.Y, at.Z, m[1], m[2], m[3], m[4], m[5], m[6], m[7], m[8], m[9])
 end
 
 local function applyCommon(instance: any, spec: PartSpec)

@@ -1086,11 +1086,11 @@ function Buildings.windmill(at: Vec, yaw: number)
 		F.ball({ Name = "Hub", Center = { 0, 33, -2.6 }, Diameter = 1.6, Color = "MetalDark" })
 		for blade = 0, 11 do
 			local angle = blade * 30
-			local r = math.rad(angle)
+			local x, y = Props.rotate(3.6, 0, -angle)
 			F.part({
 				Name = "Blade",
 				Size = { 0.9, 5, 0.15 },
-				Position = { math.cos(r) * 3.6, 33 + math.sin(r) * 3.6, -2.8 },
+				Position = { x, 33 + y, -2.8 },
 				Rotation = { 0, 0, angle - 90 },
 				Color = if blade % 2 == 0 then "White" else "GasRed",
 			})
