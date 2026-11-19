@@ -33,7 +33,39 @@
 		"Lighting": {
 			"$properties": {
 				"LightingStyle": "Realistic",
-				"GlobalShadows": true
+				"GlobalShadows": true,
+				"ClockTime": 16.6,
+				"GeographicLatitude": 35,
+				"Brightness": 3,
+				"OutdoorAmbient": [0.55, 0.47, 0.4],
+				"EnvironmentDiffuseScale": 1,
+				"EnvironmentSpecularScale": 1
+			},
+			"Atmosphere": {
+				"$className": "Atmosphere",
+				"$properties": {
+					"Density": 0.3,
+					"Offset": 0.1,
+					"Color": [0.86, 0.74, 0.58],
+					"Decay": [0.78, 0.52, 0.36],
+					"Glare": 0.25,
+					"Haze": 1.6
+				}
+			},
+			"ColorCorrection": {
+				"$className": "ColorCorrectionEffect",
+				"$properties": {
+					"Contrast": 0.05,
+					"Saturation": 0.08,
+					"TintColor": [1, 0.97, 0.92]
+				}
+			},
+			"SunRays": {
+				"$className": "SunRaysEffect",
+				"$properties": {
+					"Intensity": 0.05,
+					"Spread": 0.6
+				}
 			}
 		},
 		"LocalizationService": {
@@ -44,8 +76,14 @@
 		"Workspace": {
 			"$properties": {
 				"StreamingEnabled": true,
-				"StreamingMinRadius": 128,
-				"StreamingTargetRadius": 256
+				"StreamingMinRadius": 256,
+				"StreamingTargetRadius": 1024
+			},
+			"Desert": {
+				"$path": "maps/generated/Desert.rbxmx"
+			},
+			"Town": {
+				"$path": "maps/generated/Town.rbxmx"
 			}
 		}
 	}
