@@ -46,6 +46,11 @@ line whenever a new one costs time.
   look like those get flagged — reword them.
 - **CI waits:** check PR status with the GitHub MCP `pull_request_read`, not a script polling a short SHA.
 - **LF endings:** CRLF files fail StyLua's check and the generator `--check`s (`.gitattributes` forces LF).
+- **Lune parts:** `part.Position` can't be read in Lune (it isn't a saved property) — use `part.CFrame.Position` in
+  specs. Roblox caps a part at 2048 studs per side: split anything bigger (the desert ground is ring strips).
+- **Generated maps must match on every OS:** `CFrame.Angles` (and raw `math.sin` / `math.cos`) can differ in the last
+  bit between Windows and Linux, so a map with many odd angles passed `--check` locally and failed on CI. The Builder
+  builds rotations from sine / cosine rounded to 1e-6; round any other trig you put in a position too.
 
 ## Store art
 

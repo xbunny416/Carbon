@@ -1,6 +1,6 @@
 --!strict
 -- Named map colors (hex). Layouts use these names (`Color = "Concrete"`), never raw hex, so a restyle is one edit
--- here. Replace with the new game's palette once the look is decided (docs/PROJECT_BIBLE.md, art direction).
+-- here. CarOff's look: sunny Route 66 desert (docs/PROJECT_BIBLE.md §3).
 return {
 	-- Base materials
 	Concrete = "#9C968C",
@@ -27,4 +27,39 @@ return {
 	NeonTeal = "#3FF2E0",
 	NeonPink = "#FF4FA3",
 	WarmLight = "#FFC98A",
+	-- Desert ground and rock
+	Sand = "#E2C290",
+	SandLight = "#EAD2A6",
+	SandDark = "#D1A873",
+	Badland = "#BE8257",
+	DirtRoad = "#A97E55",
+	DirtRut = "#8C6543",
+	Mesa = "#B95A31",
+	MesaLight = "#D07A47",
+	MesaDark = "#8E4124",
+	Sandstone = "#D89D63",
+	Boulder = "#A9724C",
+	-- Plants
+	Sage = "#8C9C6C",
+	SageDark = "#6E7D52",
+	Cactus = "#55803D",
+	CactusDark = "#3E6230",
+	DeadWood = "#7A6450",
+	Flower = "#F07AA8",
+	-- Town
+	Adobe = "#D6A274",
+	AdobeLight = "#E6BE95",
+	Stucco = "#F0E2C6",
+	MotelTeal = "#36A69E",
+	MotelPink = "#E9799A",
+	GasRed = "#D2312B",
+	White = "#F6F3EC",
+	Chrome = "#C9CED3",
+	Rust = "#8B4A2B",
+	TankWhite = "#DEDBD2",
+	PoolWater = "#4DB8D6",
+	RoadLine = "#F2C230",
+	NeonOrange = "#FF8A3D",
+	NeonYellow = "#FFE15A",
+	NeonWhite = "#FFF4DE",
 }

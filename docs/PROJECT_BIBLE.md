@@ -69,14 +69,22 @@ The template's `Action` becomes `Boost`; `Flip` is new (`Config.Controls`).
 | Mesa Flats | 500–800 | 30 | 2 | 90 s |
 | Badlands | 800–1024 | 24 | 3 | 120 s |
 
-- **Town (400 × 400):** the motel (two floors, ~10 rooms, balcony, stairs, neon sign, pool) with a parking lot of 12
-  car spawn bays; the gas station (canopy, 6 pump bays, shop, price sign, oil tanks); a water tower and small props.
-  Paved roads, low adobe walls with 4 gates.
-- **Arena:** 4 dirt roads from the town gates to the map edges, a ring road at 500 (the Scrublands / Mesa Flats
-  border), mesas and rock arches, a ranch, ruins, oil derricks, cactus fields, dry riverbeds and ramps.
-- **Edge:** a ring of tall mesa cliffs plus an invisible wall so no car leaves the map.
-- **Markers** (tagged parts): `CarSpawn` (12), `PumpBay` (6), `OilSpot` (with a `Zone` attribute), `SafeZone`.
-- Streaming: raised to fit driving speeds — min radius 256, target 1024 *(tune in the performance pass)*.
+- **Town (400 × 400, `maps/layouts/Town.luau`):** two paved streets cross at a roundabout around a climbable water
+  tower; low adobe walls with a gate on each street (SAFE ZONE outside, LEAVING SAFE ZONE inside). Corners: the motel
+  (two floors, 8 rooms each, balcony, stairs, office, neon sign, pool) with its parking lot of 12 car spawn bays;
+  the gas station (canopy over 3 pump islands = 6 pump bays, shop, oil tanks, GAS / WE BUY OIL sign); the garage
+  (for the Phase 2 car shop); a yard with trailers, a windmill, a billboard and old car wrecks.
+- **Arena (`maps/layouts/Desert.luau`):** 4 dirt roads from the town gates to the cliffs with telephone poles and
+  zone signposts, a ring road at 500 (the Scrublands / Mesa Flats border), mesas, boulders, saguaros, bushes, dead
+  trees and wooden jump ramps by the roads. A ranch, ruins, oil derricks and dry riverbeds come in 2.5.
+- **Edge:** a ring of tall cliffs (they take the last ~125 studs, so the Badlands are drivable from 800 to ~900)
+  plus an invisible wall so no car leaves the map.
+- **Markers** (tagged parts, hidden in a running game by `MapService`): `CarSpawn` (12), `PumpBay` (6), `OilSpot`
+  (attributes `Zone`, `Index`; each on a dark oil stain). The safe zone is the town square itself (`TownHalfSize`).
+- Players spawn on 4 welcome mats in front of the motel rooms.
+- Look: late-afternoon sun (`ClockTime` 16.6), dusty haze (Atmosphere), slight warm color correction.
+- Streaming: raised to fit driving speeds — min radius 256, target 1024 *(tune in the performance pass)*; the
+  ground is Persistent, mesas and cliffs show as low-detail meshes when far away.
 
 ### 5.2 Cars
 

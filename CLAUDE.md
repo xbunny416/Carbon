@@ -16,7 +16,8 @@ and every call made where the bible is silent — read the matching entry before
 - **Built (from the template):** toolchain, CI + auto-merge, Lune specs, strict type-check, Loader, Config, Net,
   player data (ProfileStore), localization, analytics, settings, policy checks, UI Kit, menu, input (keyboard /
   gamepad / touch), notices, loading screen, map + asset generators, launch check, store-art renderer.
-- **Next:** 1.1 desert map (bible §5.1).
+- **Built (CarOff):** 1.1 desert map (town + desert, markers for cars, pumps and oil).
+- **Next:** 1.2 starter car (bible §5.2).
 
 ## Who the owner is and how they like to work
 
@@ -91,7 +92,7 @@ run's `Game-place` artifact. **Cloud sessions:** `scripts/cloud-setup.sh` instal
 | `src/localization/GameStrings.csv` | `LocalizationService.GameStrings` | Every player-facing string (Key, Source, Context, Example) |
 | `src/server/Vendor/` | `ServerScriptService.Server.Vendor` | Third-party modules kept as published (see `licenses/`) |
 | `maps/layouts/` | — | Map layouts as code — the source of truth for every map |
-| `maps/generated/` | `Workspace.<Map>` (none yet) | `.rbxmx` models generated from the layouts (committed) |
+| `maps/generated/` | `Workspace.Desert`, `Workspace.Town` | `.rbxmx` models generated from the layouts (committed) |
 | `assets/` | — | Templates game code clones (VFX, sounds, animations, models), built from Config by `assets/build.luau` |
 | `assets/generated/` | `ReplicatedStorage.Assets` | `Assets.rbxmx` generated from `assets/` (committed) |
 | `tools/` | — | Lune helpers (csv, launch check) and `store-art/` (icon + thumbnail renderer) |
@@ -134,7 +135,7 @@ Files are LF on every OS (`.gitattributes`); StyLua's check and the generator ch
   fields are filled in automatically; renames/removals need a migration (`src/server/Data/Migrations.luau`, bump
   `VERSION` in `src/shared/Data/Template.luau`). Clients read their copy via `Controllers/DataController`.
 - **Maps:** generated from `maps/layouts/*.luau` by `lune run maps/build`; never hand-edit `maps/generated/`. Add a
-  new map to `maps/build.luau` and `default.project.json`. Gameplay markers are tagged parts (e.g. `LobbySpawn`);
+  new map to `maps/build.luau` and `default.project.json`. Gameplay markers are tagged parts (e.g. `CarSpawn`, hidden at runtime by `MapService`);
   sign text comes from GameStrings keys (`Key` on `B.sign`). Colors are names from `maps/lib/Palette.luau`.
   **Directions:** the Builder's North = +Z, East = +X are a mirror image of a compass (facing +Z, +X is on your
   *left*): tell the owner left / right as you face +Z, never "east / west".

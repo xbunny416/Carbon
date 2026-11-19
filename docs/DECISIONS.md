@@ -59,3 +59,21 @@ Claude's calls (all *(tune)* in the bible, change freely):
 - Five cars (Rusty Pickup, Dune Buggy, Ranch Hauler, Desert Muscle, Armored Rig) with level gates 1 / 3 / 5 / 8 / 12;
   upgrades Engine / Tank / Cargo / Armor, 5 levels, cost `floor(UpgradeBase × 1.6^(n−1))`.
 - UI accent stays sunset orange `#FF7A1A` (fits the desert). Streaming radius raised for driving speeds in 1.1.
+
+## 1.1 Desert map (2026-11-19, Claude's calls)
+
+- Two generated files: `Workspace.Desert` (ground, roads, props, cliffs, oil spots) and `Workspace.Town`, so a town
+  change doesn't rewrite the big desert file. Both come from `Config.World.Map` (size, town size, zones, spot counts).
+- Town corners (Builder +X / +Z = "north-east"): motel + 12 car bays and the pool; gas station + 6 pump bays; garage
+  (ready for the Phase 2 garage shop); a trailer yard. The water tower in the roundabout is a landmark you can see from
+  the desert and climb (a truss ladder).
+- Cars spawn in bays facing the street (out of the lot); players spawn on the motel's welcome mats until cars exist.
+- The safe zone is the town square (`TownHalfSize`), not a marker part — the server can check it with plain math.
+- Edge cliffs take ~125 studs, so the drivable Badlands band is 800–900; oil spots stay 15 studs inside each zone
+  ring and 24 studs off road centers, at least 60 apart.
+- The ground is one Persistent model (never streams out under a fast car); mesas and cliffs use
+  `LevelOfDetail = StreamingMesh` so the horizon isn't empty.
+- Lighting: late afternoon (`ClockTime` 16.6), haze `Atmosphere`, warm `ColorCorrection`, light `SunRays`
+  (`default.project.json`). Streaming min 256 / target 1024.
+- Map randomness comes from a seeded generator (`maps/lib/Rng.luau`, seeds in the layouts): change the seed for a
+  different scatter.
