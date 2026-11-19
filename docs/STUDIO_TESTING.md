@@ -36,6 +36,23 @@ feature; after each playtest, a dated line with the owner's notes and what was f
 - Fly the Studio camera out: roads with poles and zone signposts (SCRUBLANDS / MESA FLATS / BADLANDS), ring road,
   mesas, ramps, cliffs on every edge; you can't leave the map. Look for floating or sunk props.
 
+## Starter car (1.2)
+
+- Play: your Rusty Pickup waits in a motel bay. Walk to its driver's door (your left as you face the motel from the
+  car's front): the **Drive** prompt (E / B / tap). Other players don't see a prompt on your car.
+- Drive with W A S D / arrows (gamepad: RT gas, LT brake, left stick; phone: thumbstick). Check: it goes forward on
+  W, turns the right way, brakes then reverses on S, rolls to a stop when you let go, no bouncing, no rolling over in
+  normal turns. Space does nothing while driving. Try a ramp in the desert.
+- **E / B / Get out button**: you land beside the driver's door and the prompt comes back.
+- Roll it over on a ramp: when it stops, the Flip hint (R / Y) or the Flip button shows; after 1 s it's back on its
+  wheels. Also works standing next to it.
+- Menu → **Car** → **Reset car**: a new car in a free bay with you in it; pressing again within 10 s shows a wait
+  notice.
+- Two players (Test → 2 players): each gets their own car in a different bay and can't drive the other's.
+- Tuning (all in `Config.Cars`): if **W drives backwards**, flip the sign in `CarRules.wheelSpin`; if it **steers
+  the wrong way**, flip the sign in `CarRules.steerAngle`. Too bouncy → raise `DampingRatio`; sits too low → lower
+  `Sag`; rolls over in turns → lower `SteerAngleAtTopSpeed`; too slow off the line → raise `Acceleration`.
+
 ## Playtests
 
 - *(none yet)*

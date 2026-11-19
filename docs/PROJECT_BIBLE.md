@@ -52,7 +52,8 @@ Driving uses Roblox's own vehicle controls (VehicleSeat), so it works on every d
 | Enter / exit car | E | B | Prompt / Exit button |
 | Menu | M | D-pad Up | Menu button |
 
-The template's `Action` becomes `Boost`; `Flip` is new (`Config.Controls`).
+`Config.Controls`: the template's `Action` was removed in 1.2 (Flip and Interact replace it); `Boost` is added in
+1.6. On touch, the Get out button shows only while you drive and Flip only while your stopped car is upside down.
 
 ## 5. Systems
 
@@ -88,13 +89,23 @@ The template's `Action` becomes `Boost`; `Flip` is new (`Config.Controls`).
 
 ### 5.2 Cars
 
-- Built in code as detailed many-part models (`assets/` → `ReplicatedStorage.Assets.Models.Cars`), driven by a
-  VehicleSeat with motor hinges and spring suspension. The driver's client owns the car's physics (smooth driving);
-  the server owns fuel, cargo, health and money.
-- One car per player, spawned at a free `CarSpawn` bay when they join or respawn. Leaving the game removes it.
+- Built in code as detailed many-part models (`assets/cars/` → `ReplicatedStorage.Assets.Models.Cars`): a heavy
+  chassis with the massless body welded on, a VehicleSeat, 4 wheels on sliding struts with springs, motor hinges on
+  all 4 wheels (4-wheel drive) and servo steering on the front two. The driver's client owns the car's physics and
+  runs the motors (smooth driving); the server owns fuel, cargo, health and money, and owns a parked car (its motors
+  hold it like a parking brake).
+- Driving (`Config.Cars.Models.RustyPickup`): top speed 60, reverse 22, acceleration 28, braking 60, coasting 6
+  (studs/s²); front wheels turn 34° standing still, 12° at top speed; springs sag 0.5 studs, damping ratio 0.55.
+  Spring and motor strengths are worked out from the car's mass (`Shared/CarRules`).
+- One car per player, spawned at a free `CarSpawn` bay when they first spawn; it stays where it was left when they
+  die. Leaving the game removes it.
+- **Enter:** the Drive prompt on the driver's door (E / B / tap), shown only to the owner; only the owner drives.
+  **Exit:** Interact (E / B / Get out button) puts you beside the driver's door.
 - **Boost** (hold): +35% top speed and torque, burns fuel 3× as fast. No cooldown — fuel is the limit.
-- **Flip:** when the car is upside down and slower than 5 studs/s, Flip rights it after 1 s.
-- **Reset car** (menu): respawns the car in town; any cargo is lost (a way out when stuck).
+- **Flip:** when the car is upside down and slower than 5 studs/s, Flip (from the seat or within 30 studs) rights
+  it after 1 s, lifted 4 studs.
+- **Reset car** (the Car menu screen): a new car in a free bay with you in the seat; any cargo is lost (a way out
+  when stuck). Once every 10 s.
 
 ### 5.3 Fuel
 
