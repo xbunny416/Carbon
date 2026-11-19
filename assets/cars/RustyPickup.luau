@@ -1,8 +1,8 @@
 --!strict
 --[[
 	Rusty Pickup — the free starter car (bible §5.2), in the blocky-parts look (.claude/skills/roblox-blocky-parts-style):
-	one long lower body, a wedge-chamfered hood, a narrower cab with a sloped glass windshield and framed rear glass
-	(you can see the driver), fender flares over tucked-in wheels, an open bed (oil barrels ride there from 1.4),
+	one long lower body, a wedge-chamfered hood, a roomy cab (4 studs of headroom) with a sloped glass windshield and
+	framed rear glass (you can see the driver), fender flares over tucked-in wheels, an open bed (oil barrels ride there from 1.4),
 	chunky bumpers, light blocks and a couple of rust patches. Muted sage paint. Front = -Z.
 ]]
 local CarKit = require("./CarKit")
@@ -37,7 +37,7 @@ local function body(F: any)
 	box("LowerBody", { -2.8, 2.6, -7.9 }, { 2.8, 4.4, 7.9 }, paint)
 	box("Hood", { -2.75, 4.4, -6.6 }, { 2.75, 5, -2.6 }, paint)
 	wedge("HoodNose", { 5.5, 0.6, 1.2 }, { 0, 4.7, -7.2 }, nil, paint)
-	box("Grille", { -2, 3, -8.05 }, { 2, 4.2, -7.9 }, "Black")
+	box("Grille", { -1.5, 3, -8.05 }, { 1.5, 4.2, -7.9 }, "Black")
 	for _, x in { -2.2, 2.2 } do
 		box("Headlight", { x - 0.45, 3.5, -8.05 }, { x + 0.45, 4.2, -7.9 }, "HeadLight")
 	end
@@ -56,34 +56,35 @@ local function body(F: any)
 	end
 
 	-- Cab: sloped glass windshield between wedge pillars, side glass, roof, framed rear glass, mirrors, inside
-	wedge("Windshield", { 5, 2.8, 1.4 }, { 0, 5.8, -1.9 }, nil, "Glass", glass)
+	-- (the glass and the pillars sit side by side, never overlapping: overlapping slopes flicker)
+	wedge("Windshield", { 5, 3.4, 1.6 }, { 0, 6.1, -2.2 }, nil, "Glass", glass)
 	for _, side in { -1, 1 } do
-		wedge("APillar", { 0.3, 2.8, 1.4 }, { side * 2.6, 5.8, -1.9 }, nil, paint)
-		box("SideWindow", { side * 2.55, 4.5, -1.2 }, { side * 2.7, 7.1, 1.3 }, "Glass", glass)
-		box("RearPost", { side * 2, 4.4, 1.3 }, { side * 2.75, 7.2, 1.6 }, paint)
-		box("Mirror", { side * 2.75, 5.4, -1.9 }, { side * 3.3, 6, -1.5 }, "BedLiner")
+		wedge("APillar", { 0.3, 3.4, 1.6 }, { side * 2.65, 6.1, -2.2 }, nil, paint)
+		box("SideWindow", { side * 2.6, 4.5, -1.4 }, { side * 2.75, 7.7, 1.8 }, "Glass", glass)
+		box("RearPost", { side * 2, 4.4, 1.8 }, { side * 2.8, 7.8, 2.1 }, paint)
+		box("Mirror", { side * 2.8, 5.6, -2.4 }, { side * 3.35, 6.2, -2 }, "BedLiner")
 	end
-	box("Roof", { -2.75, 7.2, -1.3 }, { 2.75, 7.6, 1.6 }, paint)
-	box("RearSill", { -2, 4.4, 1.3 }, { 2, 5, 1.6 }, paint)
-	box("RearHeader", { -2, 6.9, 1.3 }, { 2, 7.2, 1.6 }, paint)
-	box("RearWindow", { -2, 5, 1.4 }, { 2, 6.9, 1.5 }, "Glass", glass)
-	box("Dashboard", { -2.5, 4.4, -2.5 }, { 2.5, 5.1, -1.8 }, "BedLiner")
+	box("Roof", { -2.85, 7.8, -1.5 }, { 2.85, 8.2, 2.15 }, paint)
+	box("RearSill", { -2, 4.4, 1.8 }, { 2, 5, 2.1 }, paint)
+	box("RearHeader", { -2, 7.4, 1.8 }, { 2, 7.8, 2.1 }, paint)
+	box("RearWindow", { -2, 5, 1.9 }, { 2, 7.4, 2 }, "Glass", glass)
+	box("Dashboard", { -2.5, 4.4, -2.8 }, { 2.5, 5.2, -2 }, "BedLiner")
 	F.part({
 		Name = "SteeringWheel",
 		Shape = "Cylinder",
 		Size = { 0.3, 1.4, 1.4 },
-		Position = { -1.3, 5.4, -1.5 },
+		Position = { -1.3, 5.5, -1.7 },
 		Yaw = 90,
 		Rotation = { 0, 0, 20 },
 		Color = "BedLiner",
 	})
-	box("SeatBack", { -2.4, 3.6, 0.7 }, { 2.4, 6, 1.2 }, "BedLiner", { Material = "Fabric" })
+	box("SeatBack", { -2.4, 3.6, 1.2 }, { 2.4, 6.3, 1.7 }, "BedLiner", { Material = "Fabric" })
 
 	-- Bed: liner floor, side walls with rail caps, tailgate, rear lights and bumper
-	box("BedFloor", { -2.5, 4.4, 1.9 }, { 2.5, 4.5, 7.6 }, "BedLiner")
+	box("BedFloor", { -2.5, 4.4, 2.4 }, { 2.5, 4.5, 7.6 }, "BedLiner")
 	for _, side in { -1, 1 } do
-		box("BedSide", { side * 2.5, 4.4, 1.6 }, { side * 2.8, 5.8, 7.9 }, paint)
-		box("BedRail", { side * 2.45, 5.8, 1.55 }, { side * 2.85, 6.05, 7.95 }, "PickupPaintDark")
+		box("BedSide", { side * 2.5, 4.4, 2.1 }, { side * 2.8, 5.8, 7.9 }, paint)
+		box("BedRail", { side * 2.45, 5.8, 2.05 }, { side * 2.85, 6.05, 7.95 }, "PickupPaintDark")
 		box("TailLight", { side * 2.2, 4.6, 7.9 }, { side * 2.75, 5.5, 8.05 }, "TailLight")
 	end
 	box("Tailgate", { -2.5, 4.4, 7.6 }, { 2.5, 5.8, 7.9 }, paint)
@@ -114,7 +115,7 @@ return {
 			Chassis = { 5.4, 1, 14.6 },
 			Seat = { -1.3, 3.3, -0.1 },
 			Prompt = { -3.4, 4.6, -0.5 },
-			Cargo = { 0, 4.5, 4.75 },
+			Cargo = { 0, 4.5, 5 },
 			Body = body,
 		}, prompts)
 	end,

@@ -82,4 +82,10 @@ feature; after each playtest, a dated line with the owner's notes and what was f
 
 ## Playtests
 
-- *(none yet)*
+- **2026-11-19 (owner):** 1. front of the car glitches (flickers), 2. hard to turn and sometimes stuck, 3. cab a
+  bit small. Fixed: 1. the windshield glass overlapped the pillars' slopes and the headlights overlapped the grille —
+  now side by side (a cars spec checks wedges); 2. all four wheels were forced to the same speed and fought every
+  turn — now each wheel gets its own speed for the turn, steering 40° (18° at top speed), more motor push;
+  3. cab wider, longer and 4 studs of headroom (roof 8.2). **Re-check:** tight turns at low speed and in the lot,
+  U-turn on a dirt road, climbing the motel curb / island curbs, no flicker at the windshield and lights, your
+  avatar's head clears the roof.

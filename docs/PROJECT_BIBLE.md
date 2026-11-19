@@ -97,8 +97,9 @@ Driving uses Roblox's own vehicle controls (VehicleSeat), so it works on every d
   runs the motors (smooth driving); the server owns fuel, cargo, health and money, and owns a parked car (its motors
   hold it like a parking brake).
 - Driving (`Config.Cars.Models.RustyPickup`): top speed 60, reverse 22, acceleration 28, braking 60, coasting 6
-  (studs/s²); front wheels turn 34° standing still, 12° at top speed; springs sag 0.5 studs, damping ratio 0.55.
-  Spring and motor strengths are worked out from the car's mass (`Shared/CarRules`).
+  (studs/s²); front wheels turn 40° standing still, 18° at top speed (updated 2026-11-19); springs sag 0.5 studs, damping ratio 0.55.
+  Spring and motor strengths are worked out from the car's mass (`Shared/CarRules`; motor torque ×2.2 for curbs and
+  sand). In a turn each wheel spins at its own speed, inner ones slower (`CarRules.wheelFactor`, like a differential).
 - One car per player, spawned at a free `CarSpawn` bay when they first spawn; it stays where it was left when they
   die. Leaving the game removes it.
 - **Enter:** the Drive prompt on the driver's door (E / B / tap), shown only to the owner; only the owner drives.

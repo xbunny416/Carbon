@@ -67,6 +67,26 @@ function CarRules.steerAngle(steer: number, speed: number, stats: CarStats): num
 	return -math.clamp(steer, -1, 1) * max
 end
 
+--[[
+	How fast one wheel should spin in a turn, as a share of the car's speed (an "electronic differential"): in a turn
+	every wheel circles the same center, so the inner ones roll a shorter path. Forcing all four to the same speed
+	makes them fight the turn (hard to steer, and stuck at low speed). `angle` is the front wheels' angle (degrees,
+	positive = left, as steerAngle returns), (x, z) the wheel's place on the car (front = -Z), `base` the distance
+	from the car's middle to each axle. The turn center sits level with the rear axle.
+]]
+function CarRules.wheelFactor(angle: number, x: number, z: number, base: number): number
+	local tangent = math.tan(math.rad(math.abs(angle)))
+	if tangent < 1e-3 then
+		return 1
+	end
+	local radius = base * 2 / tangent
+	local cx = if angle > 0 then -radius else radius -- a left turn circles a center on the car's left (-X)
+	local function distance(px: number, pz: number): number
+		return math.sqrt((px - cx) ^ 2 + (pz - base) ^ 2)
+	end
+	return distance(x, z) / distance(0, 0)
+end
+
 -- Whether a car whose up direction has this Y part is upside down or on its side.
 function CarRules.isFlipped(upY: number, flippedBelowUp: number): boolean
 	return upY < flippedBelowUp

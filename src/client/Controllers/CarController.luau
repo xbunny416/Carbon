@@ -119,12 +119,19 @@ local function drive(car: Model)
 	local throttle = if car:GetAttribute("Stalled") == true then 0 else seat.ThrottleFloat
 	local target, mode = CarRules.drive(throttle, forward, stats)
 	local torque = car:GetAttribute(`{mode}Torque`)
-	local spin = CarRules.wheelSpin(target, radius)
 	local angle = CarRules.steerAngle(seat.SteerFloat, forward, stats)
+	local base = car:GetAttribute("WheelBase")
 	for _, wheel in wheels:GetChildren() do
 		local motor = wheel:FindFirstChild("Motor")
 		if motor and motor:IsA("HingeConstraint") then
-			motor.AngularVelocity = spin
+			-- Each wheel at its own speed for the turn (inner wheels slower), so the wheels don't fight the steering.
+			local tire = wheel:FindFirstChild("Wheel")
+			local factor = 1
+			if tire and tire:IsA("BasePart") and type(base) == "number" then
+				local at = chassis.CFrame:PointToObjectSpace(tire.Position)
+				factor = CarRules.wheelFactor(angle, at.X, at.Z, base)
+			end
+			motor.AngularVelocity = CarRules.wheelSpin(target * factor, radius)
 			if type(torque) == "number" then
 				motor.MotorMaxTorque = torque
 			end

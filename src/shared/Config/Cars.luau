@@ -45,8 +45,8 @@ local Cars: CarsConfig = {
 			Acceleration = 28,
 			Braking = 60,
 			Coasting = 6,
-			SteerAngle = 34,
-			SteerAngleAtTopSpeed = 12,
+			SteerAngle = 40,
+			SteerAngleAtTopSpeed = 18,
 			SteerSpeed = 220,
 			Sag = 0.5,
 			DampingRatio = 0.55,
@@ -56,7 +56,7 @@ local Cars: CarsConfig = {
 		},
 	},
 	-- Motor torque is worked out from the car's mass and Acceleration, times this (covers the driver, slopes, sand).
-	MotorMargin = 1.5,
+	MotorMargin = 2.2,
 	-- Upside down (or on its side) when the car's up direction points up less than this (1 = upright, -1 = roof).
 	FlippedBelowUp = 0.3,
 	FlipMaxSpeed = 5, -- only a car that has (almost) stopped can be flipped
