@@ -10,3 +10,4 @@ One row per merged PR, newest last. Add a row with every PR (see [CLAUDE.md](../
 | 2026-11-19 | 1.1 Desert map: 2048 square on the ground (town + 3 zone rings + edge cliffs), detailed motel, gas station, garage, water tower, roads, 94 oil spots, 12 car spawn bays, 6 pump bays, desert lighting, MapService hides markers | #4 |
 | 2026-11-19 | 1.2 Starter car: Rusty Pickup built in code (sprung 4-wheel drive, front steering), spawns in a free bay, Drive prompt, Get out, Flip, Car menu with Reset car; controls Flip (R / Y) + Interact | #5 |
 | 2026-11-19 | Fix: flickering ground — map raised 1 stud above a leftover Studio Baseplate, road tracks inlaid, overlays 0.2+ apart, cliff tops never level, stray spawns off, flicker spec | #6 |
+| 2026-11-19 | Skill: `roblox-blocky-parts-style` (owner's blocky-realism style guide for part-built models) | #7 |
