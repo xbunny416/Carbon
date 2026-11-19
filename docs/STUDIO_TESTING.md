@@ -6,9 +6,9 @@ feature; after each playtest, a dated line with the owner's notes and what was f
 ## First run
 
 1. `rojo serve`, open a new place (Baseplate), Rojo plugin → **Connect**. `Workspace.Desert`, `Workspace.Town` and
-   `ReplicatedStorage.Assets` appear. **Delete the Baseplate's own `Baseplate` and `SpawnLocation`** (the Baseplate
-   flickers with the desert ground at the same height, and its spawn sits in the roundabout). If an old
-   `Workspace.Lobby` is still in the place (from before 2026-11-19), delete it too.
+   `ReplicatedStorage.Assets` appear. The Baseplate's own `Baseplate` and `SpawnLocation` can go (Output reminds you):
+   they're buried under the desert ground and turned off, so they do no harm. If an old `Workspace.Lobby` is still in
+   the place (from before 2026-11-19), delete it too.
 2. **Save the place** once (keeps the TextChatService and lighting switches).
 3. File → Publish to Roblox, then Game Settings → Security → **Allow Studio Access to API Services** (saving).
 4. Play: the loading screen shows the title and a tip, then fades; you spawn on a pink mat in front of the motel. Output should have no
@@ -52,6 +52,14 @@ feature; after each playtest, a dated line with the owner's notes and what was f
 - Tuning (all in `Config.Cars`): if **W drives backwards**, flip the sign in `CarRules.wheelSpin`; if it **steers
   the wrong way**, flip the sign in `CarRules.steerAngle`. Too bouncy → raise `DampingRatio`; sits too low → lower
   `Sag`; rolls over in turns → lower `SteerAngleAtTopSpeed`; too slow off the line → raise `Acceleration`.
+
+## Flicker fix (2026-11-19)
+
+- The ground is 1 stud higher than before. Look at the ground, the dirt roads (tire tracks), the town streets and
+  lots, the oil stains and the edge cliffs from near and far: nothing should flicker or shimmer, with or without the
+  old Baseplate in the place. Cars still spawn in the motel bays and sit on the lot.
+- If something still flickers, say where (or send a screenshot): `tests/specs/maps.spec.luau` checks every map top
+  surface, so it's something it doesn't cover yet (a side face or a round part).
 
 ## Playtests
 

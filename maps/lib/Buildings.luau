@@ -64,7 +64,7 @@ function Buildings.motel(at: Vec, yaw: number): number
 				F.box({
 					Name = "Mullion",
 					From = { x - 0.15, 2.2, -0.7 },
-					To = { x + 0.15, 8.6, -0.3 },
+					To = { x + 0.15, 8.5, -0.3 },
 					Color = "White",
 				})
 			end
@@ -85,8 +85,8 @@ function Buildings.motel(at: Vec, yaw: number): number
 				TextColor = "NeonPink",
 				Glow = true,
 			})
-			F.box({ Name = "Awning", From = { -76, 10.6, -6 }, To = { -52, 11.4, -1 }, Color = "MotelTeal" })
-			F.box({ Name = "AwningTrim", From = { -76, 10.2, -6.3 }, To = { -52, 11.4, -6 }, Color = "MotelPink" })
+			F.box({ Name = "Awning", From = { -76, 10.6, -6 }, To = { -53, 11.4, -1 }, Color = "MotelTeal" })
+			F.box({ Name = "AwningTrim", From = { -76, 10.2, -6.3 }, To = { -53, 11.4, -6 }, Color = "MotelPink" })
 			F.box({
 				Name = "Counter",
 				From = { -71, 0.6, 5 },
@@ -168,7 +168,7 @@ function Buildings.motel(at: Vec, yaw: number): number
 				F.box({ Name = "AC", From = { xc + 2, fy + 0.9, -1.4 }, To = { xc + 5, fy + 2.6, 0 }, Color = "Metal" })
 				F.box({
 					Name = "Grille",
-					From = { xc + 2.3, fy + 1.2, -1.45 },
+					From = { xc + 2.3, fy + 1.2, -1.55 },
 					To = { xc + 4.7, fy + 2.3, -1.4 },
 					Color = "MetalDark",
 				})
@@ -492,8 +492,8 @@ function Buildings.gasStation(at: Vec, yaw: number)
 					})
 					F.box({
 						Name = "Stripe",
-						From = { ix - 1.25, 2, z - 1.65 },
-						To = { ix + 1.25, 2.4, z + 1.65 },
+						From = { ix - 1.32, 2, z - 1.72 },
+						To = { ix + 1.32, 2.4, z + 1.72 },
 						Color = "GasRed",
 					})
 					F.box({
@@ -599,12 +599,12 @@ function Buildings.gasStation(at: Vec, yaw: number)
 			F.box({
 				Name = "DoorFrame",
 				From = { -0.1, 0.3, 40.3 },
-				To = { 0.1, 9, 40.7 },
+				To = { 0.1, 8.9, 40.7 },
 				Color = "Chrome",
 				CanCollide = false,
 			})
 			F.box({ Name = "Roof", From = { -36, 13, 39 }, To = { 36, 14, 71 }, Color = "White" })
-			F.box({ Name = "Parapet", From = { -36, 12, 38.6 }, To = { 36, 15.5, 39.4 }, Color = "GasRed" })
+			F.box({ Name = "Parapet", From = { -36.2, 12, 38.6 }, To = { 36.2, 15.5, 39.4 }, Color = "GasRed" })
 			F.sign({
 				Name = "ShopSign",
 				Size = { 30, 3, 0.3 },
@@ -770,7 +770,7 @@ function Buildings.garage(at: Vec, yaw: number)
 			Color = "MetalDark",
 			Material = "CorrodedMetal",
 		})
-		F.box({ Name = "Parapet", From = { -31, 14, -0.8 }, To = { 31, 18.5, 0 }, Color = "MotelTeal" })
+		F.box({ Name = "Parapet", From = { -31.2, 14, -0.8 }, To = { 31.2, 18.5, 0 }, Color = "MotelTeal" })
 		F.sign({
 			Name = "GarageSign",
 			Size = { 28, 3.6, 0.3 },

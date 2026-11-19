@@ -51,6 +51,9 @@ line whenever a new one costs time.
 - **Generated maps must match on every OS:** `CFrame.Angles` (and raw `math.sin` / `math.cos`) can differ in the last
   bit between Windows and Linux, so a map with many odd angles passed `--check` locally and failed on CI. The Builder
   builds rotations from sine / cosine rounded to 1e-6; round any other trig you put in a position too.
+- **Flicker (z-fighting):** two surfaces at the same height flicker, and so do ones only ~0.05 studs apart once you
+  look from far away. Keep the map ground off Y = 0 (Studio's Baseplate lives there), lay stripes beside each other
+  instead of on top, and keep overlays 0.1–0.2+ studs above what they cover. `maps.spec` checks top surfaces.
 
 ## Store art
 

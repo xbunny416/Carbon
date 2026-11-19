@@ -93,3 +93,14 @@ Claude's calls (all *(tune)* in the bible, change freely):
 - Flip works from the seat or standing within 30 studs, only when the car is upside down and stopped, after 1 s.
 - Reset car lives on a Car menu screen (the first menu button), every 10 s at most, and puts you straight into the
   new car. Cars stay where they are when you die; leaving the game removes your car.
+
+## Flickering ground fix (2026-11-19, owner asked "fix glitch platform")
+
+- Cause: the desert ground's top was at Y = 0, the same height as the Baseplate Studio puts in a new place, so the
+  two fought (z-fighting) everywhere; tire tracks sat 0.05 studs on the roads and oil stains 0.05 on the sand, which
+  flickers from a distance; a few cliff tops and town trims happened to be level with a neighbour.
+- Fix (Claude's calls): the whole map is 1 stud up (`Config.World.Map.Origin`), so a leftover Baseplate is buried;
+  any SpawnLocation outside `Workspace.Town` is turned off at runtime (MapService). Road tracks are strips laid
+  beside the road strips (flat for cars), every overlay is at least 0.1–0.2 studs above what it covers, neighbouring
+  cliffs get height offsets 0.25+ apart. A map spec fails if two differently colored top surfaces overlap within
+  0.06 studs.

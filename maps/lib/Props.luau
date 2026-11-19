@@ -310,17 +310,22 @@ end
 
 --[[
 	An edge cliff segment: `at` is the middle of its outer edge on the map border; it reaches `depth` studs inward
-	(the frame's front, -Z) in three tiers that step back as they rise.
+	(the frame's front, -Z) in three tiers that step back as they rise. Neighbouring segments overlap, so their tier
+	tops and faces must never come out (almost) level — that flickers. Heights and step-backs are whole studs plus
+	`offset` (below 1): give neighbours offsets at least 0.25 apart (Desert.luau alternates 0 / 0.5 along a side and
+	adds 0.25 on every other side, for the corners).
 ]]
-function Props.cliff(at: Vec, length: number, depth: number, height: number, yaw: number, rng: Rng.Rng)
+function Props.cliff(at: Vec, length: number, depth: number, height: number, yaw: number, rng: Rng.Rng, offset: number)
 	local F = Props.frame(at, yaw)
 	local tiers = { { 0.5, 0, "Mesa" }, { 0.3, 0.2, "MesaLight" }, { 0.2, 0.4, "Mesa" } }
+	local half = offset
+	depth = math.floor(depth)
 	return B.model("Cliff", function()
 		local y = -1
 		local inner = 0
-		for _, tier in tiers do
-			local h = snap(height * tier[1] * rng:range(0.9, 1.1))
-			inner = snap(depth * tier[2] + rng:range(0, 6))
+		for index, tier in tiers do
+			local h = math.floor(height * tier[1] * rng:range(0.9, 1.1)) + (if index == 1 then half else 0)
+			inner = math.floor(depth * tier[2] + rng:range(0, 6)) + half
 			F.box({
 				Name = "Tier",
 				From = { -length / 2, y, -depth + inner },

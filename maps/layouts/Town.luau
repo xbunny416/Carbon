@@ -22,6 +22,11 @@ Layout.Id = "Town"
 local SEED = 4171
 local STREET = 15 -- half width of the two main streets
 local ROUND = 48 -- roundabout radius
+-- Surface heights above the town ground, at least 0.1 studs apart so they never flicker: streets and lots, the
+-- roundabout (laid over the street ends), and road markings.
+local PAVED = 0.2
+local ROUNDABOUT = 0.3
+local MARKING = 0.35
 local BAY_WIDTH = 11
 local FIRST_BAY = 64 -- x of the first bay's left line
 
@@ -37,34 +42,34 @@ function Layout.build(map: any): any
 					F.box({
 						Name = "Street",
 						From = { -STREET, -0.5, -half },
-						To = { STREET, 0.1, -(ROUND - 3) },
+						To = { STREET, PAVED, -(ROUND - 3) },
 						Color = "Asphalt",
 						Material = "Asphalt",
 					})
 					for _, x in { -(STREET - 1.4), STREET - 1.4 } do
 						F.box({
 							Name = "EdgeLine",
-							From = { x - 0.2, 0.1, -half },
-							To = { x + 0.2, 0.2, -(ROUND + 2) },
+							From = { x - 0.2, PAVED, -half },
+							To = { x + 0.2, MARKING, -(ROUND + 2) },
 							Color = "White",
 						})
 					end
 					for z = ROUND + 6, half - 6, 10 do
 						F.box({
 							Name = "Dash",
-							From = { -0.3, 0.1, -z - 2.5 },
-							To = { 0.3, 0.2, -z + 2.5 },
+							From = { -0.3, PAVED, -z - 2.5 },
+							To = { 0.3, MARKING, -z + 2.5 },
 							Color = "RoadLine",
 						})
 					end
-					Props.streetLight(F.at(STREET + 3, 0.1, -(ROUND + 40)), yaw + 90)
-					Props.streetLight(F.at(-(STREET + 3), 0.1, -(ROUND + 110)), yaw - 90)
+					Props.streetLight(F.at(STREET + 3, PAVED, -(ROUND + 40)), yaw + 90)
+					Props.streetLight(F.at(-(STREET + 3), PAVED, -(ROUND + 110)), yaw - 90)
 				end
 				local F = Props.frame({ 0, 0, 0 }, 0)
 				F.column({
 					Name = "Roundabout",
 					Base = { 0, -0.5, 0 },
-					Height = 0.7,
+					Height = ROUNDABOUT + 0.5,
 					Diameter = ROUND * 2,
 					Color = "Asphalt",
 					Material = "Asphalt",
@@ -131,7 +136,7 @@ function Layout.build(map: any): any
 				F.box({
 					Name = "Lot",
 					From = { STREET, -0.5, STREET },
-					To = { edge, 0.1, 139 },
+					To = { edge, PAVED, 139 },
 					Color = "Asphalt",
 					Material = "Asphalt",
 				})
@@ -139,8 +144,8 @@ function Layout.build(map: any): any
 					local x = FIRST_BAY + line * BAY_WIDTH
 					F.box({
 						Name = "BayLine",
-						From = { x - 0.25, 0.1, 100 },
-						To = { x + 0.25, 0.2, 121 },
+						From = { x - 0.25, PAVED, 100 },
+						To = { x + 0.25, MARKING, 121 },
 						Color = "White",
 					})
 				end
@@ -148,14 +153,14 @@ function Layout.build(map: any): any
 					local x = FIRST_BAY + (bay - 0.5) * BAY_WIDTH
 					F.box({
 						Name = "WheelStop",
-						From = { x - 3, 0.1, 119.5 },
-						To = { x + 3, 0.7, 120.5 },
+						From = { x - 3, PAVED, 119.5 },
+						To = { x + 3, PAVED + 0.6, 120.5 },
 						Color = "ConcreteLight",
 					})
-					F.marker("CarSpawn", `CarSpawn{bay}`, { x, 0.1, 110 }, { Index = bay })
+					F.marker("CarSpawn", `CarSpawn{bay}`, { x, PAVED, 110 }, { Index = bay })
 				end
 				for _, x in { 60, 130, 190 } do
-					Props.streetLight({ x, 0.1, 130 }, 0)
+					Props.streetLight({ x, PAVED, 130 }, 0)
 				end
 			end)
 			Buildings.motel({ 110, 0, 148 }, 0)
@@ -167,7 +172,7 @@ function Layout.build(map: any): any
 				Props.frame({ 0, 0, 0 }, 0).box({
 					Name = "Lot",
 					From = { -edge, -0.5, STREET },
-					To = { -STREET, 0.1, edge },
+					To = { -STREET, PAVED, edge },
 					Color = "Asphalt",
 					Material = "Asphalt",
 				})
@@ -183,7 +188,7 @@ function Layout.build(map: any): any
 				Props.frame({ 0, 0, 0 }, 0).box({
 					Name = "Apron",
 					From = { 60, -0.5, -60 },
-					To = { 160, 0.2, -STREET },
+					To = { 160, PAVED, -STREET },
 					Color = "ConcreteLight",
 					Material = "Concrete",
 				})
