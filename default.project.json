@@ -46,9 +46,6 @@
 				"StreamingEnabled": true,
 				"StreamingMinRadius": 128,
 				"StreamingTargetRadius": 256
-			},
-			"Lobby": {
-				"$path": "maps/generated/Lobby.rbxmx"
 			}
 		}
 	}
