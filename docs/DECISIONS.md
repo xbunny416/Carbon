@@ -33,3 +33,29 @@ These came with the base systems; each is a default the owner can change.
   `Config.World.LobbyOrigin` and the lobby spec. Kept: `maps/build.luau`, `maps/lib/` (Builder, Palette) for the
   game's real maps, and the `Music.Lobby` audio slot (silent, id 0) as the default music slot.
 - Until a map exists, players spawn on the Studio Baseplate (Claude's call).
+
+## Kickoff (2026-11-19)
+
+Owner's answers:
+
+- **Name:** CarOff (repo stays `Carbon`). **Genre:** car extraction — cars roam and compete to scavenge items, only
+  oil for now.
+- **Map:** one huge square in two parts — the spawn town (motel + gas station) **in the middle**, the desert arena all
+  around it. Desert countryside, **sunny Route 66** look.
+- **Session:** open roam, no rounds. **PvP:** ram to wreck; a wreck spills its oil. **Oil:** fuel *and* money.
+- **Players:** 12 per server. **Cars:** buy cars + upgrade each. **Robux:** decide later (ask before Phase 3).
+- Approved the build order in bible §8.
+
+Claude's calls (all *(tune)* in the bible, change freely):
+
+- Map 2048 × 2048 studs (the largest single Part) on the ground at Y = 0; town 400 × 400; zone rings at 200 / 500 / 800
+  with 1 / 2 / 3 barrels per spot, so going farther fills cargo faster but costs fuel and time.
+- Fuel tank separate from cargo: 1 fuel per 25 studs, Boost 3×; an empty tank auto-burns a cargo barrel (+25);
+  empty with no cargo = stall + Tow home. Refill, repair and selling all happen at the gas station pump bays (one
+  place to remember), free.
+- 25 Coins + 15 XP per barrel; 25 XP for the last hit on a wreck. Crash damage (speed − 20) × 1.5, rammer takes 30%.
+- Driving on Roblox's VehicleSeat controls (works on every device); jump off while driving; `Action` → `Boost`
+  (Shift / X), new `Flip` (R / Y). Driver's client owns car physics, the server owns fuel, cargo, health and money.
+- Five cars (Rusty Pickup, Dune Buggy, Ranch Hauler, Desert Muscle, Armored Rig) with level gates 1 / 3 / 5 / 8 / 12;
+  upgrades Engine / Tank / Cargo / Armor, 5 levels, cost `floor(UpgradeBase × 1.6^(n−1))`.
+- UI accent stays sunset orange `#FF7A1A` (fits the desert). Streaming radius raised for driving speeds in 1.1.
