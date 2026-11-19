@@ -102,3 +102,12 @@ Soft, hazy daylight: `Lighting.Technology = Future` or `ShadowMap`, a light blue
 1. One line describing the interpretation (what the object is and its key shapes).
 2. A single complete Luau script, ready to paste into the Studio command bar.
 3. A short note on parameters the user can tweak.
+
+## In this repo (CarOff)
+This is the game's look (owner, 2026-11-19). Here the "script" is the repo's generators, not a command-bar paste,
+so nothing is lost on the next Rojo sync:
+- Maps: `maps/layouts/*.luau` with `maps/lib/Builder` + `Props` + `Buildings` (`Props.frame(at, yaw).box/part`,
+  colors are names from `maps/lib/Palette.luau`), then `lune run maps/build`. Cars: `assets/cars/` (CarKit), then
+  `lune run assets/build`. Seeded randomness: `maps/lib/Rng.luau`.
+- Lighting lives in `default.project.json` and uses `LightingStyle = Realistic` (`Lighting.Technology` is gone).
+- Keep visible surfaces 0.1–0.2+ studs apart (`maps.spec` fails on flickering tops) — see docs/LESSONS.md.

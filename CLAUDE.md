@@ -34,8 +34,9 @@ and every call made where the bible is silent — read the matching entry before
 - Sends **reference pictures** from other games: take the look, never copy models or assets. Save them under
   `docs/reference/` with a table of what to take from each; write their answers there too.
 - Likes **many options to choose from** for visual things (e.g. 10 different thumbnail styles), then picks one.
-- Taste: a **detailed, non-blocky Roblox 3D look** (many-part furniture, trims, bevels, props that fit each place,
-  lively lighting) — "more 3D", not flat or plain boxes. Maps are built **in code** (layouts), sized to the avatar.
+- Taste (changed 2026-11-19): the **blocky-parts style** — use the `roblox-blocky-parts-style` skill for every model,
+  prop, building and car: chunky primitives, wedge bevels, muted earthy colors, medium detail, soft hazy light. Maps
+  and cars are still built **in code** (layouts / `assets/cars`), sized to the avatar.
 - Changes their mind as the game grows (renames, removing features): record each change with its date in
   DECISIONS.md and keep the "Standing owner decisions" list below current so nobody brings a removed thing back.
 - Playtests in Studio and reports in short lists; turn each list into a numbered fix list, fix it in one PR when
@@ -51,6 +52,8 @@ says otherwise.)
 - **No rewards for liking the game** (against Roblox rules); group-join rewards are fine.
 - **Private servers earn nothing** progression-wise unless the owner decides otherwise for this game.
 - Developer tools are **Studio-only** (`Config.Dev.AllowedUserIds` empty) until the owner adds their UserId.
+- **Look = blocky-parts style** (2026-11-19, replaced the bright detailed Route 66 look): muted palette in
+  `maps/lib/Palette.luau`, Neon only on real lights. Don't bring back saturated / neon styling.
 - **No floating starter lobby:** the template's lobby (60×60 room up at Y=100) was removed on 2026-11-19; the game's
   real maps come from the kickoff. Don't bring it back.
 - Only **free Creator Store assets / Studio AI generation**; ask before anything paid. Never delete or replace large

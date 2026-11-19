@@ -34,36 +34,36 @@
 			"$properties": {
 				"LightingStyle": "Realistic",
 				"GlobalShadows": true,
-				"ClockTime": 16.6,
+				"ClockTime": 14.5,
 				"GeographicLatitude": 35,
-				"Brightness": 3,
-				"OutdoorAmbient": [0.55, 0.47, 0.4],
+				"Brightness": 2.5,
+				"OutdoorAmbient": [0.56, 0.53, 0.49],
 				"EnvironmentDiffuseScale": 1,
 				"EnvironmentSpecularScale": 1
 			},
 			"Atmosphere": {
 				"$className": "Atmosphere",
 				"$properties": {
-					"Density": 0.3,
-					"Offset": 0.1,
-					"Color": [0.86, 0.74, 0.58],
-					"Decay": [0.78, 0.52, 0.36],
-					"Glare": 0.25,
-					"Haze": 1.6
+					"Density": 0.32,
+					"Offset": 0.15,
+					"Color": [0.78, 0.84, 0.9],
+					"Decay": [0.62, 0.68, 0.74],
+					"Glare": 0.1,
+					"Haze": 1.8
 				}
 			},
 			"ColorCorrection": {
 				"$className": "ColorCorrectionEffect",
 				"$properties": {
-					"Contrast": 0.05,
-					"Saturation": 0.08,
-					"TintColor": [1, 0.97, 0.92]
+					"Contrast": 0.03,
+					"Saturation": -0.05,
+					"TintColor": [1, 0.99, 0.96]
 				}
 			},
 			"SunRays": {
 				"$className": "SunRaysEffect",
 				"$properties": {
-					"Intensity": 0.05,
+					"Intensity": 0.03,
 					"Spread": 0.6
 				}
 			}

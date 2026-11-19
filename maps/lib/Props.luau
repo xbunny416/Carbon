@@ -136,20 +136,25 @@ function Props.wire(from: Vec, to: Vec, thickness: number, color: string): any
 	})
 end
 
--- A saguaro: a ribbed trunk with 0-3 arms that bend up. Solid (cars crash into it).
+-- A saguaro in blocks: a square trunk with a darker rib strip, a narrower cap and 0-3 elbowed arms. Solid (cars crash
+-- into it).
 function Props.saguaro(at: Vec, height: number, yaw: number, rng: Rng.Rng)
 	local F = Props.frame(at, yaw)
-	local d = math.clamp(snap(height * 0.11), 1.4, 2.6)
+	local d = math.clamp(snap(height * 0.12), 1.4, 2.6)
 	B.model("Saguaro", function()
-		F.column({ Name = "Trunk", Base = { 0, -0.5, 0 }, Height = height + 0.5, Diameter = d, Color = "Cactus" })
-		F.column({
+		F.box({ Name = "Trunk", From = { -d / 2, -0.5, -d / 2 }, To = { d / 2, height, d / 2 }, Color = "Cactus" })
+		F.box({
 			Name = "Rib",
-			Base = { 0, 0, -d * 0.18 },
-			Height = height - 0.4,
-			Diameter = d * 0.7,
+			From = { -d * 0.2, 0, -d / 2 - 0.15 },
+			To = { d * 0.2, height - 0.3, -d / 2 },
 			Color = "CactusDark",
 		})
-		F.ball({ Name = "Top", Center = { 0, height, 0 }, Diameter = d, Color = "Cactus" })
+		F.box({
+			Name = "Top",
+			From = { -d * 0.4, height, -d * 0.4 },
+			To = { d * 0.4, height + 0.6, d * 0.4 },
+			Color = "Cactus",
+		})
 		local arms = rng:int(0, 3)
 		for index = 1, arms do
 			local armYaw = if index == 3 then 90 else 0
@@ -157,46 +162,52 @@ function Props.saguaro(at: Vec, height: number, yaw: number, rng: Rng.Rng)
 			local armY = rng:range(height * 0.35, height * 0.6)
 			local reach = rng:range(1.8, 3)
 			local rise = rng:range(height * 0.18, height * 0.32)
-			local ad = snap(d * 0.72)
-			local dx, dz = Props.rotate(side, 0, armYaw)
-			local stub = d / 2 + reach
-			F.part({
+			local a = snap(d * 0.7) / 2
+			local G = Props.frame(F.at(0, 0, 0), yaw + armYaw)
+			local tip = side * (d / 2 + reach)
+			G.box({
 				Name = "Arm",
-				Shape = "Cylinder",
-				Size = { stub, ad, ad },
-				Position = { dx * stub / 2, armY, dz * stub / 2 },
-				Yaw = armYaw,
+				From = { math.min(0, tip), armY - a, -a },
+				To = { math.max(0, tip), armY + a, a },
 				Color = "Cactus",
 			})
-			local tip = { dx * stub, armY, dz * stub }
-			F.ball({ Name = "Elbow", Center = tip, Diameter = ad, Color = "Cactus" })
-			F.column({ Name = "ArmUp", Base = tip, Height = rise, Diameter = ad, Color = "Cactus" })
-			F.ball({ Name = "ArmTop", Center = { tip[1], armY + rise, tip[3] }, Diameter = ad, Color = "Cactus" })
+			G.box({
+				Name = "ArmUp",
+				From = { tip - side * a * 2, armY - a, -a },
+				To = { tip, armY + rise, a },
+				Color = "Cactus",
+			})
 		end
 	end)
 end
 
--- A small round barrel cactus with a pink flower.
+-- A small barrel cactus: a squat block with a pink flower on top.
 function Props.barrelCactus(at: Vec, size: number)
 	local F = Props.frame(at, 0)
+	local h = size / 2
 	B.model("BarrelCactus", function()
-		F.ball({ Name = "Body", Center = { 0, size * 0.35, 0 }, Diameter = size, Color = "Cactus" })
-		F.ball({ Name = "Flower", Center = { 0, size * 0.85, 0 }, Diameter = snap(size * 0.3), Color = "Flower" })
+		F.box({ Name = "Body", From = { -h, -0.2, -h }, To = { h, size * 0.7, h }, Color = "Cactus" })
+		F.box({
+			Name = "Flower",
+			From = { -h * 0.3, size * 0.7, -h * 0.3 },
+			To = { h * 0.3, size * 0.85, h * 0.3 },
+			Color = "Flower",
+		})
 	end)
 end
 
--- A sage bush (cars drive through it).
+-- A sage bush: 2-3 offset leafy cubes, each turned a little (cars drive through it).
 function Props.bush(at: Vec, size: number, rng: Rng.Rng)
-	local F = Props.frame(at, 0)
 	B.model("Bush", function()
 		for index = 1, rng:int(2, 3) do
 			local s = snap(size * rng:range(0.6, 1))
-			F.ball({
+			local x, z = rng:range(-size * 0.4, size * 0.4), rng:range(-size * 0.4, size * 0.4)
+			Props.frame(at, index * 25).box({
 				Name = "Leaves",
-				Center = { rng:range(-size * 0.4, size * 0.4), s * 0.25, rng:range(-size * 0.4, size * 0.4) },
-				Diameter = s,
+				From = { x - s / 2, -0.1, z - s / 2 },
+				To = { x + s / 2, s * 0.7, z + s / 2 },
 				Color = if index == 1 then "Sage" else "SageDark",
-				Material = "Grass",
+				Material = "LeafyGrass",
 				CanCollide = false,
 			})
 		end
@@ -357,24 +368,24 @@ function Props.cliff(at: Vec, length: number, depth: number, height: number, yaw
 	end)
 end
 
--- A wooden telephone pole with a crossarm and insulators. Returns the two wire points (crossarm ends).
+-- A wooden telephone pole: a square post, a crossarm with three insulator blocks, and on some a transformer box.
+-- Returns the two wire points (crossarm ends).
 function Props.pole(at: Vec, yaw: number, transformer: boolean): (Vec, Vec)
 	local F = Props.frame(at, yaw)
 	B.model("Pole", function()
-		F.column({ Name = "Post", Base = { 0, -1, 0 }, Height = 25, Diameter = 1.1, Color = "DeadWood" })
-		F.box({ Name = "Crossarm", From = { -4.5, 21.6, -0.35 }, To = { 4.5, 22.3, 0.35 }, Color = "Wood" })
-		for _, x in { -3.6, 0.8, 3.6 } do
-			F.column({ Name = "Insulator", Base = { x, 22.3, 0 }, Height = 0.8, Diameter = 0.4, Color = "Glass" })
-		end
-		F.part({
-			Name = "Brace",
-			Size = { 0.25, 3.2, 0.25 },
-			Position = { -1.2, 20.6, 0 },
-			Rotation = { 0, 0, -45 },
-			Color = "MetalDark",
+		F.box({ Name = "Post", From = { -0.5, -1, -0.5 }, To = { 0.5, 24, 0.5 }, Color = "DeadWood", Material = "Wood" })
+		F.box({
+			Name = "Crossarm",
+			From = { -4.5, 21.6, -0.4 },
+			To = { 4.5, 22.4, 0.4 },
+			Color = "Wood",
+			Material = "Wood",
 		})
+		for _, x in { -3.6, 0.9, 3.6 } do
+			F.box({ Name = "Insulator", From = { x - 0.3, 22.4, -0.3 }, To = { x + 0.3, 23.4, 0.3 }, Color = "Glass" })
+		end
 		if transformer then
-			F.column({ Name = "Transformer", Base = { 0, 16, -1.6 }, Height = 3, Diameter = 2, Color = "Metal" })
+			F.box({ Name = "Transformer", From = { -1, 16, -2.6 }, To = { 1, 19, -0.5 }, Color = "Metal" })
 		end
 	end)
 	return F.at(-3.6, 23, 0), F.at(3.6, 23, 0)
@@ -413,7 +424,13 @@ function Props.signpost(at: Vec, yaw: number, key: string)
 	local F = Props.frame(at, yaw)
 	B.model("Signpost", function()
 		for _, x in { -5, 5 } do
-			F.column({ Name = "Post", Base = { x, -0.5, 0.4 }, Height = 10.5, Diameter = 0.8, Color = "DeadWood" })
+			F.box({
+				Name = "Post",
+				From = { x - 0.4, -0.5, 0 },
+				To = { x + 0.4, 10, 0.8 },
+				Color = "DeadWood",
+				Material = "Wood",
+			})
 		end
 		F.sign({
 			Name = "Board",
@@ -431,9 +448,15 @@ end
 function Props.oldCar(at: Vec, yaw: number, color: string)
 	local F = Props.frame(at, yaw)
 	B.model("OldCar", function()
-		F.box({ Name = "Body", From = { -3.6, 1.2, -7.5 }, To = { 3.6, 3.4, 7.5 }, Color = color, Material = "Metal" })
-		F.box({ Name = "Hood", From = { -3.4, 3.4, -7.2 }, To = { 3.4, 3.8, -2.4 }, Color = color, Material = "Metal" })
-		F.box({ Name = "Cabin", From = { -3.2, 3.4, -2.4 }, To = { 3.2, 6.2, 3.2 }, Color = color, Material = "Metal" })
+		F.box({ Name = "Body", From = { -3.6, 1.2, -7.5 }, To = { 3.6, 3.4, 7.5 }, Color = color })
+		F.part({
+			Name = "Hood",
+			Shape = "Wedge",
+			Size = { 6.8, 0.8, 4.8 },
+			Position = { 0, 3.8, -4.8 },
+			Color = color,
+		})
+		F.box({ Name = "Cabin", From = { -3.2, 3.4, -2.4 }, To = { 3.2, 6.2, 3.2 }, Color = color })
 		F.box({ Name = "Windshield", From = { -2.9, 3.9, -2.55 }, To = { 2.9, 5.8, -2.35 }, Color = "Black" })
 		F.box({ Name = "RearWindow", From = { -2.9, 3.9, 3.15 }, To = { 2.9, 5.8, 3.35 }, Color = "Black" })
 		for _, x in { -3.25, 3.25 } do
@@ -450,7 +473,12 @@ function Props.oldCar(at: Vec, yaw: number, color: string)
 			F.box({ Name = "Bumper", From = { -3.8, 1.3, z - 0.3 }, To = { 3.8, 2.1, z + 0.3 }, Color = "Chrome" })
 		end
 		for _, x in { -2.4, 2.4 } do
-			F.ball({ Name = "Headlight", Center = { x, 2.7, -7.6 }, Diameter = 0.9, Color = "OffWhite" })
+			F.box({
+				Name = "Headlight",
+				From = { x - 0.6, 2.4, -7.75 },
+				To = { x + 0.6, 3.1, -7.5 },
+				Color = "HeadLight",
+			})
 		end
 		for _, x in { -3.4, 3.4 } do
 			for _, z in { -4.8, 4.8 } do
@@ -496,17 +524,24 @@ function Props.tires(at: Vec, count: number)
 	end)
 end
 
--- A street light whose arm reaches over the frame's front (-Z).
+-- A street light: a square pole, an arm reaching over the frame's front (-Z) and a lamp head with a glowing lens.
 function Props.streetLight(at: Vec, yaw: number)
 	local F = Props.frame(at, yaw)
 	B.model("StreetLight", function()
-		F.column({ Name = "Pole", Base = { 0, 0, 0 }, Height = 18, Diameter = 0.7, Color = "MetalDark" })
-		F.box({ Name = "Arm", From = { -0.25, 17.4, -5.5 }, To = { 0.25, 17.9, 0 }, Color = "MetalDark" })
-		F.box({ Name = "Head", From = { -0.9, 17, -6.8 }, To = { 0.9, 17.8, -4.6 }, Color = "MetalDark" })
+		F.box({
+			Name = "Base",
+			From = { -0.7, -0.2, -0.7 },
+			To = { 0.7, 1, 0.7 },
+			Color = "Concrete",
+			Material = "Concrete",
+		})
+		F.box({ Name = "Pole", From = { -0.35, 1, -0.35 }, To = { 0.35, 18, 0.35 }, Color = "MetalDark" })
+		F.box({ Name = "Arm", From = { -0.3, 17.3, -5.5 }, To = { 0.3, 17.9, 0.35 }, Color = "MetalDark" })
+		F.box({ Name = "Head", From = { -0.9, 17, -6.9 }, To = { 0.9, 17.8, -4.5 }, Color = "MetalDark" })
 		F.box({
 			Name = "Lamp",
-			From = { -0.7, 16.85, -6.6 },
-			To = { 0.7, 17, -4.8 },
+			From = { -0.7, 16.8, -6.7 },
+			To = { 0.7, 17, -4.7 },
 			Color = "NeonWhite",
 			Material = "Neon",
 		})

@@ -329,7 +329,7 @@ function Builder.sign(spec: PartSpec & {
 	label.Name = "Text"
 	label.BackgroundTransparency = 1
 	label.Size = roblox.UDim2.fromScale(1, 1)
-	label.FontFace = roblox.Font.fromName("Bangers")
+	label.FontFace = roblox.Font.fromName("Oswald") -- plain block letters (the blocky-parts look)
 	label.TextScaled = true
 	label.TextColor3 = color(spec.TextColor)
 	label.Text = Builder.text(spec.Key)

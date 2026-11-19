@@ -29,12 +29,14 @@ playtests. Sections with *TBD* are still open — ask before building them.
 
 ## 3. Look and feel
 
-- **Art direction:** sunny Route 66 desert countryside. Warm sand, red-orange rock mesas, sage scrub, saguaro cacti,
-  dirt roads with telephone poles and fence lines, tumbleweeds, windmills, old pickups. The town has a two-floor motel
-  with a neon sign and a pool, and a red-and-white gas station with a canopy over the pumps. Late-afternoon sun, long
-  shadows, a light dusty haze. Detailed, non-blocky Roblox 3D; maps built in code with many-part buildings and props.
-  No reference pictures yet (`docs/reference/`).
-- **Map palette:** `maps/lib/Palette.luau` (add desert sand, mesa red, sage, asphalt, motel teal/pink).
+- **Art direction (owner, 2026-11-19): the blocky-parts style** — skill `.claude/skills/roblox-blocky-parts-style`.
+  Real objects simplified into boxes, wedges and a few cylinders: readable silhouettes, wedge bevels and gable roofs,
+  medium detail (frames, trims, ledges, bumpers; nothing tiny), muted earthy colors, built-in materials (Plaster,
+  Brick, RoofShingles, Slate, WoodPlanks, Sand, Ground, LeafyGrass), Neon only on real lights. Soft hazy daylight
+  (`ClockTime` 14.5, a light blue-grey Atmosphere). Subject stays the Route 66 desert countryside: sand, mesas, sage,
+  blocky cacti, dirt roads with poles, a two-floor motel with a lit pylon sign and a pool, a gas station with a canopy.
+  Maps and cars are still built in code (`maps/layouts`, `assets/cars`). No reference pictures yet.
+- **Map palette:** `maps/lib/Palette.luau` — the muted palette from the skill (names kept, so every layout follows it).
 - **UI:** dark slate `#1E1E24` + the sunset orange accent `#FF7A1A` (`Ui/Kit.Colors`) — it fits the desert, kept.
 - **Audio:** free Creator Store only (`Config/Audio.luau`): country / desert-rock music, engine loop, boost, crash,
   wreck explosion, barrel pickup, cash register on sale.
