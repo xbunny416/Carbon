@@ -5,10 +5,16 @@
 	  VFX        — particle / beam / trail templates (add builders here; never an emitter with the default texture)
 	  Sounds     — one Sound per Config.Audio slot with an id (Music/<name>, Sfx/<name>)
 	  Animations — one Animation per Config.Animations.AssetIds entry
-	  Models     — props, weapons, accessories (add builders here)
+	  Models     — props, weapons, accessories (add builders here); Models/Cars: one drivable car per Config.Cars.Models
+	               entry, built by assets/cars/<Name>.luau
 ]]
 local Shim = require("../tests/roblox")
 local roblox = require("@lune/roblox")
+
+-- Car builders by Config.Cars.Models name (assets/cars).
+local CAR_BUILDERS: { [string]: any } = {
+	RustyPickup = require("./cars/RustyPickup"),
+}
 
 local Assets = {}
 
@@ -61,6 +67,19 @@ local function animations(config: any, parent: any)
 	end
 end
 
+local function cars(config: any, parent: any)
+	local root = folder("Cars", parent)
+	local names = {}
+	for name in config.Cars.Models do
+		table.insert(names, name)
+	end
+	table.sort(names)
+	for _, name in names do
+		local builder = assert(CAR_BUILDERS[name], `no car builder for Config.Cars.Models.{name} (assets/cars)`)
+		builder.build(config.Controls.Prompts).Parent = root
+	end
+end
+
 -- Builds the Assets folder.
 function Assets.build(): any
 	local Config = Shim.require(Shim.game.ReplicatedStorage.Shared.Config)
@@ -68,7 +87,7 @@ function Assets.build(): any
 	folder("VFX", root)
 	sounds(Config, root)
 	animations(Config, root)
-	folder("Models", root)
+	cars(Config, folder("Models", root))
 	return root
 end
 

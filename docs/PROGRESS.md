@@ -8,3 +8,4 @@ One row per merged PR, newest last. Add a row with every PR (see [CLAUDE.md](../
 | 2026-11-19 | Removed the template's floating starter lobby (layout, generated model, Rojo entry, `Config.World.LobbyOrigin`, its spec); the map generator stays for the real maps | #2 |
 | 2026-11-19 | Kickoff: CarOff bible (pitch, loop, look, controls, systems, economy) and the approved 3-phase build order | #3 |
 | 2026-11-19 | 1.1 Desert map: 2048 square on the ground (town + 3 zone rings + edge cliffs), detailed motel, gas station, garage, water tower, roads, 94 oil spots, 12 car spawn bays, 6 pump bays, desert lighting, MapService hides markers | #4 |
+| 2026-11-19 | 1.2 Starter car: Rusty Pickup built in code (sprung 4-wheel drive, front steering), spawns in a free bay, Drive prompt, Get out, Flip, Car menu with Reset car; controls Flip (R / Y) + Interact | #5 |

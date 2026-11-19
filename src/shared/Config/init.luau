@@ -15,6 +15,7 @@ local Config = {
 	Monetization = require(script.Monetization),
 	Controls = require(script.Controls),
 	World = require(script.World),
+	Cars = require(script.Cars),
 	Audio = require(script.Audio),
 	Animations = require(script.Animations),
 	Dev = require(script.Dev),

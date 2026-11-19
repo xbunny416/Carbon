@@ -62,4 +62,9 @@ return {
 	NeonOrange = "#FF8A3D",
 	NeonYellow = "#FFE15A",
 	NeonWhite = "#FFF4DE",
+	-- Cars
+	PickupPaint = "#6F9C95",
+	PickupPaintDark = "#557A74",
+	BedLiner = "#3A3936",
+	TailLight = "#E0302A",
 }

@@ -16,8 +16,9 @@ and every call made where the bible is silent — read the matching entry before
 - **Built (from the template):** toolchain, CI + auto-merge, Lune specs, strict type-check, Loader, Config, Net,
   player data (ProfileStore), localization, analytics, settings, policy checks, UI Kit, menu, input (keyboard /
   gamepad / touch), notices, loading screen, map + asset generators, launch check, store-art renderer.
-- **Built (CarOff):** 1.1 desert map (town + desert, markers for cars, pumps and oil).
-- **Next:** 1.2 starter car (bible §5.2).
+- **Built (CarOff):** 1.1 desert map (town + desert, markers for cars, pumps and oil); 1.2 starter car (Rusty Pickup,
+  drive / get out / flip / reset).
+- **Next:** 1.3 fuel (bible §5.3).
 
 ## Who the owner is and how they like to work
 

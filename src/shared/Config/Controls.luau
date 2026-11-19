@@ -31,15 +31,16 @@ type ControlsConfig = {
 }
 
 local Controls: ControlsConfig = {
-	-- Every action the game listens for. Each one needs a keyboard and a gamepad binding.
-	Actions = { "Action", "Interact", "Menu" },
+	-- Every action the game listens for. Each one needs a keyboard and a gamepad binding. Driving itself uses
+	-- Roblox's vehicle controls (W A S D / arrows, gamepad triggers + left stick, touch thumbstick).
+	Actions = { "Flip", "Interact", "Menu" },
 	Keyboard = {
-		Action = { "MouseButton1" },
-		Interact = { "E" },
+		Flip = { "R" }, -- turn an upside-down car back over
+		Interact = { "E" }, -- walk-up prompts; gets you out of your car while driving
 		Menu = { "M" },
 	},
 	Gamepad = {
-		Action = { "ButtonX" },
+		Flip = { "ButtonY" },
 		Interact = { "ButtonB" },
 		-- Not Select / Start: Roblox keeps those for its own menu and UI navigation.
 		Menu = { "DPadUp" },
@@ -49,10 +50,12 @@ local Controls: ControlsConfig = {
 		ButtonSize = 0.17, -- base button size as a fraction of the screen's shorter side...
 		MaxButtonSize = 104, -- ...capped in pixels so tablet buttons stay thumb-sized
 		Gap = 0.15, -- minimum space between buttons, in base button sizes
-		-- Bottom-right arc around Roblox's jump button. Settings > Button Layout picks one by name.
+		-- Bottom-right arc around Roblox's jump button. Settings > Button Layout picks one by name. CarController
+		-- shows Interact (labelled Get out) only while you drive and Flip only while your car is upside down.
 		Layouts = {
 			Default = {
-				{ Action = "Action", Angle = 180, Distance = 0.2, Scale = 1.15 },
+				{ Action = "Interact", Angle = 180, Distance = 0.2, Scale = 1.15 },
+				{ Action = "Flip", Angle = 95, Distance = 0.25, Scale = 1 },
 			},
 		},
 	},

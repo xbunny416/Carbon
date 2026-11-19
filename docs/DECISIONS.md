@@ -77,3 +77,19 @@ Claude's calls (all *(tune)* in the bible, change freely):
   (`default.project.json`). Streaming min 256 / target 1024.
 - Map randomness comes from a seeded generator (`maps/lib/Rng.luau`, seeds in the layouts): change the seed for a
   different scatter.
+
+## 1.2 Starter car (2026-11-19, Claude's calls)
+
+- Physics car, not a scripted one: VehicleSeat for the inputs (Roblox's own vehicle controls work on keyboard,
+  gamepad and touch with no extra code) and constraints for the wheels — sliding struts with springs, a motor hinge
+  on every wheel (4-wheel drive is the most stable on sand and ramps), servo steering on the front ones. The body is
+  massless and welded to a dense chassis, so the weight sits low and the pickup doesn't roll over easily.
+- The driver's client runs the motors (it owns the car while driving, so there's no input lag); the server sets
+  spring and motor strengths from the car's mass and owns a parked car. Server-side speed checks come with the
+  hardening work (Known limits).
+- Only the owner can drive their car; nobody else sees its prompt. No passengers yet.
+- Getting out puts you on the driver's (left) side. Jumping is off while driving.
+- The template's `Action` (left click / X) is gone: nothing in CarOff used it. Flip is R / Y; Boost comes in 1.6.
+- Flip works from the seat or standing within 30 studs, only when the car is upside down and stopped, after 1 s.
+- Reset car lives on a Car menu screen (the first menu button), every 10 s at most, and puts you straight into the
+  new car. Cars stay where they are when you die; leaving the game removes your car.

@@ -36,6 +36,13 @@ local Definitions: { [string]: Definition } = {
 			Guard.anyOf(Guard.boolean, Guard.number, Guard.string(32)),
 		},
 	},
+
+	-- Client -> server: get out of the car you're driving. ()
+	ExitCar = { Kind = "Event", Direction = "ToServer", Args = {}, RateLimit = { Rate = 2, Burst = 3 } },
+	-- Client -> server: turn your upside-down car back over (it must have stopped; you drive it or stand by it). ()
+	FlipCar = { Kind = "Event", Direction = "ToServer", Args = {}, RateLimit = { Rate = 1, Burst = 2 } },
+	-- Client -> server: send your car back to town, in a free bay, with you in it (Config.Cars.ResetCooldown). ()
+	ResetCar = { Kind = "Event", Direction = "ToServer", Args = {}, RateLimit = { Rate = 0.5, Burst = 2 } },
 }
 
 return Definitions
