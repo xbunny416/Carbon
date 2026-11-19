@@ -1,0 +1,37 @@
+<roblox version="4">
+  <Item class="Folder" referent="0">
+    <Properties>
+      <string name="Name">Assets</string>
+    </Properties>
+    <Item class="Folder" referent="1">
+      <Properties>
+        <string name="Name">VFX</string>
+      </Properties>
+    </Item>
+    <Item class="Folder" referent="2">
+      <Properties>
+        <string name="Name">Sounds</string>
+      </Properties>
+      <Item class="Folder" referent="3">
+        <Properties>
+          <string name="Name">Music</string>
+        </Properties>
+      </Item>
+      <Item class="Folder" referent="4">
+        <Properties>
+          <string name="Name">Sfx</string>
+        </Properties>
+      </Item>
+    </Item>
+    <Item class="Folder" referent="5">
+      <Properties>
+        <string name="Name">Animations</string>
+      </Properties>
+    </Item>
+    <Item class="Folder" referent="6">
+      <Properties>
+        <string name="Name">Models</string>
+      </Properties>
+    </Item>
+  </Item>
+</roblox>

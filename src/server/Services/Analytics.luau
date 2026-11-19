@@ -1,0 +1,100 @@
+--!strict
+--[[
+	Analytics — failure-safe wrapper over AnalyticsService. Every tracked event in the game goes through here so
+	names stay consistent (tutorial steps, purchases, currency earned / spent, and the game's own events: add a named
+	helper per event the bible lists, so call sites cannot drift).
+]]
+local AnalyticsService = game:GetService("AnalyticsService")
+
+local CURRENCY = "Coins"
+
+local FIELD_KEYS = {
+	Enum.AnalyticsCustomFieldKeys.CustomField01.Name,
+	Enum.AnalyticsCustomFieldKeys.CustomField02.Name,
+	Enum.AnalyticsCustomFieldKeys.CustomField03.Name,
+}
+
+local Analytics = {
+	Priority = -100, -- other services may log during their own Init
+
+	-- Enum.AnalyticsEconomyTransactionType names.
+	Transaction = {
+		IAP = Enum.AnalyticsEconomyTransactionType.IAP.Name,
+		Shop = Enum.AnalyticsEconomyTransactionType.Shop.Name,
+		Gameplay = Enum.AnalyticsEconomyTransactionType.Gameplay.Name,
+		TimedReward = Enum.AnalyticsEconomyTransactionType.TimedReward.Name,
+		Onboarding = Enum.AnalyticsEconomyTransactionType.Onboarding.Name,
+	},
+}
+
+-- Up to three custom field values (e.g. { modeId, mapId }).
+local function customFields(values: { string }?): { [string]: string }?
+	if values == nil then
+		return nil
+	end
+	local fields: { [string]: string } = {}
+	for index, value in values do
+		local key = FIELD_KEYS[index]
+		if key then
+			fields[key] = value
+		end
+	end
+	return fields
+end
+
+local function safely(label: string, callback: () -> ())
+	xpcall(callback, function(err: unknown)
+		warn(`[Analytics] {label} failed: {err}`)
+	end)
+end
+
+-- Coins earned. `sku` names the source (e.g. "QuestReward", "DailyLogin", "CoinPackM").
+function Analytics.coinsEarned(player: Player, amount: number, balance: number, transaction: string, sku: string)
+	safely("coinsEarned", function()
+		AnalyticsService:LogEconomyEvent(
+			player,
+			Enum.AnalyticsEconomyFlowType.Source,
+			CURRENCY,
+			amount,
+			balance,
+			transaction,
+			sku
+		)
+	end)
+end
+
+-- Coins spent. `sku` names the item bought (e.g. "Shop.RedHat").
+function Analytics.coinsSpent(player: Player, amount: number, balance: number, transaction: string, sku: string)
+	safely("coinsSpent", function()
+		AnalyticsService:LogEconomyEvent(
+			player,
+			Enum.AnalyticsEconomyFlowType.Sink,
+			CURRENCY,
+			amount,
+			balance,
+			transaction,
+			sku
+		)
+	end)
+end
+
+-- Tutorial / onboarding funnel step (1-based, in order).
+function Analytics.onboardingStep(player: Player, step: number, stepName: string)
+	safely("onboardingStep", function()
+		AnalyticsService:LogOnboardingFunnelStepEvent(player, step, stepName)
+	end)
+end
+
+-- Generic custom event with an optional value and up to three custom fields.
+function Analytics.custom(player: Player, eventName: string, value: number?, fields: { string }?)
+	safely(eventName, function()
+		AnalyticsService:LogCustomEvent(player, eventName, value or 1, customFields(fields))
+	end)
+end
+
+-- Named events, so call sites cannot drift.
+function Analytics.robuxPurchase(player: Player, kind: string, key: string, robux: number)
+	Analytics.custom(player, "RobuxPurchase", robux, { kind, key })
+end
+
+return Analytics
