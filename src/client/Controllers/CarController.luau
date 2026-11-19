@@ -115,7 +115,9 @@ local function drive(car: Model)
 		return
 	end
 	local forward = chassis.AssemblyLinearVelocity:Dot(chassis.CFrame.LookVector)
-	local target, mode = CarRules.drive(seat.ThrottleFloat, forward, stats)
+	-- Out of fuel: no throttle (the server owns a stalled car anyway, so the motors just hold it).
+	local throttle = if car:GetAttribute("Stalled") == true then 0 else seat.ThrottleFloat
+	local target, mode = CarRules.drive(throttle, forward, stats)
 	local torque = car:GetAttribute(`{mode}Torque`)
 	local spin = CarRules.wheelSpin(target, radius)
 	local angle = CarRules.steerAngle(seat.SteerFloat, forward, stats)

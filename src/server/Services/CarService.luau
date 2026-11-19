@@ -9,7 +9,10 @@
 	  - The Drive prompt seats the owner (nobody else); the driver's client then owns the car's physics and runs the
 	    motors. A parked car belongs to the server, its motors holding it like a parking brake.
 	  - ExitCar puts the driver down beside the car, FlipCar rights an upside-down car that has stopped (after
-	    Config.Cars.FlipDelay), ResetCar sends the car back to a free bay with its owner in it.
+	    Config.Cars.FlipDelay), ResetCar sends the car back to a free bay with its owner in it, TowCar does the same
+	    for a car that ran out of fuel (no cooldown).
+	  - Every car carries its tank in the Fuel / FuelMax attributes and Stalled (FuelService burns and refills it).
+	    A stalled car belongs to the server, so its driver's client can't run the motors.
 ]]
 local CollectionService = game:GetService("CollectionService")
 local Players = game:GetService("Players")
@@ -212,6 +215,9 @@ local function spawnCar(player: Player): Model?
 	local car = template:Clone()
 	car.Name = `Car{player.UserId}`
 	car:SetAttribute("OwnerUserId", player.UserId)
+	car:SetAttribute("Fuel", stats.Tank)
+	car:SetAttribute("FuelMax", stats.Tank)
+	car:SetAttribute("Stalled", false)
 	car:AddTag("Car")
 	-- The bay's floor, the car's ride height (its chassis center above the ground when built) and a small drop.
 	local primary = car.PrimaryPart :: BasePart
@@ -237,7 +243,7 @@ local function spawnCar(player: Player): Model?
 				end
 				return
 			end
-			setOwner(car, if occupant then player else nil)
+			setOwner(car, if occupant and car:GetAttribute("Stalled") ~= true then player else nil)
 		end)
 	end
 	local prompt = car:FindFirstChild("DriverPrompt", true)
@@ -296,6 +302,16 @@ local function onFlip(player: Player)
 	end)
 end
 
+-- A new car in a free bay (full tank) with its owner in the driver's seat.
+local function sendHome(player: Player)
+	local car = spawnCar(player)
+	local character = player.Character
+	if car and character and humanoidOf(player) then
+		character:PivotTo(exitPoint(car))
+		sitDriver(player, car)
+	end
+end
+
 local function onReset(player: Player)
 	local now = os.clock()
 	local wait = Config.Cars.ResetCooldown - (now - (lastReset[player] or -math.huge))
@@ -304,13 +320,45 @@ local function onReset(player: Player)
 		return
 	end
 	lastReset[player] = now
-	local car = spawnCar(player)
-	local character = player.Character
-	if car and character and humanoidOf(player) then
-		character:PivotTo(exitPoint(car))
-		sitDriver(player, car)
-	end
+	sendHome(player)
 	Net.fireClient("Notify", player, "Car.ResetDone")
+end
+
+local function onTow(player: Player)
+	local car = CarService.get(player)
+	if car and car:GetAttribute("Stalled") == true then
+		sendHome(player)
+		Net.fireClient("Notify", player, "Fuel.Towed")
+	end
+end
+
+-- Every player's car that still exists.
+function CarService.all(): { [Player]: Model }
+	local live: { [Player]: Model } = {}
+	for player in cars do
+		local car = CarService.get(player)
+		if car then
+			live[player] = car
+		end
+	end
+	return live
+end
+
+--[[
+	Stalls a car (out of fuel: the server takes its physics, so the motors just hold it) or starts it again (the
+	driver, if seated, gets the physics back).
+]]
+function CarService.setStalled(player: Player, car: Model, stalled: boolean)
+	car:SetAttribute("Stalled", stalled)
+	setOwner(car, if not stalled and CarService.isDriving(player) then player else nil)
+	if stalled then
+		for _, instance in car:GetDescendants() do
+			if instance:IsA("HingeConstraint") and instance.Name == "Motor" then
+				instance.AngularVelocity = 0
+				instance.MotorMaxTorque = tonumber(car:GetAttribute("CoastTorque")) or 0
+			end
+		end
+	end
 end
 
 function CarService.Init(_self: any)
@@ -331,6 +379,7 @@ function CarService.Init(_self: any)
 	end)
 	Net.onServerEvent("FlipCar", onFlip)
 	Net.onServerEvent("ResetCar", onReset)
+	Net.onServerEvent("TowCar", onTow)
 
 	local function onPlayer(player: Player)
 		player.CharacterAdded:Connect(function()

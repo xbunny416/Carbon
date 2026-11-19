@@ -119,3 +119,14 @@ Claude's calls (all *(tune)* in the bible, change freely):
 - Kept on purpose: cylinders for wheels, tanks, the water tower and drums (the skill allows cylinders); the lit
   MOTEL / VACANCY text and real lamps (deliberate lights). `LightingStyle = Realistic` stays (Roblox replaced the
   skill's `Lighting.Technology`). Mesas and cliffs were already blocky and only changed color.
+
+## 1.3 Fuel (2026-11-19, Claude's calls)
+
+- The server measures the burn from the chassis position every 0.1 s while the owner sits in the driver seat
+  (sideways distance only, capped at 120 studs/s), so clients can't fake a full tank. The tank is the car's `Fuel`
+  attribute.
+- Refill needs the car (almost) stopped within 7 studs of a `PumpBay` marker; it's free and works with or without
+  the driver in the seat. Selling (1.5) will use the same bays.
+- Stalling hands the car's physics to the server (its motors switch to coasting), so a client can't keep driving
+  on an empty tank. Tow home has no cooldown (unlike Reset car) and only works for a stalled car.
+- The low-fuel line is 20 % of the tank; the empty-tank barrel rule reads a `Cargo` attribute that 1.4 will fill.

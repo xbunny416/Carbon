@@ -111,10 +111,15 @@ Driving uses Roblox's own vehicle controls (VehicleSeat), so it works on every d
 
 ### 5.3 Fuel
 
-- Tank 100 (starter). Driving burns **1 fuel per 25 studs** (range ~2,500 studs), boosting 3×. *(tune)*
-- Tank empty → one cargo barrel is burned automatically for **+25 fuel**, with a notice.
-- Tank empty and no cargo → the car **stalls**; a "Tow home" button respawns it in town (nothing to lose).
-- Refill is free at a gas station pump bay (25 fuel/s).
+- Tank 100 (starter, `Config.Cars.Models[...].Tank`). Driving burns **1 fuel per 25 studs** (range ~2,500 studs),
+  boosting 3× (from 1.6). *(tune)* The server measures the distance the car really moved while its owner drives
+  (capped at 120 studs/s, so a flip or teleport doesn't drain it) — `Config.Fuel`, `Services/FuelService`.
+- Tank empty → one cargo barrel is burned automatically for **+25 fuel**, with a notice (works once cargo exists,
+  1.4).
+- Tank empty and no cargo → the car **stalls** (the server takes its physics, so it rolls to a stop); a **Tow home**
+  button (sitting in it or within 30 studs) sends it back to a free bay with you in it, tank full (nothing to lose).
+- Refill is free while the car stands (≤ 3 studs/s) within 7 studs of a gas station pump bay: 25 fuel/s.
+- **Gauge:** a FUEL bar at the bottom while you drive; turns red below 20 %, with a "Low fuel" notice.
 
 ### 5.4 Oil barrels
 

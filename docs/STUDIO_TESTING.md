@@ -61,6 +61,15 @@ feature; after each playtest, a dated line with the owner's notes and what was f
 - If something still flickers, say where (or send a screenshot): `tests/specs/maps.spec.luau` checks every map top
   surface, so it's something it doesn't cover yet (a side face or a round part).
 
+## Fuel (1.3)
+
+- Drive: the FUEL bar shows at the bottom and drains as you drive (~2,500 studs on a full tank; standing still
+  burns nothing). Below a fifth it turns red and a "Low fuel" notice shows once.
+- Drive into a gas station pump bay and stop: the bar fills (~4 s from empty).
+- Run it dry far out: "Out of fuel" notice, the car rolls to a stop and won't drive; a **Tow home** button shows
+  (also when standing next to it). Press it: new car in a motel bay with you in it, full tank.
+- Quick test: set `Config.Fuel.BurnPerStud` to 1 (empty in 100 studs), play, put it back after.
+
 ## Blocky-parts look (2026-11-19)
 
 - Reconnect Rojo (Lighting changed too: if it still looks orange, check `ClockTime` 14.5 and the Atmosphere color).

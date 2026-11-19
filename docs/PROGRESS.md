@@ -12,3 +12,4 @@ One row per merged PR, newest last. Add a row with every PR (see [CLAUDE.md](../
 | 2026-11-19 | Fix: flickering ground — map raised 1 stud above a leftover Studio Baseplate, road tracks inlaid, overlays 0.2+ apart, cliff tops never level, stray spawns off, flicker spec | #6 |
 | 2026-11-19 | Skill: `roblox-blocky-parts-style` (owner's blocky-realism style guide for part-built models) | #7 |
 | 2026-11-19 | Look: blocky-parts style — muted palette, town buildings and props rebuilt in blocks, Rusty Pickup restyled, soft hazy lighting | #8 |
+| 2026-11-19 | 1.3 Fuel: server-measured burn, free refill at the pumps, low-fuel notice, stall + Tow home, fuel gauge, barrel-burn rule ready for 1.4 | #9 |

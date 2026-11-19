@@ -16,6 +16,7 @@ local Config = {
 	Controls = require(script.Controls),
 	World = require(script.World),
 	Cars = require(script.Cars),
+	Fuel = require(script.Fuel),
 	Audio = require(script.Audio),
 	Animations = require(script.Animations),
 	Dev = require(script.Dev),
