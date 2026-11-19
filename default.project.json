@@ -1,0 +1,55 @@
+{
+	"name": "Carbon",
+	"tree": {
+		"$className": "DataModel",
+		"ReplicatedStorage": {
+			"Shared": {
+				"$path": "src/shared"
+			},
+			"Assets": {
+				"$path": "assets/generated/Assets.rbxmx"
+			}
+		},
+		"ReplicatedFirst": {
+			"$path": "src/first"
+		},
+		"ServerScriptService": {
+			"Server": {
+				"$path": "src/server"
+			}
+		},
+		"StarterPlayer": {
+			"StarterPlayerScripts": {
+				"Client": {
+					"$path": "src/client"
+				}
+			}
+		},
+		"TextChatService": {
+			"$properties": {
+				"ChatVersion": "TextChatService"
+			}
+		},
+		"Lighting": {
+			"$properties": {
+				"LightingStyle": "Realistic",
+				"GlobalShadows": true
+			}
+		},
+		"LocalizationService": {
+			"GameStrings": {
+				"$path": "src/localization/GameStrings.csv"
+			}
+		},
+		"Workspace": {
+			"$properties": {
+				"StreamingEnabled": true,
+				"StreamingMinRadius": 128,
+				"StreamingTargetRadius": 256
+			},
+			"Lobby": {
+				"$path": "maps/generated/Lobby.rbxmx"
+			}
+		}
+	}
+}
