@@ -25,6 +25,10 @@ local SEED = 20261119
 local ROAD = 12 -- half width of the dirt roads from the gates
 local RING_ROAD = 10 -- half width of the ring road
 local CLIFF = 125 -- the edge cliffs (and their scree) reach this far in from the border; nothing else goes there
+-- Road tops sit this far above the ground, and the tire tracks are strips laid beside the road strips (not on top),
+-- so no two visible surfaces share a height closer than 0.2 studs (closer ones flicker from a distance).
+local ROAD_TOP = 0.2
+local TRACKS = { -ROAD, -5.7, -3.3, 3.3, 5.7, ROAD } -- strip edges across a road: road, track, road, track, road
 
 -- How each zone looks: ground, how many of each prop, mesa sizes (radius, height ranges).
 local LOOKS: { [string]: any } = {
@@ -180,19 +184,13 @@ function Layout.build(map: any): any
 				for _, yaw in ROAD_YAWS do
 					local F = Props.frame({ 0, 0, 0 }, yaw)
 					for _, piece in { { town, ring - RING_ROAD }, { ring + RING_ROAD, half - 40 } } do
-						F.box({
-							Name = "Road",
-							From = { -ROAD, -0.5, -piece[2] },
-							To = { ROAD, 0.15, -piece[1] },
-							Color = "DirtRoad",
-							Material = "Ground",
-						})
-						for _, x in { -4.5, 4.5 } do
+						for strip = 1, #TRACKS - 1 do
+							local track = strip % 2 == 0
 							F.box({
-								Name = "Rut",
-								From = { x - 1.2, 0.1, -piece[2] },
-								To = { x + 1.2, 0.2, -piece[1] },
-								Color = "DirtRut",
+								Name = if track then "Rut" else "Road",
+								From = { TRACKS[strip], -0.5, -piece[2] },
+								To = { TRACKS[strip + 1], ROAD_TOP, -piece[1] },
+								Color = if track then "DirtRut" else "DirtRoad",
 								Material = "Ground",
 							})
 						end
@@ -204,7 +202,7 @@ function Layout.build(map: any): any
 					F.box({
 						Name = "RingRoad",
 						From = { -span, -0.5, -ring - RING_ROAD },
-						To = { span, 0.15, -ring + RING_ROAD },
+						To = { span, ROAD_TOP, -ring + RING_ROAD },
 						Color = "DirtRoad",
 						Material = "Ground",
 					})
@@ -265,7 +263,7 @@ function Layout.build(map: any): any
 								B.marker("OilSpot", `OilSpot{index}`, { x, 0, z }, { Zone = zone.Id, Index = index })
 								Props.frame({ x, 0, z }, 0).column({
 									Name = "OilStain",
-									Base = { 0, -0.45, 0 },
+									Base = { 0, -0.3, 0 },
 									Height = 0.5,
 									Diameter = rng:range(9, 13),
 									Color = "Black",
@@ -367,13 +365,17 @@ function Layout.build(map: any): any
 			end)
 
 			B.model("Cliffs", function()
-				for _, yaw in ROAD_YAWS do
+				-- Neighbouring cliffs get height offsets 0.25+ apart so their tops never line up (Props.cliff).
+				for side, yaw in ROAD_YAWS do
 					local along = -half - 20
+					local odd = false
 					while along < half + 20 do
 						local length = rng:range(70, 120)
 						local at = Props.frame({ 0, 0, 0 }, yaw).at(along + length / 2, 0, -half)
+						local offset = (if odd then 0.5 else 0) + (side % 2) * 0.25
 						local cliff =
-							Props.cliff(at, length + 16, rng:range(45, 75), rng:range(70, 150), yaw + 180, rng)
+							Props.cliff(at, length + 16, rng:range(45, 75), rng:range(70, 150), yaw + 180, rng, offset)
+						odd = not odd
 						cliff.LevelOfDetail = B.Enum.ModelLevelOfDetail.StreamingMesh
 						along += length
 					end

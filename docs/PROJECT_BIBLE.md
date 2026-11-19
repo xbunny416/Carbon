@@ -59,8 +59,8 @@ Driving uses Roblox's own vehicle controls (VehicleSeat), so it works on every d
 
 ### 5.1 Map (`maps/layouts/Desert.luau`)
 
-- One huge square, **2048 × 2048 studs**, ground top at Y = 0 (`Config.World.MapOrigin = {0, 0, 0}`), on the ground —
-  not floating. Two parts: the **spawn town** in the middle and the **desert arena** all around it.
+- One huge square, **2048 × 2048 studs**, ground top at Y = 1 (`Config.World.Map.Origin = {0, 1, 0}`, so a leftover
+  Studio Baseplate hides under it), on the ground — not floating. Two parts: the **spawn town** in the middle and the **desert arena** all around it.
 - **Zones** by distance from the center (square rings, `max(|x|, |z|)`):
 
 | Zone | Distance | Oil spots | Barrels per spot | Respawn |
