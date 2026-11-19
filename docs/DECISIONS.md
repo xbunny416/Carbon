@@ -104,3 +104,18 @@ Claude's calls (all *(tune)* in the bible, change freely):
   beside the road strips (flat for cars), every overlay is at least 0.1–0.2 studs above what it covers, neighbouring
   cliffs get height offsets 0.25+ apart. A map spec fails if two differently colored top surfaces overlap within
   0.06 studs.
+
+## Look: blocky-parts style (2026-11-19, owner)
+
+- The owner added the `roblox-blocky-parts-style` skill and chose it as CarOff's look (replacing the "detailed,
+  non-blocky" bright Route 66 look), asking to redo the town and the car.
+- Done (Claude's calls on how): the palette keeps its color names with the skill's muted values (so the desert
+  follows too); the town buildings were rebuilt with the same footprints (bays, pumps and spawns unchanged): brick
+  bases, framed windows with ledges, gable roofs on the office, garage and trailers, a beveled motel fascia, a solid
+  half-wall balcony railing, a wedge awning; neon tubes, hoses, door knobs and similar tiny bits removed. Props
+  (saguaros, barrel cacti, bushes, poles, street lights, old cars, signposts) became blocks. Sign text uses the plain
+  Oswald font. The Rusty Pickup follows the skill's vehicle recipe (≈50 body parts). Lighting: soft hazy daylight,
+  `ClockTime` 14.5, light blue-grey Atmosphere, slightly desaturated.
+- Kept on purpose: cylinders for wheels, tanks, the water tower and drums (the skill allows cylinders); the lit
+  MOTEL / VACANCY text and real lamps (deliberate lights). `LightingStyle = Realistic` stays (Roblox replaced the
+  skill's `Lighting.Technology`). Mesas and cliffs were already blocky and only changed color.

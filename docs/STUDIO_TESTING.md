@@ -61,6 +61,16 @@ feature; after each playtest, a dated line with the owner's notes and what was f
 - If something still flickers, say where (or send a screenshot): `tests/specs/maps.spec.luau` checks every map top
   surface, so it's something it doesn't cover yet (a side face or a round part).
 
+## Blocky-parts look (2026-11-19)
+
+- Reconnect Rojo (Lighting changed too: if it still looks orange, check `ClockTime` 14.5 and the Atmosphere color).
+- Town: muted colors, brick bases, framed windows, gable roofs on the office / garage / trailers, solid balcony
+  railing, wedge awning at the shop; no neon except lamps, canopy lights, the vending front and the motel sign text.
+  Signs readable (plain block letters). Nothing flickers (the flicker spec still runs).
+- Desert: blocky saguaros, barrel cacti and leafy bushes, square poles; colors softer.
+- Car: muted sage Rusty Pickup with a sloped windshield, fender flares, chunky bumpers. Drive it again: same feel
+  (only the body changed).
+
 ## Playtests
 
 - *(none yet)*

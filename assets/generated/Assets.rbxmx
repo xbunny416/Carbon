@@ -63,7 +63,7 @@
                 <R22>1</R22>
               </CoordinateFrame>
               <bool name="CastShadow">true</bool>
-              <Color3uint8 name="Color3uint8">5593438</Color3uint8>
+              <Color3uint8 name="Color3uint8">5922147</Color3uint8>
               <PhysicalProperties name="CustomPhysicalProperties">
                 <CustomPhysics>true</CustomPhysics>
                 <Density>3</Density>
@@ -88,7 +88,7 @@
               </Properties>
               <Item class="WeldConstraint" referent="11">
                 <Properties>
-                  <string name="Name">FrontBody</string>
+                  <string name="Name">LowerBody</string>
                   <Ref name="Part0Internal">9</Ref>
                   <Ref name="Part1Internal">12</Ref>
                 </Properties>
@@ -102,7 +102,7 @@
               </Item>
               <Item class="WeldConstraint" referent="15">
                 <Properties>
-                  <string name="Name">HoodRidge</string>
+                  <string name="Name">HoodNose</string>
                   <Ref name="Part0Internal">9</Ref>
                   <Ref name="Part1Internal">16</Ref>
                 </Properties>
@@ -116,112 +116,112 @@
               </Item>
               <Item class="WeldConstraint" referent="19">
                 <Properties>
-                  <string name="Name">GrilleBar</string>
+                  <string name="Name">Headlight</string>
                   <Ref name="Part0Internal">9</Ref>
                   <Ref name="Part1Internal">20</Ref>
                 </Properties>
               </Item>
               <Item class="WeldConstraint" referent="21">
                 <Properties>
-                  <string name="Name">GrilleBar</string>
+                  <string name="Name">Headlight</string>
                   <Ref name="Part0Internal">9</Ref>
                   <Ref name="Part1Internal">22</Ref>
                 </Properties>
               </Item>
               <Item class="WeldConstraint" referent="23">
                 <Properties>
-                  <string name="Name">GrilleBar</string>
+                  <string name="Name">FrontBumper</string>
                   <Ref name="Part0Internal">9</Ref>
                   <Ref name="Part1Internal">24</Ref>
                 </Properties>
               </Item>
               <Item class="WeldConstraint" referent="25">
                 <Properties>
-                  <string name="Name">Headlight</string>
+                  <string name="Name">Fender</string>
                   <Ref name="Part0Internal">9</Ref>
                   <Ref name="Part1Internal">26</Ref>
                 </Properties>
               </Item>
               <Item class="WeldConstraint" referent="27">
                 <Properties>
-                  <string name="Name">Headlight</string>
+                  <string name="Name">FenderEnd</string>
                   <Ref name="Part0Internal">9</Ref>
                   <Ref name="Part1Internal">28</Ref>
                 </Properties>
               </Item>
               <Item class="WeldConstraint" referent="29">
                 <Properties>
-                  <string name="Name">FrontBumper</string>
+                  <string name="Name">FenderEnd</string>
                   <Ref name="Part0Internal">9</Ref>
                   <Ref name="Part1Internal">30</Ref>
                 </Properties>
               </Item>
               <Item class="WeldConstraint" referent="31">
                 <Properties>
-                  <string name="Name">CabLower</string>
+                  <string name="Name">Fender</string>
                   <Ref name="Part0Internal">9</Ref>
                   <Ref name="Part1Internal">32</Ref>
                 </Properties>
               </Item>
               <Item class="WeldConstraint" referent="33">
                 <Properties>
-                  <string name="Name">DoorSeam</string>
+                  <string name="Name">FenderEnd</string>
                   <Ref name="Part0Internal">9</Ref>
                   <Ref name="Part1Internal">34</Ref>
                 </Properties>
               </Item>
               <Item class="WeldConstraint" referent="35">
                 <Properties>
-                  <string name="Name">DoorSeam</string>
+                  <string name="Name">FenderEnd</string>
                   <Ref name="Part0Internal">9</Ref>
                   <Ref name="Part1Internal">36</Ref>
                 </Properties>
               </Item>
               <Item class="WeldConstraint" referent="37">
                 <Properties>
-                  <string name="Name">DoorHandle</string>
+                  <string name="Name">RunningBoard</string>
                   <Ref name="Part0Internal">9</Ref>
                   <Ref name="Part1Internal">38</Ref>
                 </Properties>
               </Item>
               <Item class="WeldConstraint" referent="39">
                 <Properties>
-                  <string name="Name">RunningBoard</string>
+                  <string name="Name">DoorLine</string>
                   <Ref name="Part0Internal">9</Ref>
                   <Ref name="Part1Internal">40</Ref>
                 </Properties>
               </Item>
               <Item class="WeldConstraint" referent="41">
                 <Properties>
-                  <string name="Name">APillar</string>
+                  <string name="Name">Fender</string>
                   <Ref name="Part0Internal">9</Ref>
                   <Ref name="Part1Internal">42</Ref>
                 </Properties>
               </Item>
               <Item class="WeldConstraint" referent="43">
                 <Properties>
-                  <string name="Name">BPillar</string>
+                  <string name="Name">FenderEnd</string>
                   <Ref name="Part0Internal">9</Ref>
                   <Ref name="Part1Internal">44</Ref>
                 </Properties>
               </Item>
               <Item class="WeldConstraint" referent="45">
                 <Properties>
-                  <string name="Name">SideWindow</string>
+                  <string name="Name">FenderEnd</string>
                   <Ref name="Part0Internal">9</Ref>
                   <Ref name="Part1Internal">46</Ref>
                 </Properties>
               </Item>
               <Item class="WeldConstraint" referent="47">
                 <Properties>
-                  <string name="Name">Mirror</string>
+                  <string name="Name">Fender</string>
                   <Ref name="Part0Internal">9</Ref>
                   <Ref name="Part1Internal">48</Ref>
                 </Properties>
               </Item>
               <Item class="WeldConstraint" referent="49">
                 <Properties>
-                  <string name="Name">Fender</string>
+                  <string name="Name">FenderEnd</string>
                   <Ref name="Part0Internal">9</Ref>
                   <Ref name="Part1Internal">50</Ref>
                 </Properties>
@@ -235,314 +235,230 @@
               </Item>
               <Item class="WeldConstraint" referent="53">
                 <Properties>
-                  <string name="Name">FenderEnd</string>
+                  <string name="Name">RunningBoard</string>
                   <Ref name="Part0Internal">9</Ref>
                   <Ref name="Part1Internal">54</Ref>
                 </Properties>
               </Item>
               <Item class="WeldConstraint" referent="55">
                 <Properties>
-                  <string name="Name">Fender</string>
+                  <string name="Name">DoorLine</string>
                   <Ref name="Part0Internal">9</Ref>
                   <Ref name="Part1Internal">56</Ref>
                 </Properties>
               </Item>
               <Item class="WeldConstraint" referent="57">
                 <Properties>
-                  <string name="Name">FenderEnd</string>
+                  <string name="Name">Windshield</string>
                   <Ref name="Part0Internal">9</Ref>
                   <Ref name="Part1Internal">58</Ref>
                 </Properties>
               </Item>
               <Item class="WeldConstraint" referent="59">
                 <Properties>
-                  <string name="Name">FenderEnd</string>
+                  <string name="Name">APillar</string>
                   <Ref name="Part0Internal">9</Ref>
                   <Ref name="Part1Internal">60</Ref>
                 </Properties>
               </Item>
               <Item class="WeldConstraint" referent="61">
                 <Properties>
-                  <string name="Name">DoorSeam</string>
+                  <string name="Name">SideWindow</string>
                   <Ref name="Part0Internal">9</Ref>
                   <Ref name="Part1Internal">62</Ref>
                 </Properties>
               </Item>
               <Item class="WeldConstraint" referent="63">
                 <Properties>
-                  <string name="Name">DoorSeam</string>
+                  <string name="Name">RearPost</string>
                   <Ref name="Part0Internal">9</Ref>
                   <Ref name="Part1Internal">64</Ref>
                 </Properties>
               </Item>
               <Item class="WeldConstraint" referent="65">
                 <Properties>
-                  <string name="Name">DoorHandle</string>
+                  <string name="Name">Mirror</string>
                   <Ref name="Part0Internal">9</Ref>
                   <Ref name="Part1Internal">66</Ref>
                 </Properties>
               </Item>
               <Item class="WeldConstraint" referent="67">
                 <Properties>
-                  <string name="Name">RunningBoard</string>
+                  <string name="Name">APillar</string>
                   <Ref name="Part0Internal">9</Ref>
                   <Ref name="Part1Internal">68</Ref>
                 </Properties>
               </Item>
               <Item class="WeldConstraint" referent="69">
                 <Properties>
-                  <string name="Name">APillar</string>
+                  <string name="Name">SideWindow</string>
                   <Ref name="Part0Internal">9</Ref>
                   <Ref name="Part1Internal">70</Ref>
                 </Properties>
               </Item>
               <Item class="WeldConstraint" referent="71">
                 <Properties>
-                  <string name="Name">BPillar</string>
+                  <string name="Name">RearPost</string>
                   <Ref name="Part0Internal">9</Ref>
                   <Ref name="Part1Internal">72</Ref>
                 </Properties>
               </Item>
               <Item class="WeldConstraint" referent="73">
                 <Properties>
-                  <string name="Name">SideWindow</string>
+                  <string name="Name">Mirror</string>
                   <Ref name="Part0Internal">9</Ref>
                   <Ref name="Part1Internal">74</Ref>
                 </Properties>
               </Item>
               <Item class="WeldConstraint" referent="75">
                 <Properties>
-                  <string name="Name">Mirror</string>
+                  <string name="Name">Roof</string>
                   <Ref name="Part0Internal">9</Ref>
                   <Ref name="Part1Internal">76</Ref>
                 </Properties>
               </Item>
               <Item class="WeldConstraint" referent="77">
                 <Properties>
-                  <string name="Name">Fender</string>
+                  <string name="Name">RearSill</string>
                   <Ref name="Part0Internal">9</Ref>
                   <Ref name="Part1Internal">78</Ref>
                 </Properties>
               </Item>
               <Item class="WeldConstraint" referent="79">
                 <Properties>
-                  <string name="Name">FenderEnd</string>
+                  <string name="Name">RearHeader</string>
                   <Ref name="Part0Internal">9</Ref>
                   <Ref name="Part1Internal">80</Ref>
                 </Properties>
               </Item>
               <Item class="WeldConstraint" referent="81">
                 <Properties>
-                  <string name="Name">FenderEnd</string>
+                  <string name="Name">RearWindow</string>
                   <Ref name="Part0Internal">9</Ref>
                   <Ref name="Part1Internal">82</Ref>
                 </Properties>
               </Item>
               <Item class="WeldConstraint" referent="83">
                 <Properties>
-                  <string name="Name">Fender</string>
+                  <string name="Name">Dashboard</string>
                   <Ref name="Part0Internal">9</Ref>
                   <Ref name="Part1Internal">84</Ref>
                 </Properties>
               </Item>
               <Item class="WeldConstraint" referent="85">
                 <Properties>
-                  <string name="Name">FenderEnd</string>
+                  <string name="Name">SteeringWheel</string>
                   <Ref name="Part0Internal">9</Ref>
                   <Ref name="Part1Internal">86</Ref>
                 </Properties>
               </Item>
               <Item class="WeldConstraint" referent="87">
                 <Properties>
-                  <string name="Name">FenderEnd</string>
+                  <string name="Name">SeatBack</string>
                   <Ref name="Part0Internal">9</Ref>
                   <Ref name="Part1Internal">88</Ref>
                 </Properties>
               </Item>
               <Item class="WeldConstraint" referent="89">
                 <Properties>
-                  <string name="Name">Roof</string>
+                  <string name="Name">BedFloor</string>
                   <Ref name="Part0Internal">9</Ref>
                   <Ref name="Part1Internal">90</Ref>
                 </Properties>
               </Item>
               <Item class="WeldConstraint" referent="91">
                 <Properties>
-                  <string name="Name">Windshield</string>
+                  <string name="Name">BedSide</string>
                   <Ref name="Part0Internal">9</Ref>
                   <Ref name="Part1Internal">92</Ref>
                 </Properties>
               </Item>
               <Item class="WeldConstraint" referent="93">
                 <Properties>
-                  <string name="Name">RearWindow</string>
+                  <string name="Name">BedRail</string>
                   <Ref name="Part0Internal">9</Ref>
                   <Ref name="Part1Internal">94</Ref>
                 </Properties>
               </Item>
               <Item class="WeldConstraint" referent="95">
                 <Properties>
-                  <string name="Name">Dashboard</string>
+                  <string name="Name">TailLight</string>
                   <Ref name="Part0Internal">9</Ref>
                   <Ref name="Part1Internal">96</Ref>
                 </Properties>
               </Item>
               <Item class="WeldConstraint" referent="97">
                 <Properties>
-                  <string name="Name">SteeringWheel</string>
+                  <string name="Name">BedSide</string>
                   <Ref name="Part0Internal">9</Ref>
                   <Ref name="Part1Internal">98</Ref>
                 </Properties>
               </Item>
               <Item class="WeldConstraint" referent="99">
                 <Properties>
-                  <string name="Name">SeatBack</string>
+                  <string name="Name">BedRail</string>
                   <Ref name="Part0Internal">9</Ref>
                   <Ref name="Part1Internal">100</Ref>
                 </Properties>
               </Item>
               <Item class="WeldConstraint" referent="101">
                 <Properties>
-                  <string name="Name">Antenna</string>
+                  <string name="Name">TailLight</string>
                   <Ref name="Part0Internal">9</Ref>
                   <Ref name="Part1Internal">102</Ref>
                 </Properties>
               </Item>
               <Item class="WeldConstraint" referent="103">
                 <Properties>
-                  <string name="Name">BedBase</string>
+                  <string name="Name">Tailgate</string>
                   <Ref name="Part0Internal">9</Ref>
                   <Ref name="Part1Internal">104</Ref>
                 </Properties>
               </Item>
               <Item class="WeldConstraint" referent="105">
                 <Properties>
-                  <string name="Name">BedFloor</string>
+                  <string name="Name">TailgateCap</string>
                   <Ref name="Part0Internal">9</Ref>
                   <Ref name="Part1Internal">106</Ref>
                 </Properties>
               </Item>
               <Item class="WeldConstraint" referent="107">
                 <Properties>
-                  <string name="Name">BedSide</string>
+                  <string name="Name">RearBumper</string>
                   <Ref name="Part0Internal">9</Ref>
                   <Ref name="Part1Internal">108</Ref>
                 </Properties>
               </Item>
               <Item class="WeldConstraint" referent="109">
                 <Properties>
-                  <string name="Name">BedRail</string>
+                  <string name="Name">Exhaust</string>
                   <Ref name="Part0Internal">9</Ref>
                   <Ref name="Part1Internal">110</Ref>
                 </Properties>
               </Item>
               <Item class="WeldConstraint" referent="111">
                 <Properties>
-                  <string name="Name">TailLight</string>
+                  <string name="Name">Rust</string>
                   <Ref name="Part0Internal">9</Ref>
                   <Ref name="Part1Internal">112</Ref>
                 </Properties>
               </Item>
               <Item class="WeldConstraint" referent="113">
                 <Properties>
-                  <string name="Name">BedSide</string>
+                  <string name="Name">Rust</string>
                   <Ref name="Part0Internal">9</Ref>
                   <Ref name="Part1Internal">114</Ref>
                 </Properties>
               </Item>
               <Item class="WeldConstraint" referent="115">
                 <Properties>
-                  <string name="Name">BedRail</string>
+                  <string name="Name">DriverSeat</string>
                   <Ref name="Part0Internal">9</Ref>
                   <Ref name="Part1Internal">116</Ref>
                 </Properties>
               </Item>
-              <Item class="WeldConstraint" referent="117">
-                <Properties>
-                  <string name="Name">TailLight</string>
-                  <Ref name="Part0Internal">9</Ref>
-                  <Ref name="Part1Internal">118</Ref>
-                </Properties>
-              </Item>
-              <Item class="WeldConstraint" referent="119">
-                <Properties>
-                  <string name="Name">BedFront</string>
-                  <Ref name="Part0Internal">9</Ref>
-                  <Ref name="Part1Internal">120</Ref>
-                </Properties>
-              </Item>
-              <Item class="WeldConstraint" referent="121">
-                <Properties>
-                  <string name="Name">Tailgate</string>
-                  <Ref name="Part0Internal">9</Ref>
-                  <Ref name="Part1Internal">122</Ref>
-                </Properties>
-              </Item>
-              <Item class="WeldConstraint" referent="123">
-                <Properties>
-                  <string name="Name">TailgateHandle</string>
-                  <Ref name="Part0Internal">9</Ref>
-                  <Ref name="Part1Internal">124</Ref>
-                </Properties>
-              </Item>
-              <Item class="WeldConstraint" referent="125">
-                <Properties>
-                  <string name="Name">RearBumper</string>
-                  <Ref name="Part0Internal">9</Ref>
-                  <Ref name="Part1Internal">126</Ref>
-                </Properties>
-              </Item>
-              <Item class="WeldConstraint" referent="127">
-                <Properties>
-                  <string name="Name">Plate</string>
-                  <Ref name="Part0Internal">9</Ref>
-                  <Ref name="Part1Internal">128</Ref>
-                </Properties>
-              </Item>
-              <Item class="WeldConstraint" referent="129">
-                <Properties>
-                  <string name="Name">Exhaust</string>
-                  <Ref name="Part0Internal">9</Ref>
-                  <Ref name="Part1Internal">130</Ref>
-                </Properties>
-              </Item>
-              <Item class="WeldConstraint" referent="131">
-                <Properties>
-                  <string name="Name">Rust</string>
-                  <Ref name="Part0Internal">9</Ref>
-                  <Ref name="Part1Internal">132</Ref>
-                </Properties>
-              </Item>
-              <Item class="WeldConstraint" referent="133">
-                <Properties>
-                  <string name="Name">Rust</string>
-                  <Ref name="Part0Internal">9</Ref>
-                  <Ref name="Part1Internal">134</Ref>
-                </Properties>
-              </Item>
-              <Item class="WeldConstraint" referent="135">
-                <Properties>
-                  <string name="Name">Rust</string>
-                  <Ref name="Part0Internal">9</Ref>
-                  <Ref name="Part1Internal">136</Ref>
-                </Properties>
-              </Item>
-              <Item class="WeldConstraint" referent="137">
-                <Properties>
-                  <string name="Name">Rust</string>
-                  <Ref name="Part0Internal">9</Ref>
-                  <Ref name="Part1Internal">138</Ref>
-                </Properties>
-              </Item>
-              <Item class="WeldConstraint" referent="139">
-                <Properties>
-                  <string name="Name">DriverSeat</string>
-                  <Ref name="Part0Internal">9</Ref>
-                  <Ref name="Part1Internal">140</Ref>
-                </Properties>
-              </Item>
             </Item>
-            <Item class="Attachment" referent="141">
+            <Item class="Attachment" referent="117">
               <Properties>
                 <string name="Name">FLMount</string>
                 <CoordinateFrame name="CFrame">
@@ -561,7 +477,7 @@
                 </CoordinateFrame>
               </Properties>
             </Item>
-            <Item class="Attachment" referent="142">
+            <Item class="Attachment" referent="118">
               <Properties>
                 <string name="Name">FLSpringTop</string>
                 <CoordinateFrame name="CFrame">
@@ -580,7 +496,7 @@
                 </CoordinateFrame>
               </Properties>
             </Item>
-            <Item class="Attachment" referent="143">
+            <Item class="Attachment" referent="119">
               <Properties>
                 <string name="Name">FRMount</string>
                 <CoordinateFrame name="CFrame">
@@ -599,7 +515,7 @@
                 </CoordinateFrame>
               </Properties>
             </Item>
-            <Item class="Attachment" referent="144">
+            <Item class="Attachment" referent="120">
               <Properties>
                 <string name="Name">FRSpringTop</string>
                 <CoordinateFrame name="CFrame">
@@ -618,7 +534,7 @@
                 </CoordinateFrame>
               </Properties>
             </Item>
-            <Item class="Attachment" referent="145">
+            <Item class="Attachment" referent="121">
               <Properties>
                 <string name="Name">RLMount</string>
                 <CoordinateFrame name="CFrame">
@@ -637,7 +553,7 @@
                 </CoordinateFrame>
               </Properties>
             </Item>
-            <Item class="Attachment" referent="146">
+            <Item class="Attachment" referent="122">
               <Properties>
                 <string name="Name">RLSpringTop</string>
                 <CoordinateFrame name="CFrame">
@@ -656,7 +572,7 @@
                 </CoordinateFrame>
               </Properties>
             </Item>
-            <Item class="Attachment" referent="147">
+            <Item class="Attachment" referent="123">
               <Properties>
                 <string name="Name">RRMount</string>
                 <CoordinateFrame name="CFrame">
@@ -675,7 +591,7 @@
                 </CoordinateFrame>
               </Properties>
             </Item>
-            <Item class="Attachment" referent="148">
+            <Item class="Attachment" referent="124">
               <Properties>
                 <string name="Name">RRSpringTop</string>
                 <CoordinateFrame name="CFrame">
@@ -694,7 +610,7 @@
                 </CoordinateFrame>
               </Properties>
             </Item>
-            <Item class="Attachment" referent="149">
+            <Item class="Attachment" referent="125">
               <Properties>
                 <string name="Name">PromptPoint</string>
                 <CoordinateFrame name="CFrame">
@@ -712,7 +628,7 @@
                   <R22>1</R22>
                 </CoordinateFrame>
               </Properties>
-              <Item class="ProximityPrompt" referent="150">
+              <Item class="ProximityPrompt" referent="126">
                 <Properties>
                   <string name="Name">DriverPrompt</string>
                   <string name="ActionText"></string>
@@ -723,12 +639,12 @@
                 </Properties>
               </Item>
             </Item>
-            <Item class="Attachment" referent="151">
+            <Item class="Attachment" referent="127">
               <Properties>
                 <string name="Name">Cargo</string>
                 <CoordinateFrame name="CFrame">
                   <X>0</X>
-                  <Y>2</Y>
+                  <Y>2.399994</Y>
                   <Z>4.75</Z>
                   <R00>1</R00>
                   <R01>0</R01>
@@ -743,19 +659,19 @@
               </Properties>
             </Item>
           </Item>
-          <Item class="Model" referent="152">
+          <Item class="Model" referent="128">
             <Properties>
               <string name="Name">Body</string>
             </Properties>
             <Item class="Part" referent="12">
               <Properties>
-                <string name="Name">FrontBody</string>
+                <string name="Name">LowerBody</string>
                 <bool name="Anchored">false</bool>
                 <token name="BottomSurface">0</token>
                 <CoordinateFrame name="CFrame">
                   <X>0</X>
-                  <Y>3.600006</Y>
-                  <Z>-5.25</Z>
+                  <Y>3.5</Y>
+                  <Z>0</Z>
                   <R00>1</R00>
                   <R01>0</R01>
                   <R02>0</R02>
@@ -766,15 +682,14 @@
                   <R21>0</R21>
                   <R22>1</R22>
                 </CoordinateFrame>
-                <bool name="CastShadow">false</bool>
-                <Color3uint8 name="Color3uint8">7314581</Color3uint8>
+                <Color3uint8 name="Color3uint8">8295823</Color3uint8>
                 <bool name="Massless">true</bool>
                 <token name="Material">272</token>
                 <token name="shape">1</token>
                 <Vector3 name="size">
                   <X>5.600006</X>
-                  <Y>2</Y>
-                  <Z>5.300003</Z>
+                  <Y>1.800003</Y>
+                  <Z>15.800003</Z>
                 </Vector3>
                 <token name="TopSurface">0</token>
               </Properties>
@@ -786,8 +701,8 @@
                 <token name="BottomSurface">0</token>
                 <CoordinateFrame name="CFrame">
                   <X>0</X>
-                  <Y>4.774994</Y>
-                  <Z>-5.199997</Z>
+                  <Y>4.699997</Y>
+                  <Z>-4.600006</Z>
                   <R00>1</R00>
                   <R01>0</R01>
                   <R02>0</R02>
@@ -799,27 +714,27 @@
                   <R22>1</R22>
                 </CoordinateFrame>
                 <bool name="CastShadow">false</bool>
-                <Color3uint8 name="Color3uint8">7314581</Color3uint8>
+                <Color3uint8 name="Color3uint8">8295823</Color3uint8>
                 <bool name="Massless">true</bool>
                 <token name="Material">272</token>
                 <token name="shape">1</token>
                 <Vector3 name="size">
-                  <X>5.399994</X>
-                  <Y>0.3500061</Y>
-                  <Z>5</Z>
+                  <X>5.5</X>
+                  <Y>0.6000061</Y>
+                  <Z>4</Z>
                 </Vector3>
                 <token name="TopSurface">0</token>
               </Properties>
             </Item>
-            <Item class="Part" referent="16">
+            <Item class="WedgePart" referent="16">
               <Properties>
-                <string name="Name">HoodRidge</string>
+                <string name="Name">HoodNose</string>
                 <bool name="Anchored">false</bool>
                 <token name="BottomSurface">0</token>
                 <CoordinateFrame name="CFrame">
                   <X>0</X>
-                  <Y>5.024994</Y>
-                  <Z>-5.199997</Z>
+                  <Y>4.699997</Y>
+                  <Z>-7.199997</Z>
                   <R00>1</R00>
                   <R01>0</R01>
                   <R02>0</R02>
@@ -834,14 +749,13 @@
                 <bool name="CanQuery">false</bool>
                 <bool name="CanTouch">false</bool>
                 <bool name="CastShadow">false</bool>
-                <Color3uint8 name="Color3uint8">5601908</Color3uint8>
+                <Color3uint8 name="Color3uint8">8295823</Color3uint8>
                 <bool name="Massless">true</bool>
                 <token name="Material">272</token>
-                <token name="shape">1</token>
                 <Vector3 name="size">
-                  <X>1</X>
-                  <Y>0.1499939</Y>
-                  <Z>4.600006</Z>
+                  <X>5.5</X>
+                  <Y>0.6000061</Y>
+                  <Z>1.199997</Z>
                 </Vector3>
                 <token name="TopSurface">0</token>
               </Properties>
@@ -853,7 +767,7 @@
                 <token name="BottomSurface">0</token>
                 <CoordinateFrame name="CFrame">
                   <X>0</X>
-                  <Y>3.649994</Y>
+                  <Y>3.600006</Y>
                   <Z>-7.975006</Z>
                   <R00>1</R00>
                   <R01>0</R01>
@@ -869,13 +783,13 @@
                 <bool name="CanQuery">false</bool>
                 <bool name="CanTouch">false</bool>
                 <bool name="CastShadow">false</bool>
-                <Color3uint8 name="Color3uint8">13225683</Color3uint8>
+                <Color3uint8 name="Color3uint8">2303533</Color3uint8>
                 <bool name="Massless">true</bool>
-                <token name="Material">1088</token>
+                <token name="Material">272</token>
                 <token name="shape">1</token>
                 <Vector3 name="size">
-                  <X>4.199997</X>
-                  <Y>1.5</Y>
+                  <X>4</X>
+                  <Y>1.199997</Y>
                   <Z>0.1499939</Z>
                 </Vector3>
                 <token name="TopSurface">0</token>
@@ -883,13 +797,13 @@
             </Item>
             <Item class="Part" referent="20">
               <Properties>
-                <string name="Name">GrilleBar</string>
+                <string name="Name">Headlight</string>
                 <bool name="Anchored">false</bool>
                 <token name="BottomSurface">0</token>
                 <CoordinateFrame name="CFrame">
-                  <X>0</X>
-                  <Y>3.300003</Y>
-                  <Z>-8.085007</Z>
+                  <X>-2.199997</X>
+                  <Y>3.850006</Y>
+                  <Z>-7.975006</Z>
                   <R00>1</R00>
                   <R01>0</R01>
                   <R02>0</R02>
@@ -904,27 +818,27 @@
                 <bool name="CanQuery">false</bool>
                 <bool name="CanTouch">false</bool>
                 <bool name="CastShadow">false</bool>
-                <Color3uint8 name="Color3uint8">5593438</Color3uint8>
+                <Color3uint8 name="Color3uint8">14469240</Color3uint8>
                 <bool name="Massless">true</bool>
                 <token name="Material">272</token>
                 <token name="shape">1</token>
                 <Vector3 name="size">
-                  <X>4</X>
-                  <Y>0.16000366</Y>
-                  <Z>0.070007324</Z>
+                  <X>0.8999939</X>
+                  <Y>0.69999695</Y>
+                  <Z>0.1499939</Z>
                 </Vector3>
                 <token name="TopSurface">0</token>
               </Properties>
             </Item>
             <Item class="Part" referent="22">
               <Properties>
-                <string name="Name">GrilleBar</string>
+                <string name="Name">Headlight</string>
                 <bool name="Anchored">false</bool>
                 <token name="BottomSurface">0</token>
                 <CoordinateFrame name="CFrame">
-                  <X>0</X>
-                  <Y>3.75</Y>
-                  <Z>-8.085007</Z>
+                  <X>2.199997</X>
+                  <Y>3.850006</Y>
+                  <Z>-7.975006</Z>
                   <R00>1</R00>
                   <R01>0</R01>
                   <R02>0</R02>
@@ -939,131 +853,26 @@
                 <bool name="CanQuery">false</bool>
                 <bool name="CanTouch">false</bool>
                 <bool name="CastShadow">false</bool>
-                <Color3uint8 name="Color3uint8">5593438</Color3uint8>
+                <Color3uint8 name="Color3uint8">14469240</Color3uint8>
                 <bool name="Massless">true</bool>
                 <token name="Material">272</token>
                 <token name="shape">1</token>
                 <Vector3 name="size">
-                  <X>4</X>
-                  <Y>0.16000366</Y>
-                  <Z>0.070007324</Z>
+                  <X>0.8999939</X>
+                  <Y>0.69999695</Y>
+                  <Z>0.1499939</Z>
                 </Vector3>
                 <token name="TopSurface">0</token>
               </Properties>
             </Item>
             <Item class="Part" referent="24">
               <Properties>
-                <string name="Name">GrilleBar</string>
-                <bool name="Anchored">false</bool>
-                <token name="BottomSurface">0</token>
-                <CoordinateFrame name="CFrame">
-                  <X>0</X>
-                  <Y>4.149994</Y>
-                  <Z>-8.085007</Z>
-                  <R00>1</R00>
-                  <R01>0</R01>
-                  <R02>0</R02>
-                  <R10>0</R10>
-                  <R11>1</R11>
-                  <R12>0</R12>
-                  <R20>0</R20>
-                  <R21>0</R21>
-                  <R22>1</R22>
-                </CoordinateFrame>
-                <bool name="CanCollide">false</bool>
-                <bool name="CanQuery">false</bool>
-                <bool name="CanTouch">false</bool>
-                <bool name="CastShadow">false</bool>
-                <Color3uint8 name="Color3uint8">5593438</Color3uint8>
-                <bool name="Massless">true</bool>
-                <token name="Material">272</token>
-                <token name="shape">1</token>
-                <Vector3 name="size">
-                  <X>4</X>
-                  <Y>0.16000366</Y>
-                  <Z>0.070007324</Z>
-                </Vector3>
-                <token name="TopSurface">0</token>
-              </Properties>
-            </Item>
-            <Item class="Part" referent="26">
-              <Properties>
-                <string name="Name">Headlight</string>
-                <bool name="Anchored">false</bool>
-                <token name="BottomSurface">0</token>
-                <CoordinateFrame name="CFrame">
-                  <X>-2.350006</X>
-                  <Y>3.949997</Y>
-                  <Z>-7.949997</Z>
-                  <R00>1</R00>
-                  <R01>0</R01>
-                  <R02>0</R02>
-                  <R10>0</R10>
-                  <R11>1</R11>
-                  <R12>0</R12>
-                  <R20>0</R20>
-                  <R21>0</R21>
-                  <R22>1</R22>
-                </CoordinateFrame>
-                <bool name="CanCollide">false</bool>
-                <bool name="CanQuery">false</bool>
-                <bool name="CanTouch">false</bool>
-                <bool name="CastShadow">false</bool>
-                <Color3uint8 name="Color3uint8">16774366</Color3uint8>
-                <bool name="Massless">true</bool>
-                <token name="Material">288</token>
-                <token name="shape">0</token>
-                <Vector3 name="size">
-                  <X>0.94999695</X>
-                  <Y>0.94999695</Y>
-                  <Z>0.94999695</Z>
-                </Vector3>
-                <token name="TopSurface">0</token>
-              </Properties>
-            </Item>
-            <Item class="Part" referent="28">
-              <Properties>
-                <string name="Name">Headlight</string>
-                <bool name="Anchored">false</bool>
-                <token name="BottomSurface">0</token>
-                <CoordinateFrame name="CFrame">
-                  <X>2.350006</X>
-                  <Y>3.949997</Y>
-                  <Z>-7.949997</Z>
-                  <R00>1</R00>
-                  <R01>0</R01>
-                  <R02>0</R02>
-                  <R10>0</R10>
-                  <R11>1</R11>
-                  <R12>0</R12>
-                  <R20>0</R20>
-                  <R21>0</R21>
-                  <R22>1</R22>
-                </CoordinateFrame>
-                <bool name="CanCollide">false</bool>
-                <bool name="CanQuery">false</bool>
-                <bool name="CanTouch">false</bool>
-                <bool name="CastShadow">false</bool>
-                <Color3uint8 name="Color3uint8">16774366</Color3uint8>
-                <bool name="Massless">true</bool>
-                <token name="Material">288</token>
-                <token name="shape">0</token>
-                <Vector3 name="size">
-                  <X>0.94999695</X>
-                  <Y>0.94999695</Y>
-                  <Z>0.94999695</Z>
-                </Vector3>
-                <token name="TopSurface">0</token>
-              </Properties>
-            </Item>
-            <Item class="Part" referent="30">
-              <Properties>
                 <string name="Name">FrontBumper</string>
                 <bool name="Anchored">false</bool>
                 <token name="BottomSurface">0</token>
                 <CoordinateFrame name="CFrame">
                   <X>0</X>
-                  <Y>2.649994</Y>
+                  <Y>2.800003</Y>
                   <Z>-8.175003</Z>
                   <R00>1</R00>
                   <R01>0</R01>
@@ -1079,59 +888,130 @@
                 <bool name="CanQuery">false</bool>
                 <bool name="CanTouch">false</bool>
                 <bool name="CastShadow">false</bool>
-                <Color3uint8 name="Color3uint8">13225683</Color3uint8>
+                <Color3uint8 name="Color3uint8">10526885</Color3uint8>
                 <bool name="Massless">true</bool>
-                <token name="Material">1088</token>
+                <token name="Material">272</token>
                 <token name="shape">1</token>
                 <Vector3 name="size">
-                  <X>6.600006</X>
-                  <Y>0.69999695</Y>
+                  <X>6.199997</X>
+                  <Y>0.80000305</Y>
                   <Z>0.55000305</Z>
+                </Vector3>
+                <token name="TopSurface">0</token>
+              </Properties>
+            </Item>
+            <Item class="Part" referent="26">
+              <Properties>
+                <string name="Name">Fender</string>
+                <bool name="Anchored">false</bool>
+                <token name="BottomSurface">0</token>
+                <CoordinateFrame name="CFrame">
+                  <X>-3.5</X>
+                  <Y>4.050003</Y>
+                  <Z>-5.199997</Z>
+                  <R00>1</R00>
+                  <R01>0</R01>
+                  <R02>0</R02>
+                  <R10>0</R10>
+                  <R11>1</R11>
+                  <R12>0</R12>
+                  <R20>0</R20>
+                  <R21>0</R21>
+                  <R22>1</R22>
+                </CoordinateFrame>
+                <bool name="CanCollide">false</bool>
+                <bool name="CanQuery">false</bool>
+                <bool name="CanTouch">false</bool>
+                <bool name="CastShadow">false</bool>
+                <Color3uint8 name="Color3uint8">8295823</Color3uint8>
+                <bool name="Massless">true</bool>
+                <token name="Material">272</token>
+                <token name="shape">1</token>
+                <Vector3 name="size">
+                  <X>1.3999939</X>
+                  <Y>0.69999695</Y>
+                  <Z>3.800003</Z>
+                </Vector3>
+                <token name="TopSurface">0</token>
+              </Properties>
+            </Item>
+            <Item class="WedgePart" referent="28">
+              <Properties>
+                <string name="Name">FenderEnd</string>
+                <bool name="Anchored">false</bool>
+                <token name="BottomSurface">0</token>
+                <CoordinateFrame name="CFrame">
+                  <X>-3.5</X>
+                  <Y>4.050003</Y>
+                  <Z>-7.600006</Z>
+                  <R00>1</R00>
+                  <R01>0</R01>
+                  <R02>0</R02>
+                  <R10>0</R10>
+                  <R11>1</R11>
+                  <R12>0</R12>
+                  <R20>0</R20>
+                  <R21>0</R21>
+                  <R22>1</R22>
+                </CoordinateFrame>
+                <bool name="CanCollide">false</bool>
+                <bool name="CanQuery">false</bool>
+                <bool name="CanTouch">false</bool>
+                <bool name="CastShadow">false</bool>
+                <Color3uint8 name="Color3uint8">8295823</Color3uint8>
+                <bool name="Massless">true</bool>
+                <token name="Material">272</token>
+                <Vector3 name="size">
+                  <X>1.3999939</X>
+                  <Y>0.69999695</Y>
+                  <Z>1</Z>
+                </Vector3>
+                <token name="TopSurface">0</token>
+              </Properties>
+            </Item>
+            <Item class="WedgePart" referent="30">
+              <Properties>
+                <string name="Name">FenderEnd</string>
+                <bool name="Anchored">false</bool>
+                <token name="BottomSurface">0</token>
+                <CoordinateFrame name="CFrame">
+                  <X>-3.5</X>
+                  <Y>4.050003</Y>
+                  <Z>-2.800003</Z>
+                  <R00>-1</R00>
+                  <R01>0</R01>
+                  <R02>0</R02>
+                  <R10>0</R10>
+                  <R11>1</R11>
+                  <R12>0</R12>
+                  <R20>0</R20>
+                  <R21>0</R21>
+                  <R22>-1</R22>
+                </CoordinateFrame>
+                <bool name="CanCollide">false</bool>
+                <bool name="CanQuery">false</bool>
+                <bool name="CanTouch">false</bool>
+                <bool name="CastShadow">false</bool>
+                <Color3uint8 name="Color3uint8">8295823</Color3uint8>
+                <bool name="Massless">true</bool>
+                <token name="Material">272</token>
+                <Vector3 name="size">
+                  <X>1.3999939</X>
+                  <Y>0.69999695</Y>
+                  <Z>1</Z>
                 </Vector3>
                 <token name="TopSurface">0</token>
               </Properties>
             </Item>
             <Item class="Part" referent="32">
               <Properties>
-                <string name="Name">CabLower</string>
+                <string name="Name">Fender</string>
                 <bool name="Anchored">false</bool>
                 <token name="BottomSurface">0</token>
                 <CoordinateFrame name="CFrame">
-                  <X>0</X>
-                  <Y>3.600006</Y>
-                  <Z>-0.5</Z>
-                  <R00>1</R00>
-                  <R01>0</R01>
-                  <R02>0</R02>
-                  <R10>0</R10>
-                  <R11>1</R11>
-                  <R12>0</R12>
-                  <R20>0</R20>
-                  <R21>0</R21>
-                  <R22>1</R22>
-                </CoordinateFrame>
-                <bool name="CastShadow">false</bool>
-                <Color3uint8 name="Color3uint8">7314581</Color3uint8>
-                <bool name="Massless">true</bool>
-                <token name="Material">272</token>
-                <token name="shape">1</token>
-                <Vector3 name="size">
-                  <X>5.600006</X>
-                  <Y>2</Y>
-                  <Z>4.199997</Z>
-                </Vector3>
-                <token name="TopSurface">0</token>
-              </Properties>
-            </Item>
-            <Item class="Part" referent="34">
-              <Properties>
-                <string name="Name">DoorSeam</string>
-                <bool name="Anchored">false</bool>
-                <token name="BottomSurface">0</token>
-                <CoordinateFrame name="CFrame">
-                  <X>-2.8200073</X>
-                  <Y>3.675003</Y>
-                  <Z>-2.25</Z>
+                  <X>-3.5</X>
+                  <Y>4.050003</Y>
+                  <Z>5.199997</Z>
                   <R00>1</R00>
                   <R01>0</R01>
                   <R02>0</R02>
@@ -1146,27 +1026,27 @@
                 <bool name="CanQuery">false</bool>
                 <bool name="CanTouch">false</bool>
                 <bool name="CastShadow">false</bool>
-                <Color3uint8 name="Color3uint8">3815734</Color3uint8>
+                <Color3uint8 name="Color3uint8">8295823</Color3uint8>
                 <bool name="Massless">true</bool>
                 <token name="Material">272</token>
                 <token name="shape">1</token>
                 <Vector3 name="size">
-                  <X>0.05999756</X>
-                  <Y>1.75</Y>
-                  <Z>0.1000061</Z>
+                  <X>1.3999939</X>
+                  <Y>0.69999695</Y>
+                  <Z>3.800003</Z>
                 </Vector3>
                 <token name="TopSurface">0</token>
               </Properties>
             </Item>
-            <Item class="Part" referent="36">
+            <Item class="WedgePart" referent="34">
               <Properties>
-                <string name="Name">DoorSeam</string>
+                <string name="Name">FenderEnd</string>
                 <bool name="Anchored">false</bool>
                 <token name="BottomSurface">0</token>
                 <CoordinateFrame name="CFrame">
-                  <X>-2.8200073</X>
-                  <Y>3.675003</Y>
-                  <Z>1.199997</Z>
+                  <X>-3.5</X>
+                  <Y>4.050003</Y>
+                  <Z>2.800003</Z>
                   <R00>1</R00>
                   <R01>0</R01>
                   <R02>0</R02>
@@ -1181,54 +1061,52 @@
                 <bool name="CanQuery">false</bool>
                 <bool name="CanTouch">false</bool>
                 <bool name="CastShadow">false</bool>
-                <Color3uint8 name="Color3uint8">3815734</Color3uint8>
+                <Color3uint8 name="Color3uint8">8295823</Color3uint8>
                 <bool name="Massless">true</bool>
                 <token name="Material">272</token>
-                <token name="shape">1</token>
                 <Vector3 name="size">
-                  <X>0.05999756</X>
-                  <Y>1.75</Y>
-                  <Z>0.1000061</Z>
+                  <X>1.3999939</X>
+                  <Y>0.69999695</Y>
+                  <Z>1</Z>
+                </Vector3>
+                <token name="TopSurface">0</token>
+              </Properties>
+            </Item>
+            <Item class="WedgePart" referent="36">
+              <Properties>
+                <string name="Name">FenderEnd</string>
+                <bool name="Anchored">false</bool>
+                <token name="BottomSurface">0</token>
+                <CoordinateFrame name="CFrame">
+                  <X>-3.5</X>
+                  <Y>4.050003</Y>
+                  <Z>7.600006</Z>
+                  <R00>-1</R00>
+                  <R01>0</R01>
+                  <R02>0</R02>
+                  <R10>0</R10>
+                  <R11>1</R11>
+                  <R12>0</R12>
+                  <R20>0</R20>
+                  <R21>0</R21>
+                  <R22>-1</R22>
+                </CoordinateFrame>
+                <bool name="CanCollide">false</bool>
+                <bool name="CanQuery">false</bool>
+                <bool name="CanTouch">false</bool>
+                <bool name="CastShadow">false</bool>
+                <Color3uint8 name="Color3uint8">8295823</Color3uint8>
+                <bool name="Massless">true</bool>
+                <token name="Material">272</token>
+                <Vector3 name="size">
+                  <X>1.3999939</X>
+                  <Y>0.69999695</Y>
+                  <Z>1</Z>
                 </Vector3>
                 <token name="TopSurface">0</token>
               </Properties>
             </Item>
             <Item class="Part" referent="38">
-              <Properties>
-                <string name="Name">DoorHandle</string>
-                <bool name="Anchored">false</bool>
-                <token name="BottomSurface">0</token>
-                <CoordinateFrame name="CFrame">
-                  <X>-2.8200073</X>
-                  <Y>4.199997</Y>
-                  <Z>0.6499939</Z>
-                  <R00>1</R00>
-                  <R01>0</R01>
-                  <R02>0</R02>
-                  <R10>0</R10>
-                  <R11>1</R11>
-                  <R12>0</R12>
-                  <R20>0</R20>
-                  <R21>0</R21>
-                  <R22>1</R22>
-                </CoordinateFrame>
-                <bool name="CanCollide">false</bool>
-                <bool name="CanQuery">false</bool>
-                <bool name="CanTouch">false</bool>
-                <bool name="CastShadow">false</bool>
-                <Color3uint8 name="Color3uint8">13225683</Color3uint8>
-                <bool name="Massless">true</bool>
-                <token name="Material">1088</token>
-                <token name="shape">1</token>
-                <Vector3 name="size">
-                  <X>0.11999512</X>
-                  <Y>0.19999695</Y>
-                  <Z>0.5</Z>
-                </Vector3>
-                <token name="TopSurface">0</token>
-              </Properties>
-            </Item>
-            <Item class="Part" referent="40">
               <Properties>
                 <string name="Name">RunningBoard</string>
                 <bool name="Anchored">false</bool>
@@ -1251,167 +1129,61 @@
                 <bool name="CanQuery">false</bool>
                 <bool name="CanTouch">false</bool>
                 <bool name="CastShadow">false</bool>
-                <Color3uint8 name="Color3uint8">5593438</Color3uint8>
+                <Color3uint8 name="Color3uint8">5922147</Color3uint8>
                 <bool name="Massless">true</bool>
                 <token name="Material">272</token>
                 <token name="shape">1</token>
                 <Vector3 name="size">
                   <X>0.6000061</X>
-                  <Y>0.25</Y>
+                  <Y>0.3500061</Y>
                   <Z>6.399994</Z>
+                </Vector3>
+                <token name="TopSurface">0</token>
+              </Properties>
+            </Item>
+            <Item class="Part" referent="40">
+              <Properties>
+                <string name="Name">DoorLine</string>
+                <bool name="Anchored">false</bool>
+                <token name="BottomSurface">0</token>
+                <CoordinateFrame name="CFrame">
+                  <X>-2.800003</X>
+                  <Y>3.550003</Y>
+                  <Z>-2.375</Z>
+                  <R00>1</R00>
+                  <R01>0</R01>
+                  <R02>0</R02>
+                  <R10>0</R10>
+                  <R11>1</R11>
+                  <R12>0</R12>
+                  <R20>0</R20>
+                  <R21>0</R21>
+                  <R22>1</R22>
+                </CoordinateFrame>
+                <bool name="CanCollide">false</bool>
+                <bool name="CanQuery">false</bool>
+                <bool name="CanTouch">false</bool>
+                <bool name="CastShadow">false</bool>
+                <Color3uint8 name="Color3uint8">6584175</Color3uint8>
+                <bool name="Massless">true</bool>
+                <token name="Material">272</token>
+                <token name="shape">1</token>
+                <Vector3 name="size">
+                  <X>0.1000061</X>
+                  <Y>1.5</Y>
+                  <Z>0.1499939</Z>
                 </Vector3>
                 <token name="TopSurface">0</token>
               </Properties>
             </Item>
             <Item class="Part" referent="42">
               <Properties>
-                <string name="Name">APillar</string>
-                <bool name="Anchored">false</bool>
-                <token name="BottomSurface">0</token>
-                <CoordinateFrame name="CFrame">
-                  <X>-2.600006</X>
-                  <Y>6</Y>
-                  <Z>-2.449997</Z>
-                  <R00>1</R00>
-                  <R01>0</R01>
-                  <R02>0</R02>
-                  <R10>0</R10>
-                  <R11>1</R11>
-                  <R12>0</R12>
-                  <R20>0</R20>
-                  <R21>0</R21>
-                  <R22>1</R22>
-                </CoordinateFrame>
-                <bool name="CanCollide">false</bool>
-                <bool name="CanQuery">false</bool>
-                <bool name="CanTouch">false</bool>
-                <bool name="CastShadow">false</bool>
-                <Color3uint8 name="Color3uint8">7314581</Color3uint8>
-                <bool name="Massless">true</bool>
-                <token name="Material">272</token>
-                <token name="shape">1</token>
-                <Vector3 name="size">
-                  <X>0.30000305</X>
-                  <Y>2.800003</Y>
-                  <Z>0.30000305</Z>
-                </Vector3>
-                <token name="TopSurface">0</token>
-              </Properties>
-            </Item>
-            <Item class="Part" referent="44">
-              <Properties>
-                <string name="Name">BPillar</string>
-                <bool name="Anchored">false</bool>
-                <token name="BottomSurface">0</token>
-                <CoordinateFrame name="CFrame">
-                  <X>-2.600006</X>
-                  <Y>6</Y>
-                  <Z>1.3999939</Z>
-                  <R00>1</R00>
-                  <R01>0</R01>
-                  <R02>0</R02>
-                  <R10>0</R10>
-                  <R11>1</R11>
-                  <R12>0</R12>
-                  <R20>0</R20>
-                  <R21>0</R21>
-                  <R22>1</R22>
-                </CoordinateFrame>
-                <bool name="CanCollide">false</bool>
-                <bool name="CanQuery">false</bool>
-                <bool name="CanTouch">false</bool>
-                <bool name="CastShadow">false</bool>
-                <Color3uint8 name="Color3uint8">7314581</Color3uint8>
-                <bool name="Massless">true</bool>
-                <token name="Material">272</token>
-                <token name="shape">1</token>
-                <Vector3 name="size">
-                  <X>0.30000305</X>
-                  <Y>2.800003</Y>
-                  <Z>0.3999939</Z>
-                </Vector3>
-                <token name="TopSurface">0</token>
-              </Properties>
-            </Item>
-            <Item class="Part" referent="46">
-              <Properties>
-                <string name="Name">SideWindow</string>
-                <bool name="Anchored">false</bool>
-                <token name="BottomSurface">0</token>
-                <CoordinateFrame name="CFrame">
-                  <X>-2.6600037</X>
-                  <Y>6.024994</Y>
-                  <Z>-0.55000305</Z>
-                  <R00>1</R00>
-                  <R01>0</R01>
-                  <R02>0</R02>
-                  <R10>0</R10>
-                  <R11>1</R11>
-                  <R12>0</R12>
-                  <R20>0</R20>
-                  <R21>0</R21>
-                  <R22>1</R22>
-                </CoordinateFrame>
-                <bool name="CanCollide">false</bool>
-                <bool name="CanQuery">false</bool>
-                <bool name="CanTouch">false</bool>
-                <bool name="CastShadow">false</bool>
-                <Color3uint8 name="Color3uint8">10475232</Color3uint8>
-                <bool name="Massless">true</bool>
-                <token name="Material">1568</token>
-                <token name="shape">1</token>
-                <Vector3 name="size">
-                  <X>0.08000183</X>
-                  <Y>2.550003</Y>
-                  <Z>3.5</Z>
-                </Vector3>
-                <token name="TopSurface">0</token>
-                <float name="Transparency">0.62</float>
-              </Properties>
-            </Item>
-            <Item class="Part" referent="48">
-              <Properties>
-                <string name="Name">Mirror</string>
-                <bool name="Anchored">false</bool>
-                <token name="BottomSurface">0</token>
-                <CoordinateFrame name="CFrame">
-                  <X>-3.074997</X>
-                  <Y>5.75</Y>
-                  <Z>-2.149994</Z>
-                  <R00>1</R00>
-                  <R01>0</R01>
-                  <R02>0</R02>
-                  <R10>0</R10>
-                  <R11>1</R11>
-                  <R12>0</R12>
-                  <R20>0</R20>
-                  <R21>0</R21>
-                  <R22>1</R22>
-                </CoordinateFrame>
-                <bool name="CanCollide">false</bool>
-                <bool name="CanQuery">false</bool>
-                <bool name="CanTouch">false</bool>
-                <bool name="CastShadow">false</bool>
-                <Color3uint8 name="Color3uint8">3815734</Color3uint8>
-                <bool name="Massless">true</bool>
-                <token name="Material">272</token>
-                <token name="shape">1</token>
-                <Vector3 name="size">
-                  <X>0.6499939</X>
-                  <Y>0.69999695</Y>
-                  <Z>0.30000305</Z>
-                </Vector3>
-                <token name="TopSurface">0</token>
-              </Properties>
-            </Item>
-            <Item class="Part" referent="50">
-              <Properties>
                 <string name="Name">Fender</string>
                 <bool name="Anchored">false</bool>
                 <token name="BottomSurface">0</token>
                 <CoordinateFrame name="CFrame">
-                  <X>-3.524994</X>
-                  <Y>4.225006</Y>
+                  <X>3.5</X>
+                  <Y>4.050003</Y>
                   <Z>-5.199997</Z>
                   <R00>1</R00>
                   <R01>0</R01>
@@ -1427,27 +1199,27 @@
                 <bool name="CanQuery">false</bool>
                 <bool name="CanTouch">false</bool>
                 <bool name="CastShadow">false</bool>
-                <Color3uint8 name="Color3uint8">7314581</Color3uint8>
+                <Color3uint8 name="Color3uint8">8295823</Color3uint8>
                 <bool name="Massless">true</bool>
                 <token name="Material">272</token>
                 <token name="shape">1</token>
                 <Vector3 name="size">
-                  <X>1.550003</X>
-                  <Y>0.75</Y>
-                  <Z>3</Z>
+                  <X>1.3999939</X>
+                  <Y>0.69999695</Y>
+                  <Z>3.800003</Z>
                 </Vector3>
                 <token name="TopSurface">0</token>
               </Properties>
             </Item>
-            <Item class="WedgePart" referent="52">
+            <Item class="WedgePart" referent="44">
               <Properties>
                 <string name="Name">FenderEnd</string>
                 <bool name="Anchored">false</bool>
                 <token name="BottomSurface">0</token>
                 <CoordinateFrame name="CFrame">
-                  <X>-3.524994</X>
-                  <Y>4.225006</Y>
-                  <Z>-7.199997</Z>
+                  <X>3.5</X>
+                  <Y>4.050003</Y>
+                  <Z>-7.600006</Z>
                   <R00>1</R00>
                   <R01>0</R01>
                   <R02>0</R02>
@@ -1462,26 +1234,26 @@
                 <bool name="CanQuery">false</bool>
                 <bool name="CanTouch">false</bool>
                 <bool name="CastShadow">false</bool>
-                <Color3uint8 name="Color3uint8">7314581</Color3uint8>
+                <Color3uint8 name="Color3uint8">8295823</Color3uint8>
                 <bool name="Massless">true</bool>
                 <token name="Material">272</token>
                 <Vector3 name="size">
-                  <X>1.550003</X>
-                  <Y>0.75</Y>
+                  <X>1.3999939</X>
+                  <Y>0.69999695</Y>
                   <Z>1</Z>
                 </Vector3>
                 <token name="TopSurface">0</token>
               </Properties>
             </Item>
-            <Item class="WedgePart" referent="54">
+            <Item class="WedgePart" referent="46">
               <Properties>
                 <string name="Name">FenderEnd</string>
                 <bool name="Anchored">false</bool>
                 <token name="BottomSurface">0</token>
                 <CoordinateFrame name="CFrame">
-                  <X>-3.524994</X>
-                  <Y>4.225006</Y>
-                  <Z>-3.199997</Z>
+                  <X>3.5</X>
+                  <Y>4.050003</Y>
+                  <Z>-2.800003</Z>
                   <R00>-1</R00>
                   <R01>0</R01>
                   <R02>0</R02>
@@ -1496,25 +1268,25 @@
                 <bool name="CanQuery">false</bool>
                 <bool name="CanTouch">false</bool>
                 <bool name="CastShadow">false</bool>
-                <Color3uint8 name="Color3uint8">7314581</Color3uint8>
+                <Color3uint8 name="Color3uint8">8295823</Color3uint8>
                 <bool name="Massless">true</bool>
                 <token name="Material">272</token>
                 <Vector3 name="size">
-                  <X>1.550003</X>
-                  <Y>0.75</Y>
+                  <X>1.3999939</X>
+                  <Y>0.69999695</Y>
                   <Z>1</Z>
                 </Vector3>
                 <token name="TopSurface">0</token>
               </Properties>
             </Item>
-            <Item class="Part" referent="56">
+            <Item class="Part" referent="48">
               <Properties>
                 <string name="Name">Fender</string>
                 <bool name="Anchored">false</bool>
                 <token name="BottomSurface">0</token>
                 <CoordinateFrame name="CFrame">
-                  <X>-3.524994</X>
-                  <Y>4.225006</Y>
+                  <X>3.5</X>
+                  <Y>4.050003</Y>
                   <Z>5.199997</Z>
                   <R00>1</R00>
                   <R01>0</R01>
@@ -1530,27 +1302,27 @@
                 <bool name="CanQuery">false</bool>
                 <bool name="CanTouch">false</bool>
                 <bool name="CastShadow">false</bool>
-                <Color3uint8 name="Color3uint8">7314581</Color3uint8>
+                <Color3uint8 name="Color3uint8">8295823</Color3uint8>
                 <bool name="Massless">true</bool>
                 <token name="Material">272</token>
                 <token name="shape">1</token>
                 <Vector3 name="size">
-                  <X>1.550003</X>
-                  <Y>0.75</Y>
-                  <Z>3</Z>
+                  <X>1.3999939</X>
+                  <Y>0.69999695</Y>
+                  <Z>3.800003</Z>
                 </Vector3>
                 <token name="TopSurface">0</token>
               </Properties>
             </Item>
-            <Item class="WedgePart" referent="58">
+            <Item class="WedgePart" referent="50">
               <Properties>
                 <string name="Name">FenderEnd</string>
                 <bool name="Anchored">false</bool>
                 <token name="BottomSurface">0</token>
                 <CoordinateFrame name="CFrame">
-                  <X>-3.524994</X>
-                  <Y>4.225006</Y>
-                  <Z>3.199997</Z>
+                  <X>3.5</X>
+                  <Y>4.050003</Y>
+                  <Z>2.800003</Z>
                   <R00>1</R00>
                   <R01>0</R01>
                   <R02>0</R02>
@@ -1565,26 +1337,26 @@
                 <bool name="CanQuery">false</bool>
                 <bool name="CanTouch">false</bool>
                 <bool name="CastShadow">false</bool>
-                <Color3uint8 name="Color3uint8">7314581</Color3uint8>
+                <Color3uint8 name="Color3uint8">8295823</Color3uint8>
                 <bool name="Massless">true</bool>
                 <token name="Material">272</token>
                 <Vector3 name="size">
-                  <X>1.550003</X>
-                  <Y>0.75</Y>
+                  <X>1.3999939</X>
+                  <Y>0.69999695</Y>
                   <Z>1</Z>
                 </Vector3>
                 <token name="TopSurface">0</token>
               </Properties>
             </Item>
-            <Item class="WedgePart" referent="60">
+            <Item class="WedgePart" referent="52">
               <Properties>
                 <string name="Name">FenderEnd</string>
                 <bool name="Anchored">false</bool>
                 <token name="BottomSurface">0</token>
                 <CoordinateFrame name="CFrame">
-                  <X>-3.524994</X>
-                  <Y>4.225006</Y>
-                  <Z>7.199997</Z>
+                  <X>3.5</X>
+                  <Y>4.050003</Y>
+                  <Z>7.600006</Z>
                   <R00>-1</R00>
                   <R01>0</R01>
                   <R02>0</R02>
@@ -1599,123 +1371,18 @@
                 <bool name="CanQuery">false</bool>
                 <bool name="CanTouch">false</bool>
                 <bool name="CastShadow">false</bool>
-                <Color3uint8 name="Color3uint8">7314581</Color3uint8>
+                <Color3uint8 name="Color3uint8">8295823</Color3uint8>
                 <bool name="Massless">true</bool>
                 <token name="Material">272</token>
                 <Vector3 name="size">
-                  <X>1.550003</X>
-                  <Y>0.75</Y>
+                  <X>1.3999939</X>
+                  <Y>0.69999695</Y>
                   <Z>1</Z>
                 </Vector3>
                 <token name="TopSurface">0</token>
               </Properties>
             </Item>
-            <Item class="Part" referent="62">
-              <Properties>
-                <string name="Name">DoorSeam</string>
-                <bool name="Anchored">false</bool>
-                <token name="BottomSurface">0</token>
-                <CoordinateFrame name="CFrame">
-                  <X>2.8200073</X>
-                  <Y>3.675003</Y>
-                  <Z>-2.25</Z>
-                  <R00>1</R00>
-                  <R01>0</R01>
-                  <R02>0</R02>
-                  <R10>0</R10>
-                  <R11>1</R11>
-                  <R12>0</R12>
-                  <R20>0</R20>
-                  <R21>0</R21>
-                  <R22>1</R22>
-                </CoordinateFrame>
-                <bool name="CanCollide">false</bool>
-                <bool name="CanQuery">false</bool>
-                <bool name="CanTouch">false</bool>
-                <bool name="CastShadow">false</bool>
-                <Color3uint8 name="Color3uint8">3815734</Color3uint8>
-                <bool name="Massless">true</bool>
-                <token name="Material">272</token>
-                <token name="shape">1</token>
-                <Vector3 name="size">
-                  <X>0.05999756</X>
-                  <Y>1.75</Y>
-                  <Z>0.1000061</Z>
-                </Vector3>
-                <token name="TopSurface">0</token>
-              </Properties>
-            </Item>
-            <Item class="Part" referent="64">
-              <Properties>
-                <string name="Name">DoorSeam</string>
-                <bool name="Anchored">false</bool>
-                <token name="BottomSurface">0</token>
-                <CoordinateFrame name="CFrame">
-                  <X>2.8200073</X>
-                  <Y>3.675003</Y>
-                  <Z>1.199997</Z>
-                  <R00>1</R00>
-                  <R01>0</R01>
-                  <R02>0</R02>
-                  <R10>0</R10>
-                  <R11>1</R11>
-                  <R12>0</R12>
-                  <R20>0</R20>
-                  <R21>0</R21>
-                  <R22>1</R22>
-                </CoordinateFrame>
-                <bool name="CanCollide">false</bool>
-                <bool name="CanQuery">false</bool>
-                <bool name="CanTouch">false</bool>
-                <bool name="CastShadow">false</bool>
-                <Color3uint8 name="Color3uint8">3815734</Color3uint8>
-                <bool name="Massless">true</bool>
-                <token name="Material">272</token>
-                <token name="shape">1</token>
-                <Vector3 name="size">
-                  <X>0.05999756</X>
-                  <Y>1.75</Y>
-                  <Z>0.1000061</Z>
-                </Vector3>
-                <token name="TopSurface">0</token>
-              </Properties>
-            </Item>
-            <Item class="Part" referent="66">
-              <Properties>
-                <string name="Name">DoorHandle</string>
-                <bool name="Anchored">false</bool>
-                <token name="BottomSurface">0</token>
-                <CoordinateFrame name="CFrame">
-                  <X>2.8200073</X>
-                  <Y>4.199997</Y>
-                  <Z>0.6499939</Z>
-                  <R00>1</R00>
-                  <R01>0</R01>
-                  <R02>0</R02>
-                  <R10>0</R10>
-                  <R11>1</R11>
-                  <R12>0</R12>
-                  <R20>0</R20>
-                  <R21>0</R21>
-                  <R22>1</R22>
-                </CoordinateFrame>
-                <bool name="CanCollide">false</bool>
-                <bool name="CanQuery">false</bool>
-                <bool name="CanTouch">false</bool>
-                <bool name="CastShadow">false</bool>
-                <Color3uint8 name="Color3uint8">13225683</Color3uint8>
-                <bool name="Massless">true</bool>
-                <token name="Material">1088</token>
-                <token name="shape">1</token>
-                <Vector3 name="size">
-                  <X>0.11999512</X>
-                  <Y>0.19999695</Y>
-                  <Z>0.5</Z>
-                </Vector3>
-                <token name="TopSurface">0</token>
-              </Properties>
-            </Item>
-            <Item class="Part" referent="68">
+            <Item class="Part" referent="54">
               <Properties>
                 <string name="Name">RunningBoard</string>
                 <bool name="Anchored">false</bool>
@@ -1738,27 +1405,27 @@
                 <bool name="CanQuery">false</bool>
                 <bool name="CanTouch">false</bool>
                 <bool name="CastShadow">false</bool>
-                <Color3uint8 name="Color3uint8">5593438</Color3uint8>
+                <Color3uint8 name="Color3uint8">5922147</Color3uint8>
                 <bool name="Massless">true</bool>
                 <token name="Material">272</token>
                 <token name="shape">1</token>
                 <Vector3 name="size">
                   <X>0.6000061</X>
-                  <Y>0.25</Y>
+                  <Y>0.3500061</Y>
                   <Z>6.399994</Z>
                 </Vector3>
                 <token name="TopSurface">0</token>
               </Properties>
             </Item>
-            <Item class="Part" referent="70">
+            <Item class="Part" referent="56">
               <Properties>
-                <string name="Name">APillar</string>
+                <string name="Name">DoorLine</string>
                 <bool name="Anchored">false</bool>
                 <token name="BottomSurface">0</token>
                 <CoordinateFrame name="CFrame">
-                  <X>2.600006</X>
-                  <Y>6</Y>
-                  <Z>-2.449997</Z>
+                  <X>2.800003</X>
+                  <Y>3.550003</Y>
+                  <Z>-2.375</Z>
                   <R00>1</R00>
                   <R01>0</R01>
                   <R02>0</R02>
@@ -1773,27 +1440,164 @@
                 <bool name="CanQuery">false</bool>
                 <bool name="CanTouch">false</bool>
                 <bool name="CastShadow">false</bool>
-                <Color3uint8 name="Color3uint8">7314581</Color3uint8>
+                <Color3uint8 name="Color3uint8">6584175</Color3uint8>
                 <bool name="Massless">true</bool>
                 <token name="Material">272</token>
                 <token name="shape">1</token>
                 <Vector3 name="size">
+                  <X>0.1000061</X>
+                  <Y>1.5</Y>
+                  <Z>0.1499939</Z>
+                </Vector3>
+                <token name="TopSurface">0</token>
+              </Properties>
+            </Item>
+            <Item class="WedgePart" referent="58">
+              <Properties>
+                <string name="Name">Windshield</string>
+                <bool name="Anchored">false</bool>
+                <token name="BottomSurface">0</token>
+                <CoordinateFrame name="CFrame">
+                  <X>0</X>
+                  <Y>5.800003</Y>
+                  <Z>-1.8999939</Z>
+                  <R00>1</R00>
+                  <R01>0</R01>
+                  <R02>0</R02>
+                  <R10>0</R10>
+                  <R11>1</R11>
+                  <R12>0</R12>
+                  <R20>0</R20>
+                  <R21>0</R21>
+                  <R22>1</R22>
+                </CoordinateFrame>
+                <bool name="CastShadow">false</bool>
+                <Color3uint8 name="Color3uint8">9875385</Color3uint8>
+                <bool name="Massless">true</bool>
+                <token name="Material">1568</token>
+                <Vector3 name="size">
+                  <X>5</X>
+                  <Y>2.800003</Y>
+                  <Z>1.3999939</Z>
+                </Vector3>
+                <token name="TopSurface">0</token>
+                <float name="Transparency">0.5</float>
+              </Properties>
+            </Item>
+            <Item class="WedgePart" referent="60">
+              <Properties>
+                <string name="Name">APillar</string>
+                <bool name="Anchored">false</bool>
+                <token name="BottomSurface">0</token>
+                <CoordinateFrame name="CFrame">
+                  <X>-2.600006</X>
+                  <Y>5.800003</Y>
+                  <Z>-1.8999939</Z>
+                  <R00>1</R00>
+                  <R01>0</R01>
+                  <R02>0</R02>
+                  <R10>0</R10>
+                  <R11>1</R11>
+                  <R12>0</R12>
+                  <R20>0</R20>
+                  <R21>0</R21>
+                  <R22>1</R22>
+                </CoordinateFrame>
+                <bool name="CanCollide">false</bool>
+                <bool name="CanQuery">false</bool>
+                <bool name="CanTouch">false</bool>
+                <bool name="CastShadow">false</bool>
+                <Color3uint8 name="Color3uint8">8295823</Color3uint8>
+                <bool name="Massless">true</bool>
+                <token name="Material">272</token>
+                <Vector3 name="size">
                   <X>0.30000305</X>
+                  <Y>2.800003</Y>
+                  <Z>1.3999939</Z>
+                </Vector3>
+                <token name="TopSurface">0</token>
+              </Properties>
+            </Item>
+            <Item class="Part" referent="62">
+              <Properties>
+                <string name="Name">SideWindow</string>
+                <bool name="Anchored">false</bool>
+                <token name="BottomSurface">0</token>
+                <CoordinateFrame name="CFrame">
+                  <X>-2.625</X>
+                  <Y>5.800003</Y>
+                  <Z>0.05000305</Z>
+                  <R00>1</R00>
+                  <R01>0</R01>
+                  <R02>0</R02>
+                  <R10>0</R10>
+                  <R11>1</R11>
+                  <R12>0</R12>
+                  <R20>0</R20>
+                  <R21>0</R21>
+                  <R22>1</R22>
+                </CoordinateFrame>
+                <bool name="CanCollide">false</bool>
+                <bool name="CanQuery">false</bool>
+                <bool name="CanTouch">false</bool>
+                <bool name="CastShadow">false</bool>
+                <Color3uint8 name="Color3uint8">9875385</Color3uint8>
+                <bool name="Massless">true</bool>
+                <token name="Material">1568</token>
+                <token name="shape">1</token>
+                <Vector3 name="size">
+                  <X>0.1499939</X>
+                  <Y>2.600006</Y>
+                  <Z>2.5</Z>
+                </Vector3>
+                <token name="TopSurface">0</token>
+                <float name="Transparency">0.5</float>
+              </Properties>
+            </Item>
+            <Item class="Part" referent="64">
+              <Properties>
+                <string name="Name">RearPost</string>
+                <bool name="Anchored">false</bool>
+                <token name="BottomSurface">0</token>
+                <CoordinateFrame name="CFrame">
+                  <X>-2.375</X>
+                  <Y>5.800003</Y>
+                  <Z>1.449997</Z>
+                  <R00>1</R00>
+                  <R01>0</R01>
+                  <R02>0</R02>
+                  <R10>0</R10>
+                  <R11>1</R11>
+                  <R12>0</R12>
+                  <R20>0</R20>
+                  <R21>0</R21>
+                  <R22>1</R22>
+                </CoordinateFrame>
+                <bool name="CanCollide">false</bool>
+                <bool name="CanQuery">false</bool>
+                <bool name="CanTouch">false</bool>
+                <bool name="CastShadow">false</bool>
+                <Color3uint8 name="Color3uint8">8295823</Color3uint8>
+                <bool name="Massless">true</bool>
+                <token name="Material">272</token>
+                <token name="shape">1</token>
+                <Vector3 name="size">
+                  <X>0.75</X>
                   <Y>2.800003</Y>
                   <Z>0.30000305</Z>
                 </Vector3>
                 <token name="TopSurface">0</token>
               </Properties>
             </Item>
-            <Item class="Part" referent="72">
+            <Item class="Part" referent="66">
               <Properties>
-                <string name="Name">BPillar</string>
+                <string name="Name">Mirror</string>
                 <bool name="Anchored">false</bool>
                 <token name="BottomSurface">0</token>
                 <CoordinateFrame name="CFrame">
-                  <X>2.600006</X>
-                  <Y>6</Y>
-                  <Z>1.3999939</Z>
+                  <X>-3.024994</X>
+                  <Y>5.699997</Y>
+                  <Z>-1.699997</Z>
                   <R00>1</R00>
                   <R01>0</R01>
                   <R02>0</R02>
@@ -1808,27 +1612,132 @@
                 <bool name="CanQuery">false</bool>
                 <bool name="CanTouch">false</bool>
                 <bool name="CastShadow">false</bool>
-                <Color3uint8 name="Color3uint8">7314581</Color3uint8>
+                <Color3uint8 name="Color3uint8">3816254</Color3uint8>
                 <bool name="Massless">true</bool>
                 <token name="Material">272</token>
                 <token name="shape">1</token>
                 <Vector3 name="size">
+                  <X>0.55000305</X>
+                  <Y>0.6000061</Y>
+                  <Z>0.3999939</Z>
+                </Vector3>
+                <token name="TopSurface">0</token>
+              </Properties>
+            </Item>
+            <Item class="WedgePart" referent="68">
+              <Properties>
+                <string name="Name">APillar</string>
+                <bool name="Anchored">false</bool>
+                <token name="BottomSurface">0</token>
+                <CoordinateFrame name="CFrame">
+                  <X>2.600006</X>
+                  <Y>5.800003</Y>
+                  <Z>-1.8999939</Z>
+                  <R00>1</R00>
+                  <R01>0</R01>
+                  <R02>0</R02>
+                  <R10>0</R10>
+                  <R11>1</R11>
+                  <R12>0</R12>
+                  <R20>0</R20>
+                  <R21>0</R21>
+                  <R22>1</R22>
+                </CoordinateFrame>
+                <bool name="CanCollide">false</bool>
+                <bool name="CanQuery">false</bool>
+                <bool name="CanTouch">false</bool>
+                <bool name="CastShadow">false</bool>
+                <Color3uint8 name="Color3uint8">8295823</Color3uint8>
+                <bool name="Massless">true</bool>
+                <token name="Material">272</token>
+                <Vector3 name="size">
                   <X>0.30000305</X>
                   <Y>2.800003</Y>
-                  <Z>0.3999939</Z>
+                  <Z>1.3999939</Z>
+                </Vector3>
+                <token name="TopSurface">0</token>
+              </Properties>
+            </Item>
+            <Item class="Part" referent="70">
+              <Properties>
+                <string name="Name">SideWindow</string>
+                <bool name="Anchored">false</bool>
+                <token name="BottomSurface">0</token>
+                <CoordinateFrame name="CFrame">
+                  <X>2.625</X>
+                  <Y>5.800003</Y>
+                  <Z>0.05000305</Z>
+                  <R00>1</R00>
+                  <R01>0</R01>
+                  <R02>0</R02>
+                  <R10>0</R10>
+                  <R11>1</R11>
+                  <R12>0</R12>
+                  <R20>0</R20>
+                  <R21>0</R21>
+                  <R22>1</R22>
+                </CoordinateFrame>
+                <bool name="CanCollide">false</bool>
+                <bool name="CanQuery">false</bool>
+                <bool name="CanTouch">false</bool>
+                <bool name="CastShadow">false</bool>
+                <Color3uint8 name="Color3uint8">9875385</Color3uint8>
+                <bool name="Massless">true</bool>
+                <token name="Material">1568</token>
+                <token name="shape">1</token>
+                <Vector3 name="size">
+                  <X>0.1499939</X>
+                  <Y>2.600006</Y>
+                  <Z>2.5</Z>
+                </Vector3>
+                <token name="TopSurface">0</token>
+                <float name="Transparency">0.5</float>
+              </Properties>
+            </Item>
+            <Item class="Part" referent="72">
+              <Properties>
+                <string name="Name">RearPost</string>
+                <bool name="Anchored">false</bool>
+                <token name="BottomSurface">0</token>
+                <CoordinateFrame name="CFrame">
+                  <X>2.375</X>
+                  <Y>5.800003</Y>
+                  <Z>1.449997</Z>
+                  <R00>1</R00>
+                  <R01>0</R01>
+                  <R02>0</R02>
+                  <R10>0</R10>
+                  <R11>1</R11>
+                  <R12>0</R12>
+                  <R20>0</R20>
+                  <R21>0</R21>
+                  <R22>1</R22>
+                </CoordinateFrame>
+                <bool name="CanCollide">false</bool>
+                <bool name="CanQuery">false</bool>
+                <bool name="CanTouch">false</bool>
+                <bool name="CastShadow">false</bool>
+                <Color3uint8 name="Color3uint8">8295823</Color3uint8>
+                <bool name="Massless">true</bool>
+                <token name="Material">272</token>
+                <token name="shape">1</token>
+                <Vector3 name="size">
+                  <X>0.75</X>
+                  <Y>2.800003</Y>
+                  <Z>0.30000305</Z>
                 </Vector3>
                 <token name="TopSurface">0</token>
               </Properties>
             </Item>
             <Item class="Part" referent="74">
               <Properties>
-                <string name="Name">SideWindow</string>
+                <string name="Name">Mirror</string>
                 <bool name="Anchored">false</bool>
                 <token name="BottomSurface">0</token>
                 <CoordinateFrame name="CFrame">
-                  <X>2.6600037</X>
-                  <Y>6.024994</Y>
-                  <Z>-0.55000305</Z>
+                  <X>3.024994</X>
+                  <Y>5.699997</Y>
+                  <Z>-1.699997</Z>
                   <R00>1</R00>
                   <R01>0</R01>
                   <R02>0</R02>
@@ -1843,27 +1752,164 @@
                 <bool name="CanQuery">false</bool>
                 <bool name="CanTouch">false</bool>
                 <bool name="CastShadow">false</bool>
-                <Color3uint8 name="Color3uint8">10475232</Color3uint8>
+                <Color3uint8 name="Color3uint8">3816254</Color3uint8>
                 <bool name="Massless">true</bool>
-                <token name="Material">1568</token>
+                <token name="Material">272</token>
                 <token name="shape">1</token>
                 <Vector3 name="size">
-                  <X>0.08000183</X>
-                  <Y>2.550003</Y>
-                  <Z>3.5</Z>
+                  <X>0.55000305</X>
+                  <Y>0.6000061</Y>
+                  <Z>0.3999939</Z>
                 </Vector3>
                 <token name="TopSurface">0</token>
-                <float name="Transparency">0.62</float>
               </Properties>
             </Item>
             <Item class="Part" referent="76">
               <Properties>
-                <string name="Name">Mirror</string>
+                <string name="Name">Roof</string>
                 <bool name="Anchored">false</bool>
                 <token name="BottomSurface">0</token>
                 <CoordinateFrame name="CFrame">
-                  <X>3.074997</X>
-                  <Y>5.75</Y>
+                  <X>0</X>
+                  <Y>7.399994</Y>
+                  <Z>0.1499939</Z>
+                  <R00>1</R00>
+                  <R01>0</R01>
+                  <R02>0</R02>
+                  <R10>0</R10>
+                  <R11>1</R11>
+                  <R12>0</R12>
+                  <R20>0</R20>
+                  <R21>0</R21>
+                  <R22>1</R22>
+                </CoordinateFrame>
+                <bool name="CastShadow">false</bool>
+                <Color3uint8 name="Color3uint8">8295823</Color3uint8>
+                <bool name="Massless">true</bool>
+                <token name="Material">272</token>
+                <token name="shape">1</token>
+                <Vector3 name="size">
+                  <X>5.5</X>
+                  <Y>0.3999939</Y>
+                  <Z>2.899994</Z>
+                </Vector3>
+                <token name="TopSurface">0</token>
+              </Properties>
+            </Item>
+            <Item class="Part" referent="78">
+              <Properties>
+                <string name="Name">RearSill</string>
+                <bool name="Anchored">false</bool>
+                <token name="BottomSurface">0</token>
+                <CoordinateFrame name="CFrame">
+                  <X>0</X>
+                  <Y>4.699997</Y>
+                  <Z>1.449997</Z>
+                  <R00>1</R00>
+                  <R01>0</R01>
+                  <R02>0</R02>
+                  <R10>0</R10>
+                  <R11>1</R11>
+                  <R12>0</R12>
+                  <R20>0</R20>
+                  <R21>0</R21>
+                  <R22>1</R22>
+                </CoordinateFrame>
+                <bool name="CanCollide">false</bool>
+                <bool name="CanQuery">false</bool>
+                <bool name="CanTouch">false</bool>
+                <bool name="CastShadow">false</bool>
+                <Color3uint8 name="Color3uint8">8295823</Color3uint8>
+                <bool name="Massless">true</bool>
+                <token name="Material">272</token>
+                <token name="shape">1</token>
+                <Vector3 name="size">
+                  <X>4</X>
+                  <Y>0.6000061</Y>
+                  <Z>0.30000305</Z>
+                </Vector3>
+                <token name="TopSurface">0</token>
+              </Properties>
+            </Item>
+            <Item class="Part" referent="80">
+              <Properties>
+                <string name="Name">RearHeader</string>
+                <bool name="Anchored">false</bool>
+                <token name="BottomSurface">0</token>
+                <CoordinateFrame name="CFrame">
+                  <X>0</X>
+                  <Y>7.050003</Y>
+                  <Z>1.449997</Z>
+                  <R00>1</R00>
+                  <R01>0</R01>
+                  <R02>0</R02>
+                  <R10>0</R10>
+                  <R11>1</R11>
+                  <R12>0</R12>
+                  <R20>0</R20>
+                  <R21>0</R21>
+                  <R22>1</R22>
+                </CoordinateFrame>
+                <bool name="CanCollide">false</bool>
+                <bool name="CanQuery">false</bool>
+                <bool name="CanTouch">false</bool>
+                <bool name="CastShadow">false</bool>
+                <Color3uint8 name="Color3uint8">8295823</Color3uint8>
+                <bool name="Massless">true</bool>
+                <token name="Material">272</token>
+                <token name="shape">1</token>
+                <Vector3 name="size">
+                  <X>4</X>
+                  <Y>0.30000305</Y>
+                  <Z>0.30000305</Z>
+                </Vector3>
+                <token name="TopSurface">0</token>
+              </Properties>
+            </Item>
+            <Item class="Part" referent="82">
+              <Properties>
+                <string name="Name">RearWindow</string>
+                <bool name="Anchored">false</bool>
+                <token name="BottomSurface">0</token>
+                <CoordinateFrame name="CFrame">
+                  <X>0</X>
+                  <Y>5.949997</Y>
+                  <Z>1.449997</Z>
+                  <R00>1</R00>
+                  <R01>0</R01>
+                  <R02>0</R02>
+                  <R10>0</R10>
+                  <R11>1</R11>
+                  <R12>0</R12>
+                  <R20>0</R20>
+                  <R21>0</R21>
+                  <R22>1</R22>
+                </CoordinateFrame>
+                <bool name="CanCollide">false</bool>
+                <bool name="CanQuery">false</bool>
+                <bool name="CanTouch">false</bool>
+                <bool name="CastShadow">false</bool>
+                <Color3uint8 name="Color3uint8">9875385</Color3uint8>
+                <bool name="Massless">true</bool>
+                <token name="Material">1568</token>
+                <token name="shape">1</token>
+                <Vector3 name="size">
+                  <X>4</X>
+                  <Y>1.8999939</Y>
+                  <Z>0.1000061</Z>
+                </Vector3>
+                <token name="TopSurface">0</token>
+                <float name="Transparency">0.5</float>
+              </Properties>
+            </Item>
+            <Item class="Part" referent="84">
+              <Properties>
+                <string name="Name">Dashboard</string>
+                <bool name="Anchored">false</bool>
+                <token name="BottomSurface">0</token>
+                <CoordinateFrame name="CFrame">
+                  <X>0</X>
+                  <Y>4.75</Y>
                   <Z>-2.149994</Z>
                   <R00>1</R00>
                   <R01>0</R01>
@@ -1879,372 +1925,27 @@
                 <bool name="CanQuery">false</bool>
                 <bool name="CanTouch">false</bool>
                 <bool name="CastShadow">false</bool>
-                <Color3uint8 name="Color3uint8">3815734</Color3uint8>
-                <bool name="Massless">true</bool>
-                <token name="Material">272</token>
-                <token name="shape">1</token>
-                <Vector3 name="size">
-                  <X>0.6499939</X>
-                  <Y>0.69999695</Y>
-                  <Z>0.30000305</Z>
-                </Vector3>
-                <token name="TopSurface">0</token>
-              </Properties>
-            </Item>
-            <Item class="Part" referent="78">
-              <Properties>
-                <string name="Name">Fender</string>
-                <bool name="Anchored">false</bool>
-                <token name="BottomSurface">0</token>
-                <CoordinateFrame name="CFrame">
-                  <X>3.524994</X>
-                  <Y>4.225006</Y>
-                  <Z>-5.199997</Z>
-                  <R00>1</R00>
-                  <R01>0</R01>
-                  <R02>0</R02>
-                  <R10>0</R10>
-                  <R11>1</R11>
-                  <R12>0</R12>
-                  <R20>0</R20>
-                  <R21>0</R21>
-                  <R22>1</R22>
-                </CoordinateFrame>
-                <bool name="CanCollide">false</bool>
-                <bool name="CanQuery">false</bool>
-                <bool name="CanTouch">false</bool>
-                <bool name="CastShadow">false</bool>
-                <Color3uint8 name="Color3uint8">7314581</Color3uint8>
-                <bool name="Massless">true</bool>
-                <token name="Material">272</token>
-                <token name="shape">1</token>
-                <Vector3 name="size">
-                  <X>1.550003</X>
-                  <Y>0.75</Y>
-                  <Z>3</Z>
-                </Vector3>
-                <token name="TopSurface">0</token>
-              </Properties>
-            </Item>
-            <Item class="WedgePart" referent="80">
-              <Properties>
-                <string name="Name">FenderEnd</string>
-                <bool name="Anchored">false</bool>
-                <token name="BottomSurface">0</token>
-                <CoordinateFrame name="CFrame">
-                  <X>3.524994</X>
-                  <Y>4.225006</Y>
-                  <Z>-7.199997</Z>
-                  <R00>1</R00>
-                  <R01>0</R01>
-                  <R02>0</R02>
-                  <R10>0</R10>
-                  <R11>1</R11>
-                  <R12>0</R12>
-                  <R20>0</R20>
-                  <R21>0</R21>
-                  <R22>1</R22>
-                </CoordinateFrame>
-                <bool name="CanCollide">false</bool>
-                <bool name="CanQuery">false</bool>
-                <bool name="CanTouch">false</bool>
-                <bool name="CastShadow">false</bool>
-                <Color3uint8 name="Color3uint8">7314581</Color3uint8>
-                <bool name="Massless">true</bool>
-                <token name="Material">272</token>
-                <Vector3 name="size">
-                  <X>1.550003</X>
-                  <Y>0.75</Y>
-                  <Z>1</Z>
-                </Vector3>
-                <token name="TopSurface">0</token>
-              </Properties>
-            </Item>
-            <Item class="WedgePart" referent="82">
-              <Properties>
-                <string name="Name">FenderEnd</string>
-                <bool name="Anchored">false</bool>
-                <token name="BottomSurface">0</token>
-                <CoordinateFrame name="CFrame">
-                  <X>3.524994</X>
-                  <Y>4.225006</Y>
-                  <Z>-3.199997</Z>
-                  <R00>-1</R00>
-                  <R01>0</R01>
-                  <R02>0</R02>
-                  <R10>0</R10>
-                  <R11>1</R11>
-                  <R12>0</R12>
-                  <R20>0</R20>
-                  <R21>0</R21>
-                  <R22>-1</R22>
-                </CoordinateFrame>
-                <bool name="CanCollide">false</bool>
-                <bool name="CanQuery">false</bool>
-                <bool name="CanTouch">false</bool>
-                <bool name="CastShadow">false</bool>
-                <Color3uint8 name="Color3uint8">7314581</Color3uint8>
-                <bool name="Massless">true</bool>
-                <token name="Material">272</token>
-                <Vector3 name="size">
-                  <X>1.550003</X>
-                  <Y>0.75</Y>
-                  <Z>1</Z>
-                </Vector3>
-                <token name="TopSurface">0</token>
-              </Properties>
-            </Item>
-            <Item class="Part" referent="84">
-              <Properties>
-                <string name="Name">Fender</string>
-                <bool name="Anchored">false</bool>
-                <token name="BottomSurface">0</token>
-                <CoordinateFrame name="CFrame">
-                  <X>3.524994</X>
-                  <Y>4.225006</Y>
-                  <Z>5.199997</Z>
-                  <R00>1</R00>
-                  <R01>0</R01>
-                  <R02>0</R02>
-                  <R10>0</R10>
-                  <R11>1</R11>
-                  <R12>0</R12>
-                  <R20>0</R20>
-                  <R21>0</R21>
-                  <R22>1</R22>
-                </CoordinateFrame>
-                <bool name="CanCollide">false</bool>
-                <bool name="CanQuery">false</bool>
-                <bool name="CanTouch">false</bool>
-                <bool name="CastShadow">false</bool>
-                <Color3uint8 name="Color3uint8">7314581</Color3uint8>
-                <bool name="Massless">true</bool>
-                <token name="Material">272</token>
-                <token name="shape">1</token>
-                <Vector3 name="size">
-                  <X>1.550003</X>
-                  <Y>0.75</Y>
-                  <Z>3</Z>
-                </Vector3>
-                <token name="TopSurface">0</token>
-              </Properties>
-            </Item>
-            <Item class="WedgePart" referent="86">
-              <Properties>
-                <string name="Name">FenderEnd</string>
-                <bool name="Anchored">false</bool>
-                <token name="BottomSurface">0</token>
-                <CoordinateFrame name="CFrame">
-                  <X>3.524994</X>
-                  <Y>4.225006</Y>
-                  <Z>3.199997</Z>
-                  <R00>1</R00>
-                  <R01>0</R01>
-                  <R02>0</R02>
-                  <R10>0</R10>
-                  <R11>1</R11>
-                  <R12>0</R12>
-                  <R20>0</R20>
-                  <R21>0</R21>
-                  <R22>1</R22>
-                </CoordinateFrame>
-                <bool name="CanCollide">false</bool>
-                <bool name="CanQuery">false</bool>
-                <bool name="CanTouch">false</bool>
-                <bool name="CastShadow">false</bool>
-                <Color3uint8 name="Color3uint8">7314581</Color3uint8>
-                <bool name="Massless">true</bool>
-                <token name="Material">272</token>
-                <Vector3 name="size">
-                  <X>1.550003</X>
-                  <Y>0.75</Y>
-                  <Z>1</Z>
-                </Vector3>
-                <token name="TopSurface">0</token>
-              </Properties>
-            </Item>
-            <Item class="WedgePart" referent="88">
-              <Properties>
-                <string name="Name">FenderEnd</string>
-                <bool name="Anchored">false</bool>
-                <token name="BottomSurface">0</token>
-                <CoordinateFrame name="CFrame">
-                  <X>3.524994</X>
-                  <Y>4.225006</Y>
-                  <Z>7.199997</Z>
-                  <R00>-1</R00>
-                  <R01>0</R01>
-                  <R02>0</R02>
-                  <R10>0</R10>
-                  <R11>1</R11>
-                  <R12>0</R12>
-                  <R20>0</R20>
-                  <R21>0</R21>
-                  <R22>-1</R22>
-                </CoordinateFrame>
-                <bool name="CanCollide">false</bool>
-                <bool name="CanQuery">false</bool>
-                <bool name="CanTouch">false</bool>
-                <bool name="CastShadow">false</bool>
-                <Color3uint8 name="Color3uint8">7314581</Color3uint8>
-                <bool name="Massless">true</bool>
-                <token name="Material">272</token>
-                <Vector3 name="size">
-                  <X>1.550003</X>
-                  <Y>0.75</Y>
-                  <Z>1</Z>
-                </Vector3>
-                <token name="TopSurface">0</token>
-              </Properties>
-            </Item>
-            <Item class="Part" referent="90">
-              <Properties>
-                <string name="Name">Roof</string>
-                <bool name="Anchored">false</bool>
-                <token name="BottomSurface">0</token>
-                <CoordinateFrame name="CFrame">
-                  <X>0</X>
-                  <Y>7.600006</Y>
-                  <Z>-0.5</Z>
-                  <R00>1</R00>
-                  <R01>0</R01>
-                  <R02>0</R02>
-                  <R10>0</R10>
-                  <R11>1</R11>
-                  <R12>0</R12>
-                  <R20>0</R20>
-                  <R21>0</R21>
-                  <R22>1</R22>
-                </CoordinateFrame>
-                <bool name="CastShadow">false</bool>
-                <Color3uint8 name="Color3uint8">7314581</Color3uint8>
-                <bool name="Massless">true</bool>
-                <token name="Material">272</token>
-                <token name="shape">1</token>
-                <Vector3 name="size">
-                  <X>5.5</X>
-                  <Y>0.3999939</Y>
-                  <Z>4.399994</Z>
-                </Vector3>
-                <token name="TopSurface">0</token>
-              </Properties>
-            </Item>
-            <Item class="Part" referent="92">
-              <Properties>
-                <string name="Name">Windshield</string>
-                <bool name="Anchored">false</bool>
-                <token name="BottomSurface">0</token>
-                <CoordinateFrame name="CFrame">
-                  <X>0</X>
-                  <Y>6.024994</Y>
-                  <Z>-2.449997</Z>
-                  <R00>1</R00>
-                  <R01>0</R01>
-                  <R02>0</R02>
-                  <R10>0</R10>
-                  <R11>1</R11>
-                  <R12>0</R12>
-                  <R20>0</R20>
-                  <R21>0</R21>
-                  <R22>1</R22>
-                </CoordinateFrame>
-                <bool name="CanCollide">false</bool>
-                <bool name="CanQuery">false</bool>
-                <bool name="CanTouch">false</bool>
-                <bool name="CastShadow">false</bool>
-                <Color3uint8 name="Color3uint8">10475232</Color3uint8>
-                <bool name="Massless">true</bool>
-                <token name="Material">1568</token>
-                <token name="shape">1</token>
-                <Vector3 name="size">
-                  <X>4.899994</X>
-                  <Y>2.649994</Y>
-                  <Z>0.1000061</Z>
-                </Vector3>
-                <token name="TopSurface">0</token>
-                <float name="Transparency">0.62</float>
-              </Properties>
-            </Item>
-            <Item class="Part" referent="94">
-              <Properties>
-                <string name="Name">RearWindow</string>
-                <bool name="Anchored">false</bool>
-                <token name="BottomSurface">0</token>
-                <CoordinateFrame name="CFrame">
-                  <X>0</X>
-                  <Y>6.050003</Y>
-                  <Z>1.3500061</Z>
-                  <R00>1</R00>
-                  <R01>0</R01>
-                  <R02>0</R02>
-                  <R10>0</R10>
-                  <R11>1</R11>
-                  <R12>0</R12>
-                  <R20>0</R20>
-                  <R21>0</R21>
-                  <R22>1</R22>
-                </CoordinateFrame>
-                <bool name="CanCollide">false</bool>
-                <bool name="CanQuery">false</bool>
-                <bool name="CanTouch">false</bool>
-                <bool name="CastShadow">false</bool>
-                <Color3uint8 name="Color3uint8">10475232</Color3uint8>
-                <bool name="Massless">true</bool>
-                <token name="Material">1568</token>
-                <token name="shape">1</token>
-                <Vector3 name="size">
-                  <X>4.899994</X>
-                  <Y>2.300003</Y>
-                  <Z>0.1000061</Z>
-                </Vector3>
-                <token name="TopSurface">0</token>
-                <float name="Transparency">0.62</float>
-              </Properties>
-            </Item>
-            <Item class="Part" referent="96">
-              <Properties>
-                <string name="Name">Dashboard</string>
-                <bool name="Anchored">false</bool>
-                <token name="BottomSurface">0</token>
-                <CoordinateFrame name="CFrame">
-                  <X>0</X>
-                  <Y>4.949997</Y>
-                  <Z>-2.100006</Z>
-                  <R00>1</R00>
-                  <R01>0</R01>
-                  <R02>0</R02>
-                  <R10>0</R10>
-                  <R11>1</R11>
-                  <R12>0</R12>
-                  <R20>0</R20>
-                  <R21>0</R21>
-                  <R22>1</R22>
-                </CoordinateFrame>
-                <bool name="CanCollide">false</bool>
-                <bool name="CanQuery">false</bool>
-                <bool name="CanTouch">false</bool>
-                <bool name="CastShadow">false</bool>
-                <Color3uint8 name="Color3uint8">3815734</Color3uint8>
+                <Color3uint8 name="Color3uint8">3816254</Color3uint8>
                 <bool name="Massless">true</bool>
                 <token name="Material">272</token>
                 <token name="shape">1</token>
                 <Vector3 name="size">
                   <X>5</X>
                   <Y>0.69999695</Y>
-                  <Z>0.6000061</Z>
+                  <Z>0.69999695</Z>
                 </Vector3>
                 <token name="TopSurface">0</token>
               </Properties>
             </Item>
-            <Item class="Part" referent="98">
+            <Item class="Part" referent="86">
               <Properties>
                 <string name="Name">SteeringWheel</string>
                 <bool name="Anchored">false</bool>
                 <token name="BottomSurface">0</token>
                 <CoordinateFrame name="CFrame">
                   <X>-1.300003</X>
-                  <Y>5.5</Y>
-                  <Z>-1.6000061</Z>
+                  <Y>5.399994</Y>
+                  <Z>-1.5</Z>
                   <R00>0</R00>
                   <R01>0</R01>
                   <R02>1</R02>
@@ -2259,26 +1960,26 @@
                 <bool name="CanQuery">false</bool>
                 <bool name="CanTouch">false</bool>
                 <bool name="CastShadow">false</bool>
-                <Color3uint8 name="Color3uint8">3815734</Color3uint8>
+                <Color3uint8 name="Color3uint8">3816254</Color3uint8>
                 <bool name="Massless">true</bool>
                 <token name="Material">272</token>
                 <token name="shape">2</token>
                 <Vector3 name="size">
-                  <X>0.19999695</X>
-                  <Y>1.5</Y>
-                  <Z>1.5</Z>
+                  <X>0.30000305</X>
+                  <Y>1.3999939</Y>
+                  <Z>1.3999939</Z>
                 </Vector3>
                 <token name="TopSurface">0</token>
               </Properties>
             </Item>
-            <Item class="Part" referent="100">
+            <Item class="Part" referent="88">
               <Properties>
                 <string name="Name">SeatBack</string>
                 <bool name="Anchored">false</bool>
                 <token name="BottomSurface">0</token>
                 <CoordinateFrame name="CFrame">
                   <X>0</X>
-                  <Y>4.899994</Y>
+                  <Y>4.800003</Y>
                   <Z>0.94999695</Z>
                   <R00>1</R00>
                   <R01>0</R01>
@@ -2290,94 +1991,30 @@
                   <R21>0</R21>
                   <R22>1</R22>
                 </CoordinateFrame>
+                <bool name="CanCollide">false</bool>
+                <bool name="CanQuery">false</bool>
+                <bool name="CanTouch">false</bool>
                 <bool name="CastShadow">false</bool>
-                <Color3uint8 name="Color3uint8">3815734</Color3uint8>
+                <Color3uint8 name="Color3uint8">3816254</Color3uint8>
                 <bool name="Massless">true</bool>
                 <token name="Material">1312</token>
                 <token name="shape">1</token>
                 <Vector3 name="size">
-                  <X>5.199997</X>
-                  <Y>2.600006</Y>
+                  <X>4.800003</X>
+                  <Y>2.399994</Y>
                   <Z>0.5</Z>
                 </Vector3>
                 <token name="TopSurface">0</token>
               </Properties>
             </Item>
-            <Item class="Part" referent="102">
-              <Properties>
-                <string name="Name">Antenna</string>
-                <bool name="Anchored">false</bool>
-                <token name="BottomSurface">0</token>
-                <CoordinateFrame name="CFrame">
-                  <X>2.5850067</X>
-                  <Y>9</Y>
-                  <Z>-2.5650024</Z>
-                  <R00>1</R00>
-                  <R01>0</R01>
-                  <R02>0</R02>
-                  <R10>0</R10>
-                  <R11>1</R11>
-                  <R12>0</R12>
-                  <R20>0</R20>
-                  <R21>0</R21>
-                  <R22>1</R22>
-                </CoordinateFrame>
-                <bool name="CanCollide">false</bool>
-                <bool name="CanQuery">false</bool>
-                <bool name="CanTouch">false</bool>
-                <bool name="CastShadow">false</bool>
-                <Color3uint8 name="Color3uint8">5593438</Color3uint8>
-                <bool name="Massless">true</bool>
-                <token name="Material">272</token>
-                <token name="shape">1</token>
-                <Vector3 name="size">
-                  <X>0.070007324</X>
-                  <Y>2.399994</Y>
-                  <Z>0.070007324</Z>
-                </Vector3>
-                <token name="TopSurface">0</token>
-              </Properties>
-            </Item>
-            <Item class="Part" referent="104">
-              <Properties>
-                <string name="Name">BedBase</string>
-                <bool name="Anchored">false</bool>
-                <token name="BottomSurface">0</token>
-                <CoordinateFrame name="CFrame">
-                  <X>0</X>
-                  <Y>3.300003</Y>
-                  <Z>4.75</Z>
-                  <R00>1</R00>
-                  <R01>0</R01>
-                  <R02>0</R02>
-                  <R10>0</R10>
-                  <R11>1</R11>
-                  <R12>0</R12>
-                  <R20>0</R20>
-                  <R21>0</R21>
-                  <R22>1</R22>
-                </CoordinateFrame>
-                <bool name="CastShadow">false</bool>
-                <Color3uint8 name="Color3uint8">7314581</Color3uint8>
-                <bool name="Massless">true</bool>
-                <token name="Material">272</token>
-                <token name="shape">1</token>
-                <Vector3 name="size">
-                  <X>5.600006</X>
-                  <Y>1.3999939</Y>
-                  <Z>6.300003</Z>
-                </Vector3>
-                <token name="TopSurface">0</token>
-              </Properties>
-            </Item>
-            <Item class="Part" referent="106">
+            <Item class="Part" referent="90">
               <Properties>
                 <string name="Name">BedFloor</string>
                 <bool name="Anchored">false</bool>
                 <token name="BottomSurface">0</token>
                 <CoordinateFrame name="CFrame">
                   <X>0</X>
-                  <Y>4.050003</Y>
+                  <Y>4.449997</Y>
                   <Z>4.75</Z>
                   <R00>1</R00>
                   <R01>0</R01>
@@ -2393,7 +2030,7 @@
                 <bool name="CanQuery">false</bool>
                 <bool name="CanTouch">false</bool>
                 <bool name="CastShadow">false</bool>
-                <Color3uint8 name="Color3uint8">3815734</Color3uint8>
+                <Color3uint8 name="Color3uint8">3816254</Color3uint8>
                 <bool name="Massless">true</bool>
                 <token name="Material">272</token>
                 <token name="shape">1</token>
@@ -2405,14 +2042,14 @@
                 <token name="TopSurface">0</token>
               </Properties>
             </Item>
-            <Item class="Part" referent="108">
+            <Item class="Part" referent="92">
               <Properties>
                 <string name="Name">BedSide</string>
                 <bool name="Anchored">false</bool>
                 <token name="BottomSurface">0</token>
                 <CoordinateFrame name="CFrame">
                   <X>-2.649994</X>
-                  <Y>4.800003</Y>
+                  <Y>5.100006</Y>
                   <Z>4.75</Z>
                   <R00>1</R00>
                   <R01>0</R01>
@@ -2428,26 +2065,26 @@
                 <bool name="CanQuery">false</bool>
                 <bool name="CanTouch">false</bool>
                 <bool name="CastShadow">false</bool>
-                <Color3uint8 name="Color3uint8">7314581</Color3uint8>
+                <Color3uint8 name="Color3uint8">8295823</Color3uint8>
                 <bool name="Massless">true</bool>
                 <token name="Material">272</token>
                 <token name="shape">1</token>
                 <Vector3 name="size">
                   <X>0.30000305</X>
-                  <Y>1.6000061</Y>
+                  <Y>1.3999939</Y>
                   <Z>6.300003</Z>
                 </Vector3>
                 <token name="TopSurface">0</token>
               </Properties>
             </Item>
-            <Item class="Part" referent="110">
+            <Item class="Part" referent="94">
               <Properties>
                 <string name="Name">BedRail</string>
                 <bool name="Anchored">false</bool>
                 <token name="BottomSurface">0</token>
                 <CoordinateFrame name="CFrame">
                   <X>-2.649994</X>
-                  <Y>5.675003</Y>
+                  <Y>5.925003</Y>
                   <Z>4.75</Z>
                   <R00>1</R00>
                   <R01>0</R01>
@@ -2463,27 +2100,27 @@
                 <bool name="CanQuery">false</bool>
                 <bool name="CanTouch">false</bool>
                 <bool name="CastShadow">false</bool>
-                <Color3uint8 name="Color3uint8">5593438</Color3uint8>
+                <Color3uint8 name="Color3uint8">6584175</Color3uint8>
                 <bool name="Massless">true</bool>
                 <token name="Material">272</token>
                 <token name="shape">1</token>
                 <Vector3 name="size">
                   <X>0.3999939</X>
-                  <Y>0.1499939</Y>
+                  <Y>0.25</Y>
                   <Z>6.399994</Z>
                 </Vector3>
                 <token name="TopSurface">0</token>
               </Properties>
             </Item>
-            <Item class="Part" referent="112">
+            <Item class="Part" referent="96">
               <Properties>
                 <string name="Name">TailLight</string>
                 <bool name="Anchored">false</bool>
                 <token name="BottomSurface">0</token>
                 <CoordinateFrame name="CFrame">
-                  <X>-2.524994</X>
-                  <Y>4.699997</Y>
-                  <Z>7.949997</Z>
+                  <X>-2.475006</X>
+                  <Y>5.050003</Y>
+                  <Z>7.975006</Z>
                   <R00>1</R00>
                   <R01>0</R01>
                   <R02>0</R02>
@@ -2498,26 +2135,26 @@
                 <bool name="CanQuery">false</bool>
                 <bool name="CanTouch">false</bool>
                 <bool name="CastShadow">false</bool>
-                <Color3uint8 name="Color3uint8">14692394</Color3uint8>
+                <Color3uint8 name="Color3uint8">13130280</Color3uint8>
                 <bool name="Massless">true</bool>
-                <token name="Material">288</token>
+                <token name="Material">272</token>
                 <token name="shape">1</token>
                 <Vector3 name="size">
-                  <X>0.44999695</X>
-                  <Y>1</Y>
-                  <Z>0.1000061</Z>
+                  <X>0.55000305</X>
+                  <Y>0.8999939</Y>
+                  <Z>0.1499939</Z>
                 </Vector3>
                 <token name="TopSurface">0</token>
               </Properties>
             </Item>
-            <Item class="Part" referent="114">
+            <Item class="Part" referent="98">
               <Properties>
                 <string name="Name">BedSide</string>
                 <bool name="Anchored">false</bool>
                 <token name="BottomSurface">0</token>
                 <CoordinateFrame name="CFrame">
                   <X>2.649994</X>
-                  <Y>4.800003</Y>
+                  <Y>5.100006</Y>
                   <Z>4.75</Z>
                   <R00>1</R00>
                   <R01>0</R01>
@@ -2533,26 +2170,26 @@
                 <bool name="CanQuery">false</bool>
                 <bool name="CanTouch">false</bool>
                 <bool name="CastShadow">false</bool>
-                <Color3uint8 name="Color3uint8">7314581</Color3uint8>
+                <Color3uint8 name="Color3uint8">8295823</Color3uint8>
                 <bool name="Massless">true</bool>
                 <token name="Material">272</token>
                 <token name="shape">1</token>
                 <Vector3 name="size">
                   <X>0.30000305</X>
-                  <Y>1.6000061</Y>
+                  <Y>1.3999939</Y>
                   <Z>6.300003</Z>
                 </Vector3>
                 <token name="TopSurface">0</token>
               </Properties>
             </Item>
-            <Item class="Part" referent="116">
+            <Item class="Part" referent="100">
               <Properties>
                 <string name="Name">BedRail</string>
                 <bool name="Anchored">false</bool>
                 <token name="BottomSurface">0</token>
                 <CoordinateFrame name="CFrame">
                   <X>2.649994</X>
-                  <Y>5.675003</Y>
+                  <Y>5.925003</Y>
                   <Z>4.75</Z>
                   <R00>1</R00>
                   <R01>0</R01>
@@ -2568,27 +2205,27 @@
                 <bool name="CanQuery">false</bool>
                 <bool name="CanTouch">false</bool>
                 <bool name="CastShadow">false</bool>
-                <Color3uint8 name="Color3uint8">5593438</Color3uint8>
+                <Color3uint8 name="Color3uint8">6584175</Color3uint8>
                 <bool name="Massless">true</bool>
                 <token name="Material">272</token>
                 <token name="shape">1</token>
                 <Vector3 name="size">
                   <X>0.3999939</X>
-                  <Y>0.1499939</Y>
+                  <Y>0.25</Y>
                   <Z>6.399994</Z>
                 </Vector3>
                 <token name="TopSurface">0</token>
               </Properties>
             </Item>
-            <Item class="Part" referent="118">
+            <Item class="Part" referent="102">
               <Properties>
                 <string name="Name">TailLight</string>
                 <bool name="Anchored">false</bool>
                 <token name="BottomSurface">0</token>
                 <CoordinateFrame name="CFrame">
-                  <X>2.524994</X>
-                  <Y>4.699997</Y>
-                  <Z>7.949997</Z>
+                  <X>2.475006</X>
+                  <Y>5.050003</Y>
+                  <Z>7.975006</Z>
                   <R00>1</R00>
                   <R01>0</R01>
                   <R02>0</R02>
@@ -2603,61 +2240,26 @@
                 <bool name="CanQuery">false</bool>
                 <bool name="CanTouch">false</bool>
                 <bool name="CastShadow">false</bool>
-                <Color3uint8 name="Color3uint8">14692394</Color3uint8>
-                <bool name="Massless">true</bool>
-                <token name="Material">288</token>
-                <token name="shape">1</token>
-                <Vector3 name="size">
-                  <X>0.44999695</X>
-                  <Y>1</Y>
-                  <Z>0.1000061</Z>
-                </Vector3>
-                <token name="TopSurface">0</token>
-              </Properties>
-            </Item>
-            <Item class="Part" referent="120">
-              <Properties>
-                <string name="Name">BedFront</string>
-                <bool name="Anchored">false</bool>
-                <token name="BottomSurface">0</token>
-                <CoordinateFrame name="CFrame">
-                  <X>0</X>
-                  <Y>4.800003</Y>
-                  <Z>1.75</Z>
-                  <R00>1</R00>
-                  <R01>0</R01>
-                  <R02>0</R02>
-                  <R10>0</R10>
-                  <R11>1</R11>
-                  <R12>0</R12>
-                  <R20>0</R20>
-                  <R21>0</R21>
-                  <R22>1</R22>
-                </CoordinateFrame>
-                <bool name="CanCollide">false</bool>
-                <bool name="CanQuery">false</bool>
-                <bool name="CanTouch">false</bool>
-                <bool name="CastShadow">false</bool>
-                <Color3uint8 name="Color3uint8">7314581</Color3uint8>
+                <Color3uint8 name="Color3uint8">13130280</Color3uint8>
                 <bool name="Massless">true</bool>
                 <token name="Material">272</token>
                 <token name="shape">1</token>
                 <Vector3 name="size">
-                  <X>5</X>
-                  <Y>1.6000061</Y>
-                  <Z>0.30000305</Z>
+                  <X>0.55000305</X>
+                  <Y>0.8999939</Y>
+                  <Z>0.1499939</Z>
                 </Vector3>
                 <token name="TopSurface">0</token>
               </Properties>
             </Item>
-            <Item class="Part" referent="122">
+            <Item class="Part" referent="104">
               <Properties>
                 <string name="Name">Tailgate</string>
                 <bool name="Anchored">false</bool>
                 <token name="BottomSurface">0</token>
                 <CoordinateFrame name="CFrame">
                   <X>0</X>
-                  <Y>4.800003</Y>
+                  <Y>5.100006</Y>
                   <Z>7.75</Z>
                   <R00>1</R00>
                   <R01>0</R01>
@@ -2673,27 +2275,27 @@
                 <bool name="CanQuery">false</bool>
                 <bool name="CanTouch">false</bool>
                 <bool name="CastShadow">false</bool>
-                <Color3uint8 name="Color3uint8">7314581</Color3uint8>
+                <Color3uint8 name="Color3uint8">8295823</Color3uint8>
                 <bool name="Massless">true</bool>
                 <token name="Material">272</token>
                 <token name="shape">1</token>
                 <Vector3 name="size">
                   <X>5</X>
-                  <Y>1.6000061</Y>
+                  <Y>1.3999939</Y>
                   <Z>0.30000305</Z>
                 </Vector3>
                 <token name="TopSurface">0</token>
               </Properties>
             </Item>
-            <Item class="Part" referent="124">
+            <Item class="Part" referent="106">
               <Properties>
-                <string name="Name">TailgateHandle</string>
+                <string name="Name">TailgateCap</string>
                 <bool name="Anchored">false</bool>
                 <token name="BottomSurface">0</token>
                 <CoordinateFrame name="CFrame">
                   <X>0</X>
-                  <Y>5.199997</Y>
-                  <Z>7.9349976</Z>
+                  <Y>5.925003</Y>
+                  <Z>7.75</Z>
                   <R00>1</R00>
                   <R01>0</R01>
                   <R02>0</R02>
@@ -2708,26 +2310,26 @@
                 <bool name="CanQuery">false</bool>
                 <bool name="CanTouch">false</bool>
                 <bool name="CastShadow">false</bool>
-                <Color3uint8 name="Color3uint8">13225683</Color3uint8>
+                <Color3uint8 name="Color3uint8">6584175</Color3uint8>
                 <bool name="Massless">true</bool>
-                <token name="Material">1088</token>
+                <token name="Material">272</token>
                 <token name="shape">1</token>
                 <Vector3 name="size">
-                  <X>1</X>
-                  <Y>0.19999695</Y>
-                  <Z>0.070007324</Z>
+                  <X>5</X>
+                  <Y>0.25</Y>
+                  <Z>0.3999939</Z>
                 </Vector3>
                 <token name="TopSurface">0</token>
               </Properties>
             </Item>
-            <Item class="Part" referent="126">
+            <Item class="Part" referent="108">
               <Properties>
                 <string name="Name">RearBumper</string>
                 <bool name="Anchored">false</bool>
                 <token name="BottomSurface">0</token>
                 <CoordinateFrame name="CFrame">
                   <X>0</X>
-                  <Y>2.649994</Y>
+                  <Y>2.800003</Y>
                   <Z>8.149994</Z>
                   <R00>1</R00>
                   <R01>0</R01>
@@ -2743,54 +2345,19 @@
                 <bool name="CanQuery">false</bool>
                 <bool name="CanTouch">false</bool>
                 <bool name="CastShadow">false</bool>
-                <Color3uint8 name="Color3uint8">13225683</Color3uint8>
+                <Color3uint8 name="Color3uint8">10526885</Color3uint8>
                 <bool name="Massless">true</bool>
-                <token name="Material">1088</token>
+                <token name="Material">272</token>
                 <token name="shape">1</token>
                 <Vector3 name="size">
-                  <X>6.399994</X>
-                  <Y>0.69999695</Y>
+                  <X>6</X>
+                  <Y>0.80000305</Y>
                   <Z>0.5</Z>
                 </Vector3>
                 <token name="TopSurface">0</token>
               </Properties>
             </Item>
-            <Item class="Part" referent="128">
-              <Properties>
-                <string name="Name">Plate</string>
-                <bool name="Anchored">false</bool>
-                <token name="BottomSurface">0</token>
-                <CoordinateFrame name="CFrame">
-                  <X>0</X>
-                  <Y>3.274994</Y>
-                  <Z>8.425003</Z>
-                  <R00>1</R00>
-                  <R01>0</R01>
-                  <R02>0</R02>
-                  <R10>0</R10>
-                  <R11>1</R11>
-                  <R12>0</R12>
-                  <R20>0</R20>
-                  <R21>0</R21>
-                  <R22>1</R22>
-                </CoordinateFrame>
-                <bool name="CanCollide">false</bool>
-                <bool name="CanQuery">false</bool>
-                <bool name="CanTouch">false</bool>
-                <bool name="CastShadow">false</bool>
-                <Color3uint8 name="Color3uint8">15591126</Color3uint8>
-                <bool name="Massless">true</bool>
-                <token name="Material">272</token>
-                <token name="shape">1</token>
-                <Vector3 name="size">
-                  <X>1.800003</X>
-                  <Y>0.6499939</Y>
-                  <Z>0.05000305</Z>
-                </Vector3>
-                <token name="TopSurface">0</token>
-              </Properties>
-            </Item>
-            <Item class="Part" referent="130">
+            <Item class="Part" referent="110">
               <Properties>
                 <string name="Name">Exhaust</string>
                 <bool name="Anchored">false</bool>
@@ -2813,19 +2380,19 @@
                 <bool name="CanQuery">false</bool>
                 <bool name="CanTouch">false</bool>
                 <bool name="CastShadow">false</bool>
-                <Color3uint8 name="Color3uint8">5593438</Color3uint8>
+                <Color3uint8 name="Color3uint8">5922147</Color3uint8>
                 <bool name="Massless">true</bool>
                 <token name="Material">272</token>
                 <token name="shape">2</token>
                 <Vector3 name="size">
                   <X>1.199997</X>
-                  <Y>0.3999939</Y>
-                  <Z>0.3999939</Z>
+                  <Y>0.5</Y>
+                  <Z>0.5</Z>
                 </Vector3>
                 <token name="TopSurface">0</token>
               </Properties>
             </Item>
-            <Item class="Part" referent="132">
+            <Item class="Part" referent="112">
               <Properties>
                 <string name="Name">Rust</string>
                 <bool name="Anchored">false</bool>
@@ -2848,62 +2415,27 @@
                 <bool name="CanQuery">false</bool>
                 <bool name="CanTouch">false</bool>
                 <bool name="CastShadow">false</bool>
-                <Color3uint8 name="Color3uint8">9128491</Color3uint8>
+                <Color3uint8 name="Color3uint8">9067070</Color3uint8>
                 <bool name="Massless">true</bool>
                 <token name="Material">1040</token>
                 <token name="shape">1</token>
                 <Vector3 name="size">
-                  <X>0.02999878</X>
+                  <X>0.05000305</X>
                   <Y>0.8999939</Y>
                   <Z>1.8999939</Z>
                 </Vector3>
                 <token name="TopSurface">0</token>
               </Properties>
             </Item>
-            <Item class="Part" referent="134">
-              <Properties>
-                <string name="Name">Rust</string>
-                <bool name="Anchored">false</bool>
-                <token name="BottomSurface">0</token>
-                <CoordinateFrame name="CFrame">
-                  <X>2.824997</X>
-                  <Y>3.449997</Y>
-                  <Z>4.100006</Z>
-                  <R00>1</R00>
-                  <R01>0</R01>
-                  <R02>0</R02>
-                  <R10>0</R10>
-                  <R11>1</R11>
-                  <R12>0</R12>
-                  <R20>0</R20>
-                  <R21>0</R21>
-                  <R22>1</R22>
-                </CoordinateFrame>
-                <bool name="CanCollide">false</bool>
-                <bool name="CanQuery">false</bool>
-                <bool name="CanTouch">false</bool>
-                <bool name="CastShadow">false</bool>
-                <Color3uint8 name="Color3uint8">9128491</Color3uint8>
-                <bool name="Massless">true</bool>
-                <token name="Material">1040</token>
-                <token name="shape">1</token>
-                <Vector3 name="size">
-                  <X>0.02999878</X>
-                  <Y>0.69999695</Y>
-                  <Z>2.199997</Z>
-                </Vector3>
-                <token name="TopSurface">0</token>
-              </Properties>
-            </Item>
-            <Item class="Part" referent="136">
+            <Item class="Part" referent="114">
               <Properties>
                 <string name="Name">Rust</string>
                 <bool name="Anchored">false</bool>
                 <token name="BottomSurface">0</token>
                 <CoordinateFrame name="CFrame">
                   <X>1.3999939</X>
-                  <Y>4.800003</Y>
-                  <Z>7.919998</Z>
+                  <Y>5</Y>
+                  <Z>7.925003</Z>
                   <R00>1</R00>
                   <R01>0</R01>
                   <R02>0</R02>
@@ -2918,55 +2450,20 @@
                 <bool name="CanQuery">false</bool>
                 <bool name="CanTouch">false</bool>
                 <bool name="CastShadow">false</bool>
-                <Color3uint8 name="Color3uint8">9128491</Color3uint8>
+                <Color3uint8 name="Color3uint8">9067070</Color3uint8>
                 <bool name="Massless">true</bool>
                 <token name="Material">1040</token>
                 <token name="shape">1</token>
                 <Vector3 name="size">
                   <X>1.199997</X>
                   <Y>0.80000305</Y>
-                  <Z>0.039993286</Z>
-                </Vector3>
-                <token name="TopSurface">0</token>
-              </Properties>
-            </Item>
-            <Item class="Part" referent="138">
-              <Properties>
-                <string name="Name">Rust</string>
-                <bool name="Anchored">false</bool>
-                <token name="BottomSurface">0</token>
-                <CoordinateFrame name="CFrame">
-                  <X>1.75</X>
-                  <Y>4.975006</Y>
-                  <Z>-6.199997</Z>
-                  <R00>1</R00>
-                  <R01>0</R01>
-                  <R02>0</R02>
-                  <R10>0</R10>
-                  <R11>1</R11>
-                  <R12>0</R12>
-                  <R20>0</R20>
-                  <R21>0</R21>
-                  <R22>1</R22>
-                </CoordinateFrame>
-                <bool name="CanCollide">false</bool>
-                <bool name="CanQuery">false</bool>
-                <bool name="CanTouch">false</bool>
-                <bool name="CastShadow">false</bool>
-                <Color3uint8 name="Color3uint8">9128491</Color3uint8>
-                <bool name="Massless">true</bool>
-                <token name="Material">1040</token>
-                <token name="shape">1</token>
-                <Vector3 name="size">
-                  <X>1.1000061</X>
-                  <Y>0.05000305</Y>
-                  <Z>1.199997</Z>
+                  <Z>0.05000305</Z>
                 </Vector3>
                 <token name="TopSurface">0</token>
               </Properties>
             </Item>
           </Item>
-          <Item class="VehicleSeat" referent="140">
+          <Item class="VehicleSeat" referent="116">
             <Properties>
               <string name="Name">DriverSeat</string>
               <bool name="Anchored">false</bool>
@@ -3001,15 +2498,15 @@
               <float name="TurnSpeed">0</float>
             </Properties>
           </Item>
-          <Item class="Folder" referent="153">
+          <Item class="Folder" referent="129">
             <Properties>
               <string name="Name">Wheels</string>
             </Properties>
-            <Item class="Model" referent="154">
+            <Item class="Model" referent="130">
               <Properties>
                 <string name="Name">FL</string>
               </Properties>
-              <Item class="Part" referent="155">
+              <Item class="Part" referent="131">
                 <Properties>
                   <string name="Name">Strut</string>
                   <bool name="Anchored">false</bool>
@@ -3032,7 +2529,7 @@
                   <bool name="CanQuery">false</bool>
                   <bool name="CanTouch">false</bool>
                   <bool name="CastShadow">false</bool>
-                  <Color3uint8 name="Color3uint8">5593438</Color3uint8>
+                  <Color3uint8 name="Color3uint8">5922147</Color3uint8>
                   <token name="Material">272</token>
                   <token name="shape">1</token>
                   <Vector3 name="size">
@@ -3043,7 +2540,7 @@
                   <token name="TopSurface">0</token>
                   <float name="Transparency">1</float>
                 </Properties>
-                <Item class="Attachment" referent="156">
+                <Item class="Attachment" referent="132">
                   <Properties>
                     <string name="Name">Slide</string>
                     <CoordinateFrame name="CFrame">
@@ -3062,7 +2559,7 @@
                     </CoordinateFrame>
                   </Properties>
                 </Item>
-                <Item class="Attachment" referent="157">
+                <Item class="Attachment" referent="133">
                   <Properties>
                     <string name="Name">SpringBottom</string>
                     <CoordinateFrame name="CFrame">
@@ -3081,7 +2578,7 @@
                     </CoordinateFrame>
                   </Properties>
                 </Item>
-                <Item class="Attachment" referent="158">
+                <Item class="Attachment" referent="134">
                   <Properties>
                     <string name="Name">Steer</string>
                     <CoordinateFrame name="CFrame">
@@ -3101,7 +2598,7 @@
                   </Properties>
                 </Item>
               </Item>
-              <Item class="Part" referent="159">
+              <Item class="Part" referent="135">
                 <Properties>
                   <string name="Name">Knuckle</string>
                   <bool name="Anchored">false</bool>
@@ -3124,7 +2621,7 @@
                   <bool name="CanQuery">false</bool>
                   <bool name="CanTouch">false</bool>
                   <bool name="CastShadow">false</bool>
-                  <Color3uint8 name="Color3uint8">5593438</Color3uint8>
+                  <Color3uint8 name="Color3uint8">5922147</Color3uint8>
                   <token name="Material">272</token>
                   <token name="shape">1</token>
                   <Vector3 name="size">
@@ -3135,7 +2632,7 @@
                   <token name="TopSurface">0</token>
                   <float name="Transparency">1</float>
                 </Properties>
-                <Item class="Attachment" referent="160">
+                <Item class="Attachment" referent="136">
                   <Properties>
                     <string name="Name">Steer</string>
                     <CoordinateFrame name="CFrame">
@@ -3154,7 +2651,7 @@
                     </CoordinateFrame>
                   </Properties>
                 </Item>
-                <Item class="Attachment" referent="161">
+                <Item class="Attachment" referent="137">
                   <Properties>
                     <string name="Name">Axle</string>
                     <CoordinateFrame name="CFrame">
@@ -3174,7 +2671,7 @@
                   </Properties>
                 </Item>
               </Item>
-              <Item class="Part" referent="162">
+              <Item class="Part" referent="138">
                 <Properties>
                   <string name="Name">Wheel</string>
                   <bool name="Anchored">false</bool>
@@ -3194,7 +2691,7 @@
                     <R22>1</R22>
                   </CoordinateFrame>
                   <bool name="CastShadow">true</bool>
-                  <Color3uint8 name="Color3uint8">1973794</Color3uint8>
+                  <Color3uint8 name="Color3uint8">2303533</Color3uint8>
                   <PhysicalProperties name="CustomPhysicalProperties">
                     <CustomPhysics>true</CustomPhysics>
                     <Density>0.9</Density>
@@ -3213,7 +2710,7 @@
                   </Vector3>
                   <token name="TopSurface">0</token>
                 </Properties>
-                <Item class="Attachment" referent="163">
+                <Item class="Attachment" referent="139">
                   <Properties>
                     <string name="Name">Axle</string>
                     <CoordinateFrame name="CFrame">
@@ -3233,7 +2730,7 @@
                   </Properties>
                 </Item>
               </Item>
-              <Item class="Part" referent="164">
+              <Item class="Part" referent="140">
                 <Properties>
                   <string name="Name">Hubcap</string>
                   <bool name="Anchored">false</bool>
@@ -3256,7 +2753,7 @@
                   <bool name="CanQuery">false</bool>
                   <bool name="CanTouch">false</bool>
                   <bool name="CastShadow">false</bool>
-                  <Color3uint8 name="Color3uint8">13225683</Color3uint8>
+                  <Color3uint8 name="Color3uint8">11120049</Color3uint8>
                   <bool name="Massless">true</bool>
                   <token name="Material">1088</token>
                   <token name="shape">2</token>
@@ -3268,7 +2765,7 @@
                   <token name="TopSurface">0</token>
                 </Properties>
               </Item>
-              <Item class="Part" referent="165">
+              <Item class="Part" referent="141">
                 <Properties>
                   <string name="Name">HubNut</string>
                   <bool name="Anchored">false</bool>
@@ -3291,7 +2788,7 @@
                   <bool name="CanQuery">false</bool>
                   <bool name="CanTouch">false</bool>
                   <bool name="CastShadow">false</bool>
-                  <Color3uint8 name="Color3uint8">5593438</Color3uint8>
+                  <Color3uint8 name="Color3uint8">5922147</Color3uint8>
                   <bool name="Massless">true</bool>
                   <token name="Material">272</token>
                   <token name="shape">2</token>
@@ -3303,65 +2800,65 @@
                   <token name="TopSurface">0</token>
                 </Properties>
               </Item>
-              <Item class="WeldConstraint" referent="166">
+              <Item class="WeldConstraint" referent="142">
                 <Properties>
                   <string name="Name">Hubcap</string>
-                  <Ref name="Part0Internal">162</Ref>
-                  <Ref name="Part1Internal">164</Ref>
+                  <Ref name="Part0Internal">138</Ref>
+                  <Ref name="Part1Internal">140</Ref>
                 </Properties>
               </Item>
-              <Item class="WeldConstraint" referent="167">
+              <Item class="WeldConstraint" referent="143">
                 <Properties>
                   <string name="Name">HubNut</string>
-                  <Ref name="Part0Internal">162</Ref>
-                  <Ref name="Part1Internal">165</Ref>
+                  <Ref name="Part0Internal">138</Ref>
+                  <Ref name="Part1Internal">141</Ref>
                 </Properties>
               </Item>
-              <Item class="PrismaticConstraint" referent="168">
+              <Item class="PrismaticConstraint" referent="144">
                 <Properties>
                   <string name="Name">Slide</string>
-                  <Ref name="Attachment0">141</Ref>
-                  <Ref name="Attachment1">156</Ref>
+                  <Ref name="Attachment0">117</Ref>
+                  <Ref name="Attachment1">132</Ref>
                   <bool name="LimitsEnabled">true</bool>
                   <float name="LowerLimit">-0.8</float>
                   <float name="Restitution">0</float>
                   <float name="UpperLimit">0.7</float>
                 </Properties>
               </Item>
-              <Item class="SpringConstraint" referent="169">
+              <Item class="SpringConstraint" referent="145">
                 <Properties>
                   <string name="Name">Spring</string>
-                  <Ref name="Attachment0">142</Ref>
-                  <Ref name="Attachment1">157</Ref>
+                  <Ref name="Attachment0">118</Ref>
+                  <Ref name="Attachment1">133</Ref>
                   <BinaryString name="AttributesSerialize">AQAAAAoAAABSZXN0TGVuZ3RoBQAAAEA=</BinaryString>
                   <bool name="Visible">false</bool>
                 </Properties>
               </Item>
-              <Item class="HingeConstraint" referent="170">
+              <Item class="HingeConstraint" referent="146">
                 <Properties>
                   <string name="Name">Steer</string>
                   <token name="ActuatorType">2</token>
-                  <Ref name="Attachment0">158</Ref>
-                  <Ref name="Attachment1">160</Ref>
+                  <Ref name="Attachment0">134</Ref>
+                  <Ref name="Attachment1">136</Ref>
                   <bool name="LimitsEnabled">true</bool>
                   <float name="LowerAngle">-45</float>
                   <float name="UpperAngle">45</float>
                 </Properties>
               </Item>
-              <Item class="HingeConstraint" referent="171">
+              <Item class="HingeConstraint" referent="147">
                 <Properties>
                   <string name="Name">Motor</string>
                   <token name="ActuatorType">1</token>
-                  <Ref name="Attachment0">161</Ref>
-                  <Ref name="Attachment1">163</Ref>
+                  <Ref name="Attachment0">137</Ref>
+                  <Ref name="Attachment1">139</Ref>
                 </Properties>
               </Item>
             </Item>
-            <Item class="Model" referent="172">
+            <Item class="Model" referent="148">
               <Properties>
                 <string name="Name">FR</string>
               </Properties>
-              <Item class="Part" referent="173">
+              <Item class="Part" referent="149">
                 <Properties>
                   <string name="Name">Strut</string>
                   <bool name="Anchored">false</bool>
@@ -3384,7 +2881,7 @@
                   <bool name="CanQuery">false</bool>
                   <bool name="CanTouch">false</bool>
                   <bool name="CastShadow">false</bool>
-                  <Color3uint8 name="Color3uint8">5593438</Color3uint8>
+                  <Color3uint8 name="Color3uint8">5922147</Color3uint8>
                   <token name="Material">272</token>
                   <token name="shape">1</token>
                   <Vector3 name="size">
@@ -3395,7 +2892,7 @@
                   <token name="TopSurface">0</token>
                   <float name="Transparency">1</float>
                 </Properties>
-                <Item class="Attachment" referent="174">
+                <Item class="Attachment" referent="150">
                   <Properties>
                     <string name="Name">Slide</string>
                     <CoordinateFrame name="CFrame">
@@ -3414,7 +2911,7 @@
                     </CoordinateFrame>
                   </Properties>
                 </Item>
-                <Item class="Attachment" referent="175">
+                <Item class="Attachment" referent="151">
                   <Properties>
                     <string name="Name">SpringBottom</string>
                     <CoordinateFrame name="CFrame">
@@ -3433,7 +2930,7 @@
                     </CoordinateFrame>
                   </Properties>
                 </Item>
-                <Item class="Attachment" referent="176">
+                <Item class="Attachment" referent="152">
                   <Properties>
                     <string name="Name">Steer</string>
                     <CoordinateFrame name="CFrame">
@@ -3453,7 +2950,7 @@
                   </Properties>
                 </Item>
               </Item>
-              <Item class="Part" referent="177">
+              <Item class="Part" referent="153">
                 <Properties>
                   <string name="Name">Knuckle</string>
                   <bool name="Anchored">false</bool>
@@ -3476,7 +2973,7 @@
                   <bool name="CanQuery">false</bool>
                   <bool name="CanTouch">false</bool>
                   <bool name="CastShadow">false</bool>
-                  <Color3uint8 name="Color3uint8">5593438</Color3uint8>
+                  <Color3uint8 name="Color3uint8">5922147</Color3uint8>
                   <token name="Material">272</token>
                   <token name="shape">1</token>
                   <Vector3 name="size">
@@ -3487,7 +2984,7 @@
                   <token name="TopSurface">0</token>
                   <float name="Transparency">1</float>
                 </Properties>
-                <Item class="Attachment" referent="178">
+                <Item class="Attachment" referent="154">
                   <Properties>
                     <string name="Name">Steer</string>
                     <CoordinateFrame name="CFrame">
@@ -3506,7 +3003,7 @@
                     </CoordinateFrame>
                   </Properties>
                 </Item>
-                <Item class="Attachment" referent="179">
+                <Item class="Attachment" referent="155">
                   <Properties>
                     <string name="Name">Axle</string>
                     <CoordinateFrame name="CFrame">
@@ -3526,7 +3023,7 @@
                   </Properties>
                 </Item>
               </Item>
-              <Item class="Part" referent="180">
+              <Item class="Part" referent="156">
                 <Properties>
                   <string name="Name">Wheel</string>
                   <bool name="Anchored">false</bool>
@@ -3546,7 +3043,7 @@
                     <R22>1</R22>
                   </CoordinateFrame>
                   <bool name="CastShadow">true</bool>
-                  <Color3uint8 name="Color3uint8">1973794</Color3uint8>
+                  <Color3uint8 name="Color3uint8">2303533</Color3uint8>
                   <PhysicalProperties name="CustomPhysicalProperties">
                     <CustomPhysics>true</CustomPhysics>
                     <Density>0.9</Density>
@@ -3565,7 +3062,7 @@
                   </Vector3>
                   <token name="TopSurface">0</token>
                 </Properties>
-                <Item class="Attachment" referent="181">
+                <Item class="Attachment" referent="157">
                   <Properties>
                     <string name="Name">Axle</string>
                     <CoordinateFrame name="CFrame">
@@ -3585,7 +3082,7 @@
                   </Properties>
                 </Item>
               </Item>
-              <Item class="Part" referent="182">
+              <Item class="Part" referent="158">
                 <Properties>
                   <string name="Name">Hubcap</string>
                   <bool name="Anchored">false</bool>
@@ -3608,7 +3105,7 @@
                   <bool name="CanQuery">false</bool>
                   <bool name="CanTouch">false</bool>
                   <bool name="CastShadow">false</bool>
-                  <Color3uint8 name="Color3uint8">13225683</Color3uint8>
+                  <Color3uint8 name="Color3uint8">11120049</Color3uint8>
                   <bool name="Massless">true</bool>
                   <token name="Material">1088</token>
                   <token name="shape">2</token>
@@ -3620,7 +3117,7 @@
                   <token name="TopSurface">0</token>
                 </Properties>
               </Item>
-              <Item class="Part" referent="183">
+              <Item class="Part" referent="159">
                 <Properties>
                   <string name="Name">HubNut</string>
                   <bool name="Anchored">false</bool>
@@ -3643,7 +3140,7 @@
                   <bool name="CanQuery">false</bool>
                   <bool name="CanTouch">false</bool>
                   <bool name="CastShadow">false</bool>
-                  <Color3uint8 name="Color3uint8">5593438</Color3uint8>
+                  <Color3uint8 name="Color3uint8">5922147</Color3uint8>
                   <bool name="Massless">true</bool>
                   <token name="Material">272</token>
                   <token name="shape">2</token>
@@ -3655,65 +3152,65 @@
                   <token name="TopSurface">0</token>
                 </Properties>
               </Item>
-              <Item class="WeldConstraint" referent="184">
+              <Item class="WeldConstraint" referent="160">
                 <Properties>
                   <string name="Name">Hubcap</string>
-                  <Ref name="Part0Internal">180</Ref>
-                  <Ref name="Part1Internal">182</Ref>
+                  <Ref name="Part0Internal">156</Ref>
+                  <Ref name="Part1Internal">158</Ref>
                 </Properties>
               </Item>
-              <Item class="WeldConstraint" referent="185">
+              <Item class="WeldConstraint" referent="161">
                 <Properties>
                   <string name="Name">HubNut</string>
-                  <Ref name="Part0Internal">180</Ref>
-                  <Ref name="Part1Internal">183</Ref>
+                  <Ref name="Part0Internal">156</Ref>
+                  <Ref name="Part1Internal">159</Ref>
                 </Properties>
               </Item>
-              <Item class="PrismaticConstraint" referent="186">
+              <Item class="PrismaticConstraint" referent="162">
                 <Properties>
                   <string name="Name">Slide</string>
-                  <Ref name="Attachment0">143</Ref>
-                  <Ref name="Attachment1">174</Ref>
+                  <Ref name="Attachment0">119</Ref>
+                  <Ref name="Attachment1">150</Ref>
                   <bool name="LimitsEnabled">true</bool>
                   <float name="LowerLimit">-0.8</float>
                   <float name="Restitution">0</float>
                   <float name="UpperLimit">0.7</float>
                 </Properties>
               </Item>
-              <Item class="SpringConstraint" referent="187">
+              <Item class="SpringConstraint" referent="163">
                 <Properties>
                   <string name="Name">Spring</string>
-                  <Ref name="Attachment0">144</Ref>
-                  <Ref name="Attachment1">175</Ref>
+                  <Ref name="Attachment0">120</Ref>
+                  <Ref name="Attachment1">151</Ref>
                   <BinaryString name="AttributesSerialize">AQAAAAoAAABSZXN0TGVuZ3RoBQAAAEA=</BinaryString>
                   <bool name="Visible">false</bool>
                 </Properties>
               </Item>
-              <Item class="HingeConstraint" referent="188">
+              <Item class="HingeConstraint" referent="164">
                 <Properties>
                   <string name="Name">Steer</string>
                   <token name="ActuatorType">2</token>
-                  <Ref name="Attachment0">176</Ref>
-                  <Ref name="Attachment1">178</Ref>
+                  <Ref name="Attachment0">152</Ref>
+                  <Ref name="Attachment1">154</Ref>
                   <bool name="LimitsEnabled">true</bool>
                   <float name="LowerAngle">-45</float>
                   <float name="UpperAngle">45</float>
                 </Properties>
               </Item>
-              <Item class="HingeConstraint" referent="189">
+              <Item class="HingeConstraint" referent="165">
                 <Properties>
                   <string name="Name">Motor</string>
                   <token name="ActuatorType">1</token>
-                  <Ref name="Attachment0">179</Ref>
-                  <Ref name="Attachment1">181</Ref>
+                  <Ref name="Attachment0">155</Ref>
+                  <Ref name="Attachment1">157</Ref>
                 </Properties>
               </Item>
             </Item>
-            <Item class="Model" referent="190">
+            <Item class="Model" referent="166">
               <Properties>
                 <string name="Name">RL</string>
               </Properties>
-              <Item class="Part" referent="191">
+              <Item class="Part" referent="167">
                 <Properties>
                   <string name="Name">Strut</string>
                   <bool name="Anchored">false</bool>
@@ -3736,7 +3233,7 @@
                   <bool name="CanQuery">false</bool>
                   <bool name="CanTouch">false</bool>
                   <bool name="CastShadow">false</bool>
-                  <Color3uint8 name="Color3uint8">5593438</Color3uint8>
+                  <Color3uint8 name="Color3uint8">5922147</Color3uint8>
                   <token name="Material">272</token>
                   <token name="shape">1</token>
                   <Vector3 name="size">
@@ -3747,7 +3244,7 @@
                   <token name="TopSurface">0</token>
                   <float name="Transparency">1</float>
                 </Properties>
-                <Item class="Attachment" referent="192">
+                <Item class="Attachment" referent="168">
                   <Properties>
                     <string name="Name">Slide</string>
                     <CoordinateFrame name="CFrame">
@@ -3766,7 +3263,7 @@
                     </CoordinateFrame>
                   </Properties>
                 </Item>
-                <Item class="Attachment" referent="193">
+                <Item class="Attachment" referent="169">
                   <Properties>
                     <string name="Name">SpringBottom</string>
                     <CoordinateFrame name="CFrame">
@@ -3785,7 +3282,7 @@
                     </CoordinateFrame>
                   </Properties>
                 </Item>
-                <Item class="Attachment" referent="194">
+                <Item class="Attachment" referent="170">
                   <Properties>
                     <string name="Name">Axle</string>
                     <CoordinateFrame name="CFrame">
@@ -3805,7 +3302,7 @@
                   </Properties>
                 </Item>
               </Item>
-              <Item class="Part" referent="195">
+              <Item class="Part" referent="171">
                 <Properties>
                   <string name="Name">Wheel</string>
                   <bool name="Anchored">false</bool>
@@ -3825,7 +3322,7 @@
                     <R22>1</R22>
                   </CoordinateFrame>
                   <bool name="CastShadow">true</bool>
-                  <Color3uint8 name="Color3uint8">1973794</Color3uint8>
+                  <Color3uint8 name="Color3uint8">2303533</Color3uint8>
                   <PhysicalProperties name="CustomPhysicalProperties">
                     <CustomPhysics>true</CustomPhysics>
                     <Density>0.9</Density>
@@ -3844,7 +3341,7 @@
                   </Vector3>
                   <token name="TopSurface">0</token>
                 </Properties>
-                <Item class="Attachment" referent="196">
+                <Item class="Attachment" referent="172">
                   <Properties>
                     <string name="Name">Axle</string>
                     <CoordinateFrame name="CFrame">
@@ -3864,7 +3361,7 @@
                   </Properties>
                 </Item>
               </Item>
-              <Item class="Part" referent="197">
+              <Item class="Part" referent="173">
                 <Properties>
                   <string name="Name">Hubcap</string>
                   <bool name="Anchored">false</bool>
@@ -3887,7 +3384,7 @@
                   <bool name="CanQuery">false</bool>
                   <bool name="CanTouch">false</bool>
                   <bool name="CastShadow">false</bool>
-                  <Color3uint8 name="Color3uint8">13225683</Color3uint8>
+                  <Color3uint8 name="Color3uint8">11120049</Color3uint8>
                   <bool name="Massless">true</bool>
                   <token name="Material">1088</token>
                   <token name="shape">2</token>
@@ -3899,7 +3396,7 @@
                   <token name="TopSurface">0</token>
                 </Properties>
               </Item>
-              <Item class="Part" referent="198">
+              <Item class="Part" referent="174">
                 <Properties>
                   <string name="Name">HubNut</string>
                   <bool name="Anchored">false</bool>
@@ -3922,7 +3419,7 @@
                   <bool name="CanQuery">false</bool>
                   <bool name="CanTouch">false</bool>
                   <bool name="CastShadow">false</bool>
-                  <Color3uint8 name="Color3uint8">5593438</Color3uint8>
+                  <Color3uint8 name="Color3uint8">5922147</Color3uint8>
                   <bool name="Massless">true</bool>
                   <token name="Material">272</token>
                   <token name="shape">2</token>
@@ -3934,54 +3431,54 @@
                   <token name="TopSurface">0</token>
                 </Properties>
               </Item>
-              <Item class="WeldConstraint" referent="199">
+              <Item class="WeldConstraint" referent="175">
                 <Properties>
                   <string name="Name">Hubcap</string>
-                  <Ref name="Part0Internal">195</Ref>
-                  <Ref name="Part1Internal">197</Ref>
+                  <Ref name="Part0Internal">171</Ref>
+                  <Ref name="Part1Internal">173</Ref>
                 </Properties>
               </Item>
-              <Item class="WeldConstraint" referent="200">
+              <Item class="WeldConstraint" referent="176">
                 <Properties>
                   <string name="Name">HubNut</string>
-                  <Ref name="Part0Internal">195</Ref>
-                  <Ref name="Part1Internal">198</Ref>
+                  <Ref name="Part0Internal">171</Ref>
+                  <Ref name="Part1Internal">174</Ref>
                 </Properties>
               </Item>
-              <Item class="PrismaticConstraint" referent="201">
+              <Item class="PrismaticConstraint" referent="177">
                 <Properties>
                   <string name="Name">Slide</string>
-                  <Ref name="Attachment0">145</Ref>
-                  <Ref name="Attachment1">192</Ref>
+                  <Ref name="Attachment0">121</Ref>
+                  <Ref name="Attachment1">168</Ref>
                   <bool name="LimitsEnabled">true</bool>
                   <float name="LowerLimit">-0.8</float>
                   <float name="Restitution">0</float>
                   <float name="UpperLimit">0.7</float>
                 </Properties>
               </Item>
-              <Item class="SpringConstraint" referent="202">
+              <Item class="SpringConstraint" referent="178">
                 <Properties>
                   <string name="Name">Spring</string>
-                  <Ref name="Attachment0">146</Ref>
-                  <Ref name="Attachment1">193</Ref>
+                  <Ref name="Attachment0">122</Ref>
+                  <Ref name="Attachment1">169</Ref>
                   <BinaryString name="AttributesSerialize">AQAAAAoAAABSZXN0TGVuZ3RoBQAAAEA=</BinaryString>
                   <bool name="Visible">false</bool>
                 </Properties>
               </Item>
-              <Item class="HingeConstraint" referent="203">
+              <Item class="HingeConstraint" referent="179">
                 <Properties>
                   <string name="Name">Motor</string>
                   <token name="ActuatorType">1</token>
-                  <Ref name="Attachment0">194</Ref>
-                  <Ref name="Attachment1">196</Ref>
+                  <Ref name="Attachment0">170</Ref>
+                  <Ref name="Attachment1">172</Ref>
                 </Properties>
               </Item>
             </Item>
-            <Item class="Model" referent="204">
+            <Item class="Model" referent="180">
               <Properties>
                 <string name="Name">RR</string>
               </Properties>
-              <Item class="Part" referent="205">
+              <Item class="Part" referent="181">
                 <Properties>
                   <string name="Name">Strut</string>
                   <bool name="Anchored">false</bool>
@@ -4004,7 +3501,7 @@
                   <bool name="CanQuery">false</bool>
                   <bool name="CanTouch">false</bool>
                   <bool name="CastShadow">false</bool>
-                  <Color3uint8 name="Color3uint8">5593438</Color3uint8>
+                  <Color3uint8 name="Color3uint8">5922147</Color3uint8>
                   <token name="Material">272</token>
                   <token name="shape">1</token>
                   <Vector3 name="size">
@@ -4015,7 +3512,7 @@
                   <token name="TopSurface">0</token>
                   <float name="Transparency">1</float>
                 </Properties>
-                <Item class="Attachment" referent="206">
+                <Item class="Attachment" referent="182">
                   <Properties>
                     <string name="Name">Slide</string>
                     <CoordinateFrame name="CFrame">
@@ -4034,7 +3531,7 @@
                     </CoordinateFrame>
                   </Properties>
                 </Item>
-                <Item class="Attachment" referent="207">
+                <Item class="Attachment" referent="183">
                   <Properties>
                     <string name="Name">SpringBottom</string>
                     <CoordinateFrame name="CFrame">
@@ -4053,7 +3550,7 @@
                     </CoordinateFrame>
                   </Properties>
                 </Item>
-                <Item class="Attachment" referent="208">
+                <Item class="Attachment" referent="184">
                   <Properties>
                     <string name="Name">Axle</string>
                     <CoordinateFrame name="CFrame">
@@ -4073,7 +3570,7 @@
                   </Properties>
                 </Item>
               </Item>
-              <Item class="Part" referent="209">
+              <Item class="Part" referent="185">
                 <Properties>
                   <string name="Name">Wheel</string>
                   <bool name="Anchored">false</bool>
@@ -4093,7 +3590,7 @@
                     <R22>1</R22>
                   </CoordinateFrame>
                   <bool name="CastShadow">true</bool>
-                  <Color3uint8 name="Color3uint8">1973794</Color3uint8>
+                  <Color3uint8 name="Color3uint8">2303533</Color3uint8>
                   <PhysicalProperties name="CustomPhysicalProperties">
                     <CustomPhysics>true</CustomPhysics>
                     <Density>0.9</Density>
@@ -4112,7 +3609,7 @@
                   </Vector3>
                   <token name="TopSurface">0</token>
                 </Properties>
-                <Item class="Attachment" referent="210">
+                <Item class="Attachment" referent="186">
                   <Properties>
                     <string name="Name">Axle</string>
                     <CoordinateFrame name="CFrame">
@@ -4132,7 +3629,7 @@
                   </Properties>
                 </Item>
               </Item>
-              <Item class="Part" referent="211">
+              <Item class="Part" referent="187">
                 <Properties>
                   <string name="Name">Hubcap</string>
                   <bool name="Anchored">false</bool>
@@ -4155,7 +3652,7 @@
                   <bool name="CanQuery">false</bool>
                   <bool name="CanTouch">false</bool>
                   <bool name="CastShadow">false</bool>
-                  <Color3uint8 name="Color3uint8">13225683</Color3uint8>
+                  <Color3uint8 name="Color3uint8">11120049</Color3uint8>
                   <bool name="Massless">true</bool>
                   <token name="Material">1088</token>
                   <token name="shape">2</token>
@@ -4167,7 +3664,7 @@
                   <token name="TopSurface">0</token>
                 </Properties>
               </Item>
-              <Item class="Part" referent="212">
+              <Item class="Part" referent="188">
                 <Properties>
                   <string name="Name">HubNut</string>
                   <bool name="Anchored">false</bool>
@@ -4190,7 +3687,7 @@
                   <bool name="CanQuery">false</bool>
                   <bool name="CanTouch">false</bool>
                   <bool name="CastShadow">false</bool>
-                  <Color3uint8 name="Color3uint8">5593438</Color3uint8>
+                  <Color3uint8 name="Color3uint8">5922147</Color3uint8>
                   <bool name="Massless">true</bool>
                   <token name="Material">272</token>
                   <token name="shape">2</token>
@@ -4202,46 +3699,46 @@
                   <token name="TopSurface">0</token>
                 </Properties>
               </Item>
-              <Item class="WeldConstraint" referent="213">
+              <Item class="WeldConstraint" referent="189">
                 <Properties>
                   <string name="Name">Hubcap</string>
-                  <Ref name="Part0Internal">209</Ref>
-                  <Ref name="Part1Internal">211</Ref>
+                  <Ref name="Part0Internal">185</Ref>
+                  <Ref name="Part1Internal">187</Ref>
                 </Properties>
               </Item>
-              <Item class="WeldConstraint" referent="214">
+              <Item class="WeldConstraint" referent="190">
                 <Properties>
                   <string name="Name">HubNut</string>
-                  <Ref name="Part0Internal">209</Ref>
-                  <Ref name="Part1Internal">212</Ref>
+                  <Ref name="Part0Internal">185</Ref>
+                  <Ref name="Part1Internal">188</Ref>
                 </Properties>
               </Item>
-              <Item class="PrismaticConstraint" referent="215">
+              <Item class="PrismaticConstraint" referent="191">
                 <Properties>
                   <string name="Name">Slide</string>
-                  <Ref name="Attachment0">147</Ref>
-                  <Ref name="Attachment1">206</Ref>
+                  <Ref name="Attachment0">123</Ref>
+                  <Ref name="Attachment1">182</Ref>
                   <bool name="LimitsEnabled">true</bool>
                   <float name="LowerLimit">-0.8</float>
                   <float name="Restitution">0</float>
                   <float name="UpperLimit">0.7</float>
                 </Properties>
               </Item>
-              <Item class="SpringConstraint" referent="216">
+              <Item class="SpringConstraint" referent="192">
                 <Properties>
                   <string name="Name">Spring</string>
-                  <Ref name="Attachment0">148</Ref>
-                  <Ref name="Attachment1">207</Ref>
+                  <Ref name="Attachment0">124</Ref>
+                  <Ref name="Attachment1">183</Ref>
                   <BinaryString name="AttributesSerialize">AQAAAAoAAABSZXN0TGVuZ3RoBQAAAEA=</BinaryString>
                   <bool name="Visible">false</bool>
                 </Properties>
               </Item>
-              <Item class="HingeConstraint" referent="217">
+              <Item class="HingeConstraint" referent="193">
                 <Properties>
                   <string name="Name">Motor</string>
                   <token name="ActuatorType">1</token>
-                  <Ref name="Attachment0">208</Ref>
-                  <Ref name="Attachment1">210</Ref>
+                  <Ref name="Attachment0">184</Ref>
+                  <Ref name="Attachment1">186</Ref>
                 </Properties>
               </Item>
             </Item>
