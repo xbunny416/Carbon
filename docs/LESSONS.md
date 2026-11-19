@@ -54,6 +54,9 @@ line whenever a new one costs time.
 - **Flicker (z-fighting):** two surfaces at the same height flicker, and so do ones only ~0.05 studs apart once you
   look from far away. Keep the map ground off Y = 0 (Studio's Baseplate lives there), lay stripes beside each other
   instead of on top, and keep overlays 0.1–0.2+ studs above what they cover. `maps.spec` checks top surfaces.
+  Wedges with the same slope side by side must not overlap either (the car's windshield / pillars; `cars.spec`).
+- **Constraint cars:** motor hinges forced to one speed on every wheel fight each turn (hard steering, stuck at
+  low speed). Give each wheel its own speed from the turn radius (`CarRules.wheelFactor`).
 
 ## Store art
 

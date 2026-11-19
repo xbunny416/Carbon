@@ -267,6 +267,7 @@ function CarKit.build(spec: Spec, prompts: { Keyboard: string, Gamepad: string, 
 	root.ModelStreamingMode = Enum.ModelStreamingMode.Atomic
 	root:SetAttribute("CarId", spec.Name)
 	root:SetAttribute("WheelRadius", spec.WheelRadius)
+	root:SetAttribute("WheelBase", spec.Base)
 	return root
 end
 

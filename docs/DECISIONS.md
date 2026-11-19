@@ -130,3 +130,11 @@ Claude's calls (all *(tune)* in the bible, change freely):
 - Stalling hands the car's physics to the server (its motors switch to coasting), so a client can't keep driving
   on an empty tank. Tow home has no cooldown (unlike Reset car) and only works for a stalled car.
 - The low-fuel line is 20 % of the tank; the empty-tank barrel rule reads a `Cargo` attribute that 1.4 will fill.
+
+## Car handling fixes (2026-11-19, owner playtest)
+
+- Owner: front of the car glitches, hard to turn / stuck sometimes, cab a bit small.
+- Claude's calls: keep 4-wheel drive but give every wheel its own target speed in a turn (an electronic
+  differential, `CarRules.wheelFactor`, turn center level with the rear axle); steering 40° standing / 18° at top
+  speed (was 34° / 12°); `MotorMargin` 2.2 (was 1.5) so curbs and sand don't stop the car. Cab: full body width,
+  longer (windshield moved forward, bed starts 0.5 studs later), roof at 8.2 (4 studs above the seat).

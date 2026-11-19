@@ -62,6 +62,48 @@ return {
 		near(CarRules.steerAngle(1, stats.TopSpeed * 2, stats), -stats.SteerAngleAtTopSpeed, "at top speed")
 		near(CarRules.steerAngle(0, 10, stats), 0, "straight")
 	end,
+	["in a turn the inner wheels roll slower than the outer ones, rear inner slowest"] = function()
+		local base, track = 5.2, 3.55
+		expect.equal(CarRules.wheelFactor(0, -track, -base, base), 1, "straight: all the same")
+		local left = 30 -- positive = left turn
+		local fl = CarRules.wheelFactor(left, -track, -base, base)
+		local fr = CarRules.wheelFactor(left, track, -base, base)
+		local rl = CarRules.wheelFactor(left, -track, base, base)
+		local rr = CarRules.wheelFactor(left, track, base, base)
+		expect.truthy(fl < fr and rl < rr, "left wheels slower in a left turn")
+		expect.truthy(rl < fl, "rear inner wheel is the slowest")
+		near(CarRules.wheelFactor(-left, track, base, base), rl, "a right turn mirrors a left one")
+		expect.truthy(rr > 1 and rl < 1, "around the car's own speed")
+	end,
+	["no two differently colored wedges overlap on the same slope (that flickered on the windshield)"] = function()
+		local problems: { string } = {}
+		for name in Config.Cars.Models do
+			local car = built.Models.Cars:FindFirstChild(name)
+			local wedges: { any } = {}
+			for _, part in car:GetDescendants() do
+				if part.ClassName == "WedgePart" then
+					table.insert(wedges, part)
+				end
+			end
+			for i, a in wedges do
+				for j = i + 1, #wedges do
+					local b = wedges[j]
+					local aligned = a.CFrame.RightVector:Dot(b.CFrame.RightVector) > 0.9999
+						and a.CFrame.UpVector:Dot(b.CFrame.UpVector) > 0.9999
+					local offset = a.CFrame:PointToObjectSpace(b.CFrame.Position)
+					local sameSlope = math.abs(a.Size.Y - b.Size.Y) < 0.01
+						and math.abs(a.Size.Z - b.Size.Z) < 0.01
+						and math.abs(offset.Y) < 0.01
+						and math.abs(offset.Z) < 0.01
+					local overlapX = (a.Size.X + b.Size.X) / 2 - math.abs(offset.X)
+					if a.Color ~= b.Color and aligned and sameSlope and overlapX > 0.01 then
+						table.insert(problems, `{name}: {a.Name} / {b.Name}`)
+					end
+				end
+			end
+		end
+		expect.equal(#problems, 0, table.concat(problems, "; "))
+	end,
 	["a car can be flipped only upside down and stopped"] = function()
 		local c = Config.Cars
 		expect.equal(CarRules.canFlip(-1, 0, c.FlippedBelowUp, c.FlipMaxSpeed), true)
