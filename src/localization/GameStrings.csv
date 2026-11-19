@@ -1,5 +1,5 @@
 Key,Source,Context,Example
-Game.Title,CARBON,The game's name on the loading screen,
+Game.Title,CAROFF,The game's name on the loading screen,
 Common.Level,Level {1},Player level label,Level 12
 Common.Coins,{1} Coins,An amount of the soft currency,250 Coins
 Common.Close,Close,Button that closes a panel,

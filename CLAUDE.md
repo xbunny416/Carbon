@@ -1,4 +1,4 @@
-# Carbon — working notes for Claude
+# CarOff — working notes for Claude
 
 Read this first in every session. This repo started from the owner's **roblox-game-template** (made from Brawl Arena,
 2026-11). Design spec: [docs/PROJECT_BIBLE.md](docs/PROJECT_BIBLE.md). History in `docs/`:
@@ -10,13 +10,13 @@ and every call made where the bible is silent — read the matching entry before
 
 ## Status
 
-- **New game, nothing built yet** ("Carbon" is the repo name and working title). First session: run the
-  `game-kickoff` skill (interview → bible → build order → wait for approval). When the real name is picked, change it
-  here, in `README.md`, `Game.Title` in GameStrings.csv and `name` in `default.project.json`.
+- **CarOff** (the repo is still named Carbon): a car extraction game — drive out of a desert town, scavenge oil
+  barrels, ram rivals, sell at the gas station before the tank runs dry. Kickoff done and build order approved
+  2026-11-19 (bible §8). Renaming again: here, `README.md`, `Game.Title` in GameStrings.csv, `default.project.json`.
 - **Built (from the template):** toolchain, CI + auto-merge, Lune specs, strict type-check, Loader, Config, Net,
   player data (ProfileStore), localization, analytics, settings, policy checks, UI Kit, menu, input (keyboard /
   gamepad / touch), notices, loading screen, map + asset generators, launch check, store-art renderer.
-- **Next:** the kickoff.
+- **Next:** 1.1 desert map (bible §5.1).
 
 ## Who the owner is and how they like to work
 
