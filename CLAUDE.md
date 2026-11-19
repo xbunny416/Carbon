@@ -15,7 +15,7 @@ and every call made where the bible is silent — read the matching entry before
   here, in `README.md`, `Game.Title` in GameStrings.csv and `name` in `default.project.json`.
 - **Built (from the template):** toolchain, CI + auto-merge, Lune specs, strict type-check, Loader, Config, Net,
   player data (ProfileStore), localization, analytics, settings, policy checks, UI Kit, menu, input (keyboard /
-  gamepad / touch), notices, loading screen, starter lobby, map + asset generators, launch check, store-art renderer.
+  gamepad / touch), notices, loading screen, map + asset generators, launch check, store-art renderer.
 - **Next:** the kickoff.
 
 ## Who the owner is and how they like to work
@@ -49,6 +49,8 @@ says otherwise.)
 - **No rewards for liking the game** (against Roblox rules); group-join rewards are fine.
 - **Private servers earn nothing** progression-wise unless the owner decides otherwise for this game.
 - Developer tools are **Studio-only** (`Config.Dev.AllowedUserIds` empty) until the owner adds their UserId.
+- **No floating starter lobby:** the template's lobby (60×60 room up at Y=100) was removed on 2026-11-19; the game's
+  real maps come from the kickoff. Don't bring it back.
 - Only **free Creator Store assets / Studio AI generation**; ask before anything paid. Never delete or replace large
   parts of the place without asking.
 
@@ -89,7 +91,7 @@ run's `Game-place` artifact. **Cloud sessions:** `scripts/cloud-setup.sh` instal
 | `src/localization/GameStrings.csv` | `LocalizationService.GameStrings` | Every player-facing string (Key, Source, Context, Example) |
 | `src/server/Vendor/` | `ServerScriptService.Server.Vendor` | Third-party modules kept as published (see `licenses/`) |
 | `maps/layouts/` | — | Map layouts as code — the source of truth for every map |
-| `maps/generated/` | `Workspace.Lobby` (+ more as added) | `.rbxmx` models generated from the layouts (committed) |
+| `maps/generated/` | `Workspace.<Map>` (none yet) | `.rbxmx` models generated from the layouts (committed) |
 | `assets/` | — | Templates game code clones (VFX, sounds, animations, models), built from Config by `assets/build.luau` |
 | `assets/generated/` | `ReplicatedStorage.Assets` | `Assets.rbxmx` generated from `assets/` (committed) |
 | `tools/` | — | Lune helpers (csv, launch check) and `store-art/` (icon + thumbnail renderer) |

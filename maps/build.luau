@@ -11,16 +11,14 @@ local process = require("@lune/process")
 local roblox = require("@lune/roblox")
 
 local Shim = require("../tests/roblox")
-local Lobby = require("./layouts/Lobby")
 
 local Config = Shim.require(Shim.game.ReplicatedStorage.Shared.Config)
 
 local OUTPUT_DIR = "maps/generated"
 
 local function outputs(): { { file: string, model: any } }
-	return {
-		{ file = "Lobby.rbxmx", model = Lobby.build(Config.World.LobbyOrigin) },
-	}
+	-- No maps yet. One entry per map, e.g. { file = "Arena.rbxmx", model = Arena.build(Config.World.ArenaOrigin) }.
+	return {}
 end
 
 local check = table.find(process.args, "--check") ~= nil
