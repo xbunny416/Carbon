@@ -21,8 +21,11 @@ export type CarStats = {
 	GripLimit: number, -- most sideways push the grip may give, in g (keeps big crashes physical)
 	Downforce: number, -- extra push to the ground per stud/s of speed (studs/s²)
 	TurnResponse: number, -- how fast the car reaches the turn rate the steering asks for (per second)
+	TurnBoost: number, -- the turn assist aims this many times tighter than the front wheels alone (arcade turning)
 	TurnLimit: number, -- most turning push the assist may give (radians/s²)
 	AirLevel: number, -- how strongly the car levels itself in the air (per second²; 0 = off)
+	FrontTireFriction: number, -- tire grip; less at the rear than the front makes the car turn in easily
+	RearTireFriction: number,
 	Tank: number,
 	Health: number,
 }
@@ -52,17 +55,20 @@ local Cars: CarsConfig = {
 			Acceleration = 28,
 			Braking = 60,
 			Coasting = 6,
-			SteerAngle = 40,
-			SteerAngleAtTopSpeed = 18,
-			SteerSpeed = 220,
+			SteerAngle = 45,
+			SteerAngleAtTopSpeed = 26,
+			SteerSpeed = 320,
 			Sag = 0.5,
 			DampingRatio = 0.55,
-			Grip = 6,
+			Grip = 5,
 			GripLimit = 1.2,
 			Downforce = 0.6,
-			TurnResponse = 5,
-			TurnLimit = 6,
+			TurnResponse = 10,
+			TurnBoost = 1.35,
+			TurnLimit = 18,
 			AirLevel = 6,
+			FrontTireFriction = 1.4,
+			RearTireFriction = 0.9,
 			Tank = 100,
 			Health = 100,
 		},

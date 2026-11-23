@@ -194,12 +194,18 @@ local function placeNear(player: Player, old: Model?): CFrame?
 	overlap.FilterType = Enum.RaycastFilterType.Exclude
 	overlap.FilterDescendantsInstances = ignore
 	overlap.RespectCanCollide = true -- bushes, oil barrels and markers don't block a car
+	-- Room for the starter car's real size (from its template), from 1 stud above the ground up.
+	local templates = ReplicatedStorage:WaitForChild("Assets"):WaitForChild("Models"):WaitForChild("Cars")
+	local template = templates:FindFirstChild(Config.Cars.Starter)
+	local size = if template and template:IsA("Model") then template:GetExtentsSize() else Vector3.new(9, 9, 20)
+	local room = Vector3.new(size.X + 1, 7, size.Z + 1)
 	local side = Config.Cars.SpawnSide
-	for _, offset in { right * side, -right * side, forward * side * 1.5, -forward * side * 1.5 } do
+	local along = math.max(side * 1.5, size.Z / 2 + 3)
+	for _, offset in { right * side, -right * side, forward * along, -forward * along } do
 		local hit = workspace:Raycast(root.Position + offset + Vector3.new(0, 20, 0), Vector3.new(0, -60, 0), rays)
 		if hit and hit.Normal.Y > 0.85 then
 			local base = CFrame.lookAt(hit.Position, hit.Position + forward)
-			local blocking = workspace:GetPartBoundsInBox(base * CFrame.new(0, 4.5, 0), Vector3.new(9, 7, 18), overlap)
+			local blocking = workspace:GetPartBoundsInBox(base * CFrame.new(0, 4.5, 0), room, overlap)
 			if #blocking == 0 then
 				return base
 			end

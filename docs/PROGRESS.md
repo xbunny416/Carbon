@@ -18,3 +18,4 @@ One row per merged PR, newest last. Add a row with every PR (see [CLAUDE.md](../
 | 2026-11-23 | Car polish: arcade driving helpers (grip, downforce, turn assist, air levelling) and a detail pass on the Rusty Pickup | #12 |
 | 2026-11-23 | Custom startup loading screen deleted (Roblox's default shows instead); its Config, strings and spec removed | #13 |
 | 2026-11-23 | No loading screen at all: Rojo manages ReplicatedFirst again (replaces the leftover script) with a one-line script that hides Roblox's default loading screen | #14 |
+| 2026-11-23 | Easier turning (rear tires less grip, wider / faster steering, stronger turn assist with a 1.35× boost), longer pickup with a raised front end, spawn room from the car's real size; desert signposts and jump ramps deleted | #15 |

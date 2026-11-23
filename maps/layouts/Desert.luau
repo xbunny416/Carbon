@@ -4,8 +4,8 @@
 	  - Ground: an open sand center (CenterHalfSize, where players spawn on 4 pads, nothing else there) plus one ring
 	    per zone (Scrublands, Mesa Flats, Badlands), each its own sand color, and an invisible wall on the border.
 	    Persistent, so it never streams out under a fast car.
-	  - Two dirt roads crossing in the middle out to the cliffs, a ring road on the first zone border, telephone poles
-	    and zone signposts along the roads, and wooden jump ramps beside them.
+	  - Two dirt roads crossing in the middle out to the cliffs, a ring road on the first zone border and telephone
+	    poles along the roads (no signs or ramps: owner, 2026-11-23).
 	  - Mesas, boulders, saguaros, barrel cacti, sage bushes and dead trees, more rock and fewer plants toward the
 	    edge, and a ring of tall cliffs on the border.
 	Oil barrels are not part of the map: Services/OilService scatters them at random while the game runs.
@@ -42,7 +42,6 @@ local LOOKS: { [string]: any } = {
 		Bushes = 90,
 		Boulders = 30,
 		DeadTrees = 0,
-		Ramps = 4,
 	},
 	MesaFlats = {
 		Ground = { "SandDark", "Sand" },
@@ -54,7 +53,6 @@ local LOOKS: { [string]: any } = {
 		Bushes = 60,
 		Boulders = 40,
 		DeadTrees = 5,
-		Ramps = 4,
 	},
 	Badlands = {
 		Ground = { "Badland", "Ground" },
@@ -66,7 +64,6 @@ local LOOKS: { [string]: any } = {
 		Bushes = 30,
 		Boulders = 50,
 		DeadTrees = 16,
-		Ramps = 2,
 	},
 }
 
@@ -222,12 +219,6 @@ function Layout.build(map: any): any
 							table.insert(occupied, { at[1], at[3], 3 })
 						end
 					end
-					for index, zone in map.Zones do
-						local d = (if index == 1 then center else map.Zones[index - 1].MaxDistance) + 14
-						local at = F.at(-(ROAD + 6), 0, -d)
-						Props.signpost(at, yaw + 180, `Zone.{zone.Id}`)
-						table.insert(occupied, { at[1], at[3], 8 })
-					end
 				end
 			end)
 
@@ -257,25 +248,6 @@ function Layout.build(map: any): any
 							table.insert(occupied, { x, z, footprint })
 							local mesa = Props.mesa({ x, 0, z }, radius, height, rng:range(0, 180), rng)
 							mesa.LevelOfDetail = B.Enum.ModelLevelOfDetail.StreamingMesh
-						end
-					end
-				end
-			end)
-
-			B.model("Ramps", function()
-				for zoneIndex, zone in map.Zones do
-					local inner, outer = zoneBounds(zoneIndex)
-					for _ = 1, LOOKS[zone.Id].Ramps do
-						for _ = 1, 50 do
-							local yaw = rng:pick(ROAD_YAWS)
-							local side = if rng:chance(0.5) then 1 else -1
-							local d = rng:range(inner + 40, outer - 40)
-							local at = Props.frame({ 0, 0, 0 }, yaw).at(side * 36, 0, -d)
-							if math.abs(d - ring) > 40 and free(at[1], at[3], 18, 0) then
-								table.insert(occupied, { at[1], at[3], 18 })
-								Props.ramp(at, yaw + 180, 14, 24, rng:range(4.5, 6.5))
-								break
-							end
 						end
 					end
 				end

@@ -187,3 +187,17 @@ Done (Claude's calls on how):
   anything else in it), and its one script — named `LoadingScreen` on purpose, so Rojo overwrites the old one — only
   calls `RemoveDefaultLoadingScreen()`. Result: neither the template's screen nor Roblox's default one shows; the
   game appears as it loads in. Replaces the "Roblox's default shows instead" note above.
+
+## Turning, longer pickup, no signs / ramps (2026-11-23, owner)
+
+- Owner: "car too hard to turn", "remodel car bit longer, lift front end up (it's flat)", "delete all signs and ramp".
+- Turning (Claude's calls): the tires' grip resisted turning more than the turn assist could push. Now the rear tires
+  grip less than the front (1.4 / 0.9 — the classic way to make a car turn in; the grip helper still stops real
+  slides), steering 45° standing / 26° at top speed at 320°/s, turn assist response 10/s, limit 18 rad/s², aiming
+  1.35× tighter than the front wheels alone (`TurnBoost`). Tire grip is per car in Config and built into the asset.
+- Model: wheelbase 11.4 (was 10.4), body ~17.8 long (was ~15.8); a tall front clip with the hood at 5.6 (was 5.0),
+  beveled nose and ridge, grille / headlights moved up, taller front flares, the cab's lower body up to 5.0 (side
+  glass starts higher). "Lift front end" was read as the model's shape, not a raised suspension — ask if a lifted
+  stance was meant.
+- Spawn car now checks room for the car's real size (from its template) instead of a fixed 9 × 18 box.
+- Map: the zone signposts and the wooden jump ramps are gone (and their builders and the zone-name strings).
