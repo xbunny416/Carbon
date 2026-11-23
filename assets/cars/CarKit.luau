@@ -101,20 +101,30 @@ local function wheel(spec: Spec, folder: any, chassis: any, name: string, x: num
 			})
 			tire.CustomPhysicalProperties = roblox.PhysicalProperties.new(0.9, 1.4, 0, 3, 100)
 			local side = if x < 0 then -1 else 1
+			-- Outward from the tire, each layer's face 0.05+ further out (no flicker): rim, hubcap, hub nut.
+			local face = spec.WheelWidth / 2
 			local caps = {
+				F.part({
+					Name = "Rim",
+					Shape = "Cylinder",
+					Size = { 0.1, r * 1.45, r * 1.45 },
+					Position = { x + side * (face + 0.02), r, z },
+					Color = "MetalDark",
+					Material = "Metal",
+				}),
 				F.part({
 					Name = "Hubcap",
 					Shape = "Cylinder",
-					Size = { 0.1, r * 1.1, r * 1.1 },
-					Position = { x + side * (spec.WheelWidth / 2 + 0.03), r, z },
+					Size = { 0.1, r * 1.05, r * 1.05 },
+					Position = { x + side * (face + 0.1), r, z },
 					Color = "Chrome",
 					Material = "Metal",
 				}),
 				F.part({
 					Name = "HubNut",
 					Shape = "Cylinder",
-					Size = { 0.15, r * 0.35, r * 0.35 },
-					Position = { x + side * (spec.WheelWidth / 2 + 0.1), r, z },
+					Size = { 0.1, r * 0.35, r * 0.35 },
+					Position = { x + side * (face + 0.18), r, z },
 					Color = "MetalDark",
 				}),
 			}
@@ -243,6 +253,24 @@ function CarKit.build(spec: Spec, prompts: { Keyboard: string, Gamepad: string, 
 	promptPoint.Name = "PromptPoint"
 	promptPoint.CFrame = CFrame.new(Vector3.new(spec.Prompt[1], spec.Prompt[2], spec.Prompt[3]) - origin)
 	promptPoint.Parent = chassis
+	-- Arcade driving helpers, zero until the driver's client sets them (CarController): one force (grip, downforce)
+	-- and one torque (turn assist, levelling in the air), both in world space at the chassis.
+	local center = Instance.new("Attachment")
+	center.Name = "Center"
+	center.Parent = chassis
+	local assist = Instance.new("VectorForce")
+	assist.Name = "Assist"
+	assist.Attachment0 = center
+	assist.RelativeTo = Enum.ActuatorRelativeTo.World
+	assist.ApplyAtCenterOfMass = true
+	assist.Force = Vector3.new(0, 0, 0)
+	assist.Parent = chassis
+	local turn = Instance.new("Torque")
+	turn.Name = "TurnAssist"
+	turn.Attachment0 = center
+	turn.RelativeTo = Enum.ActuatorRelativeTo.World
+	turn.Torque = Vector3.new(0, 0, 0)
+	turn.Parent = chassis
 	local prompt = Instance.new("ProximityPrompt")
 	prompt.Name = "DriverPrompt"
 	prompt.ActionText = "" -- CarController fills it in (localized) for the owner

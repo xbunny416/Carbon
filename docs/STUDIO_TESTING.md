@@ -43,8 +43,12 @@ feature; after each playtest, a dated line with the owner's notes and what was f
   nothing while driving. **E / B / Get out** puts you beside the driver's door.
 - Roll it over on a ramp: when it stops, the Flip hint (R / Y) or Flip button shows; after 1 s it's on its wheels.
 - Two players: each spawns their own car and can't drive the other's.
-- Tuning (all in `Config.Cars`): too bouncy → raise `DampingRatio`; rolls over in turns → lower
-  `SteerAngleAtTopSpeed`; too slow off the line → raise `Acceleration`.
+- Feel (2026-11-23): the car should hold its line (no sideways sliding), turn crisply at any speed, stay planted
+  at top speed, and land level after a ramp jump.
+- Tuning (all in `Config.Cars.Models.RustyPickup`): slides → raise `Grip`; turns too sharp / twitchy → lower
+  `TurnResponse` or `SteerAngle`; turns too slowly → raise `TurnResponse` / `TurnLimit`; flips in turns → raise
+  `Downforce` or lower `SteerAngleAtTopSpeed`; floaty in jumps → raise `AirLevel` (0 turns it off); too bouncy →
+  raise `DampingRatio`; slow off the line → raise `Acceleration`.
 
 ## Fuel and oil
 
@@ -69,3 +73,6 @@ feature; after each playtest, a dated line with the owner's notes and what was f
 - **2026-11-23 (owner):** delete the town (motel, gas station etc.), spawn the car with a UI button, no coin system,
   oil rare, random and floating instead of on the fixed oil-spot circles. Done in one PR (see DECISIONS). **Check:**
   spawn pads in the center, Spawn car beside you, barrels floating and refuelling.
+- **2026-11-23 (owner):** "fix, improve, polish car" → driving feel + looks. Added grip, downforce, turn assist and
+  air levelling; detail pass on the pickup. **Check:** no sliding in turns, crisp steering, stable at top speed,
+  level landings; the new details look right and nothing flickers (grille, lights, wheels, roof).

@@ -87,6 +87,38 @@ function CarRules.wheelFactor(angle: number, x: number, z: number, base: number)
 	return distance(x, z) / distance(0, 0)
 end
 
+--[[
+	Arcade helpers (all accelerations; multiply by mass / inertia for forces / torques). They run only while the car
+	is on the ground (except airLevel), on the driver's client, through the car's Assist VectorForce and TurnAssist
+	Torque (assets/cars/CarKit).
+]]
+
+-- Sideways acceleration that cancels `lateralSpeed` (studs/s, along the car's right) at `rate` per second, capped.
+function CarRules.grip(lateralSpeed: number, rate: number, limit: number): number
+	return math.clamp(-lateralSpeed * rate, -limit, limit)
+end
+
+-- Extra acceleration toward the ground at `speed` (studs/s): `perSpeed` studs/s² for every stud/s.
+function CarRules.downforce(speed: number, perSpeed: number): number
+	return math.abs(speed) * perSpeed
+end
+
+-- The turn rate (radians/s around the car's up, positive = left) the steering asks for: a car with wheels `length`
+-- studs apart rolling `forwardSpeed` with front wheels at `angle` degrees (positive = left) — the bicycle model.
+function CarRules.targetTurnRate(forwardSpeed: number, angle: number, length: number): number
+	return forwardSpeed * math.tan(math.rad(angle)) / length
+end
+
+-- Turning acceleration (radians/s²) that moves the turn rate from `current` toward `target`, capped at `limit`.
+function CarRules.turnAssist(target: number, current: number, response: number, limit: number): number
+	return math.clamp((target - current) * response, -limit, limit)
+end
+
+-- Yaw moment of inertia of a box-shaped car (mass, length, width): how hard it is to turn around its up axis.
+function CarRules.yawInertia(mass: number, length: number, width: number): number
+	return mass * (length * length + width * width) / 12
+end
+
 -- Whether a car whose up direction has this Y part is upside down or on its side.
 function CarRules.isFlipped(upY: number, flippedBelowUp: number): boolean
 	return upY < flippedBelowUp

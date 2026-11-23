@@ -5,6 +5,9 @@
 	    (filled by Roblox's vehicle controls: W A S D / arrows, gamepad triggers + left stick, touch thumbstick) and
 	    sets the wheel motors and the front-wheel steering (Shared/CarRules). The car's physics runs on this client
 	    while you drive, so the motors respond at once.
+	  - Arcade helpers on top (Config.Cars stats, Shared/CarRules), through the car's Assist force and TurnAssist
+	    torque: on the ground, grip (cancels sideways sliding), downforce (presses the car down as it speeds up) and
+	    turn assist (the car turns at the rate the steering asks for); in the air, it levels itself gently.
 	  - Jumping is off while driving (it would throw you out of the seat). Interact (E / B / the Get out button) asks
 	    the server to let you out.
 	  - Flip (R / Y / the Flip button, shown only while your stopped car is upside down) asks the server to turn it
@@ -98,6 +101,60 @@ end
 -- Driving
 ---------------------------------------------------------------------------------------------------------------------
 
+local groundRays = RaycastParams.new()
+groundRays.FilterType = Enum.RaycastFilterType.Exclude
+
+local function assistOf(car: Model): (VectorForce?, Torque?)
+	local chassis = car.PrimaryPart
+	local force = chassis and chassis:FindFirstChild("Assist")
+	local torque = chassis and chassis:FindFirstChild("TurnAssist")
+	return if force and force:IsA("VectorForce") then force else nil,
+		if torque and torque:IsA("Torque") then torque else nil
+end
+
+local function stopAssist(car: Model)
+	local force, torque = assistOf(car)
+	if force then
+		force.Force = Vector3.zero
+	end
+	if torque then
+		torque.Torque = Vector3.zero
+	end
+end
+
+-- Sets the car's Assist force and TurnAssist torque for this frame (grip, downforce, turn assist, air levelling).
+local function assist(car: Model, chassis: BasePart, stats: any, forward: number, angle: number)
+	local force, torque = assistOf(car)
+	local base = car:GetAttribute("WheelBase")
+	local radius = car:GetAttribute("WheelRadius")
+	local mass = tonumber(car:GetAttribute("Mass")) or chassis.AssemblyMass
+	if not force or not torque or type(base) ~= "number" or type(radius) ~= "number" then
+		return
+	end
+	local cf = chassis.CFrame
+	local g = workspace.Gravity
+	local inertia = CarRules.yawInertia(mass, chassis.Size.Z, chassis.Size.X)
+	groundRays.FilterDescendantsInstances = { car, player.Character :: Instance }
+	local grounded = workspace:Raycast(cf.Position, -cf.UpVector * (radius * 2 + 1.5), groundRays) ~= nil
+	if grounded then
+		local lateral = chassis.AssemblyLinearVelocity:Dot(cf.RightVector)
+		local side = CarRules.grip(lateral, stats.Grip, stats.GripLimit * g)
+		local down = CarRules.downforce(forward, stats.Downforce)
+		force.Force = (cf.RightVector * side - cf.UpVector * down) * mass
+		local current = chassis.AssemblyAngularVelocity:Dot(cf.UpVector)
+		local target = CarRules.targetTurnRate(forward, angle, base * 2)
+		local turn = CarRules.turnAssist(target, current, stats.TurnResponse, stats.TurnLimit)
+		torque.Torque = cf.UpVector * turn * inertia
+	else
+		-- In the air: a soft spring toward upright, damped, around the horizontal axes only.
+		local spin = chassis.AssemblyAngularVelocity
+		local tumble = spin - Vector3.yAxis * spin.Y
+		local level = cf.UpVector:Cross(Vector3.yAxis) * stats.AirLevel - tumble * 2 * math.sqrt(stats.AirLevel)
+		force.Force = Vector3.zero
+		torque.Torque = level * inertia
+	end
+end
+
 local function drive(car: Model)
 	local chassis = car.PrimaryPart
 	local seat = car:FindFirstChild("DriverSeat")
@@ -142,6 +199,11 @@ local function drive(car: Model)
 			steer.TargetAngle = angle
 		end
 	end
+	if car:GetAttribute("Stalled") == true then
+		stopAssist(car)
+	else
+		assist(car, chassis, stats, forward, angle)
+	end
 end
 
 local function refreshHints()
@@ -158,6 +220,10 @@ end
 local function setDriving(car: Model?)
 	if car == driving then
 		return
+	end
+	local previous = driving
+	if previous and previous.Parent then
+		stopAssist(previous)
 	end
 	driving = car
 	local h = humanoid()

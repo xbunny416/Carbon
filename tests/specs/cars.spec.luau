@@ -104,6 +104,31 @@ return {
 		end
 		expect.equal(#problems, 0, table.concat(problems, "; "))
 	end,
+	["grip cancels sliding, capped, and downforce grows with speed"] = function()
+		expect.truthy(CarRules.grip(5, stats.Grip, 1000) < 0, "pushes against a slide to the right")
+		near(CarRules.grip(-2, 6, 1000), 12, "cancels at the given rate")
+		near(CarRules.grip(100, 6, 50), -50, "capped")
+		near(CarRules.downforce(-30, 0.5), 15, "either way of travel")
+		near(CarRules.downforce(0, stats.Downforce), 0, "none standing still")
+	end,
+	["the turn assist steers toward the bicycle-model turn rate, capped"] = function()
+		near(CarRules.targetTurnRate(30, 0, 10.4), 0, "straight")
+		expect.truthy(CarRules.targetTurnRate(30, 20, 10.4) > 0, "left turn going forward turns left")
+		expect.truthy(CarRules.targetTurnRate(-10, 20, 10.4) < 0, "reversing turns the other way")
+		near(CarRules.turnAssist(1, 0.5, 4, 100), 2, "closes the gap at the response rate")
+		near(CarRules.turnAssist(10, 0, 5, stats.TurnLimit), stats.TurnLimit, "capped")
+		near(CarRules.yawInertia(12, 6, 0), 36, "box inertia")
+	end,
+	["every car has its zeroed Assist force and TurnAssist torque"] = function()
+		for name in Config.Cars.Models do
+			local chassis = built.Models.Cars:FindFirstChild(name).Chassis
+			local force, torque = chassis:FindFirstChild("Assist"), chassis:FindFirstChild("TurnAssist")
+			expect.truthy(force ~= nil and force.ClassName == "VectorForce", `{name} Assist`)
+			expect.truthy(torque ~= nil and torque.ClassName == "Torque", `{name} TurnAssist`)
+			expect.equal(force.Force.Magnitude, 0, `{name} Assist starts at zero`)
+			expect.equal(torque.Torque.Magnitude, 0, `{name} TurnAssist starts at zero`)
+		end
+	end,
 	["a car can be flipped only upside down and stopped"] = function()
 		local c = Config.Cars
 		expect.equal(CarRules.canFlip(-1, 0, c.FlippedBelowUp, c.FlipMaxSpeed), true)

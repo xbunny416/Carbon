@@ -16,6 +16,13 @@ export type CarStats = {
 	SteerSpeed: number, -- how fast the front wheels turn (degrees/s)
 	Sag: number, -- studs the springs sink under the car's weight
 	DampingRatio: number, -- 0 = bouncy, 1 = no bounce
+	-- Arcade driving helpers (run by the driver's client while driving; Shared/CarRules):
+	Grip: number, -- how fast sideways sliding is cancelled (per second; 0 = slide like ice)
+	GripLimit: number, -- most sideways push the grip may give, in g (keeps big crashes physical)
+	Downforce: number, -- extra push to the ground per stud/s of speed (studs/s²)
+	TurnResponse: number, -- how fast the car reaches the turn rate the steering asks for (per second)
+	TurnLimit: number, -- most turning push the assist may give (radians/s²)
+	AirLevel: number, -- how strongly the car levels itself in the air (per second²; 0 = off)
 	Tank: number,
 	Health: number,
 }
@@ -50,6 +57,12 @@ local Cars: CarsConfig = {
 			SteerSpeed = 220,
 			Sag = 0.5,
 			DampingRatio = 0.55,
+			Grip = 6,
+			GripLimit = 1.2,
+			Downforce = 0.6,
+			TurnResponse = 5,
+			TurnLimit = 6,
+			AirLevel = 6,
 			Tank = 100,
 			Health = 100,
 		},

@@ -15,3 +15,4 @@ One row per merged PR, newest last. Add a row with every PR (see [CLAUDE.md](../
 | 2026-11-19 | 1.3 Fuel: server-measured burn, free refill at the pumps, low-fuel notice, stall + Tow home, fuel gauge, barrel-burn rule ready for 1.4 | #9 |
 | 2026-11-19 | Playtest fixes: car front flicker, easier turning (per-wheel speeds, more steering and push), bigger cab | #10 |
 | 2026-11-23 | Owner reshape: town deleted (open sand center + spawn pads, roads cross in the middle), Spawn car button (beside you, cooldown, fuel rules), coin system removed (data migration 2), floating random oil barrels as the only fuel, pumps / tow / reset / oil spots removed | #11 |
+| 2026-11-23 | Car polish: arcade driving helpers (grip, downforce, turn assist, air levelling) and a detail pass on the Rusty Pickup | #12 |

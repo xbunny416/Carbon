@@ -97,6 +97,7 @@ local function tune(car: Model, stats: CarStats)
 	car:SetAttribute("DriveTorque", torque(stats.Acceleration))
 	car:SetAttribute("BrakeTorque", torque(stats.Braking))
 	car:SetAttribute("CoastTorque", torque(stats.Coasting))
+	car:SetAttribute("Mass", mass)
 	for _, instance in car:GetDescendants() do
 		if instance:IsA("SpringConstraint") then
 			local rest = instance:GetAttribute("RestLength")

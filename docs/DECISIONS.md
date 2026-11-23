@@ -160,3 +160,14 @@ Done (Claude's calls on how):
   3.5 studs, bobbing and turning on clients, glowing; gone after 4 minutes untouched. Driving within 8 studs adds
   30 fuel (capped; a full tank leaves it). No cargo, selling or barrel-burn any more.
 - Build order reshaped (bible §8): ramming + boost is next (1.5), the garage / upgrades / selling items are gone.
+
+## Car polish: driving feel and looks (2026-11-23, owner asked "fix, improve, polish car" → driving feel + looks)
+
+- Driving (Claude's calls): constraint cars feel slidey and slow to turn, so the driver's client adds arcade helpers
+  through two zeroed constraints on the chassis (`Assist` VectorForce, `TurnAssist` Torque): grip against sideways
+  sliding, speed-based downforce, a turn assist toward the bicycle-model turn rate, and gentle levelling in the air.
+  The server never sets them, so a parked or stalled (server-owned) car has none. Numbers per car in Config.
+- Looks: a detail pass inside the blocky-parts rules (no tiny bits, faces 0.05+ apart): grille bars, bezels, turn
+  signals, bumper guard, rocker stripe, door handles, mirror arms, beveled roof panel, rims, mud flaps, tailgate
+  panel / handle, hitch, spare tire and toolbox in the bed. About 70 body parts (the skill suggests 25–60; all of
+  them medium-size details).
