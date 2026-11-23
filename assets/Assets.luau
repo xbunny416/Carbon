@@ -77,7 +77,7 @@ local function cars(config: any, parent: any)
 	table.sort(names)
 	for _, name in names do
 		local builder = assert(CAR_BUILDERS[name], `no car builder for Config.Cars.Models.{name} (assets/cars)`)
-		builder.build(config.Controls.Prompts).Parent = root
+		builder.build(config.Controls.Prompts, config.Cars.Models[name]).Parent = root
 	end
 end
 

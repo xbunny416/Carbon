@@ -28,8 +28,8 @@ feature; after each playtest, a dated line with the owner's notes and what was f
 - Restart `rojo serve` after map files are added or removed. If the sky looks plain, check `Lighting` has
   `Atmosphere`, `ColorCorrection` and `SunRays` and `ClockTime` 14.5; set them by hand if Rojo didn't.
 - The center is open sand: two dirt roads cross in the middle, 4 spawn pads between them, no buildings or walls.
-- Fly the Studio camera out: roads with poles and zone signposts (SCRUBLANDS / MESA FLATS / BADLANDS), ring road,
-  mesas, ramps, blocky cacti, cliffs on every edge; you can't leave the map. Nothing should flicker
+- Fly the Studio camera out: roads with poles, ring road, mesas, blocky cacti, cliffs on every edge — no signs and
+  no ramps; you can't leave the map. Nothing should flicker
   (`maps.spec` checks every top surface).
 
 ## Car
@@ -41,12 +41,13 @@ feature; after each playtest, a dated line with the owner's notes and what was f
 - Drive with W A S D / arrows (gamepad: RT gas, LT brake, left stick; phone: thumbstick): forward on W, turns the
   right way, tight turns at low speed work, brakes then reverses on S, rolls to a stop when you let go. Space does
   nothing while driving. **E / B / Get out** puts you beside the driver's door.
-- Roll it over on a ramp: when it stops, the Flip hint (R / Y) or Flip button shows; after 1 s it's on its wheels.
+- Roll it over on a mesa slope: when it stops, the Flip hint (R / Y) or Flip button shows; after 1 s it's on its wheels.
 - Two players: each spawns their own car and can't drive the other's.
 - Feel (2026-11-23): the car should hold its line (no sideways sliding), turn crisply at any speed, stay planted
-  at top speed, and land level after a ramp jump.
-- Tuning (all in `Config.Cars.Models.RustyPickup`): slides → raise `Grip`; turns too sharp / twitchy → lower
-  `TurnResponse` or `SteerAngle`; turns too slowly → raise `TurnResponse` / `TurnLimit`; flips in turns → raise
+  at top speed, and land level after a jump.
+- Tuning (all in `Config.Cars.Models.RustyPickup`): slides → raise `Grip` or `RearTireFriction`; turns too sharp /
+  spins out → lower `TurnBoost`, `TurnResponse` or `SteerAngle`; turns too slowly → raise `TurnBoost` /
+  `TurnLimit` or lower `RearTireFriction`; flips in turns → raise
   `Downforce` or lower `SteerAngleAtTopSpeed`; floaty in jumps → raise `AirLevel` (0 turns it off); too bouncy →
   raise `DampingRatio`; slow off the line → raise `Acceleration`.
 
@@ -80,3 +81,9 @@ feature; after each playtest, a dated line with the owner's notes and what was f
   in the place because Rojo no longer managed `ReplicatedFirst`. Now Rojo manages it again (unknown children
   removed) and its only script hides Roblox's default loading screen. **Check:** reconnect Rojo, `ReplicatedFirst`
   holds just `LoadingScreen` (the small one), Play shows no loading screen. Republish if testing the live game.
+- **2026-11-23 (owner):** 1. car too hard to turn, 2. remodel it a bit longer with the front end lifted (it looked
+  flat), 3. delete all signs and ramps. Done: 1. rear tires grip less than the front (turn in), front wheels 45° /
+  26° and faster, turn assist much stronger (response 10, limit 18) aiming 1.35× tighter; 2. wheelbase 11.4 (~2
+  studs longer), raised hood with a beveled nose, tall grille, high headlights, higher cab belt line; 3. zone
+  signposts and jump ramps removed. **Check:** tight U-turns at low speed and sharp turns at speed without spinning
+  out; the new long, tall-nosed pickup looks right; spawning it still finds room.

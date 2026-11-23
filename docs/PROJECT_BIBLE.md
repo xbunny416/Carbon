@@ -61,10 +61,10 @@ Driving uses Roblox's own vehicle controls (VehicleSeat), so it works on every d
   Studio Baseplate hides under it). **No town** (owner, 2026-11-23): the middle is open sand.
 - **Center** (`CenterHalfSize` 60): plain sand where two dirt roads cross; 4 spawn pads between the roads; nothing
   else stands there.
-- **Zones** by distance from the center (square rings, `max(|x|, |z|)`), each its own sand color with zone signposts
-  on the roads: Scrublands 60–500, Mesa Flats 500–800, Badlands 800–1024 (cliffs take the last ~125 studs).
+- **Zones** by distance from the center (square rings, `max(|x|, |z|)`), each its own sand color: Scrublands
+  60–500, Mesa Flats 500–800, Badlands 800–1024 (cliffs take the last ~125 studs).
 - **Desert:** the two crossing dirt roads out to the cliffs with telephone poles, a ring road at 500, mesas,
-  boulders, saguaros, bushes, dead trees and wooden jump ramps by the roads.
+  boulders, saguaros, bushes and dead trees. **No signs and no jump ramps** (owner, 2026-11-23).
 - **Edge:** a ring of tall cliffs plus an invisible wall so no car leaves the map.
 - Streaming: min radius 256, target 1024 *(tune in the performance pass)*; the ground is Persistent, mesas and
   cliffs show as low-detail meshes when far away.
@@ -76,15 +76,18 @@ Driving uses Roblox's own vehicle controls (VehicleSeat), so it works on every d
   servo steering on the front two. The driver's client owns the car's physics and runs the motors; the server owns
   fuel and health, and owns a parked car (its motors hold it like a parking brake).
 - Driving (`Config.Cars.Models.RustyPickup`): top speed 60, reverse 22, acceleration 28, braking 60, coasting 6
-  (studs/s²); front wheels turn 40° standing still, 18° at top speed; springs sag 0.5 studs, damping ratio 0.55.
+  (studs/s²); front wheels turn 45° standing still, 26° at top speed (320°/s); springs sag 0.5 studs, damping
+  ratio 0.55. Tires grip 1.4 in front and 0.9 at the rear, so the car turns in easily (2026-11-23).
   Spring and motor strengths come from the car's mass (`Shared/CarRules`; motor torque ×2.2). In a turn each wheel
   spins at its own speed, inner ones slower (`CarRules.wheelFactor`, like a differential).
 - **Arcade helpers** (2026-11-23, run by the driver's client through the car's `Assist` force and `TurnAssist`
-  torque): on the ground, **grip** cancels sideways sliding (rate 6/s, at most 1.2 g), **downforce** presses the car
-  down (0.6 studs/s² per stud/s), **turn assist** brings the car to the turn rate its steering asks for (bicycle
-  model, response 5/s, at most 6 rad/s²); in the air it **levels itself** gently (6/s²). All per car in
+  torque): on the ground, **grip** cancels sideways sliding (rate 5/s, at most 1.2 g), **downforce** presses the car
+  down (0.6 studs/s² per stud/s), **turn assist** brings the car to 1.35× the turn rate its front wheels ask for
+  (bicycle model, response 10/s, at most 18 rad/s²); in the air it **levels itself** gently (6/s²). All per car in
   `Config.Cars.Models`.
-- **Look (Rusty Pickup):** muted sage two-tone pickup — chrome grille with bars, headlight bezels and turn signals,
+- **Look (Rusty Pickup):** a long pickup (wheelbase 11.4, ~18 studs) with a tall, proud front end (raised hood with a
+  beveled nose and ridge, tall grille, high headlights, taller front flares) and a high cab belt line; muted sage
+  two-tone — chrome grille with bars, headlight bezels and turn signals,
   bumper guard, fender flares, rocker stripe, door handles, mirrors on arms, a raised beveled roof panel, rims and
   hubcaps, mud flaps, tailgate panel and handle, tow hitch, a spare tire and a toolbox in the bed.
 - **Spawn car** (owner, 2026-11-23): there is no automatic car. On foot, the Spawn car button (C / D-pad Down) puts

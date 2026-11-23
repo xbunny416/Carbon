@@ -142,7 +142,7 @@ local function assist(car: Model, chassis: BasePart, stats: any, forward: number
 		local down = CarRules.downforce(forward, stats.Downforce)
 		force.Force = (cf.RightVector * side - cf.UpVector * down) * mass
 		local current = chassis.AssemblyAngularVelocity:Dot(cf.UpVector)
-		local target = CarRules.targetTurnRate(forward, angle, base * 2)
+		local target = CarRules.targetTurnRate(forward, angle, base * 2) * stats.TurnBoost
 		local turn = CarRules.turnAssist(target, current, stats.TurnResponse, stats.TurnLimit)
 		torque.Torque = cf.UpVector * turn * inertia
 	else

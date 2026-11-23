@@ -32,6 +32,8 @@ export type Spec = {
 	Chassis: { number }, -- size; it sits on the wheel centers' height + half its height
 	Seat: { number }, -- center of the driver's seat (its top is where you sit)
 	Prompt: { number }, -- where the Drive prompt shows (by the driver's door)
+	FrontTireFriction: number, -- tire grip (Config.Cars); a bit less at the rear lets the car turn in easily
+	RearTireFriction: number,
 	Body: (F: Props.Frame) -> (), -- builds the body parts
 }
 
@@ -99,7 +101,8 @@ local function wheel(spec: Spec, folder: any, chassis: any, name: string, x: num
 				Material = "Rubber",
 				CastShadow = true,
 			})
-			tire.CustomPhysicalProperties = roblox.PhysicalProperties.new(0.9, 1.4, 0, 3, 100)
+			local friction = if front then spec.FrontTireFriction else spec.RearTireFriction
+			tire.CustomPhysicalProperties = roblox.PhysicalProperties.new(0.9, friction, 0, 3, 100)
 			local side = if x < 0 then -1 else 1
 			-- Outward from the tire, each layer's face 0.05+ further out (no flicker): rim, hubcap, hub nut.
 			local face = spec.WheelWidth / 2

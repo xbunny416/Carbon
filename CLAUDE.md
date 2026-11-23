@@ -60,6 +60,7 @@ says otherwise.)
 - **No coin system** (2026-11-23): no currency, no selling, no shop / garage purchases. **Oil is fuel only** and
   barrels are rare, random and floating (no fixed oil spots). **Refuel only from oil** (no pumps).
 - **Cars spawn from the Spawn car button** next to the player (2026-11-23), never automatically.
+- **No signs and no jump ramps** in the desert (2026-11-23).
 - **No loading screen at all** (2026-11-23): `src/first/LoadingScreen.client.luau` only hides Roblox's default one;
   don't add a custom loading screen back.
 - **No floating starter lobby:** the template's lobby (60×60 room up at Y=100) was removed on 2026-11-19; the game's

@@ -1,7 +1,7 @@
 --!strict
 --[[
 	Props — reusable many-part pieces for CarOff's desert maps: a turned building frame, cacti, bushes, rocks, mesas,
-	edge cliffs, telephone poles, jump ramps, signposts, old car wrecks, drums and tires.
+	edge cliffs, telephone poles, old car wrecks, drums and tires.
 
 	Positions are studs from the current Builder origin and yaws are degrees around Y. `Props.frame(at, yaw)` builds
 	an assembly in its own frame: local -Z is its front, and the whole frame is turned `yaw` degrees (0 = front faces
@@ -389,59 +389,6 @@ function Props.pole(at: Vec, yaw: number, transformer: boolean): (Vec, Vec)
 		end
 	end)
 	return F.at(-3.6, 23, 0), F.at(3.6, 23, 0)
-end
-
--- A wooden jump ramp (drive up from its front, -Z) with tire stacks on both sides of the lip.
-function Props.ramp(at: Vec, yaw: number, width: number, length: number, height: number)
-	local F = Props.frame(at, yaw)
-	B.model("Ramp", function()
-		F.part({
-			Name = "Ramp",
-			Shape = "Wedge",
-			Size = { width, height, length },
-			Position = { 0, height / 2 - 0.2, 0 },
-			Color = "Wood",
-			Material = "WoodPlanks",
-			CastShadow = true,
-		})
-		for _, side in { -1, 1 } do
-			for level = 0, 2 do
-				F.column({
-					Name = "Tire",
-					Base = { side * (width / 2 + 1.8), level * 1.1, length / 2 - 1.5 },
-					Height = 1.1,
-					Diameter = 3,
-					Color = "Black",
-					Material = "Rubber",
-				})
-			end
-		end
-	end)
-end
-
--- A wooden signpost; its board faces the frame's front (-Z) and shows the text of `key`.
-function Props.signpost(at: Vec, yaw: number, key: string)
-	local F = Props.frame(at, yaw)
-	B.model("Signpost", function()
-		for _, x in { -5, 5 } do
-			F.box({
-				Name = "Post",
-				From = { x - 0.4, -0.5, 0 },
-				To = { x + 0.4, 10, 0.8 },
-				Color = "DeadWood",
-				Material = "Wood",
-			})
-		end
-		F.sign({
-			Name = "Board",
-			Size = { 13, 3.6, 0.5 },
-			Position = { 0, 8, 0 },
-			Color = "Wood",
-			Material = "WoodPlanks",
-			Key = key,
-			TextColor = "OffWhite",
-		})
-	end)
 end
 
 -- An old car wreck (decoration), nose toward the frame's front (-Z).

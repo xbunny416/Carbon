@@ -85,7 +85,7 @@ return {
 			end
 		end
 		expect.truthy(pads >= 1, "spawn pads")
-		for _, group in { "Mesas", "Rocks", "Plants", "Ramps" } do
+		for _, group in { "Mesas", "Rocks", "Plants" } do
 			for _, part in desert:FindFirstChild(group):GetDescendants() do
 				if part:IsA("BasePart") then
 					expect.truthy(distance(part) > map.CenterHalfSize, `{part:GetFullName()} out of the center`)
