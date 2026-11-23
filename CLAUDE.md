@@ -42,6 +42,10 @@ and every call made where the bible is silent — read the matching entry before
   DECISIONS.md and keep the "Standing owner decisions" list below current so nobody brings a removed thing back.
 - Playtests in Studio and reports in short lists; turn each list into a numbered fix list, fix it in one PR when
   small, and write what to re-check in STUDIO_TESTING.md.
+- Wants the game's development and every fix **remembered** (asked 2026-11-23): PROGRESS.md (what changed, per PR),
+  DECISIONS.md (why), STUDIO_TESTING.md → Playtests (their reports, the cause, what to re-check) and LESSONS.md
+  (bugs not to repeat) are that memory — they live in the repo, so local and cloud sessions both see them. Keep all
+  four complete in every PR, including the cause of each bug.
 
 ## Standing owner decisions
 

@@ -87,3 +87,7 @@ feature; after each playtest, a dated line with the owner's notes and what was f
   studs longer), raised hood with a beveled nose, tall grille, high headlights, higher cab belt line; 3. zone
   signposts and jump ramps removed. **Check:** tight U-turns at low speed and sharp turns at speed without spinning
   out; the new long, tall-nosed pickup looks right; spawning it still finds room.
+- **2026-11-23 (owner):** "why it stuck sometime". Cause: the steered front wheels hit the car's own chassis / front
+  body past ~7° of steering and jammed. Fixed with no-collision between each wheel and its own car. **Check:** full
+  lock turns forward and in reverse, U-turns, turning while climbing a slope — the car never stops dead; the wheels
+  still hit rocks and other cars. If it still stops: look for the "Out of fuel" notice (empty tank) first.
