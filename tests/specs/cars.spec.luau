@@ -129,6 +129,28 @@ return {
 			expect.equal(torque.Torque.Magnitude, 0, `{name} TurnAssist starts at zero`)
 		end
 	end,
+	["wheels never collide with their own car (a steered wheel would jam against the chassis)"] = function()
+		for name in Config.Cars.Models do
+			local car = built.Models.Cars:FindFirstChild(name)
+			local solid: { any } = { car.Chassis, car.DriverSeat }
+			for _, part in car.Body:GetDescendants() do
+				if part:IsA("BasePart") and part.CanCollide then
+					table.insert(solid, part)
+				end
+			end
+			for _, wheel in car.Wheels:GetChildren() do
+				local free: { [any]: boolean } = {}
+				for _, constraint in wheel:GetDescendants() do
+					if constraint.ClassName == "NoCollisionConstraint" and constraint.Part0 == wheel.Wheel then
+						free[constraint.Part1] = true
+					end
+				end
+				for _, part in solid do
+					expect.truthy(free[part], `{name}.{wheel.Name} must not collide with {part.Name}`)
+				end
+			end
+		end
+	end,
 	["a car can be flipped only upside down and stopped"] = function()
 		local c = Config.Cars
 		expect.equal(CarRules.canFlip(-1, 0, c.FlippedBelowUp, c.FlipMaxSpeed), true)

@@ -57,6 +57,11 @@ line whenever a new one costs time.
   Wedges with the same slope side by side must not overlap either (the car's windshield / pillars; `cars.spec`).
 - **Constraint cars:** motor hinges forced to one speed on every wheel fight each turn (hard steering, stuck at
   low speed). Give each wheel its own speed from the turn radius (`CarRules.wheelFactor`).
+- **Steered wheels hit their own car:** a wheel is its own assembly, so it collides with the car's chassis and body
+  like any other part. Turning a front wheel swings its inner edge inward (`R·sinθ + W/2·cosθ`): on the pickup it
+  reached the chassis past ~7° of steering, so the wheels jammed (hard to turn, stuck sometimes) for weeks of
+  playtests. CarKit puts a NoCollisionConstraint between every wheel and the car's own solid parts
+  (`cars.spec` checks it).
 
 ## Store art
 

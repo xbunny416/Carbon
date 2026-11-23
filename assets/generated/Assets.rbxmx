@@ -4235,12 +4235,87 @@
                   <Ref name="Attachment1">205</Ref>
                 </Properties>
               </Item>
+              <Item class="Folder" referent="216">
+                <Properties>
+                  <string name="Name">NoCollide</string>
+                </Properties>
+                <Item class="NoCollisionConstraint" referent="217">
+                  <Properties>
+                    <string name="Name">Chassis</string>
+                    <Ref name="Part0">204</Ref>
+                    <Ref name="Part1">9</Ref>
+                  </Properties>
+                </Item>
+                <Item class="NoCollisionConstraint" referent="218">
+                  <Properties>
+                    <string name="Name">DriverSeat</string>
+                    <Ref name="Part0">204</Ref>
+                    <Ref name="Part1">180</Ref>
+                  </Properties>
+                </Item>
+                <Item class="NoCollisionConstraint" referent="219">
+                  <Properties>
+                    <string name="Name">FrontBody</string>
+                    <Ref name="Part0">204</Ref>
+                    <Ref name="Part1">12</Ref>
+                  </Properties>
+                </Item>
+                <Item class="NoCollisionConstraint" referent="220">
+                  <Properties>
+                    <string name="Name">Hood</string>
+                    <Ref name="Part0">204</Ref>
+                    <Ref name="Part1">14</Ref>
+                  </Properties>
+                </Item>
+                <Item class="NoCollisionConstraint" referent="221">
+                  <Properties>
+                    <string name="Name">CabBody</string>
+                    <Ref name="Part0">204</Ref>
+                    <Ref name="Part1">46</Ref>
+                  </Properties>
+                </Item>
+                <Item class="NoCollisionConstraint" referent="222">
+                  <Properties>
+                    <string name="Name">BedBody</string>
+                    <Ref name="Part0">204</Ref>
+                    <Ref name="Part1">48</Ref>
+                  </Properties>
+                </Item>
+                <Item class="NoCollisionConstraint" referent="223">
+                  <Properties>
+                    <string name="Name">Windshield</string>
+                    <Ref name="Part0">204</Ref>
+                    <Ref name="Part1">94</Ref>
+                  </Properties>
+                </Item>
+                <Item class="NoCollisionConstraint" referent="224">
+                  <Properties>
+                    <string name="Name">Roof</string>
+                    <Ref name="Part0">204</Ref>
+                    <Ref name="Part1">116</Ref>
+                  </Properties>
+                </Item>
+                <Item class="NoCollisionConstraint" referent="225">
+                  <Properties>
+                    <string name="Name">SeatBack</string>
+                    <Ref name="Part0">204</Ref>
+                    <Ref name="Part1">134</Ref>
+                  </Properties>
+                </Item>
+                <Item class="NoCollisionConstraint" referent="226">
+                  <Properties>
+                    <string name="Name">SpareTire</string>
+                    <Ref name="Part0">204</Ref>
+                    <Ref name="Part1">168</Ref>
+                  </Properties>
+                </Item>
+              </Item>
             </Item>
-            <Item class="Model" referent="216">
+            <Item class="Model" referent="227">
               <Properties>
                 <string name="Name">FR</string>
               </Properties>
-              <Item class="Part" referent="217">
+              <Item class="Part" referent="228">
                 <Properties>
                   <string name="Name">Strut</string>
                   <bool name="Anchored">false</bool>
@@ -4274,7 +4349,7 @@
                   <token name="TopSurface">0</token>
                   <float name="Transparency">1</float>
                 </Properties>
-                <Item class="Attachment" referent="218">
+                <Item class="Attachment" referent="229">
                   <Properties>
                     <string name="Name">Slide</string>
                     <CoordinateFrame name="CFrame">
@@ -4293,7 +4368,7 @@
                     </CoordinateFrame>
                   </Properties>
                 </Item>
-                <Item class="Attachment" referent="219">
+                <Item class="Attachment" referent="230">
                   <Properties>
                     <string name="Name">SpringBottom</string>
                     <CoordinateFrame name="CFrame">
@@ -4312,7 +4387,7 @@
                     </CoordinateFrame>
                   </Properties>
                 </Item>
-                <Item class="Attachment" referent="220">
+                <Item class="Attachment" referent="231">
                   <Properties>
                     <string name="Name">Steer</string>
                     <CoordinateFrame name="CFrame">
@@ -4332,7 +4407,7 @@
                   </Properties>
                 </Item>
               </Item>
-              <Item class="Part" referent="221">
+              <Item class="Part" referent="232">
                 <Properties>
                   <string name="Name">Knuckle</string>
                   <bool name="Anchored">false</bool>
@@ -4366,7 +4441,7 @@
                   <token name="TopSurface">0</token>
                   <float name="Transparency">1</float>
                 </Properties>
-                <Item class="Attachment" referent="222">
+                <Item class="Attachment" referent="233">
                   <Properties>
                     <string name="Name">Steer</string>
                     <CoordinateFrame name="CFrame">
@@ -4385,7 +4460,7 @@
                     </CoordinateFrame>
                   </Properties>
                 </Item>
-                <Item class="Attachment" referent="223">
+                <Item class="Attachment" referent="234">
                   <Properties>
                     <string name="Name">Axle</string>
                     <CoordinateFrame name="CFrame">
@@ -4405,7 +4480,7 @@
                   </Properties>
                 </Item>
               </Item>
-              <Item class="Part" referent="224">
+              <Item class="Part" referent="235">
                 <Properties>
                   <string name="Name">Wheel</string>
                   <bool name="Anchored">false</bool>
@@ -4444,7 +4519,7 @@
                   </Vector3>
                   <token name="TopSurface">0</token>
                 </Properties>
-                <Item class="Attachment" referent="225">
+                <Item class="Attachment" referent="236">
                   <Properties>
                     <string name="Name">Axle</string>
                     <CoordinateFrame name="CFrame">
@@ -4464,7 +4539,7 @@
                   </Properties>
                 </Item>
               </Item>
-              <Item class="Part" referent="226">
+              <Item class="Part" referent="237">
                 <Properties>
                   <string name="Name">Rim</string>
                   <bool name="Anchored">false</bool>
@@ -4499,7 +4574,7 @@
                   <token name="TopSurface">0</token>
                 </Properties>
               </Item>
-              <Item class="Part" referent="227">
+              <Item class="Part" referent="238">
                 <Properties>
                   <string name="Name">Hubcap</string>
                   <bool name="Anchored">false</bool>
@@ -4534,7 +4609,7 @@
                   <token name="TopSurface">0</token>
                 </Properties>
               </Item>
-              <Item class="Part" referent="228">
+              <Item class="Part" referent="239">
                 <Properties>
                   <string name="Name">HubNut</string>
                   <bool name="Anchored">false</bool>
@@ -4569,72 +4644,147 @@
                   <token name="TopSurface">0</token>
                 </Properties>
               </Item>
-              <Item class="WeldConstraint" referent="229">
+              <Item class="WeldConstraint" referent="240">
                 <Properties>
                   <string name="Name">Rim</string>
-                  <Ref name="Part0Internal">224</Ref>
-                  <Ref name="Part1Internal">226</Ref>
+                  <Ref name="Part0Internal">235</Ref>
+                  <Ref name="Part1Internal">237</Ref>
                 </Properties>
               </Item>
-              <Item class="WeldConstraint" referent="230">
+              <Item class="WeldConstraint" referent="241">
                 <Properties>
                   <string name="Name">Hubcap</string>
-                  <Ref name="Part0Internal">224</Ref>
-                  <Ref name="Part1Internal">227</Ref>
+                  <Ref name="Part0Internal">235</Ref>
+                  <Ref name="Part1Internal">238</Ref>
                 </Properties>
               </Item>
-              <Item class="WeldConstraint" referent="231">
+              <Item class="WeldConstraint" referent="242">
                 <Properties>
                   <string name="Name">HubNut</string>
-                  <Ref name="Part0Internal">224</Ref>
-                  <Ref name="Part1Internal">228</Ref>
+                  <Ref name="Part0Internal">235</Ref>
+                  <Ref name="Part1Internal">239</Ref>
                 </Properties>
               </Item>
-              <Item class="PrismaticConstraint" referent="232">
+              <Item class="PrismaticConstraint" referent="243">
                 <Properties>
                   <string name="Name">Slide</string>
                   <Ref name="Attachment0">183</Ref>
-                  <Ref name="Attachment1">218</Ref>
+                  <Ref name="Attachment1">229</Ref>
                   <bool name="LimitsEnabled">true</bool>
                   <float name="LowerLimit">-0.8</float>
                   <float name="Restitution">0</float>
                   <float name="UpperLimit">0.7</float>
                 </Properties>
               </Item>
-              <Item class="SpringConstraint" referent="233">
+              <Item class="SpringConstraint" referent="244">
                 <Properties>
                   <string name="Name">Spring</string>
                   <Ref name="Attachment0">184</Ref>
-                  <Ref name="Attachment1">219</Ref>
+                  <Ref name="Attachment1">230</Ref>
                   <BinaryString name="AttributesSerialize">AQAAAAoAAABSZXN0TGVuZ3RoBQAAAEA=</BinaryString>
                   <bool name="Visible">false</bool>
                 </Properties>
               </Item>
-              <Item class="HingeConstraint" referent="234">
+              <Item class="HingeConstraint" referent="245">
                 <Properties>
                   <string name="Name">Steer</string>
                   <token name="ActuatorType">2</token>
-                  <Ref name="Attachment0">220</Ref>
-                  <Ref name="Attachment1">222</Ref>
+                  <Ref name="Attachment0">231</Ref>
+                  <Ref name="Attachment1">233</Ref>
                   <bool name="LimitsEnabled">true</bool>
                   <float name="LowerAngle">-45</float>
                   <float name="UpperAngle">45</float>
                 </Properties>
               </Item>
-              <Item class="HingeConstraint" referent="235">
+              <Item class="HingeConstraint" referent="246">
                 <Properties>
                   <string name="Name">Motor</string>
                   <token name="ActuatorType">1</token>
-                  <Ref name="Attachment0">223</Ref>
-                  <Ref name="Attachment1">225</Ref>
+                  <Ref name="Attachment0">234</Ref>
+                  <Ref name="Attachment1">236</Ref>
                 </Properties>
               </Item>
+              <Item class="Folder" referent="247">
+                <Properties>
+                  <string name="Name">NoCollide</string>
+                </Properties>
+                <Item class="NoCollisionConstraint" referent="248">
+                  <Properties>
+                    <string name="Name">Chassis</string>
+                    <Ref name="Part0">235</Ref>
+                    <Ref name="Part1">9</Ref>
+                  </Properties>
+                </Item>
+                <Item class="NoCollisionConstraint" referent="249">
+                  <Properties>
+                    <string name="Name">DriverSeat</string>
+                    <Ref name="Part0">235</Ref>
+                    <Ref name="Part1">180</Ref>
+                  </Properties>
+                </Item>
+                <Item class="NoCollisionConstraint" referent="250">
+                  <Properties>
+                    <string name="Name">FrontBody</string>
+                    <Ref name="Part0">235</Ref>
+                    <Ref name="Part1">12</Ref>
+                  </Properties>
+                </Item>
+                <Item class="NoCollisionConstraint" referent="251">
+                  <Properties>
+                    <string name="Name">Hood</string>
+                    <Ref name="Part0">235</Ref>
+                    <Ref name="Part1">14</Ref>
+                  </Properties>
+                </Item>
+                <Item class="NoCollisionConstraint" referent="252">
+                  <Properties>
+                    <string name="Name">CabBody</string>
+                    <Ref name="Part0">235</Ref>
+                    <Ref name="Part1">46</Ref>
+                  </Properties>
+                </Item>
+                <Item class="NoCollisionConstraint" referent="253">
+                  <Properties>
+                    <string name="Name">BedBody</string>
+                    <Ref name="Part0">235</Ref>
+                    <Ref name="Part1">48</Ref>
+                  </Properties>
+                </Item>
+                <Item class="NoCollisionConstraint" referent="254">
+                  <Properties>
+                    <string name="Name">Windshield</string>
+                    <Ref name="Part0">235</Ref>
+                    <Ref name="Part1">94</Ref>
+                  </Properties>
+                </Item>
+                <Item class="NoCollisionConstraint" referent="255">
+                  <Properties>
+                    <string name="Name">Roof</string>
+                    <Ref name="Part0">235</Ref>
+                    <Ref name="Part1">116</Ref>
+                  </Properties>
+                </Item>
+                <Item class="NoCollisionConstraint" referent="256">
+                  <Properties>
+                    <string name="Name">SeatBack</string>
+                    <Ref name="Part0">235</Ref>
+                    <Ref name="Part1">134</Ref>
+                  </Properties>
+                </Item>
+                <Item class="NoCollisionConstraint" referent="257">
+                  <Properties>
+                    <string name="Name">SpareTire</string>
+                    <Ref name="Part0">235</Ref>
+                    <Ref name="Part1">168</Ref>
+                  </Properties>
+                </Item>
+              </Item>
             </Item>
-            <Item class="Model" referent="236">
+            <Item class="Model" referent="258">
               <Properties>
                 <string name="Name">RL</string>
               </Properties>
-              <Item class="Part" referent="237">
+              <Item class="Part" referent="259">
                 <Properties>
                   <string name="Name">Strut</string>
                   <bool name="Anchored">false</bool>
@@ -4668,7 +4818,7 @@
                   <token name="TopSurface">0</token>
                   <float name="Transparency">1</float>
                 </Properties>
-                <Item class="Attachment" referent="238">
+                <Item class="Attachment" referent="260">
                   <Properties>
                     <string name="Name">Slide</string>
                     <CoordinateFrame name="CFrame">
@@ -4687,7 +4837,7 @@
                     </CoordinateFrame>
                   </Properties>
                 </Item>
-                <Item class="Attachment" referent="239">
+                <Item class="Attachment" referent="261">
                   <Properties>
                     <string name="Name">SpringBottom</string>
                     <CoordinateFrame name="CFrame">
@@ -4706,7 +4856,7 @@
                     </CoordinateFrame>
                   </Properties>
                 </Item>
-                <Item class="Attachment" referent="240">
+                <Item class="Attachment" referent="262">
                   <Properties>
                     <string name="Name">Axle</string>
                     <CoordinateFrame name="CFrame">
@@ -4726,7 +4876,7 @@
                   </Properties>
                 </Item>
               </Item>
-              <Item class="Part" referent="241">
+              <Item class="Part" referent="263">
                 <Properties>
                   <string name="Name">Wheel</string>
                   <bool name="Anchored">false</bool>
@@ -4765,7 +4915,7 @@
                   </Vector3>
                   <token name="TopSurface">0</token>
                 </Properties>
-                <Item class="Attachment" referent="242">
+                <Item class="Attachment" referent="264">
                   <Properties>
                     <string name="Name">Axle</string>
                     <CoordinateFrame name="CFrame">
@@ -4785,7 +4935,7 @@
                   </Properties>
                 </Item>
               </Item>
-              <Item class="Part" referent="243">
+              <Item class="Part" referent="265">
                 <Properties>
                   <string name="Name">Rim</string>
                   <bool name="Anchored">false</bool>
@@ -4820,7 +4970,7 @@
                   <token name="TopSurface">0</token>
                 </Properties>
               </Item>
-              <Item class="Part" referent="244">
+              <Item class="Part" referent="266">
                 <Properties>
                   <string name="Name">Hubcap</string>
                   <bool name="Anchored">false</bool>
@@ -4855,7 +5005,7 @@
                   <token name="TopSurface">0</token>
                 </Properties>
               </Item>
-              <Item class="Part" referent="245">
+              <Item class="Part" referent="267">
                 <Properties>
                   <string name="Name">HubNut</string>
                   <bool name="Anchored">false</bool>
@@ -4890,61 +5040,136 @@
                   <token name="TopSurface">0</token>
                 </Properties>
               </Item>
-              <Item class="WeldConstraint" referent="246">
+              <Item class="WeldConstraint" referent="268">
                 <Properties>
                   <string name="Name">Rim</string>
-                  <Ref name="Part0Internal">241</Ref>
-                  <Ref name="Part1Internal">243</Ref>
+                  <Ref name="Part0Internal">263</Ref>
+                  <Ref name="Part1Internal">265</Ref>
                 </Properties>
               </Item>
-              <Item class="WeldConstraint" referent="247">
+              <Item class="WeldConstraint" referent="269">
                 <Properties>
                   <string name="Name">Hubcap</string>
-                  <Ref name="Part0Internal">241</Ref>
-                  <Ref name="Part1Internal">244</Ref>
+                  <Ref name="Part0Internal">263</Ref>
+                  <Ref name="Part1Internal">266</Ref>
                 </Properties>
               </Item>
-              <Item class="WeldConstraint" referent="248">
+              <Item class="WeldConstraint" referent="270">
                 <Properties>
                   <string name="Name">HubNut</string>
-                  <Ref name="Part0Internal">241</Ref>
-                  <Ref name="Part1Internal">245</Ref>
+                  <Ref name="Part0Internal">263</Ref>
+                  <Ref name="Part1Internal">267</Ref>
                 </Properties>
               </Item>
-              <Item class="PrismaticConstraint" referent="249">
+              <Item class="PrismaticConstraint" referent="271">
                 <Properties>
                   <string name="Name">Slide</string>
                   <Ref name="Attachment0">185</Ref>
-                  <Ref name="Attachment1">238</Ref>
+                  <Ref name="Attachment1">260</Ref>
                   <bool name="LimitsEnabled">true</bool>
                   <float name="LowerLimit">-0.8</float>
                   <float name="Restitution">0</float>
                   <float name="UpperLimit">0.7</float>
                 </Properties>
               </Item>
-              <Item class="SpringConstraint" referent="250">
+              <Item class="SpringConstraint" referent="272">
                 <Properties>
                   <string name="Name">Spring</string>
                   <Ref name="Attachment0">186</Ref>
-                  <Ref name="Attachment1">239</Ref>
+                  <Ref name="Attachment1">261</Ref>
                   <BinaryString name="AttributesSerialize">AQAAAAoAAABSZXN0TGVuZ3RoBQAAAEA=</BinaryString>
                   <bool name="Visible">false</bool>
                 </Properties>
               </Item>
-              <Item class="HingeConstraint" referent="251">
+              <Item class="HingeConstraint" referent="273">
                 <Properties>
                   <string name="Name">Motor</string>
                   <token name="ActuatorType">1</token>
-                  <Ref name="Attachment0">240</Ref>
-                  <Ref name="Attachment1">242</Ref>
+                  <Ref name="Attachment0">262</Ref>
+                  <Ref name="Attachment1">264</Ref>
                 </Properties>
               </Item>
+              <Item class="Folder" referent="274">
+                <Properties>
+                  <string name="Name">NoCollide</string>
+                </Properties>
+                <Item class="NoCollisionConstraint" referent="275">
+                  <Properties>
+                    <string name="Name">Chassis</string>
+                    <Ref name="Part0">263</Ref>
+                    <Ref name="Part1">9</Ref>
+                  </Properties>
+                </Item>
+                <Item class="NoCollisionConstraint" referent="276">
+                  <Properties>
+                    <string name="Name">DriverSeat</string>
+                    <Ref name="Part0">263</Ref>
+                    <Ref name="Part1">180</Ref>
+                  </Properties>
+                </Item>
+                <Item class="NoCollisionConstraint" referent="277">
+                  <Properties>
+                    <string name="Name">FrontBody</string>
+                    <Ref name="Part0">263</Ref>
+                    <Ref name="Part1">12</Ref>
+                  </Properties>
+                </Item>
+                <Item class="NoCollisionConstraint" referent="278">
+                  <Properties>
+                    <string name="Name">Hood</string>
+                    <Ref name="Part0">263</Ref>
+                    <Ref name="Part1">14</Ref>
+                  </Properties>
+                </Item>
+                <Item class="NoCollisionConstraint" referent="279">
+                  <Properties>
+                    <string name="Name">CabBody</string>
+                    <Ref name="Part0">263</Ref>
+                    <Ref name="Part1">46</Ref>
+                  </Properties>
+                </Item>
+                <Item class="NoCollisionConstraint" referent="280">
+                  <Properties>
+                    <string name="Name">BedBody</string>
+                    <Ref name="Part0">263</Ref>
+                    <Ref name="Part1">48</Ref>
+                  </Properties>
+                </Item>
+                <Item class="NoCollisionConstraint" referent="281">
+                  <Properties>
+                    <string name="Name">Windshield</string>
+                    <Ref name="Part0">263</Ref>
+                    <Ref name="Part1">94</Ref>
+                  </Properties>
+                </Item>
+                <Item class="NoCollisionConstraint" referent="282">
+                  <Properties>
+                    <string name="Name">Roof</string>
+                    <Ref name="Part0">263</Ref>
+                    <Ref name="Part1">116</Ref>
+                  </Properties>
+                </Item>
+                <Item class="NoCollisionConstraint" referent="283">
+                  <Properties>
+                    <string name="Name">SeatBack</string>
+                    <Ref name="Part0">263</Ref>
+                    <Ref name="Part1">134</Ref>
+                  </Properties>
+                </Item>
+                <Item class="NoCollisionConstraint" referent="284">
+                  <Properties>
+                    <string name="Name">SpareTire</string>
+                    <Ref name="Part0">263</Ref>
+                    <Ref name="Part1">168</Ref>
+                  </Properties>
+                </Item>
+              </Item>
             </Item>
-            <Item class="Model" referent="252">
+            <Item class="Model" referent="285">
               <Properties>
                 <string name="Name">RR</string>
               </Properties>
-              <Item class="Part" referent="253">
+              <Item class="Part" referent="286">
                 <Properties>
                   <string name="Name">Strut</string>
                   <bool name="Anchored">false</bool>
@@ -4978,7 +5203,7 @@
                   <token name="TopSurface">0</token>
                   <float name="Transparency">1</float>
                 </Properties>
-                <Item class="Attachment" referent="254">
+                <Item class="Attachment" referent="287">
                   <Properties>
                     <string name="Name">Slide</string>
                     <CoordinateFrame name="CFrame">
@@ -4997,7 +5222,7 @@
                     </CoordinateFrame>
                   </Properties>
                 </Item>
-                <Item class="Attachment" referent="255">
+                <Item class="Attachment" referent="288">
                   <Properties>
                     <string name="Name">SpringBottom</string>
                     <CoordinateFrame name="CFrame">
@@ -5016,7 +5241,7 @@
                     </CoordinateFrame>
                   </Properties>
                 </Item>
-                <Item class="Attachment" referent="256">
+                <Item class="Attachment" referent="289">
                   <Properties>
                     <string name="Name">Axle</string>
                     <CoordinateFrame name="CFrame">
@@ -5036,7 +5261,7 @@
                   </Properties>
                 </Item>
               </Item>
-              <Item class="Part" referent="257">
+              <Item class="Part" referent="290">
                 <Properties>
                   <string name="Name">Wheel</string>
                   <bool name="Anchored">false</bool>
@@ -5075,7 +5300,7 @@
                   </Vector3>
                   <token name="TopSurface">0</token>
                 </Properties>
-                <Item class="Attachment" referent="258">
+                <Item class="Attachment" referent="291">
                   <Properties>
                     <string name="Name">Axle</string>
                     <CoordinateFrame name="CFrame">
@@ -5095,7 +5320,7 @@
                   </Properties>
                 </Item>
               </Item>
-              <Item class="Part" referent="259">
+              <Item class="Part" referent="292">
                 <Properties>
                   <string name="Name">Rim</string>
                   <bool name="Anchored">false</bool>
@@ -5130,7 +5355,7 @@
                   <token name="TopSurface">0</token>
                 </Properties>
               </Item>
-              <Item class="Part" referent="260">
+              <Item class="Part" referent="293">
                 <Properties>
                   <string name="Name">Hubcap</string>
                   <bool name="Anchored">false</bool>
@@ -5165,7 +5390,7 @@
                   <token name="TopSurface">0</token>
                 </Properties>
               </Item>
-              <Item class="Part" referent="261">
+              <Item class="Part" referent="294">
                 <Properties>
                   <string name="Name">HubNut</string>
                   <bool name="Anchored">false</bool>
@@ -5200,65 +5425,140 @@
                   <token name="TopSurface">0</token>
                 </Properties>
               </Item>
-              <Item class="WeldConstraint" referent="262">
+              <Item class="WeldConstraint" referent="295">
                 <Properties>
                   <string name="Name">Rim</string>
-                  <Ref name="Part0Internal">257</Ref>
-                  <Ref name="Part1Internal">259</Ref>
+                  <Ref name="Part0Internal">290</Ref>
+                  <Ref name="Part1Internal">292</Ref>
                 </Properties>
               </Item>
-              <Item class="WeldConstraint" referent="263">
+              <Item class="WeldConstraint" referent="296">
                 <Properties>
                   <string name="Name">Hubcap</string>
-                  <Ref name="Part0Internal">257</Ref>
-                  <Ref name="Part1Internal">260</Ref>
+                  <Ref name="Part0Internal">290</Ref>
+                  <Ref name="Part1Internal">293</Ref>
                 </Properties>
               </Item>
-              <Item class="WeldConstraint" referent="264">
+              <Item class="WeldConstraint" referent="297">
                 <Properties>
                   <string name="Name">HubNut</string>
-                  <Ref name="Part0Internal">257</Ref>
-                  <Ref name="Part1Internal">261</Ref>
+                  <Ref name="Part0Internal">290</Ref>
+                  <Ref name="Part1Internal">294</Ref>
                 </Properties>
               </Item>
-              <Item class="PrismaticConstraint" referent="265">
+              <Item class="PrismaticConstraint" referent="298">
                 <Properties>
                   <string name="Name">Slide</string>
                   <Ref name="Attachment0">187</Ref>
-                  <Ref name="Attachment1">254</Ref>
+                  <Ref name="Attachment1">287</Ref>
                   <bool name="LimitsEnabled">true</bool>
                   <float name="LowerLimit">-0.8</float>
                   <float name="Restitution">0</float>
                   <float name="UpperLimit">0.7</float>
                 </Properties>
               </Item>
-              <Item class="SpringConstraint" referent="266">
+              <Item class="SpringConstraint" referent="299">
                 <Properties>
                   <string name="Name">Spring</string>
                   <Ref name="Attachment0">188</Ref>
-                  <Ref name="Attachment1">255</Ref>
+                  <Ref name="Attachment1">288</Ref>
                   <BinaryString name="AttributesSerialize">AQAAAAoAAABSZXN0TGVuZ3RoBQAAAEA=</BinaryString>
                   <bool name="Visible">false</bool>
                 </Properties>
               </Item>
-              <Item class="HingeConstraint" referent="267">
+              <Item class="HingeConstraint" referent="300">
                 <Properties>
                   <string name="Name">Motor</string>
                   <token name="ActuatorType">1</token>
-                  <Ref name="Attachment0">256</Ref>
-                  <Ref name="Attachment1">258</Ref>
+                  <Ref name="Attachment0">289</Ref>
+                  <Ref name="Attachment1">291</Ref>
                 </Properties>
+              </Item>
+              <Item class="Folder" referent="301">
+                <Properties>
+                  <string name="Name">NoCollide</string>
+                </Properties>
+                <Item class="NoCollisionConstraint" referent="302">
+                  <Properties>
+                    <string name="Name">Chassis</string>
+                    <Ref name="Part0">290</Ref>
+                    <Ref name="Part1">9</Ref>
+                  </Properties>
+                </Item>
+                <Item class="NoCollisionConstraint" referent="303">
+                  <Properties>
+                    <string name="Name">DriverSeat</string>
+                    <Ref name="Part0">290</Ref>
+                    <Ref name="Part1">180</Ref>
+                  </Properties>
+                </Item>
+                <Item class="NoCollisionConstraint" referent="304">
+                  <Properties>
+                    <string name="Name">FrontBody</string>
+                    <Ref name="Part0">290</Ref>
+                    <Ref name="Part1">12</Ref>
+                  </Properties>
+                </Item>
+                <Item class="NoCollisionConstraint" referent="305">
+                  <Properties>
+                    <string name="Name">Hood</string>
+                    <Ref name="Part0">290</Ref>
+                    <Ref name="Part1">14</Ref>
+                  </Properties>
+                </Item>
+                <Item class="NoCollisionConstraint" referent="306">
+                  <Properties>
+                    <string name="Name">CabBody</string>
+                    <Ref name="Part0">290</Ref>
+                    <Ref name="Part1">46</Ref>
+                  </Properties>
+                </Item>
+                <Item class="NoCollisionConstraint" referent="307">
+                  <Properties>
+                    <string name="Name">BedBody</string>
+                    <Ref name="Part0">290</Ref>
+                    <Ref name="Part1">48</Ref>
+                  </Properties>
+                </Item>
+                <Item class="NoCollisionConstraint" referent="308">
+                  <Properties>
+                    <string name="Name">Windshield</string>
+                    <Ref name="Part0">290</Ref>
+                    <Ref name="Part1">94</Ref>
+                  </Properties>
+                </Item>
+                <Item class="NoCollisionConstraint" referent="309">
+                  <Properties>
+                    <string name="Name">Roof</string>
+                    <Ref name="Part0">290</Ref>
+                    <Ref name="Part1">116</Ref>
+                  </Properties>
+                </Item>
+                <Item class="NoCollisionConstraint" referent="310">
+                  <Properties>
+                    <string name="Name">SeatBack</string>
+                    <Ref name="Part0">290</Ref>
+                    <Ref name="Part1">134</Ref>
+                  </Properties>
+                </Item>
+                <Item class="NoCollisionConstraint" referent="311">
+                  <Properties>
+                    <string name="Name">SpareTire</string>
+                    <Ref name="Part0">290</Ref>
+                    <Ref name="Part1">168</Ref>
+                  </Properties>
+                </Item>
               </Item>
             </Item>
           </Item>
         </Item>
       </Item>
-      <Item class="Model" referent="268">
+      <Item class="Model" referent="312">
         <Properties>
           <string name="Name">OilBarrel</string>
-          <Ref name="PrimaryPart">269</Ref>
+          <Ref name="PrimaryPart">313</Ref>
         </Properties>
-        <Item class="Part" referent="269">
+        <Item class="Part" referent="313">
           <Properties>
             <string name="Name">Drum</string>
             <bool name="Anchored">true</bool>
@@ -5291,7 +5591,7 @@
             </Vector3>
             <token name="TopSurface">0</token>
           </Properties>
-          <Item class="PointLight" referent="270">
+          <Item class="PointLight" referent="314">
             <Properties>
               <string name="Name">PointLight</string>
               <float name="Brightness">1.2</float>
@@ -5305,7 +5605,7 @@
             </Properties>
           </Item>
         </Item>
-        <Item class="Part" referent="271">
+        <Item class="Part" referent="315">
           <Properties>
             <string name="Name">Band</string>
             <bool name="Anchored">true</bool>
@@ -5339,7 +5639,7 @@
             <token name="TopSurface">0</token>
           </Properties>
         </Item>
-        <Item class="Part" referent="272">
+        <Item class="Part" referent="316">
           <Properties>
             <string name="Name">Band</string>
             <bool name="Anchored">true</bool>
@@ -5373,7 +5673,7 @@
             <token name="TopSurface">0</token>
           </Properties>
         </Item>
-        <Item class="Part" referent="273">
+        <Item class="Part" referent="317">
           <Properties>
             <string name="Name">Lid</string>
             <bool name="Anchored">true</bool>
@@ -5407,7 +5707,7 @@
             <token name="TopSurface">0</token>
           </Properties>
         </Item>
-        <Item class="Part" referent="274">
+        <Item class="Part" referent="318">
           <Properties>
             <string name="Name">Bung</string>
             <bool name="Anchored">true</bool>

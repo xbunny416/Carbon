@@ -201,3 +201,13 @@ Done (Claude's calls on how):
   stance was meant.
 - Spawn car now checks room for the car's real size (from its template) instead of a fixed 9 × 18 box.
 - Map: the zone signposts and the wooden jump ramps are gone (and their builders and the zone-name strings).
+
+## Car stuck sometimes: wheels jammed against their own car (2026-11-23, owner: "why it stuck sometime")
+
+- Cause (found by working out the geometry): a steered front wheel's inner edge swings into the chassis and front
+  body once steering passes ~7°, and the wheels (separate assemblies) collided with them — jamming the steering and
+  sometimes stopping the car. It also made turning feel heavy.
+- Fix: CarKit adds NoCollisionConstraints between each wheel and its own chassis, seat and every solid body part (a
+  `NoCollide` folder per wheel). Wheels still collide with the ground, rocks and other cars. Spec'd.
+- Other things that stop the car on purpose: an empty tank (stall, "Out of fuel" notice) and being upside down
+  (Flip).

@@ -251,6 +251,31 @@ function CarKit.build(spec: Spec, prompts: { Keyboard: string, Gamepad: string, 
 		wheel(spec, wheels, chassis, w[1], w[2], w[3], w[4])
 	end
 
+	--[[
+		A car's wheels never collide with its own chassis, seat or body. A steered front wheel swings its inner edge
+		into the chassis past ~7° of steering; without this the wheels jam against the car (hard to turn, stuck).
+		They still hit other cars, rocks and the ground.
+	]]
+	local solid: { any } = { chassis, seat }
+	for _, part in body:GetDescendants() do
+		if part:IsA("BasePart") and part.CanCollide then
+			table.insert(solid, part)
+		end
+	end
+	for _, wheelModel in wheels:GetChildren() do
+		local tire = wheelModel:FindFirstChild("Wheel")
+		local folder = Instance.new("Folder")
+		folder.Name = "NoCollide"
+		folder.Parent = wheelModel
+		for _, part in solid do
+			local free = Instance.new("NoCollisionConstraint")
+			free.Name = part.Name
+			free.Part0 = tire
+			free.Part1 = part
+			free.Parent = folder
+		end
+	end
+
 	local origin = chassis.CFrame.Position
 	local promptPoint = Instance.new("Attachment")
 	promptPoint.Name = "PromptPoint"
