@@ -4,7 +4,7 @@
 
 	The body is built with the map Builder (maps/lib), front = -Z, tires touching y = 0. CarKit adds:
 	  - Chassis: the heavy part every body part is welded to (body parts are Massless, so the weight sits low), the
-	    model's PrimaryPart. Attachments: one per wheel, the Drive prompt and the cargo spot on the bed.
+	    model's PrimaryPart. Attachments: one per wheel and the Drive prompt.
 	  - DriverSeat: a VehicleSeat (Roblox's vehicle controls fill its ThrottleFloat / SteerFloat). Touching it never
 	    sits you down; the Drive prompt does (CarService).
 	  - Wheels/<FL|FR|RL|RR>: a Strut sliding up and down on the chassis (PrismaticConstraint "Slide") held up by a
@@ -32,7 +32,6 @@ export type Spec = {
 	Chassis: { number }, -- size; it sits on the wheel centers' height + half its height
 	Seat: { number }, -- center of the driver's seat (its top is where you sit)
 	Prompt: { number }, -- where the Drive prompt shows (by the driver's door)
-	Cargo: { number }, -- middle of the bed floor (oil barrels stack here from 1.4)
 	Body: (F: Props.Frame) -> (), -- builds the body parts
 }
 
@@ -252,11 +251,6 @@ function CarKit.build(spec: Spec, prompts: { Keyboard: string, Gamepad: string, 
 	prompt.MaxActivationDistance = prompts.MaxDistance
 	prompt.RequiresLineOfSight = false
 	prompt.Parent = promptPoint
-
-	local cargo = Instance.new("Attachment")
-	cargo.Name = "Cargo"
-	cargo.CFrame = CFrame.new(Vector3.new(spec.Cargo[1], spec.Cargo[2], spec.Cargo[3]) - origin)
-	cargo.Parent = chassis
 
 	for _, part in root:GetDescendants() do
 		if part:IsA("BasePart") then

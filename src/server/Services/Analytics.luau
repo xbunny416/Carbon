@@ -1,12 +1,10 @@
 --!strict
 --[[
 	Analytics — failure-safe wrapper over AnalyticsService. Every tracked event in the game goes through here so
-	names stay consistent (tutorial steps, purchases, currency earned / spent, and the game's own events: add a named
+	names stay consistent (tutorial steps, purchases, and the game's own events: add a named
 	helper per event the bible lists, so call sites cannot drift).
 ]]
 local AnalyticsService = game:GetService("AnalyticsService")
-
-local CURRENCY = "Coins"
 
 local FIELD_KEYS = {
 	Enum.AnalyticsCustomFieldKeys.CustomField01.Name,
@@ -45,36 +43,6 @@ end
 local function safely(label: string, callback: () -> ())
 	xpcall(callback, function(err: unknown)
 		warn(`[Analytics] {label} failed: {err}`)
-	end)
-end
-
--- Coins earned. `sku` names the source (e.g. "QuestReward", "DailyLogin", "CoinPackM").
-function Analytics.coinsEarned(player: Player, amount: number, balance: number, transaction: string, sku: string)
-	safely("coinsEarned", function()
-		AnalyticsService:LogEconomyEvent(
-			player,
-			Enum.AnalyticsEconomyFlowType.Source,
-			CURRENCY,
-			amount,
-			balance,
-			transaction,
-			sku
-		)
-	end)
-end
-
--- Coins spent. `sku` names the item bought (e.g. "Shop.RedHat").
-function Analytics.coinsSpent(player: Player, amount: number, balance: number, transaction: string, sku: string)
-	safely("coinsSpent", function()
-		AnalyticsService:LogEconomyEvent(
-			player,
-			Enum.AnalyticsEconomyFlowType.Sink,
-			CURRENCY,
-			amount,
-			balance,
-			transaction,
-			sku
-		)
 	end)
 end
 

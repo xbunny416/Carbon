@@ -1,6 +1,7 @@
 --!strict
 --[[
-	FuelRules — the pure math behind the tank (bible §5.3), used by Services/FuelService and its specs.
+	FuelRules — the pure math behind the tank and oil barrels (bible §5.3, §5.4), used by Services/FuelService,
+	Services/OilService and their specs.
 ]]
 local FuelRules = {}
 
@@ -14,22 +15,14 @@ function FuelRules.burn(fuel: number, distance: number, perStud: number): number
 	return math.max(0, fuel - distance * perStud)
 end
 
--- The tank after `dt` seconds at a pump (never above `max`).
-function FuelRules.refill(fuel: number, max: number, rate: number, dt: number): number
-	return math.min(max, fuel + rate * dt)
+-- The tank after picking up an oil barrel worth `amount` (never above `max`).
+function FuelRules.addOil(fuel: number, max: number, amount: number): number
+	return math.min(max, fuel + amount)
 end
 
---[[
-	What happens when the tank is empty: with cargo, one barrel is burned into fuel; without, the car stalls.
-	Returns the new fuel, the new cargo count, and whether the car stalls.
-]]
-function FuelRules.whenEmpty(fuel: number, cargo: number, barrelFuel: number, max: number): (number, number, boolean)
-	if fuel > 0 then
-		return fuel, cargo, false
-	elseif cargo > 0 then
-		return math.min(max, barrelFuel), cargo - 1, false
-	end
-	return 0, cargo, true
+-- Whether a car can take a barrel: only when its tank isn't full (a full car leaves it for someone else).
+function FuelRules.canTakeOil(fuel: number, max: number): boolean
+	return fuel < max - 0.5
 end
 
 -- Whether the tank just dropped below the low-fuel line.

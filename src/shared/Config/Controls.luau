@@ -33,13 +33,15 @@ type ControlsConfig = {
 local Controls: ControlsConfig = {
 	-- Every action the game listens for. Each one needs a keyboard and a gamepad binding. Driving itself uses
 	-- Roblox's vehicle controls (W A S D / arrows, gamepad triggers + left stick, touch thumbstick).
-	Actions = { "Flip", "Interact", "Menu" },
+	Actions = { "SpawnCar", "Flip", "Interact", "Menu" },
 	Keyboard = {
+		SpawnCar = { "C" }, -- put your car beside you (also the Spawn car button on screen)
 		Flip = { "R" }, -- turn an upside-down car back over
 		Interact = { "E" }, -- walk-up prompts; gets you out of your car while driving
 		Menu = { "M" },
 	},
 	Gamepad = {
+		SpawnCar = { "DPadDown" },
 		Flip = { "ButtonY" },
 		Interact = { "ButtonB" },
 		-- Not Select / Start: Roblox keeps those for its own menu and UI navigation.

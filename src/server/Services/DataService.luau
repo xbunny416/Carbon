@@ -5,7 +5,6 @@
 
 	Rules:
 	  * Only change data through the functions below, so the owning client is told about every change.
-	  * Coin amounts are whole numbers; spending checks the balance on the server.
 	  * Developer products go through DataService.processReceipt (granted once per PurchaseId, confirmed only after
 	    the grant is saved).
 ]]
@@ -24,7 +23,6 @@ local DataTemplate = require(Shared:WaitForChild("Data"):WaitForChild("Template"
 local Server = script.Parent.Parent
 local ProfileStore = require(Server:WaitForChild("Vendor"):WaitForChild("ProfileStore"))
 local Migrations = require(Server:WaitForChild("Data"):WaitForChild("Migrations"))
-local Analytics = require(script.Parent:WaitForChild("Analytics"))
 
 type PlayerData = DataTemplate.PlayerData
 
@@ -166,35 +164,6 @@ function DataService.update(player: Player, key: string, mutate: (data: PlayerDa
 	return true
 end
 
--- Adds Coins (whole, non-negative amount). `sku` names the source for analytics (e.g. "QuestReward").
-function DataService.addCoins(player: Player, amount: number, transaction: string, sku: string): boolean
-	assert(amount >= 0 and amount == math.floor(amount), "Coin amount must be a whole, non-negative number")
-	local profile = profiles[player]
-	if not profile then
-		return false
-	end
-	if amount == 0 then
-		return true
-	end
-	profile.Data.Coins += amount
-	replicate(player, "Coins")
-	Analytics.coinsEarned(player, amount, profile.Data.Coins, transaction, sku)
-	return true
-end
-
--- Spends Coins if the player can afford it. Returns false (and changes nothing) otherwise.
-function DataService.spendCoins(player: Player, amount: number, transaction: string, sku: string): boolean
-	assert(amount >= 0 and amount == math.floor(amount), "Coin amount must be a whole, non-negative number")
-	local profile = profiles[player]
-	if not profile or profile.Data.Coins < amount then
-		return false
-	end
-	profile.Data.Coins -= amount
-	replicate(player, "Coins")
-	Analytics.coinsSpent(player, amount, profile.Data.Coins, transaction, sku)
-	return true
-end
-
 -- Sets the level (1 to Progression.LevelCap) with no XP into it — developer panel. Fires LeveledUp when it changes
 -- (lower too), so anything tied to the level follows.
 function DataService.setLevel(player: Player, level: number)
@@ -253,7 +222,7 @@ end
 --[[
 	Grants a developer product exactly once and only reports PurchaseGranted after the grant is saved
 	(ProfileStore's PurchaseId-cache pattern). Use as the body of MarketplaceService.ProcessReceipt.
-	`grant` changes the data (e.g. adds Coins) and must not yield.
+	`grant` changes the data and must not yield.
 ]]
 function DataService.processReceipt(
 	receipt: { [string]: any },

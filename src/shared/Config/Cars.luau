@@ -1,9 +1,9 @@
 --!strict
 --[[
-	Cars (bible §5.2): how each car drives, the starter car, and the rules for flipping, resetting and spawning.
+	Cars (bible §5.2): how each car drives, the starter car, and the rules for flipping and spawning.
 	Speeds are studs/s, accelerations studs/s², angles degrees. Every Models entry needs a builder in
-	assets/cars/<Name>.luau (`lune run assets/build` makes ReplicatedStorage.Assets.Models.Cars.<Name>). Tank, Cargo
-	and Health are used from build-order items 1.3 (fuel), 1.4 (oil) and 1.6 (wrecks).
+	assets/cars/<Name>.luau (`lune run assets/build` makes ReplicatedStorage.Assets.Models.Cars.<Name>). Tank is the
+	fuel tank (bible §5.3); Health is for ramming (build order 1.5).
 ]]
 export type CarStats = {
 	TopSpeed: number, -- forward
@@ -17,7 +17,6 @@ export type CarStats = {
 	Sag: number, -- studs the springs sink under the car's weight
 	DampingRatio: number, -- 0 = bouncy, 1 = no bounce
 	Tank: number,
-	Cargo: number,
 	Health: number,
 }
 
@@ -30,8 +29,9 @@ type CarsConfig = {
 	FlipDelay: number,
 	FlipLift: number,
 	FlipRange: number,
-	ResetCooldown: number,
-	BayClearance: number,
+	SpawnCooldown: number,
+	RespawnFuel: number,
+	SpawnSide: number,
 	ExitSide: number,
 	EnterRange: number,
 }
@@ -51,7 +51,6 @@ local Cars: CarsConfig = {
 			Sag = 0.5,
 			DampingRatio = 0.55,
 			Tank = 100,
-			Cargo = 6,
 			Health = 100,
 		},
 	},
@@ -63,8 +62,9 @@ local Cars: CarsConfig = {
 	FlipDelay = 1, -- seconds between pressing Flip and the car turning over
 	FlipLift = 4, -- studs the car is lifted when righted
 	FlipRange = 30, -- studs: the owner can flip it from this close, not only from the seat
-	ResetCooldown = 10, -- seconds between two Reset car presses
-	BayClearance = 9, -- studs: a car spawn bay is free when no car is this close
+	SpawnCooldown = 15, -- seconds between two Spawn car presses
+	RespawnFuel = 25, -- a car spawned again keeps the old car's fuel, but gets at least this much
+	SpawnSide = 9, -- studs beside you where a spawned car appears
 	ExitSide = 5, -- studs to the car's left where the driver lands when getting out
 	EnterRange = 16, -- studs: the server's limit for the Drive prompt (a bit more than the prompt's own range)
 }

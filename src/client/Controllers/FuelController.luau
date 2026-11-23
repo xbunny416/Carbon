@@ -2,11 +2,9 @@
 --[[
 	FuelController — the fuel gauge (bible §5.3; the tank itself is Services/FuelService). While you drive your car,
 	a FUEL bar at the bottom of the screen shows the car's Fuel / FuelMax attributes: orange, red below
-	Config.Fuel.LowFraction. When your car is out of fuel (its Stalled attribute) and you sit in it or stand by it, a
-	Tow home button asks the server to send it back to town (Net TowCar).
+	Config.Fuel.LowFraction. Out of fuel, the Spawn car button (CarController) is the way out when no oil is near.
 ]]
 local CollectionService = game:GetService("CollectionService")
-local GuiService = game:GetService("GuiService")
 local Players = game:GetService("Players")
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local RunService = game:GetService("RunService")
@@ -15,22 +13,17 @@ local TweenService = game:GetService("TweenService")
 local Shared = ReplicatedStorage:WaitForChild("Shared")
 local Config = require(Shared:WaitForChild("Config"))
 local Localization = require(Shared:WaitForChild("Localization"))
-local Net = require(Shared:WaitForChild("Net"))
 
 local Kit = require(script.Parent.Parent:WaitForChild("Ui"):WaitForChild("Kit"))
-local InputController = require(script.Parent:WaitForChild("InputController"))
 
 local REFRESH = 0.1
 local FILL = TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
-local POP = TweenInfo.new(0.25, Enum.EasingStyle.Back, Enum.EasingDirection.Out)
 
 local FuelController = {}
 
 local player = Players.LocalPlayer
 local gauge: Frame
 local fill: Frame
-local tow: TextButton
-local towScale: UIScale
 local shownFraction = -1
 
 local function myCar(): Model?
@@ -83,22 +76,6 @@ local function build()
 	fillCorner.CornerRadius = UDim.new(0, 8)
 	fillCorner.Parent = fill
 	fill.Parent = track
-
-	tow = Kit.button(gui, Localization.format("Fuel.Tow"), UDim2.fromScale(0.18, 0.07))
-	tow.Name = "TowHome"
-	tow.AnchorPoint = Vector2.new(0.5, 0.5)
-	tow.Position = UDim2.fromScale(0.5, 0.78)
-	tow.BackgroundColor3 = Kit.Colors.Accent
-	tow.TextColor3 = Kit.Colors.OnAccent
-	tow.Visible = false
-	local limit = Instance.new("UISizeConstraint")
-	limit.MaxSize = Vector2.new(260, 56)
-	limit.Parent = tow
-	towScale = Instance.new("UIScale")
-	towScale.Parent = tow
-	tow.Activated:Connect(function()
-		Net.fire("TowCar")
-	end)
 end
 
 local function setFraction(fraction: number)
@@ -114,22 +91,6 @@ local function setFraction(fraction: number)
 	fill.BackgroundColor3 = if fraction < Config.Fuel.LowFraction then Kit.Colors.Live else Kit.Colors.Accent
 end
 
-local function setTowVisible(visible: boolean)
-	if tow.Visible == visible then
-		return
-	end
-	tow.Visible = visible
-	if visible then
-		towScale.Scale = 0.8
-		TweenService:Create(towScale, POP, { Scale = 1 }):Play()
-		if InputController.getDevice() == "Gamepad" then
-			GuiService.SelectedObject = tow
-		end
-	elseif GuiService.SelectedObject == tow then
-		GuiService.SelectedObject = nil
-	end
-end
-
 local function refresh()
 	local car = myCar()
 	local character = player.Character
@@ -141,11 +102,6 @@ local function refresh()
 		setFraction(if max > 0 then math.clamp(number(car, "Fuel") / max, 0, 1) else 0)
 	end
 	gauge.Visible = driving
-	local root = humanoid and humanoid.RootPart
-	local chassis = car and car.PrimaryPart
-	local near = driving
-		or (chassis ~= nil and root ~= nil and (root.Position - chassis.Position).Magnitude <= Config.Cars.FlipRange)
-	setTowVisible(car ~= nil and car:GetAttribute("Stalled") == true and near)
 end
 
 function FuelController.Start(_self: any)

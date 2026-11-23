@@ -138,3 +138,25 @@ Claude's calls (all *(tune)* in the bible, change freely):
   differential, `CarRules.wheelFactor`, turn center level with the rear axle); steering 40° standing / 18° at top
   speed (was 34° / 12°); `MotorMargin` 2.2 (was 1.5) so curbs and sand don't stop the car. Cab: full body width,
   longer (windshield moved forward, bed starts 0.5 studs later), roof at 8.2 (4 studs above the seat).
+
+## Owner reshape: no town, no coins, floating oil, car spawn button (2026-11-23)
+
+Owner: "delete motel and gas station etc in center, make player ui car spawn. no coin system, oil rarely random
+scatter around and floating not on fuel spawn circle". Answers to the follow-up questions: center = plain sand, no
+walls; refuel only from oil you pick up; oil is fuel only; the car appears next to you.
+
+Done (Claude's calls on how):
+- Map: `Town.luau`, its generated model and `Buildings.luau` deleted. The center (`CenterHalfSize` 60) is sand with
+  4 spawn pads between the two roads, which now cross in the middle. No oil spots or stains; the markers for car bays
+  and pumps are gone with the town. Desert props, zones and cliffs unchanged.
+- Spawn car: a button at the bottom while on foot (also C / D-pad Down). The car goes on flat, clear ground beside
+  you (tries right, left, front, back), replacing your old car; 15 s cooldown. First car full; later spawns keep the
+  old car's fuel but at least 25 — so a stranded player is never stuck for good, but respawning isn't a refill.
+  Removed: automatic spawning, Reset car (Car menu screen), Tow home.
+- Coins: removed from player data (migration 1 → 2 deletes the field), `Config.Economy`, DataService
+  addCoins / spendCoins and the coin analytics helpers. Levels / XP stay (template) with no source for now.
+- Oil (`Config.Oil`): up to 18 barrels on the map, one more every 8 s, each at a random open spot (raycast to the
+  ground; not within 80 of the middle or 140 of the border; no rocks, cacti or overhangs within 5 studs), hovering
+  3.5 studs, bobbing and turning on clients, glowing; gone after 4 minutes untouched. Driving within 8 studs adds
+  30 fuel (capped; a full tank leaves it). No cargo, selling or barrel-burn any more.
+- Build order reshaped (bible §8): ramming + boost is next (1.5), the garage / upgrades / selling items are gone.

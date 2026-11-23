@@ -17,11 +17,11 @@ return {
 	["template version matches VERSION"] = function()
 		expect.equal(DataTemplate.Template.Version, DataTemplate.VERSION)
 	end,
-	["new players start at level 1 with starting Coins and zeroed stats"] = function()
+	["new players start at level 1 with zeroed stats and no Coins (removed 2026-11-23)"] = function()
 		local template = DataTemplate.Template
 		expect.equal(template.Level, 1)
 		expect.equal(template.XP, 0)
-		expect.equal(template.Coins, Config.Economy.StartingCoins)
+		expect.equal((template :: any).Coins, nil)
 		for stat, value in template.Stats do
 			expect.equal(value, 0, stat)
 		end
@@ -29,7 +29,7 @@ return {
 	["template survives a JSON round trip (DataStore-safe)"] = function()
 		local encoded = serde.encode("json", DataTemplate.Template)
 		local decoded = serde.decode("json", encoded)
-		expect.equal(decoded.Coins, DataTemplate.Template.Coins)
+		expect.equal(decoded.Level, DataTemplate.Template.Level)
 		expect.equal(decoded.Settings.MusicVolume, DataTemplate.Template.Settings.MusicVolume)
 	end,
 	["template settings are a mutable copy of Config defaults"] = function()
@@ -38,6 +38,13 @@ return {
 		for key, value in Config.Data.DefaultSettings do
 			expect.equal((settings :: any)[key], value, key)
 		end
+	end,
+	["the version 2 migration removes the old Coins field"] = function()
+		local old = { Version = 1, Coins = 250, Level = 3 }
+		expect.equal(Migrations.run(old, DataTemplate.VERSION), true)
+		expect.equal(old.Coins, nil)
+		expect.equal(old.Level, 3)
+		expect.equal(old.Version, DataTemplate.VERSION)
 	end,
 	["every released version has a migration step"] = function()
 		for version = 1, DataTemplate.VERSION - 1 do

@@ -11,10 +11,10 @@
 	    back over.
 	  - Only your own car's Drive prompt shows (in your language); other players' prompts stay hidden.
 	  - A small hint at the bottom shows the key for Get out / Flip on keyboard and gamepad.
-	  - The Car menu screen has Reset car (CarService sends the car back to town with you in it).
+	  - A Spawn car button at the bottom (and SpawnCar: C / D-pad Down) while you're on foot asks the server to put
+	    your car beside you (CarService: open ground, cooldown, fuel rules).
 ]]
 local CollectionService = game:GetService("CollectionService")
-local GuiService = game:GetService("GuiService")
 local Players = game:GetService("Players")
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local RunService = game:GetService("RunService")
@@ -30,7 +30,6 @@ local Ui = script.Parent.Parent:WaitForChild("Ui")
 local Kit = require(Ui:WaitForChild("Kit"))
 local KeyHint = require(Ui:WaitForChild("KeyHint"))
 local InputController = require(script.Parent:WaitForChild("InputController"))
-local MenuController = require(script.Parent:WaitForChild("MenuController"))
 
 local POP = TweenInfo.new(0.25, Enum.EasingStyle.Back, Enum.EasingDirection.Out)
 
@@ -40,6 +39,8 @@ local player = Players.LocalPlayer
 local driving: Model? = nil
 local canFlip = false
 local hintPanel: Frame? = nil
+local spawnButton: TextButton? = nil
+local spawnScale: UIScale? = nil
 local hintRows: { [string]: Frame } = {}
 
 local function isMine(car: Instance): boolean
@@ -203,6 +204,16 @@ local function step()
 				Config.Cars.FlipMaxSpeed
 			)
 	)
+	-- The Spawn car button shows while you are on foot (and alive).
+	local button, scale = spawnButton, spawnScale
+	local onFoot = car == nil and h ~= nil and h.Health > 0
+	if button and scale and button.Visible ~= onFoot then
+		button.Visible = onFoot
+		if onFoot then
+			scale.Scale = 0.85
+			TweenService:Create(scale, POP, { Scale = 1 }):Play()
+		end
+	end
 end
 
 ---------------------------------------------------------------------------------------------------------------------
@@ -243,44 +254,36 @@ local function buildHints()
 	InputController.DeviceChanged:Connect(refreshHints)
 end
 
-local function buildMenu()
-	local gui = Kit.screen("Car", 5)
-	local panel = Kit.panel(
-		gui,
-		UDim2.fromScale(0.32, 0.36),
-		UDim2.fromScale(0.5, 0.5),
-		Vector2.new(0.5, 0.5),
-		Vector2.new(440, 280)
-	)
+-- The Spawn car button: bottom center, with the key / gamepad hint for SpawnCar on its left (none on touch).
+local function buildSpawnButton()
+	local gui = Kit.screen("CarSpawn", 3)
+	gui.Enabled = true
+	local button = Kit.button(gui, Localization.format("Controls.SpawnCar"), UDim2.fromScale(0.2, 0.075))
+	button.Name = "SpawnCar"
+	button.AnchorPoint = Vector2.new(0.5, 0.5)
+	button.Position = UDim2.fromScale(0.5, 0.92)
+	button.BackgroundColor3 = Kit.Colors.Accent
+	button.TextColor3 = Kit.Colors.OnAccent
+	button.Visible = false
+	local limit = Instance.new("UISizeConstraint")
+	limit.MaxSize = Vector2.new(280, 60)
+	limit.Parent = button
+	local padding = button:FindFirstChildOfClass("UIPadding")
+	if padding then
+		padding.PaddingLeft = UDim.new(0.24, 0)
+	end
+	local hint = KeyHint.new(button, "SpawnCar", UDim2.fromScale(0.16, 0.8))
+	hint.AnchorPoint = Vector2.new(0.5, 0.5)
+	hint.Position = UDim2.fromScale(-0.14, 0.5)
+	local square = Instance.new("UIAspectRatioConstraint")
+	square.Parent = hint
 	local scale = Instance.new("UIScale")
-	scale.Parent = panel
-	Kit.list(panel, Enum.FillDirection.Vertical, UDim.new(0.05, 0))
-	local title = Kit.label(panel, Localization.format("Car.Title"), UDim2.fromScale(1, 0.18), 30)
-	title.Font = Kit.TitleFont
-	title.LayoutOrder = 1
-	local info = Kit.label(panel, Localization.format("Car.ResetInfo"), UDim2.fromScale(1, 0.28), 20)
-	info.TextColor3 = Kit.Colors.Muted
-	info.LayoutOrder = 2
-	local reset = Kit.button(panel, Localization.format("Car.Reset"), UDim2.fromScale(0.7, 0.22))
-	reset.BackgroundColor3 = Kit.Colors.Accent
-	reset.TextColor3 = Kit.Colors.OnAccent
-	reset.LayoutOrder = 3
-	reset.Activated:Connect(function()
-		Net.fire("ResetCar")
-		MenuController.close()
+	scale.Parent = button
+	button.Activated:Connect(function()
+		Net.fire("SpawnCar")
 	end)
-	local close = Kit.button(panel, Localization.format("Common.Close"), UDim2.fromScale(0.45, 0.16))
-	close.LayoutOrder = 4
-	close.Activated:Connect(function()
-		MenuController.close()
-	end)
-	MenuController.addScreen(Localization.format("Menu.Car"), 10, gui, function()
-		scale.Scale = 0.9
-		TweenService:Create(scale, POP, { Scale = 1 }):Play()
-		if InputController.getDevice() == "Gamepad" then
-			GuiService.SelectedObject = reset
-		end
-	end)
+	spawnButton = button
+	spawnScale = scale
 end
 
 ---------------------------------------------------------------------------------------------------------------------
@@ -295,7 +298,7 @@ end
 
 function CarController.Start(_self: any)
 	buildHints()
-	buildMenu()
+	buildSpawnButton()
 	for _, car in CollectionService:GetTagged("Car") do
 		setupCar(car)
 	end
@@ -305,6 +308,8 @@ function CarController.Start(_self: any)
 			Net.fire("ExitCar")
 		elseif action == "Flip" and canFlip then
 			Net.fire("FlipCar")
+		elseif action == "SpawnCar" and not driving then
+			Net.fire("SpawnCar")
 		end
 	end)
 	player.CharacterAdded:Connect(function()

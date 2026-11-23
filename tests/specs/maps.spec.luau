@@ -6,7 +6,6 @@ local Roblox = require("../roblox")
 local expect = require("../expect")
 
 local Desert = require("../../maps/layouts/Desert")
-local Town = require("../../maps/layouts/Town")
 
 local Config = Roblox.require(Roblox.game.ReplicatedStorage.Shared.Config)
 local map = Config.World.Map
@@ -28,7 +27,6 @@ local function distance(part: any): number
 end
 
 local desert = Desert.build(map)
-local town = Town.build(map)
 
 -- Upward faces (tops) of the axis-aligned blocks in `roots`: { y, x0, x1, z0, z1, color, name }.
 local function tops(roots: { any }): { { any } }
@@ -72,61 +70,31 @@ end
 
 return {
 	["generated .rbxmx files are up to date (run: lune run maps/build)"] = function()
-		for file, model in { ["Desert.rbxmx"] = desert, ["Town.rbxmx"] = town } do
+		for file, model in { ["Desert.rbxmx"] = desert } do
 			local path = `maps/generated/{file}`
 			expect.truthy(fs.isFile(path), `{path} exists`)
 			expect.equal(fs.readFile(path) == roblox.serializeModel({ model }, true), true, path)
 		end
 	end,
-	["the town has a car spawn bay per player and the pump bays, all inside the safe zone"] = function()
-		expect.equal(map.CarSpawns, Config.World.MaxPlayers, "car spawns = max players")
-		local spawns, bays = tagged(town, "CarSpawn"), tagged(town, "PumpBay")
-		expect.equal(#spawns, map.CarSpawns, "CarSpawn markers")
-		expect.equal(#bays, map.PumpBays, "PumpBay markers")
-		for _, marker in table.move(bays, 1, #bays, #spawns + 1, table.clone(spawns)) do
-			expect.truthy(distance(marker) < map.TownHalfSize, `{marker.Name} in town`)
-			expect.truthy(type(marker:GetAttribute("Index")) == "number", `{marker.Name} Index`)
-		end
-	end,
-	["players spawn in town"] = function()
-		local count = 0
-		for _, instance in town:GetDescendants() do
+	["players spawn on pads in the open center, and nothing else stands there"] = function()
+		local pads = 0
+		for _, instance in desert:GetDescendants() do
 			if instance.ClassName == "SpawnLocation" then
-				count += 1
-				expect.truthy(distance(instance) < map.TownHalfSize, `{instance.Name} in town`)
+				pads += 1
+				expect.truthy(distance(instance) < map.CenterHalfSize, `{instance.Name} in the center`)
 			end
 		end
-		expect.truthy(count >= 1, "spawn locations")
-	end,
-	["each zone has its oil spots, inside its ring and spaced apart"] = function()
-		local spots = tagged(desert, "OilSpot")
-		local perZone: { [string]: number } = {}
-		local inner = map.TownHalfSize
-		local bounds: { [string]: { number } } = {}
-		for _, zone in map.Zones do
-			bounds[zone.Id] = { inner, zone.MaxDistance }
-			inner = zone.MaxDistance
-		end
-		for _, spot in spots do
-			local zone = spot:GetAttribute("Zone")
-			local ring = bounds[zone]
-			expect.truthy(ring ~= nil, `{spot.Name} zone {zone}`)
-			local d = distance(spot)
-			expect.truthy(d > ring[1] and d <= ring[2], `{spot.Name} at {d} inside {zone}`)
-			perZone[zone] = (perZone[zone] or 0) + 1
-			for _, other in spots do
-				if other ~= spot then
-					local gap = (spot.CFrame.Position - other.CFrame.Position).Magnitude
-					expect.truthy(gap >= map.OilSpotSpacing - 0.01, `{spot.Name} and {other.Name} {gap} apart`)
+		expect.truthy(pads >= 1, "spawn pads")
+		for _, group in { "Mesas", "Rocks", "Plants", "Ramps" } do
+			for _, part in desert:FindFirstChild(group):GetDescendants() do
+				if part:IsA("BasePart") then
+					expect.truthy(distance(part) > map.CenterHalfSize, `{part:GetFullName()} out of the center`)
 				end
 			end
 		end
-		for _, zone in map.Zones do
-			expect.equal(perZone[zone.Id] or 0, zone.OilSpots, `{zone.Id} oil spots`)
-		end
 	end,
 	["no two differently colored tops overlap at (almost) the same height — they would flicker"] = function()
-		local faces = tops({ desert, town })
+		local faces = tops({ desert })
 		local problems: { string } = {}
 		for i, a in faces do
 			local j = i + 1

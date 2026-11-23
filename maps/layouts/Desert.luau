@@ -1,14 +1,14 @@
 --!strict
 --[[
-	The desert around the town (bible §5.1), on one square of ground Size studs wide:
-	  - Ground: the town square plus one ring per zone (Scrublands, Mesa Flats, Badlands), each its own sand color,
-	    and an invisible wall on the border. Persistent, so it never streams out under a fast car.
-	  - Dirt roads from the 4 town gates to the edge, a ring road on the first zone border, telephone poles and zone
-	    signposts along the roads, and wooden jump ramps beside them.
+	The whole map (bible §5.1, owner 2026-11-23: no town): one square of desert Size studs wide.
+	  - Ground: an open sand center (CenterHalfSize, where players spawn on 4 pads, nothing else there) plus one ring
+	    per zone (Scrublands, Mesa Flats, Badlands), each its own sand color, and an invisible wall on the border.
+	    Persistent, so it never streams out under a fast car.
+	  - Two dirt roads crossing in the middle out to the cliffs, a ring road on the first zone border, telephone poles
+	    and zone signposts along the roads, and wooden jump ramps beside them.
 	  - Mesas, boulders, saguaros, barrel cacti, sage bushes and dead trees, more rock and fewer plants toward the
 	    edge, and a ring of tall cliffs on the border.
-	  - Oil spots: tagged OilSpot markers (attributes Zone and Index), at least OilSpotSpacing apart, never on a road,
-	    each on a dark oil stain. Their barrels come in build-order item 1.4.
+	Oil barrels are not part of the map: Services/OilService scatters them at random while the game runs.
 	Everything random comes from one seeded Rng, so every build makes the same map.
 ]]
 local B = require("../lib/Builder")
@@ -22,7 +22,7 @@ local Layout = {}
 Layout.Id = "Desert"
 
 local SEED = 20261119
-local ROAD = 12 -- half width of the dirt roads from the gates
+local ROAD = 12 -- half width of the two crossing dirt roads
 local RING_ROAD = 10 -- half width of the ring road
 local CLIFF = 125 -- the edge cliffs (and their scree) reach this far in from the border; nothing else goes there
 -- Road tops sit this far above the ground, and the tire tracks are strips laid beside the road strips (not on top),
@@ -70,13 +70,13 @@ local LOOKS: { [string]: any } = {
 	},
 }
 
--- The 4 roads from the gates: each frame's -Z points away from town.
+-- The 4 road arms from the middle: each frame's -Z points away from the center.
 local ROAD_YAWS = { 0, 90, 180, 270 }
 
 function Layout.build(map: any): any
 	local rng = Rng.new(SEED)
 	local half = map.Size / 2
-	local town = map.TownHalfSize
+	local center = map.CenterHalfSize
 	local ring = map.Zones[1].MaxDistance
 	local reach = half - CLIFF -- nothing but cliffs past this distance from the center
 	local occupied: { { number } } = {} -- { x, z, radius } of every solid thing placed so far
@@ -86,20 +86,13 @@ function Layout.build(map: any): any
 	end
 
 	local function roadDistance(x: number, z: number): number
-		local best = math.abs(distance(x, z) - ring)
-		if math.abs(z) >= town then
-			best = math.min(best, math.abs(x))
-		end
-		if math.abs(x) >= town then
-			best = math.min(best, math.abs(z))
-		end
-		return best
+		return math.min(math.abs(distance(x, z) - ring), math.abs(x), math.abs(z))
 	end
 
-	-- Whether a thing `radius` wide fits at (x, z): out of town, off the cliffs, `roadGap` clear of road centers.
+	-- Whether a thing `radius` wide fits at (x, z): out of the open center, off the cliffs, `roadGap` clear of roads.
 	local function free(x: number, z: number, radius: number, roadGap: number): boolean
 		local d = distance(x, z)
-		if d - radius < town + 20 or d + radius > reach or roadDistance(x, z) < radius + roadGap then
+		if d - radius < center + 20 or d + radius > reach or roadDistance(x, z) < radius + roadGap then
 			return false
 		end
 		for _, other in occupied do
@@ -124,7 +117,7 @@ function Layout.build(map: any): any
 	end
 
 	local function zoneBounds(index: number): (number, number)
-		local inner = if index == 1 then town else map.Zones[index - 1].MaxDistance
+		local inner = if index == 1 then center else map.Zones[index - 1].MaxDistance
 		return inner, math.min(map.Zones[index].MaxDistance, reach)
 	end
 
@@ -133,14 +126,14 @@ function Layout.build(map: any): any
 			local ground = B.model("Ground", function()
 				local F = Props.frame({ 0, 0, 0 }, 0)
 				F.box({
-					Name = "Town",
-					From = { -town, -8, -town },
-					To = { town, 0, town },
-					Color = "SandLight",
+					Name = "Center",
+					From = { -center, -8, -center },
+					To = { center, 0, center },
+					Color = "Sand",
 					Material = "Sand",
 				})
 				for index, zone in map.Zones do
-					local inner = if index == 1 then town else map.Zones[index - 1].MaxDistance
+					local inner = if index == 1 then center else map.Zones[index - 1].MaxDistance
 					local outer = zone.MaxDistance
 					local look = LOOKS[zone.Id]
 					for _, strip in
@@ -183,7 +176,9 @@ function Layout.build(map: any): any
 			B.model("Roads", function()
 				for _, yaw in ROAD_YAWS do
 					local F = Props.frame({ 0, 0, 0 }, yaw)
-					for _, piece in { { town, ring - RING_ROAD }, { ring + RING_ROAD, half - 40 } } do
+					-- The north-south road runs through the middle; the east-west arms stop at its edges (no overlap).
+					local start = if yaw % 180 == 0 then 0 else ROAD
+					for _, piece in { { start, ring - RING_ROAD }, { ring + RING_ROAD, half - 40 } } do
 						for strip = 1, #TRACKS - 1 do
 							local track = strip % 2 == 0
 							F.box({
@@ -214,7 +209,7 @@ function Layout.build(map: any): any
 					local F = Props.frame({ 0, 0, 0 }, yaw)
 					local previous: { Vec }? = nil
 					local count = 0
-					for d = town + 30, reach - 10, 76 do
+					for d = center + 30, reach - 10, 76 do
 						if math.abs(d - ring) > RING_ROAD + 8 then
 							count += 1
 							local left, right = Props.pole(F.at(ROAD + 6, 0, -d), yaw, count % 4 == 0)
@@ -228,7 +223,7 @@ function Layout.build(map: any): any
 						end
 					end
 					for index, zone in map.Zones do
-						local d = (if index == 1 then town else map.Zones[index - 1].MaxDistance) + 14
+						local d = (if index == 1 then center else map.Zones[index - 1].MaxDistance) + 14
 						local at = F.at(-(ROAD + 6), 0, -d)
 						Props.signpost(at, yaw + 180, `Zone.{zone.Id}`)
 						table.insert(occupied, { at[1], at[3], 8 })
@@ -236,46 +231,16 @@ function Layout.build(map: any): any
 				end
 			end)
 
-			B.model("OilSpots", function()
-				local spots: { { number } } = {}
-				local index = 0
-				for zoneIndex, zone in map.Zones do
-					local inner, outer = zoneBounds(zoneIndex)
-					for _ = 1, zone.OilSpots do
-						local placed = false
-						for _ = 1, 2000 do
-							local x, z = place(inner + 15, outer - 15, 12, ROAD)
-							if not x or not z then
-								break
-							end
-							local clear = true
-							for _, other in spots do
-								local dx, dz = x - other[1], z - other[2]
-								if dx * dx + dz * dz < map.OilSpotSpacing ^ 2 then
-									clear = false
-									break
-								end
-							end
-							if clear then
-								index += 1
-								table.insert(spots, { x, z })
-								table.insert(occupied, { x, z, 14 })
-								B.marker("OilSpot", `OilSpot{index}`, { x, 0, z }, { Zone = zone.Id, Index = index })
-								Props.frame({ x, 0, z }, 0).column({
-									Name = "OilStain",
-									Base = { 0, -0.3, 0 },
-									Height = 0.5,
-									Diameter = rng:range(9, 13),
-									Color = "Black",
-									Transparency = 0.25,
-									CanCollide = false,
-								})
-								placed = true
-								break
-							end
-						end
-						assert(placed, `no room for oil spot {index + 1} in {zone.Id}`)
-					end
+			-- Player spawn pads in the open center, one in each corner between the roads.
+			B.model("Spawn", function()
+				for index, at in { { 30, 30 }, { -30, 30 }, { 30, -30 }, { -30, -30 } } do
+					B.spawnLocation({
+						Name = `SpawnPad{index}`,
+						Size = { 8, 0.4, 8 },
+						Position = { at[1], 0, at[2] },
+						Color = "SandDark",
+						Material = "Sand",
+					})
 				end
 			end)
 

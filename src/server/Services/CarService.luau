@@ -1,20 +1,21 @@
 --!strict
 --[[
 	CarService — every player's car (bible §5.2).
-	  - Spawns the starter car (Config.Cars.Starter, from ReplicatedStorage.Assets.Models.Cars) in a free CarSpawn bay
-	    when the player's character first appears; removes it when they leave. Cars live in Workspace.Cars, tagged
-	    "Car" with the owner's UserId in the OwnerUserId attribute.
+	  - SpawnCar (the Spawn car button) puts the starter car (Config.Cars.Starter, from
+	    ReplicatedStorage.Assets.Models.Cars) on clear ground beside the player, replacing their old one; at most once
+	    per Config.Cars.SpawnCooldown. The first car comes with a full tank, later ones keep the old car's fuel but at
+	    least Config.Cars.RespawnFuel (so nobody is stuck for good, but respawning isn't a free refill). Cars are
+	    removed when their owner leaves. They live in Workspace.Cars, tagged "Car", OwnerUserId attribute.
 	  - Sets each car's springs and motor strengths from its mass and its Config.Cars stats; the motor torques go in
 	    the car's DriveTorque / BrakeTorque / CoastTorque attributes for CarController.
 	  - The Drive prompt seats the owner (nobody else); the driver's client then owns the car's physics and runs the
 	    motors. A parked car belongs to the server, its motors holding it like a parking brake.
 	  - ExitCar puts the driver down beside the car, FlipCar rights an upside-down car that has stopped (after
-	    Config.Cars.FlipDelay), ResetCar sends the car back to a free bay with its owner in it, TowCar does the same
-	    for a car that ran out of fuel (no cooldown).
-	  - Every car carries its tank in the Fuel / FuelMax attributes and Stalled (FuelService burns and refills it).
+	    Config.Cars.FlipDelay).
+	  - Every car carries its tank in the Fuel / FuelMax attributes and Stalled (FuelService burns it, OilService
+	    refills it from oil barrels).
 	    A stalled car belongs to the server, so its driver's client can't run the motors.
 ]]
-local CollectionService = game:GetService("CollectionService")
 local Players = game:GetService("Players")
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
@@ -32,7 +33,8 @@ local WHEELS = 4
 
 local folder: Folder
 local cars: { [Player]: Model } = {}
-local lastReset: { [Player]: number } = {}
+local lastSpawn: { [Player]: number } = {}
+local spawnedBefore: { [Player]: boolean } = {}
 local flipping: { [Player]: boolean } = {}
 
 -- The player's car, if it still exists.
@@ -112,36 +114,6 @@ local function tune(car: Model, stats: CarStats)
 	end
 end
 
--- The CarSpawn bays in Index order, and whether a car stands in each.
-local function freeBay(except: Model?): BasePart?
-	local bays: { BasePart } = {}
-	for _, marker in CollectionService:GetTagged("CarSpawn") do
-		if marker:IsA("BasePart") then
-			table.insert(bays, marker)
-		end
-	end
-	table.sort(bays, function(a: BasePart, b: BasePart): boolean
-		return (tonumber(a:GetAttribute("Index")) or 0) < (tonumber(b:GetAttribute("Index")) or 0)
-	end)
-	for _, bay in bays do
-		local taken = false
-		for _, car in folder:GetChildren() do
-			local chassis = if car:IsA("Model") and car ~= except then car.PrimaryPart else nil
-			if chassis then
-				local offset = chassis.Position - bay.Position
-				if Vector3.new(offset.X, 0, offset.Z).Magnitude < Config.Cars.BayClearance then
-					taken = true
-					break
-				end
-			end
-		end
-		if not taken then
-			return bay
-		end
-	end
-	return bays[1]
-end
-
 -- Where a driver stands after getting out: beside the driver's door, upright, facing the way the car faces.
 local function exitPoint(car: Model): CFrame
 	local chassis = car.PrimaryPart :: BasePart
@@ -196,8 +168,47 @@ local function onPrompt(car: Model, player: Player)
 	sitDriver(player, car)
 end
 
--- Builds `player`'s car in a free bay (replacing any old one).
-local function spawnCar(player: Player): Model?
+--[[
+	A clear spot on the ground beside the player's character for a car, facing the way they face: tries their right,
+	left, front and back. nil when there's no flat, open ground there (a mesa, a wall, another car).
+]]
+local function placeNear(player: Player, old: Model?): CFrame?
+	local character = player.Character
+	local root = character and character:FindFirstChild("HumanoidRootPart")
+	if not character or not root or not root:IsA("BasePart") then
+		return nil
+	end
+	local look = root.CFrame.LookVector
+	local flat = Vector3.new(look.X, 0, look.Z)
+	local forward = if flat.Magnitude > 0.1 then flat.Unit else -Vector3.zAxis
+	local right = forward:Cross(Vector3.yAxis)
+	local ignore: { Instance } = { character }
+	if old then
+		table.insert(ignore, old)
+	end
+	local rays = RaycastParams.new()
+	rays.FilterType = Enum.RaycastFilterType.Exclude
+	rays.FilterDescendantsInstances = ignore
+	local overlap = OverlapParams.new()
+	overlap.FilterType = Enum.RaycastFilterType.Exclude
+	overlap.FilterDescendantsInstances = ignore
+	overlap.RespectCanCollide = true -- bushes, oil barrels and markers don't block a car
+	local side = Config.Cars.SpawnSide
+	for _, offset in { right * side, -right * side, forward * side * 1.5, -forward * side * 1.5 } do
+		local hit = workspace:Raycast(root.Position + offset + Vector3.new(0, 20, 0), Vector3.new(0, -60, 0), rays)
+		if hit and hit.Normal.Y > 0.85 then
+			local base = CFrame.lookAt(hit.Position, hit.Position + forward)
+			local blocking = workspace:GetPartBoundsInBox(base * CFrame.new(0, 4.5, 0), Vector3.new(9, 7, 18), overlap)
+			if #blocking == 0 then
+				return base
+			end
+		end
+	end
+	return nil
+end
+
+-- Builds `player`'s car standing on `ground` (replacing any old one) with `fuel` in the tank.
+local function spawnCar(player: Player, ground: CFrame, fuel: number): Model?
 	local old = cars[player]
 	if old then
 		old:Destroy()
@@ -207,24 +218,21 @@ local function spawnCar(player: Player): Model?
 	local stats = Config.Cars.Models[id]
 	local templates = ReplicatedStorage:WaitForChild("Assets"):WaitForChild("Models"):WaitForChild("Cars")
 	local template = templates:FindFirstChild(id)
-	local bay = freeBay(nil)
-	if not stats or not template or not template:IsA("Model") or not bay then
-		warn(`[Cars] cannot spawn {id}: missing template, stats or CarSpawn bays`)
+	if not stats or not template or not template:IsA("Model") then
+		warn(`[Cars] cannot spawn {id}: missing template or stats`)
 		return nil
 	end
 	local car = template:Clone()
 	car.Name = `Car{player.UserId}`
 	car:SetAttribute("OwnerUserId", player.UserId)
-	car:SetAttribute("Fuel", stats.Tank)
+	car:SetAttribute("Fuel", math.min(fuel, stats.Tank))
 	car:SetAttribute("FuelMax", stats.Tank)
 	car:SetAttribute("Stalled", false)
 	car:AddTag("Car")
-	-- The bay's floor, the car's ride height (its chassis center above the ground when built) and a small drop.
+	-- The car's ride height (its chassis center above the ground when built) and a small drop.
 	local primary = car.PrimaryPart :: BasePart
 	local rideHeight = primary.Position.Y - (car:GetBoundingBox().Position.Y - car:GetExtentsSize().Y / 2)
-	local floor = bay.Position - Vector3.new(0, bay.Size.Y / 2, 0)
-	local rotation = bay.CFrame - bay.Position
-	car:PivotTo(CFrame.new(floor + Vector3.new(0, rideHeight + 0.3, 0)) * rotation)
+	car:PivotTo(ground * CFrame.new(0, rideHeight + 0.3, 0))
 	tune(car, stats)
 	car.Parent = folder
 	setOwner(car, nil)
@@ -302,34 +310,32 @@ local function onFlip(player: Player)
 	end)
 end
 
--- A new car in a free bay (full tank) with its owner in the driver's seat.
-local function sendHome(player: Player)
-	local car = spawnCar(player)
-	local character = player.Character
-	if car and character and humanoidOf(player) then
-		character:PivotTo(exitPoint(car))
-		sitDriver(player, car)
-	end
-end
-
-local function onReset(player: Player)
-	local now = os.clock()
-	local wait = Config.Cars.ResetCooldown - (now - (lastReset[player] or -math.huge))
-	if wait > 0 then
-		Net.fireClient("Notify", player, "Car.ResetWait", { math.ceil(wait) })
+local function onSpawn(player: Player)
+	local humanoid = humanoidOf(player)
+	if not humanoid or humanoid.SeatPart ~= nil then
 		return
 	end
-	lastReset[player] = now
-	sendHome(player)
-	Net.fireClient("Notify", player, "Car.ResetDone")
-end
-
-local function onTow(player: Player)
-	local car = CarService.get(player)
-	if car and car:GetAttribute("Stalled") == true then
-		sendHome(player)
-		Net.fireClient("Notify", player, "Fuel.Towed")
+	local now = os.clock()
+	local wait = Config.Cars.SpawnCooldown - (now - (lastSpawn[player] or -math.huge))
+	if wait > 0 then
+		Net.fireClient("Notify", player, "Car.SpawnWait", { math.ceil(wait) })
+		return
 	end
+	local old = CarService.get(player)
+	local spot = placeNear(player, old)
+	if not spot then
+		Net.fireClient("Notify", player, "Car.NoRoom")
+		return
+	end
+	local stats = Config.Cars.Models[Config.Cars.Starter]
+	local fuel = stats.Tank
+	if spawnedBefore[player] then
+		local oldFuel = if old then tonumber(old:GetAttribute("Fuel")) or 0 else 0
+		fuel = math.max(oldFuel, Config.Cars.RespawnFuel)
+	end
+	lastSpawn[player] = now
+	spawnedBefore[player] = true
+	spawnCar(player, spot, fuel)
 end
 
 -- Every player's car that still exists.
@@ -378,27 +384,12 @@ function CarService.Init(_self: any)
 		end
 	end)
 	Net.onServerEvent("FlipCar", onFlip)
-	Net.onServerEvent("ResetCar", onReset)
-	Net.onServerEvent("TowCar", onTow)
-
-	local function onPlayer(player: Player)
-		player.CharacterAdded:Connect(function()
-			if not CarService.get(player) then
-				task.defer(spawnCar, player)
-			end
-		end)
-		if player.Character and not CarService.get(player) then
-			task.defer(spawnCar, player)
-		end
-	end
-	Players.PlayerAdded:Connect(onPlayer)
-	for _, player in Players:GetPlayers() do
-		onPlayer(player)
-	end
+	Net.onServerEvent("SpawnCar", onSpawn)
 	Players.PlayerRemoving:Connect(function(player: Player)
 		local car = cars[player]
 		cars[player] = nil
-		lastReset[player] = nil
+		lastSpawn[player] = nil
+		spawnedBefore[player] = nil
 		flipping[player] = nil
 		if car then
 			car:Destroy()

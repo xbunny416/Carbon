@@ -5,7 +5,7 @@
 	  VFX        — particle / beam / trail templates (add builders here; never an emitter with the default texture)
 	  Sounds     — one Sound per Config.Audio slot with an id (Music/<name>, Sfx/<name>)
 	  Animations — one Animation per Config.Animations.AssetIds entry
-	  Models     — props, weapons, accessories (add builders here); Models/Cars: one drivable car per Config.Cars.Models
+	  Models     — props, weapons, accessories (add builders here); Models/OilBarrel: the floating oil pickup; Models/Cars: one drivable car per Config.Cars.Models
 	               entry, built by assets/cars/<Name>.luau
 ]]
 local Shim = require("../tests/roblox")
@@ -15,6 +15,7 @@ local roblox = require("@lune/roblox")
 local CAR_BUILDERS: { [string]: any } = {
 	RustyPickup = require("./cars/RustyPickup"),
 }
+local OilBarrel = require("./props/OilBarrel")
 
 local Assets = {}
 
@@ -87,7 +88,9 @@ function Assets.build(): any
 	folder("VFX", root)
 	sounds(Config, root)
 	animations(Config, root)
-	cars(Config, folder("Models", root))
+	local models = folder("Models", root)
+	cars(Config, models)
+	OilBarrel.build().Parent = models
 	return root
 end
 

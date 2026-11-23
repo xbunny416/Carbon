@@ -5,80 +5,58 @@ feature; after each playtest, a dated line with the owner's notes and what was f
 
 ## First run
 
-1. `rojo serve`, open a new place (Baseplate), Rojo plugin → **Connect**. `Workspace.Desert`, `Workspace.Town` and
+1. `rojo serve`, open a new place (Baseplate), Rojo plugin → **Connect**. `Workspace.Desert` and
    `ReplicatedStorage.Assets` appear. The Baseplate's own `Baseplate` and `SpawnLocation` can go (Output reminds you):
-   they're buried under the desert ground and turned off, so they do no harm. If an old `Workspace.Lobby` is still in
-   the place (from before 2026-11-19), delete it too.
+   they're buried under the desert ground and turned off, so they do no harm. Delete any old `Workspace.Town` or
+   `Workspace.Lobby` left in the place (Rojo doesn't remove them).
 2. **Save the place** once (keeps the TextChatService and lighting switches).
 3. File → Publish to Roblox, then Game Settings → Security → **Allow Studio Access to API Services** (saving).
-4. Play: the loading screen shows the title and a tip, then fades; you spawn on a pink mat in front of the motel. Output should have no
-   red errors. If data can't load (place not published, or API access off) you are kicked with "Your progress could not
-   be loaded": publish + enable API access, or set `Config.Data.UseMockInStudio = true` to play without saving.
+4. Play: the loading screen shows the title and a tip, then fades; you spawn on a sand pad in the open center. Output
+   should have no red errors. If data can't load (place not published, or API access off) you are kicked with "Your
+   progress could not be loaded": publish + enable API access, or set `Config.Data.UseMockInStudio = true`.
 
 ## Base systems
 
 - **Input:** press M / D-pad Up (Menu). With `Config.Dev.LogInput = true`, Output prints each action and device.
-  Touch: Test → Device emulator (phone): the Action button sits left of the jump button.
 - **Saving:** change a setting (once a Settings screen exists), leave, rejoin: it stays (not with
   `UseMockInStudio`, which forgets everything when the test ends).
 - **Notices:** the server's `Notify` remote shows a short message at the top (e.g. `Data.LoadFailed`).
 - **Two players:** Test → Clients and Servers → 2 players.
 
-## Desert map (1.1)
+## Desert map
 
-- Restart `rojo serve` once (two new map files). If the sky looks plain, check `Lighting` has `Atmosphere`,
-  `ColorCorrection` and `SunRays` and `ClockTime` 16.6; set them by hand if Rojo didn't.
-- Edit mode: teal pads are the markers — 12 `CarSpawn` in the motel lot, 6 `PumpBay` under the gas canopy,
-  94 `OilSpot` on dark stains in the desert. Press Play: they disappear (MapService).
-- Walk around town: motel (office door and shop door are walk-through glass), pool, neon MOTEL sign, gas station,
-  garage, trailers, windmill; climb the water tower ladder. Gate signs: SAFE ZONE from outside, LEAVING SAFE ZONE
-  from inside.
+- Restart `rojo serve` after map files are added or removed. If the sky looks plain, check `Lighting` has
+  `Atmosphere`, `ColorCorrection` and `SunRays` and `ClockTime` 14.5; set them by hand if Rojo didn't.
+- The center is open sand: two dirt roads cross in the middle, 4 spawn pads between them, no buildings or walls.
 - Fly the Studio camera out: roads with poles and zone signposts (SCRUBLANDS / MESA FLATS / BADLANDS), ring road,
-  mesas, ramps, cliffs on every edge; you can't leave the map. Look for floating or sunk props.
+  mesas, ramps, blocky cacti, cliffs on every edge; you can't leave the map. Nothing should flicker
+  (`maps.spec` checks every top surface).
 
-## Starter car (1.2)
+## Car
 
-- Play: your Rusty Pickup waits in a motel bay. Walk to its driver's door (your left as you face the motel from the
-  car's front): the **Drive** prompt (E / B / tap). Other players don't see a prompt on your car.
-- Drive with W A S D / arrows (gamepad: RT gas, LT brake, left stick; phone: thumbstick). Check: it goes forward on
-  W, turns the right way, brakes then reverses on S, rolls to a stop when you let go, no bouncing, no rolling over in
-  normal turns. Space does nothing while driving. Try a ramp in the desert.
-- **E / B / Get out button**: you land beside the driver's door and the prompt comes back.
-- Roll it over on a ramp: when it stops, the Flip hint (R / Y) or the Flip button shows; after 1 s it's back on its
-  wheels. Also works standing next to it.
-- Menu → **Car** → **Reset car**: a new car in a free bay with you in it; pressing again within 10 s shows a wait
-  notice.
-- Two players (Test → 2 players): each gets their own car in a different bay and can't drive the other's.
-- Tuning (all in `Config.Cars`): if **W drives backwards**, flip the sign in `CarRules.wheelSpin`; if it **steers
-  the wrong way**, flip the sign in `CarRules.steerAngle`. Too bouncy → raise `DampingRatio`; sits too low → lower
-  `Sag`; rolls over in turns → lower `SteerAngleAtTopSpeed`; too slow off the line → raise `Acceleration`.
+- On foot, the **Spawn car** button (bottom; C / D-pad Down) puts your Rusty Pickup on open ground beside you. Next
+  to a mesa or another car it tries another side; with no room at all you get "No room for your car here". Pressing
+  again within 15 s shows a wait notice; a new spawn replaces your old car.
+- Walk to the driver's door (the car's left): the **Drive** prompt (E / B / tap). Other players don't see it.
+- Drive with W A S D / arrows (gamepad: RT gas, LT brake, left stick; phone: thumbstick): forward on W, turns the
+  right way, tight turns at low speed work, brakes then reverses on S, rolls to a stop when you let go. Space does
+  nothing while driving. **E / B / Get out** puts you beside the driver's door.
+- Roll it over on a ramp: when it stops, the Flip hint (R / Y) or Flip button shows; after 1 s it's on its wheels.
+- Two players: each spawns their own car and can't drive the other's.
+- Tuning (all in `Config.Cars`): too bouncy → raise `DampingRatio`; rolls over in turns → lower
+  `SteerAngleAtTopSpeed`; too slow off the line → raise `Acceleration`.
 
-## Flicker fix (2026-11-19)
+## Fuel and oil
 
-- The ground is 1 stud higher than before. Look at the ground, the dirt roads (tire tracks), the town streets and
-  lots, the oil stains and the edge cliffs from near and far: nothing should flicker or shimmer, with or without the
-  old Baseplate in the place. Cars still spawn in the motel bays and sit on the lot.
-- If something still flickers, say where (or send a screenshot): `tests/specs/maps.spec.luau` checks every map top
-  surface, so it's something it doesn't cover yet (a side face or a round part).
-
-## Fuel (1.3)
-
-- Drive: the FUEL bar shows at the bottom and drains as you drive (~2,500 studs on a full tank; standing still
-  burns nothing). Below a fifth it turns red and a "Low fuel" notice shows once.
-- Drive into a gas station pump bay and stop: the bar fills (~4 s from empty).
-- Run it dry far out: "Out of fuel" notice, the car rolls to a stop and won't drive; a **Tow home** button shows
-  (also when standing next to it). Press it: new car in a motel bay with you in it, full tank.
-- Quick test: set `Config.Fuel.BurnPerStud` to 1 (empty in 100 studs), play, put it back after.
-
-## Blocky-parts look (2026-11-19)
-
-- Reconnect Rojo (Lighting changed too: if it still looks orange, check `ClockTime` 14.5 and the Atmosphere color).
-- Town: muted colors, brick bases, framed windows, gable roofs on the office / garage / trailers, solid balcony
-  railing, wedge awning at the shop; no neon except lamps, canopy lights, the vending front and the motel sign text.
-  Signs readable (plain block letters). Nothing flickers (the flicker spec still runs).
-- Desert: blocky saguaros, barrel cacti and leafy bushes, square poles; colors softer.
-- Car: muted sage Rusty Pickup with a sloped windshield, fender flares, chunky bumpers. Drive it again: same feel
-  (only the body changed).
+- Drive: the FUEL bar shows at the bottom and drains as you drive (~2,500 studs on a full tank). Below a fifth it
+  turns red and a "Low fuel" notice shows once.
+- Oil barrels float, bob and turn above the sand with a warm glow — rare (up to 18 on the whole map, a new one every
+  8 s), at random places, never in the center or by the cliffs, never in rocks. Drive through one: "+30 fuel" and the
+  bar jumps. With a full tank you pass through and it stays. An untouched barrel moves elsewhere after 4 minutes.
+- Run dry: "Out of fuel" notice, the car rolls to a stop and won't drive. Getting oil into it starts it again; or
+  Spawn car (new car with your old fuel, at least 25).
+- Quick tests: `Config.Fuel.BurnPerStud` = 1 (empty in 100 studs); `Config.Oil.SpawnEvery` = 1 and
+  `MaxBarrels` = 60 to find barrels fast. Put them back after.
 
 ## Playtests
 
@@ -86,6 +64,8 @@ feature; after each playtest, a dated line with the owner's notes and what was f
   bit small. Fixed: 1. the windshield glass overlapped the pillars' slopes and the headlights overlapped the grille —
   now side by side (a cars spec checks wedges); 2. all four wheels were forced to the same speed and fought every
   turn — now each wheel gets its own speed for the turn, steering 40° (18° at top speed), more motor push;
-  3. cab wider, longer and 4 studs of headroom (roof 8.2). **Re-check:** tight turns at low speed and in the lot,
-  U-turn on a dirt road, climbing the motel curb / island curbs, no flicker at the windshield and lights, your
-  avatar's head clears the roof.
+  3. cab wider, longer and 4 studs of headroom (roof 8.2). **Re-check:** tight turns at low speed, U-turn on a dirt
+  road, climbing curbs, no flicker at the windshield and lights, your avatar's head clears the roof.
+- **2026-11-23 (owner):** delete the town (motel, gas station etc.), spawn the car with a UI button, no coin system,
+  oil rare, random and floating instead of on the fixed oil-spot circles. Done in one PR (see DECISIONS). **Check:**
+  spawn pads in the center, Spawn car beside you, barrels floating and refuelling.

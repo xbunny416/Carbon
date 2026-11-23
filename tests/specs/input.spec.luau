@@ -92,7 +92,7 @@ return {
 		expect.equal(Settings.isValid("MusicVolume", 0 / 0), false)
 		expect.equal(Settings.isValid("ButtonLayout", "Default"), true)
 		expect.equal(Settings.isValid("ButtonLayout", "NoSuchLayout"), false)
-		expect.equal(Settings.isValid("Coins", 1000000), false)
+		expect.equal(Settings.isValid("Fuel", 1000000), false)
 		expect.equal(Settings.isValid("__index", true), false)
 	end,
 	["input names: KeyCode for keys and gamepads, UserInputType for mouse buttons"] = function()
