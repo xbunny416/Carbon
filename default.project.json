@@ -10,9 +10,6 @@
 				"$path": "assets/generated/Assets.rbxmx"
 			}
 		},
-		"ReplicatedFirst": {
-			"$path": "src/first"
-		},
 		"ServerScriptService": {
 			"Server": {
 				"$path": "src/server"

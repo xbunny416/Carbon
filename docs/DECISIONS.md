@@ -171,3 +171,10 @@ Done (Claude's calls on how):
   signals, bumper guard, rocker stripe, door handles, mirror arms, beveled roof panel, rims, mud flaps, tailgate
   panel / handle, hitch, spare tire and toolbox in the bed. About 70 body parts (the skill suggests 25–60; all of
   them medium-size details).
+
+## No custom loading screen (2026-11-23, owner)
+
+- Owner: "delete that startup loading game". The template's loading screen (`src/first/LoadingScreen.client.luau`,
+  title + tip, `Config.World.Loading`, `Loading.*` / `Tip.*` strings) is gone, and `ReplicatedFirst` is no longer
+  synced. Roblox shows its own short default loading screen instead (a game can only hide that with a script, which
+  is what was deleted). Don't bring a custom loading screen back unless the owner asks.

@@ -8,8 +8,8 @@ local Players = game:GetService("Players")
 
 local Kit = {}
 
--- Dark-mode slate with vibrant accents (owner's project rules, 2026-10-30). Change Accent per game. The loading
--- screen (ReplicatedFirst) and the touch buttons (InputController) repeat these: keep them in step.
+-- Dark-mode slate with vibrant accents (owner's project rules, 2026-10-30). Change Accent per game. The touch buttons
+-- (InputController) repeat these: keep them in step.
 Kit.Colors = {
 	Panel = Color3.fromHex("#1E1E24"),
 	Text = Color3.fromHex("#F2F3F8"),

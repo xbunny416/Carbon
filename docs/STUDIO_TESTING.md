@@ -11,7 +11,7 @@ feature; after each playtest, a dated line with the owner's notes and what was f
    `Workspace.Lobby` left in the place (Rojo doesn't remove them).
 2. **Save the place** once (keeps the TextChatService and lighting switches).
 3. File → Publish to Roblox, then Game Settings → Security → **Allow Studio Access to API Services** (saving).
-4. Play: the loading screen shows the title and a tip, then fades; you spawn on a sand pad in the open center. Output
+4. Play: Roblox's own short loading screen, then you spawn on a sand pad in the open center. Output
    should have no red errors. If data can't load (place not published, or API access off) you are kicked with "Your
    progress could not be loaded": publish + enable API access, or set `Config.Data.UseMockInStudio = true`.
 
