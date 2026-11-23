@@ -79,6 +79,14 @@ Driving uses Roblox's own vehicle controls (VehicleSeat), so it works on every d
   (studs/s²); front wheels turn 40° standing still, 18° at top speed; springs sag 0.5 studs, damping ratio 0.55.
   Spring and motor strengths come from the car's mass (`Shared/CarRules`; motor torque ×2.2). In a turn each wheel
   spins at its own speed, inner ones slower (`CarRules.wheelFactor`, like a differential).
+- **Arcade helpers** (2026-11-23, run by the driver's client through the car's `Assist` force and `TurnAssist`
+  torque): on the ground, **grip** cancels sideways sliding (rate 6/s, at most 1.2 g), **downforce** presses the car
+  down (0.6 studs/s² per stud/s), **turn assist** brings the car to the turn rate its steering asks for (bicycle
+  model, response 5/s, at most 6 rad/s²); in the air it **levels itself** gently (6/s²). All per car in
+  `Config.Cars.Models`.
+- **Look (Rusty Pickup):** muted sage two-tone pickup — chrome grille with bars, headlight bezels and turn signals,
+  bumper guard, fender flares, rocker stripe, door handles, mirrors on arms, a raised beveled roof panel, rims and
+  hubcaps, mud flaps, tailgate panel and handle, tow hitch, a spare tire and a toolbox in the bed.
 - **Spawn car** (owner, 2026-11-23): there is no automatic car. On foot, the Spawn car button (C / D-pad Down) puts
   your car on clear flat ground beside you (right, left, front or back), facing your way, replacing your old one.
   Once every 15 s. The first car has a full tank; a car spawned again keeps the old car's fuel but at least 25 — a

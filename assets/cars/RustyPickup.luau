@@ -37,11 +37,19 @@ local function body(F: any)
 	box("LowerBody", { -2.8, 2.6, -7.9 }, { 2.8, 4.4, 7.9 }, paint)
 	box("Hood", { -2.75, 4.4, -6.6 }, { 2.75, 5, -2.6 }, paint)
 	wedge("HoodNose", { 5.5, 0.6, 1.2 }, { 0, 4.7, -7.2 }, nil, paint)
-	box("Grille", { -1.5, 3, -8.05 }, { 1.5, 4.2, -7.9 }, "Black")
-	for _, x in { -2.2, 2.2 } do
-		box("Headlight", { x - 0.45, 3.5, -8.05 }, { x + 0.45, 4.2, -7.9 }, "HeadLight")
+	-- Faces stacked toward the front stay 0.05+ apart so nothing flickers: frame -8.0, grille -8.1, bars -8.17.
+	box("GrilleFrame", { -1.75, 2.85, -8 }, { 1.75, 4.35, -7.9 }, "Chrome", { Material = "Metal" })
+	box("Grille", { -1.5, 3, -8.1 }, { 1.5, 4.2, -7.9 }, "Black")
+	for _, x in { -0.75, 0, 0.75 } do
+		box("GrilleBar", { x - 0.12, 3.05, -8.17 }, { x + 0.12, 4.15, -8.1 }, "Chrome", { Material = "Metal" })
 	end
-	box("FrontBumper", { -3.1, 2.4, -8.45 }, { 3.1, 3.2, -7.9 }, "Concrete")
+	for _, x in { -2.2, 2.2 } do
+		box("HeadlightBezel", { x - 0.55, 3.4, -8 }, { x + 0.55, 4.3, -7.9 }, "Concrete")
+		box("Headlight", { x - 0.42, 3.5, -8.1 }, { x + 0.42, 4.2, -8 }, "HeadLight")
+		box("TurnSignal", { x - 0.4, 3.1, -8.05 }, { x + 0.4, 3.35, -7.9 }, "Orange")
+	end
+	box("FrontBumper", { -3.1, 2.4, -8.45 }, { 3.1, 3, -7.9 }, "Concrete")
+	box("BumperGuard", { -1.1, 3, -8.5 }, { 1.1, 3.35, -8.2 }, "MetalDark")
 
 	-- Fender flares over the wheels (chamfered ends) and running boards
 	for _, side in { -1, 1 } do
@@ -53,6 +61,10 @@ local function body(F: any)
 		end
 		box("RunningBoard", { side * 2.8, 2.4, -3.2 }, { side * 3.4, 2.75, 3.2 }, "MetalDark")
 		box("DoorLine", { side * 2.8 - 0.05, 2.8, -2.45 }, { side * 2.8 + 0.05, 4.3, -2.3 }, "PickupPaintDark")
+		-- Two-tone: a darker rocker stripe low along each side, a door handle, rear mud flaps
+		box("RockerStripe", { side * 2.8, 2.6, -3.3 }, { side * 2.88, 2.95, 3.3 }, "PickupPaintDark")
+		box("DoorHandle", { side * 2.8, 4.05, 0.5 }, { side * 2.9, 4.25, 1 }, "Chrome", { Material = "Metal" })
+		box("MudFlap", { side * 2.95, 2, 7.05 }, { side * 4, 3.4, 7.2 }, "Black", { Material = "Rubber" })
 	end
 
 	-- Cab: sloped glass windshield between wedge pillars, side glass, roof, framed rear glass, mirrors, inside
@@ -62,9 +74,14 @@ local function body(F: any)
 		wedge("APillar", { 0.3, 3.4, 1.6 }, { side * 2.65, 6.1, -2.2 }, nil, paint)
 		box("SideWindow", { side * 2.6, 4.5, -1.4 }, { side * 2.75, 7.7, 1.8 }, "Glass", glass)
 		box("RearPost", { side * 2, 4.4, 1.8 }, { side * 2.8, 7.8, 2.1 }, paint)
-		box("Mirror", { side * 2.8, 5.6, -2.4 }, { side * 3.35, 6.2, -2 }, "BedLiner")
+		box("MirrorArm", { side * 2.75, 5.8, -2.25 }, { side * 3, 5.95, -2.15 }, "MetalDark")
+		box("Mirror", { side * 3, 5.6, -2.4 }, { side * 3.4, 6.2, -2 }, "BedLiner")
 	end
 	box("Roof", { -2.85, 7.8, -1.5 }, { 2.85, 8.2, 2.15 }, paint)
+	-- A raised roof panel with beveled front and back edges
+	box("RoofPanel", { -2.55, 8.2, -0.9 }, { 2.55, 8.5, 1.55 }, paint)
+	wedge("RoofBevel", { 5.1, 0.3, 0.6 }, { 0, 8.35, -1.2 }, nil, paint)
+	wedge("RoofBevel", { 5.1, 0.3, 0.6 }, { 0, 8.35, 1.85 }, 180, paint)
 	box("RearSill", { -2, 4.4, 1.8 }, { 2, 5, 2.1 }, paint)
 	box("RearHeader", { -2, 7.4, 1.8 }, { 2, 7.8, 2.1 }, paint)
 	box("RearWindow", { -2, 5, 1.9 }, { 2, 7.4, 2 }, "Glass", glass)
@@ -89,7 +106,31 @@ local function body(F: any)
 	end
 	box("Tailgate", { -2.5, 4.4, 7.6 }, { 2.5, 5.8, 7.9 }, paint)
 	box("TailgateCap", { -2.5, 5.8, 7.55 }, { 2.5, 6.05, 7.95 }, "PickupPaintDark")
+	box("TailgatePanel", { -1.9, 4.65, 7.9 }, { 1.9, 5.45, 7.98 }, "PickupPaintDark")
+	box("TailgateHandle", { -0.5, 5.15, 7.98 }, { 0.5, 5.35, 8.06 }, "Chrome", { Material = "Metal" })
 	box("RearBumper", { -3, 2.4, 7.9 }, { 3, 3.2, 8.4 }, "Concrete")
+	box("Hitch", { -0.3, 2.5, 8.4 }, { 0.3, 2.8, 9 }, "MetalDark")
+	box("HitchBall", { -0.25, 2.8, 8.65 }, { 0.25, 3.2, 8.95 }, "Chrome", { Material = "Metal" })
+	-- In the bed: a spare tire leaning on the cab and a red toolbox
+	F.part({
+		Name = "SpareTire",
+		Shape = "Cylinder",
+		Size = { 1, 3, 3 },
+		Position = { -1.2, 6, 2.95 },
+		Yaw = 90,
+		Color = "Black",
+		Material = "Rubber",
+	})
+	F.part({
+		Name = "SpareRim",
+		Shape = "Cylinder",
+		Size = { 1.1, 1.6, 1.6 },
+		Position = { -1.2, 6, 2.95 },
+		Yaw = 90,
+		Color = "MetalDark",
+	})
+	box("Toolbox", { 0.6, 4.5, 2.5 }, { 2.3, 5.5, 3.5 }, "Red")
+	box("ToolboxLid", { 0.5, 5.5, 2.45 }, { 2.4, 5.7, 3.55 }, "MetalDark")
 	F.part({
 		Name = "Exhaust",
 		Shape = "Cylinder",
@@ -101,7 +142,7 @@ local function body(F: any)
 
 	-- Rust patches
 	box("Rust", { -2.85, 3, -6.5 }, { -2.8, 3.9, -4.6 }, "Rust", { Material = "CorrodedMetal" })
-	box("Rust", { 0.8, 4.6, 7.9 }, { 2, 5.4, 7.95 }, "Rust", { Material = "CorrodedMetal" })
+	box("Rust", { 2.8, 4.6, 5.4 }, { 2.86, 5.3, 6.8 }, "Rust", { Material = "CorrodedMetal" })
 end
 
 return {
