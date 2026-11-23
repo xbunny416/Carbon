@@ -65,10 +65,7 @@ return {
 		end
 		expect.equal(table.concat(missing, ", "), "", "keys without an Example")
 	end,
-	["every tip and control has its string"] = function()
-		for index = 1, Config.World.Loading.TipCount do
-			expect.truthy(keys[`Tip.{index}`], `Tip.{index}`)
-		end
+	["every control has its string"] = function()
 		for _, action in Config.Controls.Actions do
 			expect.truthy(keys[`Controls.{action}`], `Controls.{action}`)
 		end

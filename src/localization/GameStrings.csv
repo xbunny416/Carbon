@@ -1,16 +1,11 @@
 Key,Source,Context,Example
-Game.Title,CAROFF,The game's name on the loading screen,
+Game.Title,CAROFF,The game's name (water tower banner and billboard text),
 Common.Level,Level {1},Player level label,Level 12
 Common.Close,Close,Button that closes a panel,
 Common.Cancel,Cancel,Button that cancels a choice,
 Data.LoadFailed,Your progress could not be loaded. Please rejoin in a moment.,Kick message when player data fails to load,
 Data.SessionEnded,Your progress was opened in another server. Please rejoin.,Kick message when another server takes over the player's data,
 Data.ServerOutdated,This server is running an older version. Please rejoin to play on the latest one.,Kick message when the player's data was saved by a newer game version,
-Loading.Text,Loading,Loading screen status line (dots are added after it),
-Loading.Tip,Tip: {1},Loading screen tip line,Tip: Press M to open the menu.
-Tip.1,Press M (or D-pad Up) to open the menu.,Loading screen tip,
-Tip.2,Invite friends to play together.,Loading screen tip,
-Tip.3,Change music and sound volume in Settings.,Loading screen tip,
 Controls.Flip,Flip,Mobile button and key hint: turn your upside-down car back over,
 Controls.Interact,Interact,Key hint for walk-up prompts,
 Controls.Menu,Menu,Key hint for opening the menu,
