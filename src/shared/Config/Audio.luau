@@ -19,7 +19,7 @@ local Audio: AudioConfig = {
 	},
 	Sfx = {
 		Click = { Id = 0, Volume = 0.5 },
-		Coins = { Id = 0, Volume = 0.6 },
+		OilPickup = { Id = 0, Volume = 0.6 },
 		LevelUp = { Id = 0, Volume = 0.7 },
 	},
 	Pitch = { Min = 0.9, Max = 1.1 },

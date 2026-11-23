@@ -4,7 +4,7 @@
 -- MarketplaceService. Nothing sold for Robux may give a gameplay advantage over free players.
 type MonetizationConfig = {
 	GamePasses: { [string]: { Id: number, PriceRobux: number } },
-	Products: { [string]: { Id: number, PriceRobux: number, Coins: number? } },
+	Products: { [string]: { Id: number, PriceRobux: number } },
 	-- Web calls (pass ownership, policy) are retried this many times, Delay seconds apart.
 	WebRetries: { Attempts: number, Delay: number },
 }

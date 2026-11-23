@@ -6,7 +6,12 @@
 ]]
 local Migrations = {}
 
-Migrations.Steps = {} :: { [number]: (data: { [string]: any }) -> () }
+Migrations.Steps = {
+	-- 1 -> 2 (2026-11-23): the owner removed the coin system.
+	[1] = function(data: { [string]: any })
+		data.Coins = nil
+	end,
+} :: { [number]: (data: { [string]: any }) -> () }
 
 -- Upgrades `data` in place to `targetVersion`. Returns false if a step is missing (data is left as far as it got).
 function Migrations.run(data: { [string]: any }, targetVersion: number): boolean

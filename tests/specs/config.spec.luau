@@ -11,7 +11,7 @@ return {
 		expect.equal(table.isfrozen(Config.Data.DefaultSettings), true)
 		expect.equal(
 			pcall(function()
-				(Config :: any).Economy.StartingCoins = 1
+				(Config :: any).Fuel.Tick = 1
 			end),
 			false
 		)

@@ -21,7 +21,6 @@ export type Stats = {
 
 export type PlayerData = {
 	Version: number,
-	Coins: number,
 	Level: number,
 	XP: number, -- XP into the current level
 	Stats: Stats,
@@ -29,11 +28,10 @@ export type PlayerData = {
 	PurchaseIds: { string }, -- recent developer-product purchases already granted
 }
 
-local VERSION = 1
+local VERSION = 2 -- 2: Coins removed (2026-11-23, no coin system)
 
 local Template: PlayerData = {
 	Version = VERSION,
-	Coins = Config.Economy.StartingCoins,
 	Level = 1,
 	XP = 0,
 	Stats = { SessionsPlayed = 0 },

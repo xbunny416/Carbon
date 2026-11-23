@@ -81,9 +81,6 @@
 			},
 			"Desert": {
 				"$path": "maps/generated/Desert.rbxmx"
-			},
-			"Town": {
-				"$path": "maps/generated/Town.rbxmx"
 			}
 		}
 	}

@@ -41,10 +41,8 @@ local Definitions: { [string]: Definition } = {
 	ExitCar = { Kind = "Event", Direction = "ToServer", Args = {}, RateLimit = { Rate = 2, Burst = 3 } },
 	-- Client -> server: turn your upside-down car back over (it must have stopped; you drive it or stand by it). ()
 	FlipCar = { Kind = "Event", Direction = "ToServer", Args = {}, RateLimit = { Rate = 1, Burst = 2 } },
-	-- Client -> server: send your car back to town, in a free bay, with you in it (Config.Cars.ResetCooldown). ()
-	ResetCar = { Kind = "Event", Direction = "ToServer", Args = {}, RateLimit = { Rate = 0.5, Burst = 2 } },
-	-- Client -> server: your car is out of fuel; send it (with you) back to a free bay in town, tank full. ()
-	TowCar = { Kind = "Event", Direction = "ToServer", Args = {}, RateLimit = { Rate = 0.5, Burst = 2 } },
+	-- Client -> server: put your car on open ground beside you (replacing the old one; Config.Cars.SpawnCooldown). ()
+	SpawnCar = { Kind = "Event", Direction = "ToServer", Args = {}, RateLimit = { Rate = 1, Burst = 2 } },
 }
 
 return Definitions

@@ -2,7 +2,7 @@
 --[[
 	Rusty Pickup — the free starter car (bible §5.2), in the blocky-parts look (.claude/skills/roblox-blocky-parts-style):
 	one long lower body, a wedge-chamfered hood, a roomy cab (4 studs of headroom) with a sloped glass windshield and
-	framed rear glass (you can see the driver), fender flares over tucked-in wheels, an open bed (oil barrels ride there from 1.4),
+	framed rear glass (you can see the driver), fender flares over tucked-in wheels, an open bed,
 	chunky bumpers, light blocks and a couple of rust patches. Muted sage paint. Front = -Z.
 ]]
 local CarKit = require("./CarKit")
@@ -115,7 +115,6 @@ return {
 			Chassis = { 5.4, 1, 14.6 },
 			Seat = { -1.3, 3.3, -0.1 },
 			Prompt = { -3.4, 4.6, -0.5 },
-			Cargo = { 0, 4.5, 5 },
 			Body = body,
 		}, prompts)
 	end,

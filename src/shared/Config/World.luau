@@ -7,22 +7,19 @@ return {
 	-- The loading screen (ReplicatedFirst): shown at least MinTime seconds and until the game and your data have
 	-- loaded (at most MaxTime), then fades out over FadeTime; it shows one of TipCount tips ("Tip.<n>" strings).
 	Loading = { MinTime = 1.5, MaxTime = 20, FadeTime = 0.6, TipCount = 3 },
-	-- The desert map (maps/layouts/Desert.luau and Town.luau are built from these, bible §5.1): a square Size studs
-	-- wide with its ground top at Origin — 1 stud up, so a Baseplate left in the place from Studio's template (top at
-	-- Y = 0) is buried inside the ground instead of flickering with it. The town (the safe zone) is the square within TownHalfSize of the center;
-	-- each zone is the ring from the previous edge out to MaxDistance (distance = max(|x|, |z|) from the center),
-	-- with OilSpots oil spots at least OilSpotSpacing studs apart.
+	-- The desert map (maps/layouts/Desert.luau is built from these, bible §5.1): a square Size studs wide with its
+	-- ground top at Origin — 1 stud up, so a Baseplate left in the place from Studio's template (top at Y = 0) is
+	-- buried inside the ground instead of flickering with it. The open sand center (within CenterHalfSize of the
+	-- middle) holds the player spawn pads and nothing else; each zone is the ring from the previous edge out to
+	-- MaxDistance (distance = max(|x|, |z|) from the center).
 	Map = {
 		Origin = { 0, 1, 0 },
 		Size = 2048,
-		TownHalfSize = 200,
+		CenterHalfSize = 60,
 		Zones = {
-			{ Id = "Scrublands", MaxDistance = 500, OilSpots = 40 },
-			{ Id = "MesaFlats", MaxDistance = 800, OilSpots = 30 },
-			{ Id = "Badlands", MaxDistance = 1024, OilSpots = 24 },
+			{ Id = "Scrublands", MaxDistance = 500 },
+			{ Id = "MesaFlats", MaxDistance = 800 },
+			{ Id = "Badlands", MaxDistance = 1024 },
 		},
-		OilSpotSpacing = 60,
-		CarSpawns = 12, -- one per player (MaxPlayers)
-		PumpBays = 6,
 	},
 }

@@ -4,12 +4,10 @@
 	car (Services/CarService):
 	  - while its owner drives it, burns fuel by the distance the chassis really moved (capped at MaxCountedSpeed,
 	    so a flip or a teleport doesn't drain the tank);
-	  - when the tank is empty, burns a cargo barrel (the car's Cargo attribute, from 1.4) or stalls the car
-	    (CarService.setStalled: the server takes its physics; the owner can tow it home);
-	  - while it stands (almost) still in a gas station pump bay, refills it for free.
+	  - when the tank runs dry, stalls the car (CarService.setStalled: the server takes its physics), and starts it
+	    again as soon as it has fuel (an oil barrel, Services/OilService).
 	The tank is the car's Fuel attribute (FuelMax = full), so every client can read it.
 ]]
-local CollectionService = game:GetService("CollectionService")
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local RunService = game:GetService("RunService")
 
@@ -27,18 +25,6 @@ local last: { [Model]: Vector3 } = {}
 local function number(instance: Instance, name: string, default: number): number
 	local value = instance:GetAttribute(name)
 	return if type(value) == "number" then value else default
-end
-
-local function atPump(position: Vector3): boolean
-	for _, bay in CollectionService:GetTagged("PumpBay") do
-		if bay:IsA("BasePart") then
-			local offset = bay.Position - position
-			if Vector3.new(offset.X, 0, offset.Z).Magnitude <= Config.Fuel.PumpRadius then
-				return true
-			end
-		end
-	end
-	return false
 end
 
 local function update(player: Player, car: Model, dt: number)
@@ -59,26 +45,12 @@ local function update(player: Player, car: Model, dt: number)
 		local counted = FuelRules.countedDistance(moved, dt, Config.Fuel.MaxCountedSpeed)
 		fuel = FuelRules.burn(fuel, counted, Config.Fuel.BurnPerStud)
 	end
-	if chassis.AssemblyLinearVelocity.Magnitude <= Config.Fuel.PumpMaxSpeed and atPump(position) then
-		fuel = FuelRules.refill(fuel, max, Config.Fuel.RefillRate, dt)
-	end
-
 	if fuel <= 0 and not stalled then
-		local cargo = number(car, "Cargo", 0)
-		local newFuel, newCargo, stalls = FuelRules.whenEmpty(fuel, cargo, Config.Fuel.BarrelFuel, max)
-		fuel = newFuel
-		if newCargo ~= cargo then
-			car:SetAttribute("Cargo", newCargo)
-			Net.fireClient("Notify", player, "Fuel.BurnedBarrel")
-		end
-		if stalls then
-			CarService.setStalled(player, car, true)
-			Net.fireClient("Notify", player, "Fuel.Stalled")
-		end
+		CarService.setStalled(player, car, true)
+		Net.fireClient("Notify", player, "Fuel.Stalled")
 	elseif fuel > 0 and stalled then
 		CarService.setStalled(player, car, false)
 	end
-
 	if FuelRules.crossedLow(before, fuel, max, Config.Fuel.LowFraction) then
 		Net.fireClient("Notify", player, "Fuel.Low")
 	end

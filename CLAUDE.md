@@ -10,15 +10,16 @@ and every call made where the bible is silent — read the matching entry before
 
 ## Status
 
-- **CarOff** (the repo is still named Carbon): a car extraction game — drive out of a desert town, scavenge oil
-  barrels, ram rivals, sell at the gas station before the tank runs dry. Kickoff done and build order approved
-  2026-11-19 (bible §8). Renaming again: here, `README.md`, `Game.Title` in GameStrings.csv, `default.project.json`.
+- **CarOff** (the repo is still named Carbon): a car survival / scavenging game in an open desert — spawn your car,
+  hunt rare floating oil barrels (the only fuel), ram rivals. Kickoff 2026-11-19; reshaped by the owner 2026-11-23
+  (no town, no coins, oil = fuel only, car spawn button). Build order: bible §8. Renaming: here, `README.md`,
+  `Game.Title` in GameStrings.csv, `default.project.json`.
 - **Built (from the template):** toolchain, CI + auto-merge, Lune specs, strict type-check, Loader, Config, Net,
   player data (ProfileStore), localization, analytics, settings, policy checks, UI Kit, menu, input (keyboard /
   gamepad / touch), notices, loading screen, map + asset generators, launch check, store-art renderer.
-- **Built (CarOff):** 1.1 desert map (town + desert, markers for cars, pumps and oil); 1.2 starter car (Rusty Pickup,
-  drive / get out / flip / reset); 1.3 fuel (gauge, pumps, stall + tow).
-- **Next:** 1.4 oil barrels (bible §5.4).
+- **Built (CarOff):** desert map with an open sand center and spawn pads; Rusty Pickup (Spawn car button, drive /
+  get out / flip); fuel (gauge, stall); floating oil barrels (random, rare, +fuel).
+- **Next:** 1.5 ramming + boost (bible §5.5).
 
 ## Who the owner is and how they like to work
 
@@ -54,6 +55,11 @@ says otherwise.)
 - Developer tools are **Studio-only** (`Config.Dev.AllowedUserIds` empty) until the owner adds their UserId.
 - **Look = blocky-parts style** (2026-11-19, replaced the bright detailed Route 66 look): muted palette in
   `maps/lib/Palette.luau`, Neon only on real lights. Don't bring back saturated / neon styling.
+- **No town** (2026-11-23): the motel, gas station, garage and the rest were deleted; the center is plain sand
+  with spawn pads, no walls. Don't bring buildings back to the center.
+- **No coin system** (2026-11-23): no currency, no selling, no shop / garage purchases. **Oil is fuel only** and
+  barrels are rare, random and floating (no fixed oil spots). **Refuel only from oil** (no pumps).
+- **Cars spawn from the Spawn car button** next to the player (2026-11-23), never automatically.
 - **No floating starter lobby:** the template's lobby (60×60 room up at Y=100) was removed on 2026-11-19; the game's
   real maps come from the kickoff. Don't bring it back.
 - Only **free Creator Store assets / Studio AI generation**; ask before anything paid. Never delete or replace large
@@ -96,7 +102,7 @@ run's `Game-place` artifact. **Cloud sessions:** `scripts/cloud-setup.sh` instal
 | `src/localization/GameStrings.csv` | `LocalizationService.GameStrings` | Every player-facing string (Key, Source, Context, Example) |
 | `src/server/Vendor/` | `ServerScriptService.Server.Vendor` | Third-party modules kept as published (see `licenses/`) |
 | `maps/layouts/` | — | Map layouts as code — the source of truth for every map |
-| `maps/generated/` | `Workspace.Desert`, `Workspace.Town` | `.rbxmx` models generated from the layouts (committed) |
+| `maps/generated/` | `Workspace.Desert` | `.rbxmx` models generated from the layouts (committed) |
 | `assets/` | — | Templates game code clones (VFX, sounds, animations, models), built from Config by `assets/build.luau` |
 | `assets/generated/` | `ReplicatedStorage.Assets` | `Assets.rbxmx` generated from `assets/` (committed) |
 | `tools/` | — | Lune helpers (csv, launch check) and `store-art/` (icon + thumbnail renderer) |
