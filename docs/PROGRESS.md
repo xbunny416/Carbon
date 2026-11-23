@@ -17,3 +17,4 @@ One row per merged PR, newest last. Add a row with every PR (see [CLAUDE.md](../
 | 2026-11-23 | Owner reshape: town deleted (open sand center + spawn pads, roads cross in the middle), Spawn car button (beside you, cooldown, fuel rules), coin system removed (data migration 2), floating random oil barrels as the only fuel, pumps / tow / reset / oil spots removed | #11 |
 | 2026-11-23 | Car polish: arcade driving helpers (grip, downforce, turn assist, air levelling) and a detail pass on the Rusty Pickup | #12 |
 | 2026-11-23 | Custom startup loading screen deleted (Roblox's default shows instead); its Config, strings and spec removed | #13 |
+| 2026-11-23 | No loading screen at all: Rojo manages ReplicatedFirst again (replaces the leftover script) with a one-line script that hides Roblox's default loading screen | #14 |

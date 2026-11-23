@@ -60,7 +60,8 @@ says otherwise.)
 - **No coin system** (2026-11-23): no currency, no selling, no shop / garage purchases. **Oil is fuel only** and
   barrels are rare, random and floating (no fixed oil spots). **Refuel only from oil** (no pumps).
 - **Cars spawn from the Spawn car button** next to the player (2026-11-23), never automatically.
-- **No custom loading screen** (2026-11-23): Roblox's default one shows; don't add one back.
+- **No loading screen at all** (2026-11-23): `src/first/LoadingScreen.client.luau` only hides Roblox's default one;
+  don't add a custom loading screen back.
 - **No floating starter lobby:** the template's lobby (60×60 room up at Y=100) was removed on 2026-11-19; the game's
   real maps come from the kickoff. Don't bring it back.
 - Only **free Creator Store assets / Studio AI generation**; ask before anything paid. Never delete or replace large
@@ -100,6 +101,7 @@ run's `Game-place` artifact. **Cloud sessions:** `scripts/cloud-setup.sh` instal
 | `src/client/Lib/` | `...Client.Lib` | Pure client logic tested by specs (action map, touch layout) |
 | `src/client/Ui/` | `...Client.Ui` | `Kit`: shared look (colors, fonts) and builders for panels, labels, buttons; `KeyHint` |
 | `src/localization/GameStrings.csv` | `LocalizationService.GameStrings` | Every player-facing string (Key, Source, Context, Example) |
+| `src/first/` | `ReplicatedFirst` | `LoadingScreen.client.luau`: only hides Roblox's default loading screen |
 | `src/server/Vendor/` | `ServerScriptService.Server.Vendor` | Third-party modules kept as published (see `licenses/`) |
 | `maps/layouts/` | — | Map layouts as code — the source of truth for every map |
 | `maps/generated/` | `Workspace.Desert` | `.rbxmx` models generated from the layouts (committed) |

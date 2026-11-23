@@ -11,7 +11,7 @@ feature; after each playtest, a dated line with the owner's notes and what was f
    `Workspace.Lobby` left in the place (Rojo doesn't remove them).
 2. **Save the place** once (keeps the TextChatService and lighting switches).
 3. File → Publish to Roblox, then Game Settings → Security → **Allow Studio Access to API Services** (saving).
-4. Play: Roblox's own short loading screen, then you spawn on a sand pad in the open center. Output
+4. Play: no loading screen (not even Roblox's): you spawn on a sand pad in the open center. Output
    should have no red errors. If data can't load (place not published, or API access off) you are kicked with "Your
    progress could not be loaded": publish + enable API access, or set `Config.Data.UseMockInStudio = true`.
 
@@ -76,3 +76,7 @@ feature; after each playtest, a dated line with the owner's notes and what was f
 - **2026-11-23 (owner):** "fix, improve, polish car" → driving feel + looks. Added grip, downforce, turn assist and
   air levelling; detail pass on the pickup. **Check:** no sliding in turns, crisp steering, stable at top speed,
   level landings; the new details look right and nothing flickers (grille, lights, wheels, roof).
+- **2026-11-23 (owner):** the black CAROFF loading screen still showed after it was deleted — the old script stayed
+  in the place because Rojo no longer managed `ReplicatedFirst`. Now Rojo manages it again (unknown children
+  removed) and its only script hides Roblox's default loading screen. **Check:** reconnect Rojo, `ReplicatedFirst`
+  holds just `LoadingScreen` (the small one), Play shows no loading screen. Republish if testing the live game.
