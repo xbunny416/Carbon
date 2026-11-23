@@ -178,3 +178,12 @@ Done (Claude's calls on how):
   title + tip, `Config.World.Loading`, `Loading.*` / `Tip.*` strings) is gone, and `ReplicatedFirst` is no longer
   synced. Roblox shows its own short default loading screen instead (a game can only hide that with a script, which
   is what was deleted). Don't bring a custom loading screen back unless the owner asks.
+
+## No loading screen at all (2026-11-23, owner: "it still shows that loading startup CAROFF black background, remove it")
+
+- Why it still showed: deleting the file also removed `ReplicatedFirst` from the Rojo project, so Rojo stopped
+  managing it and the old script stayed in the owner's place.
+- Fix (Claude's calls): `ReplicatedFirst` is synced again with `$ignoreUnknownInstances: false` (Rojo removes
+  anything else in it), and its one script — named `LoadingScreen` on purpose, so Rojo overwrites the old one — only
+  calls `RemoveDefaultLoadingScreen()`. Result: neither the template's screen nor Roblox's default one shows; the
+  game appears as it loads in. Replaces the "Roblox's default shows instead" note above.
